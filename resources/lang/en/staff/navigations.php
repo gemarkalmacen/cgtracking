@@ -1,0 +1,30 @@
+<?php
+
+return [
+    'dashboard' => 'Dashboard',
+    'categories' => 'Categories',
+    'categories_list' => 'Lists',
+    'categories_details' => 'Details',
+    'categories_levels' => 'Levels',
+    'orders' => 'Orders',
+    'discounts' => 'Discounts',
+    'suppliers' => 'Suppliers',
+    'patients' => 'Patients',
+    'consultations' => 'Consulations',
+    'consultations_list' => 'List',
+    'consultations_new' => 'New',
+    'users' => 'Users',
+    'roles' => 'Roles',
+    'settings' => 'Settings',
+
+    'orders_list' => 'Lists',
+    'orders_details' => 'Create Order',
+    'stocks' => 'Stocks',
+    'deliveries' => 'Deliveries',
+    'import_stocks' => 'Import stocks',
+    'stocks_list' => 'Lists',
+    'stocks_details' => 'Details',
+    'patients_list' => 'Lists',
+    'patients_details' => 'Details',
+    'sales_report' => 'Sales Report',
+];

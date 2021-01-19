@@ -1,0 +1,19 @@
+{
+    "name": "ccore/datatable",
+    "description": "Datatable - A Laravel package",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Anthony Rhundell Lee",
+            "email": "yeenot.ar@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "Ccore\\Core\\": "src/"
+        }
+    },
+    "require": {}
+}
