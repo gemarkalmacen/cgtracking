@@ -32,16 +32,7 @@ class PermissionCommand extends Command
      */
     protected $modules = [
         'users',
-        'categories',
-        'subcategories',
-        'orders',
-        'stocks',
-        'suppliers',
-        'stock-products',
-        'patients',
-        'sales-report',
         'roles',
-        'consultations'
     ];
 
     /**
