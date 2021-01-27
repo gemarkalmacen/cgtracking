@@ -59,4 +59,18 @@ Route::group(['prefix' => 'staff-panel', 'namespace' => 'Staff'], function () {
         ]);
     });
 
+    Route::group(['namespace' => 'infimos'], function () {
+        Route::resource('infimos', "InfimosController", [
+            'names' => [
+                'index' => "staff.infimos.index",
+                'create' => "staff.infimos.create",
+                'store' => "staff.infimos.store",
+                'show' => "staff.infimos.show",
+                'edit' => "staff.infimos.edit",
+                'update' => "staff.infimos.update",
+                'destroy' => "staff.infimos.destroy",
+            ]
+        ]);
+    });
+
 });

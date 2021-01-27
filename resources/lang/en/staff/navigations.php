@@ -27,4 +27,5 @@ return [
     'patients_list' => 'Lists',
     'patients_details' => 'Details',
     'sales_report' => 'Sales Report',
+    'infimos' => 'Infimos Module',
 ];

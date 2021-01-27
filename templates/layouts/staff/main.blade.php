@@ -157,6 +157,14 @@ License: You must have a valid license purchased only from themeforest(the above
                                         </a>
                                     </li>
                                     <li class="menu-item" aria-haspopup="true">
+                                        <a href="{{ route('staff.infimos.index') }}" class="menu-link">
+                                            <span class="menu-icon">
+                                                <i class="fas fa-user-tie"></i>
+                                            </span>
+                                        <span class="menu-text">{{ __('staff/navigations.infimos') }}</span>
+                                        </a>
+                                    </li>
+                                    <li class="menu-item" aria-haspopup="true">
                                         <a href="{{ route('staff.users.index') }}" class="menu-link">
                                             <span class="menu-icon">
                                                 <i class="fas fa-user-tie"></i>
