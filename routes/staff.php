@@ -18,9 +18,10 @@ Route::group(['prefix' => 'staff'], function() {
     include('staff_ajax.php');
 });
 
+Route::post('/login', 'staff\AuthController@login')->name('staff.auth.login');
+Route::get('/', 'staff\LoginController@index')->name('staff.login');
+
 Route::group(['prefix' => 'staff-panel', 'namespace' => 'Staff'], function () {
-    Route::post('/login', 'AuthController@login')->name('staff.auth.login');
-    Route::get('/', 'LoginController@index')->name('staff.login');
     Route::group(['middleware' => ['auth:users']], function () {
         // Logout
         Route::get('/logout', 'AuthController@logout')->name('staff.auth.logout');
