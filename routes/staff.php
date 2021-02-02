@@ -60,4 +60,21 @@ Route::group(['prefix' => 'staff-panel', 'namespace' => 'Staff'], function () {
         ]);
     });
 
+    Route::group(['namespace' => 'Granteelists'], function () {
+        Route::resource('granteelists', "GranteelistController", [
+            'names' => [
+                'index' => "staff.granteelists.index",
+                'create' => "staff.granteelists.create",
+                'store' => "staff.granteelists.store",
+                'show' => "staff.granteelists.show",
+                'edit' => "staff.granteelists.edit",
+                'update' => "staff.granteelists.update",
+                'destroy' => "staff.granteelists.destroy",
+            ]
+        ]);
+
+        Route::get('import','GranteelistController@import')->name('staff.granteelists.import');
+        Route::post('load','GranteelistController@load')->name('staff.granteelists.load');
+    });
+
 });

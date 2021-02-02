@@ -156,6 +156,161 @@ License: You must have a valid license purchased only from themeforest(the above
                                             <span class="menu-text">{{ __('staff/navigations.dashboard') }}</span>
                                         </a>
                                     </li>
+                                    <li class="menu-section">
+                                        <h4 class="menu-text">{{ __('staff/navigations.reference') }}</h4>
+                                        <i class="menu-icon ki ki-bold-more-hor icon-md"></i>
+
+                                        <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+                                            <a href="javascript:;" class="menu-link menu-toggle">
+                                                <span class="menu-icon">
+                                                    <i class="fas fa-layer-group"></i>
+                                                </span>
+                                                <span class="menu-text">{{ __('staff/navigations.reference-grantee_list') }}</span>
+                                                <i class="menu-arrow"></i>
+                                            </a>
+                                            <div class="menu-submenu">
+                                                <i class="menu-arrow"></i>
+                                                <ul class="menu-subnav">
+                                                    <li class="menu-item" aria-haspopup="true">
+                                                        <a href="{{ route('staff.granteelists.import') }}" class="menu-link">
+                                                            <i class="menu-bullet menu-bullet-dot">
+                                                                <span></span>
+                                                            </i>
+                                                            <span class="menu-text">{{ __('staff/navigations.reference-grantee_list_import') }}</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="menu-item" aria-haspopup="true">
+                                                        <a href="#" class="menu-link">
+                                                            <i class="menu-bullet menu-bullet-dot">
+                                                                <span></span>
+                                                            </i>
+                                                            <span class="menu-text">{{ __('staff/navigations.reference-grantee_list_index') }}</span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                        <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+                                            <a href="javascript:;" class="menu-link menu-toggle">
+                                                <span class="menu-icon">
+                                                    <i class="fas fa-layer-group"></i>
+                                                </span>
+                                                <span class="menu-text">{{ __('staff/navigations.reference-emv_database') }}</span>
+                                                <i class="menu-arrow"></i>
+                                            </a>
+                                            <div class="menu-submenu">
+                                                <i class="menu-arrow"></i>
+                                                <ul class="menu-subnav">
+                                                    <li class="menu-item" aria-haspopup="true">
+                                                        <a href="#" class="menu-link">
+                                                            <i class="menu-bullet menu-bullet-dot">
+                                                                <span></span>
+                                                            </i>
+                                                            <span class="menu-text">{{ __('staff/navigations.reference-grantee_list_import') }}</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="menu-item" aria-haspopup="true">
+                                                        <a href="#" class="menu-link">
+                                                            <i class="menu-bullet menu-bullet-dot">
+                                                                <span></span>
+                                                            </i>
+                                                            <span class="menu-text">{{ __('staff/navigations.reference-grantee_list_index') }}</span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                        <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+                                            <a href="javascript:;" class="menu-link menu-toggle">
+                                                <span class="menu-icon">
+                                                    <i class="fas fa-layer-group"></i>
+                                                </span>
+                                                <span class="menu-text">{{ __('staff/navigations.reference-emv_payroll') }}</span>
+                                                <i class="menu-arrow"></i>
+                                            </a>
+                                            <div class="menu-submenu">
+                                                <i class="menu-arrow"></i>
+                                                <ul class="menu-subnav">
+                                                    <li class="menu-item" aria-haspopup="true">
+                                                        <a href="#" class="menu-link">
+                                                            <i class="menu-bullet menu-bullet-dot">
+                                                                <span></span>
+                                                            </i>
+                                                            <span class="menu-text">{{ __('staff/navigations.reference-grantee_list_import') }}</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="menu-item" aria-haspopup="true">
+                                                        <a href="#" class="menu-link">
+                                                            <i class="menu-bullet menu-bullet-dot">
+                                                                <span></span>
+                                                            </i>
+                                                            <span class="menu-text">{{ __('staff/navigations.reference-grantee_list_index') }}</span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                        <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+                                            <a href="javascript:;" class="menu-link menu-toggle">
+                                                <span class="menu-icon">
+                                                    <i class="fas fa-layer-group"></i>
+                                                </span>
+                                                <span class="menu-text">{{ __('staff/navigations.reference-aging') }}</span>
+                                                <i class="menu-arrow"></i>
+                                            </a>
+                                            <div class="menu-submenu">
+                                                <i class="menu-arrow"></i>
+                                                <ul class="menu-subnav">
+                                                    <li class="menu-item" aria-haspopup="true">
+                                                        <a href="#" class="menu-link">
+                                                            <i class="menu-bullet menu-bullet-dot">
+                                                                <span></span>
+                                                            </i>
+                                                            <span class="menu-text">{{ __('staff/navigations.reference-grantee_list_import') }}</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="menu-item" aria-haspopup="true">
+                                                        <a href="#" class="menu-link">
+                                                            <i class="menu-bullet menu-bullet-dot">
+                                                                <span></span>
+                                                            </i>
+                                                            <span class="menu-text">{{ __('staff/navigations.reference-grantee_list_index') }}</span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                        <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+                                            <a href="javascript:;" class="menu-link menu-toggle">
+                                                <span class="menu-icon">
+                                                    <i class="fas fa-layer-group"></i>
+                                                </span>
+                                                <span class="menu-text">{{ __('staff/navigations.reference-overpayment') }}</span>
+                                                <i class="menu-arrow"></i>
+                                            </a>
+                                            <div class="menu-submenu">
+                                                <i class="menu-arrow"></i>
+                                                <ul class="menu-subnav">
+                                                    <li class="menu-item" aria-haspopup="true">
+                                                        <a href="#" class="menu-link">
+                                                            <i class="menu-bullet menu-bullet-dot">
+                                                                <span></span>
+                                                            </i>
+                                                            <span class="menu-text">{{ __('staff/navigations.reference-grantee_list_import') }}</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="menu-item" aria-haspopup="true">
+                                                        <a href="#" class="menu-link">
+                                                            <i class="menu-bullet menu-bullet-dot">
+                                                                <span></span>
+                                                            </i>
+                                                            <span class="menu-text">{{ __('staff/navigations.reference-grantee_list_index') }}</span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                    </li>
                                     <li class="menu-item" aria-haspopup="true">
                                         <a href="{{ route('staff.users.index') }}" class="menu-link">
                                             <span class="menu-icon">
@@ -163,10 +318,6 @@ License: You must have a valid license purchased only from themeforest(the above
                                             </span>
                                         <span class="menu-text">{{ __('staff/navigations.users') }}</span>
                                         </a>
-                                    </li>
-                                    <li class="menu-section">
-                                        <h4 class="menu-text">Libraries</h4>
-                                        <i class="menu-icon ki ki-bold-more-hor icon-md"></i>
                                     </li>
                                     <li class="menu-section">
                                         <h4 class="menu-text">Configuration</h4>
