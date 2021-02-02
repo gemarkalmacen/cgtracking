@@ -1,7 +1,7 @@
 {{-- Send data to layout defining the current page and data  --}}
-@extends('layouts.staff.main', ['page' => 'stocks/import', 'data' => []])
+@extends('layouts.staff.main', ['page' => 'granteelists/import', 'data' => []])
 
-@section('title', __('staff/titles.stocks_import'))
+@section('title', __('staff/titles.reference-grantee_list-import'))
 
 @section('content')
 <div class="card card-custom">
@@ -10,15 +10,15 @@
             <span class="card-icon">
                 <i class="fas fa-layer-group"></i>
             </span>
-            <h3 class="card-label">{{ __('staff/titles.stocks_import')  }}</h3>
+            <h3 class="card-label">{{ __('staff/titles.reference-grantee_list-import')  }}</h3>
         </div>
         <div class="card-toolbar">
         </div>
     </div>
     <div class="card-body">
-        <form id="stocksImport" action="{!! route('staff.stocks.load') !!}" method="POST" enctype="multipart/form-data" class="frm" novalidate="novalidate">
+        <form id="granteelistsImport" action="{!! route('staff.granteelists.load') !!}" method="POST" enctype="multipart/form-data" class="frm" novalidate="novalidate">
             {!! @csrf_field() !!}
-            @include ('staff.stocks.partials.import')
+            @include ('staff.granteelists.partials.import')
         </form>
         <div class="separator separator-dashed my-10"></div>
         @if( !empty($imports['totalRow']) )

@@ -1,6 +1,6 @@
 <div class="kt-portlet__body">
     <div class="alert alert-secondary" role="alert">
-        Download example import format!. <strong><a href="{{ route('staff.stocks.download') }}">import.xlsx</a></strong>
+        Download example import format!. <strong><a href="">import.xlsx</a></strong>
     </div>
     <div class="row">            
         <div class="col-md-6 col-sm-12 col-xs-12">                
