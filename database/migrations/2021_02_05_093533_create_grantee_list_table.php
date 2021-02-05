@@ -13,7 +13,7 @@ class CreateGranteeListTable extends Migration
      */
     public function up()
     {
-        Schema::create('grantee_list', function (Blueprint $table) {
+        Schema::create('grantee_lists', function (Blueprint $table) {
             $table->id();
             $table->string('region', 10)->nullable();
             $table->string('province', 50)->nullable();
