@@ -35,8 +35,13 @@ class UploadGranteelists
             'extension' => $extension,
             'size' => $size
         ];
+
+        // $data = (new GranteelistsImport);
+        
         $data = (new GranteelistsImport)->toArray($path);
+        dd($data);
         dd('asd');
+        
         unlink( $path );
         return $this->readData($data[0]);
     }
