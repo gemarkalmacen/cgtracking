@@ -7,7 +7,7 @@
             <div class="form-group">
                 <label>{{ __('staff/forms.stocks_upload') }} </label>                
                 <div class="custom-file">
-                    <input type="file" class="custom-file-input" id="file" name="file" accept=".xlsx"/>                
+                    <input type="file" class="custom-file-input" id="file" name="file" accept=".csv"/>                
                     <label class="custom-file-label" for="file">Choose file</label>                
                 </div>
                 {!! $errors->first('file', '<div class="invalid-feedback">:message</div>') !!}

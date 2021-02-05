@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Staff\Granteelists;
 
 use App\Http\Controllers\Staff\BaseController as Controller;
 use Illuminate\Http\Request;
+use App\Http\Requests\Granteelists\ImportRequest;
+use App\Services\Granteelists\UploadGranteelists;
 
 // use App\Http\Requests\Roles\RoleStoreRequest;
 
@@ -140,24 +142,21 @@ class GranteelistController extends Controller
      * load stocks
      * @return \Illuminate\Http\Response
      */
-    public function load(ImportRequest $request, UploadStocks $uploadStocks)
+    public function load(ImportRequest $request, UploadGranteelists $uploadGranteelists)
     {
-
-        dd('imported');
-
-        // $response = $uploadStocks->execute($request->file);
-        // if( ($response['totalRow'] ==  $response['insert'])  AND empty($response['errors']) ){
-        //     $msg = [
-        //         'type' => 'success',
-        //         'message' => __('staff/notifications.stocks_import_successfully')
-        //     ];
-        // }
-        // else{
-        //     $msg = [
-        //         'type' => 'error',
-        //         'message' => __('staff/notifications.stocks_import_failed')
-        //     ];
-        // }
-        // return redirect()->route('staff.stocks.import')->with('notification', [$msg])->with('import',$response);
+        $response = $uploadGranteelists->execute($request->file);
+        if( ($response['totalRow'] ==  $response['insert'])  AND empty($response['errors']) ){
+            $msg = [
+                'type' => 'success',
+                'message' => __('staff/notifications.stocks_import_successfully')
+            ];
+        }
+        else{
+            $msg = [
+                'type' => 'error',
+                'message' => __('staff/notifications.stocks_import_failed')
+            ];
+        }
+        return redirect()->route('staff.granteelists.import')->with('notification', [$msg])->with('import',$response);
     }
 }
