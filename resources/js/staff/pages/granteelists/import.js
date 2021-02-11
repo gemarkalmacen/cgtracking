@@ -1,4 +1,4 @@
-// script for categories
+// script for granteelists
 module.exports = function(data) {
     var _data = {
         config: null,        

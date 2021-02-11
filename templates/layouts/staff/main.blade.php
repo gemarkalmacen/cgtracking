@@ -180,7 +180,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                         </a>
                                                     </li>
                                                     <li class="menu-item" aria-haspopup="true">
-                                                        <a href="#" class="menu-link">
+                                                        <a href="{{ route('staff.granteelists.index') }}" class="menu-link">
                                                             <i class="menu-bullet menu-bullet-dot">
                                                                 <span></span>
                                                             </i>
