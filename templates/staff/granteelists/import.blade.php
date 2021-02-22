@@ -34,19 +34,13 @@
                 <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Stock code</th>
-                        <th scope="col">Cost code</th>
-                        <th scope="col">Brand name</th>
                         <th scope="col">Message</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach( $imports['errors'] AS $val)
+                    @foreach( $imports['errors'] AS $index => $val)
                         <tr>
-                            <th scope="row">{{ $val['row'] }}</th>
-                            <td>{{ $val['stock_code'] }}</td>
-                            <td>{{ $val['cost_code'] }}</td>
-                            <td>{{ $val['brand_name'] }}</td>
+                            <th scope="row">{{ $index }}</th>
                             <td>{{ $val['message'] }}</td>
                         </tr>
                     @endforeach

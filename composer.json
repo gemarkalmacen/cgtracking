@@ -19,6 +19,7 @@
         "laravel/sanctum": "^2.4",
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.1",
+        "league/csv": "^9.6",
         "maatwebsite/excel": "^3.1",
         "mll-lab/laravel-graphql-playground": "^2.2",
         "nuwave/lighthouse": "^4.15",
