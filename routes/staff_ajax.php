@@ -13,6 +13,6 @@ Route::group(['prefix' => 'ajax', 'namespace' => 'Ajax'], function () {
     });
 
     Route::group(['prefix' => 'granteelists', 'namespace' => 'Granteelists'], function () {
-        Route::post('listing', 'GranteelistController@listing')->name('staff.ajax.granteelists.listing');
+        Route::post('listing', 'GranteelistsController@listing')->name('staff.ajax.granteelists.listing');
     });
 });

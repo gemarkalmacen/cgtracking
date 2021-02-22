@@ -36,14 +36,27 @@
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>{{ __('staff/tables.stocks_category') }}</th>
-                            <th>{{ __('staff/tables.stocks_subcategory') }}</th>
-                            <th>{{ __('staff/tables.stocks_code') }}</th>
-                            <th>{{ __('staff/tables.stocks_brand') }}</th>
-                            <th>{{ __('staff/tables.stocks_qty') }}</th>
-                            <th>{{ __('staff/tables.stocks_srp') }}</th>
-                            <th>{{ __('staff/tables.stocks_is_active') }}</th>
-                            <th>{{ __('staff/tables.actions') }}</th>                            
+                            <th>{{ __('staff/tables.province') }}</th>
+                            <th>{{ __('staff/tables.municipality') }}</th>
+                            <th>{{ __('staff/tables.barangay') }}</th>
+                            <th>{{ __('staff/tables.hh_id') }}</th>
+                            <th>{{ __('staff/tables.entryid') }}</th>
+                            <th>{{ __('staff/tables.lastname') }}</th>
+                            <th>{{ __('staff/tables.firstname') }}</th>
+                            <th>{{ __('staff/tables.middlename') }}</th>
+                            <th>{{ __('staff/tables.extensionname') }}</th>
+                            <th>{{ __('staff/tables.birthday') }}</th>
+                            <th>{{ __('staff/tables.age') }}</th>
+                            <th>{{ __('staff/tables.clientstatus') }}</th>
+                            <th>{{ __('staff/tables.member_status') }}</th>
+                            <th>{{ __('staff/tables.sex') }}</th>
+                            <th>{{ __('staff/tables.relationship_to_hh_head') }}</th>
+                            <th>{{ __('staff/tables.hh_set') }}</th>
+                            <th>{{ __('staff/tables.group') }}</th>
+                            <th>{{ __('staff/tables.mothers_maiden') }}</th>
+                            <th>{{ __('staff/tables.lbp_account_number') }}</th>
+                            <th>{{ __('staff/tables.mode_of_payment') }}</th>
+                            <th></th>
                         </tr>
                     </thead>
                 </template>

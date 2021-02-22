@@ -2,10 +2,15 @@
 
 namespace App\Models;
 
+use App\Traits\WithPaginate;
 use Illuminate\Database\Eloquent\Model;
+use Ccore\Core\Traits\ExtendedEloquentTrait;
 
-class UserDetail extends Model
+class Granteelist extends Model
 {
+    use ExtendedEloquentTrait;
+    use WithPaginate;
+
     /**
      * Database table name
      */
@@ -17,11 +22,34 @@ class UserDetail extends Model
      * @var array
      */
     protected $fillable = [
-        'first_name',
-        'last_name',
-        'middle_name',
-        'mobile',
-        'address',        
-        'is_active',
+        'region',
+        'province',
+        'municipality',
+        'barangay',
+        'purok',
+        'address',
+        'hh_id',
+        'entryid',
+        'lastname',
+        'firstname',
+        'middlename',
+        'extensionname',
+        'birthday',
+        'age',
+        'clientstatus',
+        'member_status',
+        'registrationstatus',
+        'sex',
+        'relationship_to_hh_head',
+        'ipaffiliation',
+        'hh_set',
+        'group',
+        'mothers_maiden',
+        'date_of_enumeration',
+        'lbp_account_number',
+        'mode_of_payment',
+        'date_tagged_hhstatus',
+        'tagged_by',
+        'date_registered',
     ];
 }
