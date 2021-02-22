@@ -11,4 +11,8 @@ Route::group(['prefix' => 'ajax', 'namespace' => 'Ajax'], function () {
         Route::post('listing', 'RoleController@listing')->name('staff.ajax.roles.listing');
         Route::get('/', 'RoleController@index')->name('staff.ajax.roles');
     });
+
+    Route::group(['prefix' => 'granteelists', 'namespace' => 'Granteelists'], function () {
+        Route::post('listing', 'GranteelistsController@listing')->name('staff.ajax.granteelists.listing');
+    });
 });

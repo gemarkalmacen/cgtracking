@@ -10,7 +10,7 @@ use Spatie\Permission\Models\Role as Roles;
 class Role extends Roles
 {
     use ExtendedEloquentTrait;    
-    use WithPaginate;                
+    use WithPaginate;
 
     /**
      * Mass assignment column

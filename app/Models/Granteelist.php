@@ -2,10 +2,15 @@
 
 namespace App\Models;
 
+use App\Traits\WithPaginate;
 use Illuminate\Database\Eloquent\Model;
+use Ccore\Core\Traits\ExtendedEloquentTrait;
 
 class Granteelist extends Model
 {
+    use ExtendedEloquentTrait;
+    use WithPaginate;
+
     /**
      * Database table name
      */

@@ -24,7 +24,17 @@ class GranteelistController extends Controller
         $this->middleware('permission:granteelists-edit', ['only' => ['edit', 'update']]);
         $this->middleware('permission:granteelists-delete', ['only' => ['destroy']]);
         $this->middleware('permission:granteelists-view', ['only' => ['show']]);
-    }      
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        return view('staff.granteelists.index');
+    }
 
     /**
      * Import granteelists
