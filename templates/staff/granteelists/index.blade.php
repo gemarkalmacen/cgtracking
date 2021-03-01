@@ -31,12 +31,14 @@
                 :options="config.options"
                 :url="config.url"
                 :notifications="config.notifications"
+
+                style="width: 100%"
             >
                 <template>
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>{{ __('staff/tables.province') }}</th>
+                            <th style="width: 1000px; ">{{ __('staff/tables.province') }}</th>
                             <th>{{ __('staff/tables.municipality') }}</th>
                             <th>{{ __('staff/tables.barangay') }}</th>
                             <th>{{ __('staff/tables.hh_id') }}</th>
@@ -56,7 +58,6 @@
                             <th>{{ __('staff/tables.mothers_maiden') }}</th>
                             <th>{{ __('staff/tables.lbp_account_number') }}</th>
                             <th>{{ __('staff/tables.mode_of_payment') }}</th>
-                            <th></th>
                         </tr>
                     </thead>
                 </template>

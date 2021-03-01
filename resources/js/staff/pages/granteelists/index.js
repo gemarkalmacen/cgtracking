@@ -11,6 +11,7 @@ module.exports = function(data) {
         methods: {
             init() {
                 var vm = this;
+                var t;
                 $(document).ready(function() {
                     vm.$toaster.init();
                     vm.setConfig();
@@ -20,7 +21,11 @@ module.exports = function(data) {
                 var vm = this;
                 vm.config = {
                     options: {
-                        order: [[ 1, "asc" ]],
+                        responsive: false,
+                        scrollY: "600px",
+                        scrollX: true,
+                        fixedHeader: true,
+                        order: [[ 1, 'asc' ]],
                         columns: [
                             {data: 'id'},
                             {data: 'province'},
@@ -49,7 +54,7 @@ module.exports = function(data) {
                             // {data: 'date_tagged_hhstatus'},
                             // {data: 'tagged_by'},
                             // {data: 'date_registered'},
-                            {data: 'id', responsivePriority: -1},
+                            // {data: 'id', responsivePriority: -1},
                         ],
                         columnDefs: [
                             {
@@ -197,13 +202,14 @@ module.exports = function(data) {
                                     return element;
                                 }
                             },
-                            {
-                                targets: [21],
-                                render: function(data) {
-                                   var element = data;
-                                    return element;
-                                }
-                            },
+                            // {
+                            //     targets: [21],
+                            //     visible: true,
+                            //     render: function(data) {
+                            //        var element = data;
+                            //         return element;
+                            //     }
+                            // },
                             // {
                             //     targets: [29],
                             //     render: function(data) {
@@ -215,7 +221,7 @@ module.exports = function(data) {
                             //     }
                             // },
                             // {
-                            //     targets: [30],
+                            //     targets: [21],
                             //     orderable: false,
                             //     render: function(data, type, row) {
                             //         var actions = "";
