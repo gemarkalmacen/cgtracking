@@ -49,8 +49,9 @@ export default {
 
         $(document).ready(function() {
             var _defaultOptions = {
-                responsive: true,
+                // responsive: true,
                 searchDelay: 500,
+                autoWidth: false,
                 processing: true,
                 serverSide: true,
                 ajax: {

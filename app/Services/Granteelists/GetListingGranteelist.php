@@ -15,11 +15,7 @@ class GetListingGranteelist
      * @return array
      */
     public function execute()
-    {             
-        // $select = [
-        //     'id',
-        //     'name',
-        // ];
+    {
         $query = Granteelist::select(['*']);
 
         $result = Datatable::of($query, request(), [
