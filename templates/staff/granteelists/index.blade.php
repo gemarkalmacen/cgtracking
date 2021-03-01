@@ -41,6 +41,7 @@
                             <th style="width: 1000px; ">{{ __('staff/tables.province') }}</th>
                             <th>{{ __('staff/tables.municipality') }}</th>
                             <th>{{ __('staff/tables.barangay') }}</th>
+                            <th>{{ __('staff/tables.address') }}</th>
                             <th>{{ __('staff/tables.hh_id') }}</th>
                             <th>{{ __('staff/tables.entryid') }}</th>
                             <th>{{ __('staff/tables.lastname') }}</th>
@@ -51,13 +52,18 @@
                             <th>{{ __('staff/tables.age') }}</th>
                             <th>{{ __('staff/tables.clientstatus') }}</th>
                             <th>{{ __('staff/tables.member_status') }}</th>
+                            <th>{{ __('staff/tables.registrationstatus') }}</th>
                             <th>{{ __('staff/tables.sex') }}</th>
                             <th>{{ __('staff/tables.relationship_to_hh_head') }}</th>
                             <th>{{ __('staff/tables.hh_set') }}</th>
                             <th>{{ __('staff/tables.group') }}</th>
                             <th>{{ __('staff/tables.mothers_maiden') }}</th>
+                            <th>{{ __('staff/tables.date_of_enumeration') }}</th>
                             <th>{{ __('staff/tables.lbp_account_number') }}</th>
                             <th>{{ __('staff/tables.mode_of_payment') }}</th>
+                            <th>{{ __('staff/tables.date_tagged_hhstatus') }}</th>
+                            <th>{{ __('staff/tables.tagged_by') }}</th>
+                            <th>{{ __('staff/tables.date_registered') }}</th>
                         </tr>
                     </thead>
                 </template>

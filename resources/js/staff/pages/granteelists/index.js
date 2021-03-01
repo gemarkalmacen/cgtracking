@@ -31,7 +31,7 @@ module.exports = function(data) {
                             {data: 'province'},
                             {data: 'municipality'},
                             {data: 'barangay'},
-                            // {data: 'address'},
+                            {data: 'address'},
                             {data: 'hh_id'},
                             {data: 'entryid'},
                             {data: 'lastname'},
@@ -42,18 +42,18 @@ module.exports = function(data) {
                             {data: 'age'},
                             {data: 'clientstatus'},
                             {data: 'member_status'},
-                            // {data: 'registrationstatus'},
+                            {data: 'registrationstatus'},
                             {data: 'sex'},
                             {data: 'relationship_to_hh_head'},
                             {data: 'hh_set'},
                             {data: 'group'},
                             {data: 'mothers_maiden'},
-                            // {data: 'date_of_enumeration'},
+                            {data: 'date_of_enumeration'},
                             {data: 'lbp_account_number'},
                             {data: 'mode_of_payment'},
-                            // {data: 'date_tagged_hhstatus'},
-                            // {data: 'tagged_by'},
-                            // {data: 'date_registered'},
+                            {data: 'date_tagged_hhstatus'},
+                            {data: 'tagged_by'},
+                            {data: 'date_registered'},
                             // {data: 'id', responsivePriority: -1},
                         ],
                         columnDefs: [
@@ -108,28 +108,28 @@ module.exports = function(data) {
                                 targets: [7],
                                 render: function(data) {
                                    var element = data;
-                                    return element;
+                                    return element.toUpperCase();
                                 }
                             },
                             {
                                 targets: [8],
                                 render: function(data) {
                                    var element = data;
-                                    return element;
+                                    return element.toUpperCase();
                                 }
                             },
                             {
                                 targets: [9],
                                 render: function(data) {
                                    var element = data;
-                                    return element;
+                                    return element.toUpperCase();
                                 }
                             },
                             {
                                 targets: [10],
                                 render: function(data) {
                                    var element = data;
-                                    return element;
+                                    return element.toUpperCase();
                                 }
                             },
                             {
@@ -197,6 +197,48 @@ module.exports = function(data) {
                             },
                             {
                                 targets: [20],
+                                render: function(data) {
+                                   var element = data;
+                                    return element;
+                                }
+                            },
+                            {
+                                targets: [21],
+                                render: function(data) {
+                                   var element = data;
+                                    return element;
+                                }
+                            },
+                            {
+                                targets: [22],
+                                render: function(data) {
+                                   var element = data;
+                                    return element;
+                                }
+                            },
+                            {
+                                targets: [23],
+                                render: function(data) {
+                                   var element = data;
+                                    return element;
+                                }
+                            },
+                            {
+                                targets: [24],
+                                render: function(data) {
+                                   var element = data;
+                                    return element;
+                                }
+                            },
+                            {
+                                targets: [25],
+                                render: function(data) {
+                                   var element = data;
+                                    return element;
+                                }
+                            },
+                            {
+                                targets: [26],
                                 render: function(data) {
                                    var element = data;
                                     return element;
