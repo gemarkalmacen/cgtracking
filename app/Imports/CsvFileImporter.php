@@ -4,9 +4,12 @@ namespace App\Imports;
 
 use DB;
 use Carbon\Carbon;
+use App\Models\Uploadhistory;
 
 class CsvFileImporter
 {
+    protected $_original_file_name = null;
+
     /**
      * Import method used for saving file and importing it using a database query
      * 
@@ -43,6 +46,9 @@ class CsvFileImporter
 
         // Get file's original name
         $original_file_name = $csv_import->getClientOriginalName();
+
+        $_original_file_name = $original_file_name;
+
         $extension = $newstring = substr($original_file_name, -3);
         $fileName = Carbon::now()->toDateString() . '-' . mt_rand(00000000, 99999999) . '.' . $extension;
 
@@ -87,6 +93,21 @@ class CsvFileImporter
     {
         $file_path = str_replace('\\', '/', $file_path);
 
+        DB::beginTransaction();
+        try{
+            $upload_history = new Uploadhistory;
+            $upload_history->file_name = 
+            $upload_history->upload_details = 
+            $upload_history->table_source = 
+            // DB::commit();
+            
+        } catch (Exception $ex) {
+            if( $ex->getMessage() != ''){
+                $this->errorMessage($stock, $ex->getMessage() );
+            }
+            DB::rollback();
+        }
+
         $query = sprintf('
             LOAD DATA LOCAL INFILE "%s" INTO TABLE grantee_lists 
             CHARACTER SET latin1
@@ -101,6 +122,11 @@ class CsvFileImporter
             ', ($file_path));
 
         $data = DB::connection()->getpdo()->exec($query);
+
+        if($data){
+
+        }
+
         return $data;
     }
 }
