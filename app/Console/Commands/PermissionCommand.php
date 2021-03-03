@@ -33,7 +33,8 @@ class PermissionCommand extends Command
     protected $modules = [
         'users',
         'roles',
-        'granteelists'
+        'granteelists',
+        'emvdatabase',
     ];
 
     /**

@@ -16,7 +16,7 @@
         </div>
     </div>
     <div class="card-body">
-        <form id="granteelistsImport" action="{!! route('staff.granteelists.load') !!}" method="POST" enctype="multipart/form-data" class="frm" novalidate="novalidate">
+        <form id="granteelistsImport" action="{!! route('staff.granteelists.granteelistsload') !!}" method="POST" enctype="multipart/form-data" class="frm" novalidate="novalidate">
             {!! @csrf_field() !!}
             @include ('staff.granteelists.partials.import')
         </form>

@@ -29,6 +29,7 @@ return [
     'granteelist_updated_successfully' => 'Grantee List updated successfully.',
     'granteelist_deleted_successfully' => 'Grantee List deleted successfully.',
     'granteelist_cannot_delete' => 'Grantee List cannot be deleted.',
-    
+    'granteelist_import_successfully' => 'Grantee List import sucessfully.',
+    'granteelist_import_failed' => 'Grantee List import failed.',
     
 ];
