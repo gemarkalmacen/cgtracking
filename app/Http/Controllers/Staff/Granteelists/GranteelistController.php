@@ -72,7 +72,7 @@ class GranteelistController extends Controller
         else{
             $msg = [
                 'type' => 'error',
-                'message' => __('staff/notifications.stocks_import_failed')
+                'message' => __('staff/notifications.granteelist_import_failed')
             ];
         }
         return redirect()->route('staff.granteelists.granteelistsimport')->with('notification', [$msg])->with('import',$response);
