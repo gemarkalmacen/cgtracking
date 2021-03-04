@@ -89,7 +89,7 @@ class CsvFileImporter
         switch ($parameter) {
             case "granteelists":
                 $granteelists = new Granteelists;
-                $data = $granteelists->execute($role->id);
+                $data = $granteelists->execute();
             break;
             default:
                 throw new \ErrorException('Import file contents failure!');
