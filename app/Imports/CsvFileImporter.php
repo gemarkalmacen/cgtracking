@@ -89,14 +89,14 @@ class CsvFileImporter
         switch ($parameter) {
             case "granteelists":
                 $granteelists = new Granteelists;
-                $data = $granteelists->execute();
+                $data = $granteelists->execute($file_path);
             break;
             default:
                 throw new \ErrorException('Import file contents failure!');
                 break;
         }
         
-        $data = DB::connection()->getpdo()->exec($query);
+        $data = DB::connection()->getpdo()->exec($data);
         return $data;
     }
 }

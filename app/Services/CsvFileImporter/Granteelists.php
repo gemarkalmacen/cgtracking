@@ -14,7 +14,7 @@ class Granteelists
      *
      * @return array
      */
-    public function execute()
+    public function execute($file_path)
     {
         $file_path = str_replace('\\', '/', $file_path);
 
