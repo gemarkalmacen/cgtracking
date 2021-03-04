@@ -15,4 +15,8 @@ Route::group(['prefix' => 'ajax', 'namespace' => 'Ajax'], function () {
     Route::group(['prefix' => 'granteelists', 'namespace' => 'Granteelists'], function () {
         Route::post('listing', 'GranteelistsController@listing')->name('staff.ajax.granteelists.listing');
     });
+
+    Route::group(['prefix' => 'emvdatabase', 'namespace' => 'Emvdatabase'], function () {
+        Route::post('listing', 'EmvdatabaseController@listing')->name('staff.ajax.emvdatabase.listing');
+    });
 });

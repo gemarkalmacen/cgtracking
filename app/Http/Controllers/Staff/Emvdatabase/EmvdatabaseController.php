@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Staff\Emvdatabase;
 use App\Http\Controllers\Staff\BaseController as Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\Granteelists\ImportRequest;
-use App\Services\Granteelists\UploadGranteelists;
+use App\Services\Emvdatabase\UploadEmvdatabase;
 use Illuminate\Support\Facades\Input;
 
 // use App\Http\Requests\Roles\RoleStoreRequest;
@@ -33,37 +33,51 @@ class EmvdatabaseController extends Controller
      */
     public function index()
     {
-        dd('index');
-        // return view('staff.granteelists.index');
+        
+        return view('staff.emvdatabase.index');
     }
 
     /**
      * Import granteelists
      * @return \Illuminate\Http\Response
      */
-    public function import()
+    public function import(Request $request)
     {
+        $imports = [];
+        if( $request->session()->has('import') ) {
+            $imports = $request->session()->get('import');
+        }
+        return view('staff.emvdatabase.import',compact('imports'));
         /**
          * [POST] Form which will submit the file
          */
-
-        // $imports = [];
-        // if( $request->session()->has('import') ) {
-        //     $imports = $request->session()->get('import');
-        // }
-        
-        // return view('staff.granteelists.import',compact('imports'));
-        dd('import');
     }
 
     /**
      * load stocks
      * @return \Illuminate\Http\Response
      */
-    public function load(ImportRequest $request, UploadGranteelists $uploadGranteelists)
+    public function load(ImportRequest $request, UploadEmvdatabase $uploadEmvdatabase)
     {
 
-        dd('load');
+        // dd('load');
+        $response = $uploadEmvdatabase->execute($request->file);
+        if( empty($response['errors']) ){
+            $msg = [
+                'type' => 'success',
+                'message' => __('staff/notifications.emvdatabase_import_successfully')
+            ];
+        }
+        else{
+            $msg = [
+                'type' => 'error',
+                'message' => __('staff/notifications.stocks_import_failed')
+            ];
+        }
+        return redirect()->route('staff.emvdatabase.emvdatabaseimport')->with('notification', [$msg])->with('import',$response);
+
+
+
         // $response = $uploademvdatabase->execute($request->file);
         // // if( ($response['totalRow'] ==  $response['insert'])  AND empty($response['errors']) ){
         // if( empty($response['errors']) ){

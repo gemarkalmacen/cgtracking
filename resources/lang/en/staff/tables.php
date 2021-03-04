@@ -49,4 +49,23 @@ return [
     'date_tagged_hhstatus' => 'Date_tagged_hhstatus',
     'tagged_by' => 'Tagged_by',
     'date_registered' => 'Date_registered',
+
+    // emv database
+    'lbp_account' => 'Lbp_account',
+    'run_date' => 'Run_date',
+    'acct_description' => 'Acct_description',
+    'cct_type' => 'Cct_type',
+    'lbp_servicing_branch' => 'Lbp_Servicing_Branch',
+    'distribution_status' => 'Distribution_Status',
+    'date_claimed' => 'Date_Claimed',
+    'reason_why_unclaimed' => 'Reason_why_unclaimed',
+    'recommended_action' => 'Recommended_action',
+    'action_taken' => 'Action_taken',
+    'date_acted' => 'Date_acted',
+    'agreed_distribution_date' => 'Agreed_distribution_date',
+    'batch' => 'Batch',
+    'entry_id' => 'Entry_id',
+    'embossed_name' => 'Embossed_name',
+    'emv_acct_discre' => 'Emv_acct_discre',
+    'hh_status' => 'Hh_status',
 ];

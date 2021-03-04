@@ -25,4 +25,9 @@ return [
     'reference-aging' => 'Aging',
     'reference-overpayment' => 'Overpayment',
     'reports' => 'Reports',
+
+    // reference - emv database
+    'reference' => 'References',
+    'reference-emv_database' => 'Emv Database',
+    'reference-emv_database-import' => 'Import - Emv Database',
 ];
