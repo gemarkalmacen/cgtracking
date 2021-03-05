@@ -1,5 +1,5 @@
 {{-- Send data to layout defining the current page and data  --}}
-@extends('layouts.staff.main', ['page' => 'emv_database/import', 'data' => []])
+@extends('layouts.staff.main', ['page' => 'emvdatabase/import', 'data' => []])
 
 @section('title', __('staff/titles.reference-emv_database-import'))
 

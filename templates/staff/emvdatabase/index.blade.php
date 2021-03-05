@@ -58,7 +58,12 @@
                             <th>{{ __('staff/tables.date_acted') }}</th>
                             <th>{{ __('staff/tables.agreed_distribution_date') }}</th>
                             <th>{{ __('staff/tables.batch') }}</th>
-                            
+                            <th>{{ __('staff/tables.entry_id') }}</th>
+                            <th>{{ __('staff/tables.embossed_name') }}</th>
+                            <th>{{ __('staff/tables.emv_acct_discre') }}</th>
+                            <th>{{ __('staff/tables.hh_status') }}</th>
+                            <th>{{ __('staff/tables.hh_set') }}</th>
+                                                   
                         </tr>
                     </thead>
                 </template>

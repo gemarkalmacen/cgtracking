@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Staff\Emvdatabase;
 
 use App\Http\Controllers\Staff\BaseController as Controller;
 use Illuminate\Http\Request;
-use App\Http\Requests\Granteelists\ImportRequest;
+use App\Http\Requests\Emvdatabase\ImportRequest;
 use App\Services\Emvdatabase\UploadEmvdatabase;
 use Illuminate\Support\Facades\Input;
 
@@ -43,6 +43,7 @@ class EmvdatabaseController extends Controller
      */
     public function import(Request $request)
     {
+    
         $imports = [];
         if( $request->session()->has('import') ) {
             $imports = $request->session()->get('import');

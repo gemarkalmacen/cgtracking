@@ -1,5 +1,5 @@
 {{-- Send data to layout defining the current page and data  --}}
-@extends('layouts.staff.main', ['page' => 'granteelists/index', 'data' => []]) 
+@extends('layouts.staff.main', ['page' => '', 'data' => []]) 
 
 @section('title', __('staff/titles.reference-grantee_list'))
 
