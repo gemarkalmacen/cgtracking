@@ -21,7 +21,7 @@ class Uploadhistory extends Model
     protected $fillable = [
         'id',
         'file_name',
-        'upload_details',
+        'old_file_name',
         'table_source',
         'created_at',
         'updated_at',

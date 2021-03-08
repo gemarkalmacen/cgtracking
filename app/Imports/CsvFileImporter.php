@@ -10,6 +10,7 @@ use App\Services\CsvFileImporter\Granteelists;
 class CsvFileImporter
 {
     protected $_original_file_name = null;
+    protected $_generated_file_name = null;
 
     /**
      * Import method used for saving file and importing it using a database query
@@ -48,10 +49,10 @@ class CsvFileImporter
         // Get file's original name
         $original_file_name = $csv_import->getClientOriginalName();
 
-        $_original_file_name = $original_file_name;
-
+        $this->_original_file_name = $original_file_name;
         $extension = $newstring = substr($original_file_name, -3);
         $fileName = Carbon::now()->toDateString() . '-' . mt_rand(00000000, 99999999) . '.' . $extension;
+        $this->_generated_file_name = $fileName;
 
         // Return moved file as File object
         return $csv_import->move($destination_directory, $fileName);
@@ -95,7 +96,7 @@ class CsvFileImporter
         switch ($parameter) {
             case "granteelists":
                 $granteelists = new Granteelists;
-                $data = $granteelists->execute($file_path);
+                $data = $granteelists->execute($file_path,$this->_generated_file_name, $this->_original_file_name);
             break;
             default:
                 throw new \ErrorException('Import file contents failure!');
