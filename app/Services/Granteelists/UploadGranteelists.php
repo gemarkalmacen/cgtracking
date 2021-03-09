@@ -24,12 +24,13 @@ class UploadGranteelists
     {
         $lists = [];
         $successRow = 0;
+        $parameter = "granteelists";
 
         if ($file->isValid()) {
             DB::beginTransaction();
             try{
                 $csv_importer = new CsvFileImporter();
-                if ($successRow = $csv_importer->import($file)) {
+                if ($successRow = $csv_importer->import($file, $parameter)) {
                     DB::commit();
                 } else {
                     throw new Exception( $this->errorMessage($lists, 'Your file did not import!') );

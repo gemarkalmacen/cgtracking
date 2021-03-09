@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddUploadHistoryIdTableGranteelist extends Migration
+class RemovedUploadDetailsInTableUploadHistory extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddUploadHistoryIdTableGranteelist extends Migration
      */
     public function up()
     {
-        Schema::table('grantee_lists', function (Blueprint $table) {
-            $table->bigInteger('upload_history_id');
+        Schema::table('upload_history', function (Blueprint $table) {
+            $table->dropColumn('upload_details');
         });
     }
 
@@ -25,8 +25,8 @@ class AddUploadHistoryIdTableGranteelist extends Migration
      */
     public function down()
     {
-        Schema::table('grantee_lists', function (Blueprint $table) {
-            $table->dropColumn('upload_history_id');
+        Schema::table('upload_history', function (Blueprint $table) {
+            $table->string('upload_details')->nullable();
         });
     }
 }
