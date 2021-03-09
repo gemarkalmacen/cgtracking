@@ -97,7 +97,7 @@ class CsvFileImporter
             case "granteelists":
                 $granteelists = new Granteelists;
                 $data = $granteelists->execute($file_path,$this->_generated_file_name, $this->_original_file_name);
-            break;
+                break;
             default:
                 throw new \ErrorException('Import file contents failure!');
                 break;
