@@ -4,16 +4,21 @@ namespace App\Imports;
 
 use DB;
 use Carbon\Carbon;
+use App\Models\Uploadhistory;
+use App\Services\CsvFileImporter\Granteelists;
 
 class CsvFileImporter
 {
+    protected $_original_file_name = null;
+    protected $_generated_file_name = null;
+
     /**
      * Import method used for saving file and importing it using a database query
      * 
      * @param Symfony\Component\HttpFoundation\File\UploadedFile $csv_import
      * @return int number of lines imported
      */
-    public function import($csv_import)
+    public function import($csv_import, $parameter)
     {
         // Save file to temp directory
         $moved_file = $this->moveFile($csv_import);
@@ -22,7 +27,7 @@ class CsvFileImporter
         $normalized_file = $this->normalize($moved_file);
 
         // Import contents of the file into database
-        return $this->importFileContents($normalized_file);
+        return $this->importFileContents($normalized_file, $parameter);
     }
 
     /**
@@ -43,8 +48,11 @@ class CsvFileImporter
 
         // Get file's original name
         $original_file_name = $csv_import->getClientOriginalName();
+
+        $this->_original_file_name = $original_file_name;
         $extension = $newstring = substr($original_file_name, -3);
         $fileName = Carbon::now()->toDateString() . '-' . mt_rand(00000000, 99999999) . '.' . $extension;
+        $this->_generated_file_name = $fileName;
 
         // Return moved file as File object
         return $csv_import->move($destination_directory, $fileName);
@@ -83,24 +91,19 @@ class CsvFileImporter
      * @param $file_path
      * @return mixed Will return number of lines imported by the query
      */
-    private function importFileContents($file_path)
+    private function importFileContents($file_path, $parameter)
     {
-        $file_path = str_replace('\\', '/', $file_path);
-
-        $query = sprintf('
-            LOAD DATA LOCAL INFILE "%s" INTO TABLE grantee_lists 
-            CHARACTER SET latin1
-            FIELDS 
-                TERMINATED BY ","
-                OPTIONALLY ENCLOSED BY \'"\'
-                ESCAPED BY ""
-            LINES 
-                TERMINATED BY "\\n"
-            IGNORE 1 LINES
-            (@col1, @col2, @col3, @col4, @col5, @col6, @col7, @col8, @col9, @col10, @col11, @col12, @col13, @col14, @col15, @col16, @col17, @col18, @col19, @col20, @col21, @col22, @col23, @col24, @col25, @col26, @col27, @col28, @col29) SET region = @col1, province = @col2, municipality = @col3, barangay = @col4, purok = @col5, address = @col6, hh_id = @col7, entryid = @col8, lastname = @col9, firstname = @col10, middlename = @col11, extensionname = @col12, birthday = @col13, age = @col14, clientstatus = @col15, member_status = @col16, registrationstatus = @col17, sex = @col18, relationship_to_hh_head = @col19, ipaffiliation = @col20, hh_set = @col21, `group` = @col22, mothers_maiden = @col23, date_of_enumeration = @col24, lbp_account_number = @col25, mode_of_payment = @col26, date_tagged_hhstatus = @col27, tagged_by = @col28, date_registered = @col29
-            ', ($file_path));
-
-        $data = DB::connection()->getpdo()->exec($query);
+        switch ($parameter) {
+            case "granteelists":
+                $granteelists = new Granteelists;
+                $data = $granteelists->execute($file_path,$this->_generated_file_name, $this->_original_file_name);
+            break;
+            default:
+                throw new \ErrorException('Import file contents failure!');
+                break;
+        }
+        
+        $data = DB::connection()->getpdo()->exec($data);
         return $data;
     }
 }
