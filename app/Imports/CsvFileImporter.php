@@ -76,8 +76,6 @@ class CsvFileImporter
 
         //Convert all line-endings using regular expression
         $string = preg_replace('~\r\n?~', "\n", $string);
-        // removing comma's inside quotation marks
-        // $string = preg_replace('/("[^"]+),([^"]+")/', "$1/===/$2", $string);
         file_put_contents($file_path, $string);
 
         return $file_path;

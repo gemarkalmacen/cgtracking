@@ -23,6 +23,7 @@ class Uploadhistory extends Model
         'file_name',
         'old_file_name',
         'table_source',
+        'user_id',
         'created_at',
         'updated_at',
     ];

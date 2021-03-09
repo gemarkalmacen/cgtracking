@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Granteelist;
 use App\Models\Role;
 use App\Models\Uploadhistory;
+use Illuminate\Support\Facades\Auth;
 
 class Granteelists
 {
@@ -25,6 +26,7 @@ class Granteelists
             $upload_history->file_name = $_file_name;
             $upload_history->table_source = 'grantee_lists';
             $upload_history->old_file_name = $_old_file_name;
+            $upload_history->user_id = Auth::id();
             if($upload_history->save()){
                 $query = sprintf('
                     LOAD DATA LOCAL INFILE "%s" 
