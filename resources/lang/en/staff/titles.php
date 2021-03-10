@@ -25,4 +25,11 @@ return [
     'reference-aging' => 'Aging',
     'reference-overpayment' => 'Overpayment',
     'reports' => 'Reports',
+
+
+    // reference - emv_payroll
+    'reference-emv_payroll' => 'Emv Payroll',
+    'reference-emv_payroll-import' => 'Import - Emv Payroll',
+
+
 ];
