@@ -31,5 +31,16 @@ return [
     'granteelist_cannot_delete' => 'Grantee List cannot be deleted.',
     'granteelist_import_successfully' => 'Grantee List import sucessfully.',
     'granteelist_import_failed' => 'Grantee List import failed.',
+
+    // emv_database
+    'emvdatabase_created_successfully' => 'Emv List created successfully.',
+    'emvdatabase_updated_successfully' => 'Emv List updated successfully.',
+    'emvdatabase_deleted_successfully' => 'Emv List deleted successfully.',
+    'emvdatabase_cannot_delete' => 'Emv List cannot be deleted.',
+    'emvdatabase_import_successfully' => 'Emv Database List import sucessfully.',
+    'emvdatabase_import_failed' => 'Emv Database import failed.',
+
+
+
     
 ];
