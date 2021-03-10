@@ -6,6 +6,8 @@ use DB;
 use Carbon\Carbon;
 use App\Models\Uploadhistory;
 use App\Services\CsvFileImporter\Granteelists;
+use App\Services\CsvFileImporter\Emvdatabases;
+
 
 class CsvFileImporter
 {
@@ -76,6 +78,8 @@ class CsvFileImporter
 
         //Convert all line-endings using regular expression
         $string = preg_replace('~\r\n?~', "\n", $string);
+        // removing comma's inside quotation marks
+        // $string = preg_replace('/("[^"]+),([^"]+")/', "$1/===/$2", $string);
         file_put_contents($file_path, $string);
 
         return $file_path;
@@ -95,6 +99,11 @@ class CsvFileImporter
             case "granteelists":
                 $granteelists = new Granteelists;
                 $data = $granteelists->execute($file_path,$this->_generated_file_name, $this->_original_file_name);
+                break;
+
+            case "emvdatabase":
+                $emvdatabases = new Emvdatabases;
+                $data = $emvdatabases->execute($file_path,$this->_generated_file_name, $this->_original_file_name);
                 break;
             default:
                 throw new \ErrorException('Import file contents failure!');
