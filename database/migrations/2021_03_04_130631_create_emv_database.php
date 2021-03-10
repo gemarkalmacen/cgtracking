@@ -41,6 +41,7 @@ class CreateEmvDatabase extends Migration
             $table->string('emv_acct_discre')->nullable();
             $table->string('hh_status')->nullable();
             $table->string('hh_set')->nullable();
+            $table->bigInteger('upload_history_id');
             $table->timestamps();
         });
     }

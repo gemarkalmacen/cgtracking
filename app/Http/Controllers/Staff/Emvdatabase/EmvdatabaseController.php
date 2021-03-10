@@ -72,27 +72,9 @@ class EmvdatabaseController extends Controller
         else{
             $msg = [
                 'type' => 'error',
-                'message' => __('staff/notifications.stocks_import_failed')
+                'message' => __('staff/notifications.emvdatabase_import_failed')
             ];
         }
         return redirect()->route('staff.emvdatabase.emvdatabaseimport')->with('notification', [$msg])->with('import',$response);
-
-
-
-        // $response = $uploademvdatabase->execute($request->file);
-        // // if( ($response['totalRow'] ==  $response['insert'])  AND empty($response['errors']) ){
-        // if( empty($response['errors']) ){
-        //     $msg = [
-        //         'type' => 'success',
-        //         'message' => __('staff/notifications.stocks_import_successfully')
-        //     ];
-        // }
-        // else{
-        //     $msg = [
-        //         'type' => 'error',
-        //         'message' => __('staff/notifications.stocks_import_failed')
-        //     ];
-        // }
-        // return redirect()->route('staff.granteelists.import')->with('notification', [$msg])->with('import',$response);
     }
 }

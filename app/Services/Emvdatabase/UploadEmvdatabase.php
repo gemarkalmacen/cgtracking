@@ -8,7 +8,7 @@ use Exception;
 use App\Imports\EmvdatabaseImport;
 use League\Csv\Reader;
 use League\Csv\Statement;
-use App\Imports\CsvFileImporter_emvdatabase;
+use App\Imports\CsvFileImporter;
 use DB;
 
 class UploadEmvdatabase
@@ -24,12 +24,13 @@ class UploadEmvdatabase
     {
         $lists = [];
         $successRow = 0;
+        $parameter = "emvdatabase";
 
         if ($file->isValid()) {
             DB::beginTransaction();
             try{
-                $csv_importer = new CsvFileImporter_emvdatabase();
-                if ($successRow = $csv_importer->import($file)) {
+                $csv_importer = new CsvFileImporter();
+                if ($successRow = $csv_importer->import($file, $parameter)) {
                     DB::commit();
                 } else {
                     throw new Exception( $this->errorMessage($lists, 'Your file did not import!') );
