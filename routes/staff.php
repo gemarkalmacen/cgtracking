@@ -93,5 +93,22 @@ Route::group(['prefix' => 'staff-panel', 'namespace' => 'Staff'], function () {
         Route::get('emvdatabaseimport','EmvdatabaseController@import')->name('staff.emvdatabase.emvdatabaseimport');
         Route::post('emvdatabaseload','EmvdatabaseController@load')->name('staff.emvdatabase.emvdatabaseload');
     });
+    
+    Route::group(['namespace' => 'emvdatabase'], function () {
+        Route::resource('emvdatabase', "EmvdatabaseController", [
+            'names' => [
+                'index' => "staff.emvdatabase.index",
+                'create' => "staff.emvdatabase.create",
+                'store' => "staff.emvdatabase.store",
+                'show' => "staff.emvdatabase.show",
+                'edit' => "staff.emvdatabase.edit",
+                'update' => "staff.emvdatabase.update",
+                'destroy' => "staff.emvdatabase.destroy",
+            ]
+        ]);
+
+        Route::get('emvdatabaseimport','EmvdatabaseController@import')->name('staff.emvdatabase.emvdatabaseimport');
+        Route::post('emvdatabaseload','EmvdatabaseController@load')->name('staff.emvdatabase.emvdatabaseload');
+    });
 
 });
