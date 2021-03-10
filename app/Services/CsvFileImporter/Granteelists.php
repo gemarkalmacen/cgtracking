@@ -28,6 +28,12 @@ class Granteelists
             $upload_history->old_file_name = $_old_file_name;
             $upload_history->user_id = Auth::id();
             if($upload_history->save()){
+
+                // ! archived grantee_lists_data
+                $query = DB::insert('INSERT INTO archive_grantee_list SELECT * FROM grantee_lists');
+                
+                dd($query);
+
                 $query = sprintf('
                     LOAD DATA LOCAL INFILE "%s" 
                         INTO TABLE grantee_lists
