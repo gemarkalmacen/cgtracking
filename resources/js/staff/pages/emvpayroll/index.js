@@ -28,26 +28,32 @@ module.exports = function(data) {
                         order: [[ 1, 'asc' ]],
                         columns: [
                             {data: 'id'},
+                            {data: 'period'},
+                            {data: 'year'},
+                            {data: 'payroll_type'},
+                            {data: 'region'},
                             {data: 'province'},
                             {data: 'municipality'},
                             {data: 'barangay'},
-                            {data: 'hh_id'},
-                            {data: 'entryid'},
+                            {data: 'address_psgc'},
                             {data: 'lastname'},
                             {data: 'firstname'},
                             {data: 'middlename'},
-                            {data: 'extensionname'},
-                            {data: 'birthday'},
-                            {data: 'age'},
-                            {data: 'clientstatus'},
-                            {data: 'member_status'},
-                            {data: 'sex'},
-                            {data: 'relationship_to_hh_head'},
-                            {data: 'hh_set'},
-                            {data: 'group'},
-                            {data: 'mothers_maiden'},
-                            {data: 'lbp_account_number'},
-                            {data: 'mode_of_payment'},
+                            {data: 'household_id'},
+                            {data: 'hhset'},
+                            {data: 'mop'},
+                            {data: 'card'},
+                            {data: 'payroll_date'},
+                            {data: 'educ_dc_elem'},
+                            {data: 'educ_jr_hs'},
+                            {data: 'educ_sr_hs'},
+                            {data: 'educ_total_hs'},
+                            {data: 'total_educ'},
+                            {data: 'health'},
+                            {data: 'rice'},
+                            {data: 'total_amount'},
+                            {data: 'set'},   
+                            {data: 'set_group'},
 
                         ],
                         columnDefs: [
@@ -196,69 +202,56 @@ module.exports = function(data) {
                                     return element;
                                 }
                             },
-                            // {
-                            //     targets: [21],
-                            //     visible: true,
-                            //     render: function(data) {
-                            //        var element = data;
-                            //         return element;
-                            //     }
-                            // },
-                            // {
-                            //     targets: [29],
-                            //     render: function(data) {
-                            //         var element = '';
-                            //         if (vm.$helper.isNotNull(data)) {
-                            //             element = '<div><span class="label label-inline label-rounded label-'+ ( data == 1 ? 'success' : 'danger' )+'">' + vm.$t('staff/tables.users_is_active_'+data) + '</span></div>';
-                            //         }
-                            //         return element;
-                            //     }
-                            // },
-                            // {
-                            //     targets: [21],
-                            //     orderable: false,
-                            //     render: function(data, type, row) {
-                            //         var actions = "";
-                            //         var permissions = [
-                            //             {
-                            //                 name: 'users-view',
-                            //                 callback: () => { actions += "<a href='"+vm.$route('staff.users.show', data)+"' class='dropdown-item'><i class='fa fa-eye p-2 m-1 fa-lg align-middle'></i> " + vm.$t('staff/buttons.view') + "</a>"; }
-                            //             },
-                            //             {
-                            //                 name: 'users-edit',
-                            //                 callback: () => { actions += "<a href='"+vm.$route('staff.users.edit', data)+"' class='dropdown-item'><i class='fa fa-edit p-2 m-1 fa-lg'></i> " + vm.$t('staff/buttons.edit') + "</a>"; }
-                            //             },
-                            //             {
-                            //                 name: 'users-delete',
-                            //                 callback: () => { actions += "<button class='icon-button dropdown-item btn-delete' data-item='["+data+"]'><i class='fa fa-trash-alt p-2 m-1 fa-lg'></i> " + vm.$t('staff/buttons.delete') + "</button>"; }
-                            //             }
-                            //         ];
-                            //         // generate action buttons
-                            //         permissions.forEach(function(permission) {
-                            //             if (vm.$permission.has(permission.name)) {
-                            //                 permission.callback();
-                            //             }
-                            //         });
-                            //         // if no action buttons
-                            //         if (actions === "") {
-                            //             actions += "<i>No permission to take any action.</i>";
-                            //         }
-                            //         return "<div class='dropdown'>" +
-                            //                 "<button class='btn btn-primary dropdown-toggle btn-sm mr-2' type='button' id='dropdownMenuButton-" + data + "' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>"+vm.$t('staff/buttons.actions')+"</button>" +
-                            //                 "<div class='dropdown-menu' aria-labelledby='dropdownMenuButton-" + data + "' x-placement='bottom-start' style='position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 38px, 0px);'>" +
-                            //                     "<div>" + actions + "</div>" +
-                            //                 "</div>" +
-                            //             "</div>";
-                            //     }
-                            // }
+                            {
+                                targets: [21],
+                                render: function(data) {
+                                   var element = data;
+                                    return element;
+                                }
+                            },
+                            {
+                                targets: [22],
+                                render: function(data) {
+                                   var element = data;
+                                    return element;
+                                }
+                            },
+                            {
+                                targets: [23],
+                                render: function(data) {
+                                   var element = data;
+                                    return element;
+                                }
+                            },
+                            {
+                                targets: [24],
+                                render: function(data) {
+                                   var element = data;
+                                    return element;
+                                }
+                            },
+                            {
+                                targets: [25],
+                                render: function(data) {
+                                   var element = data;
+                                    return element;
+                                }
+                            },
+                            {
+                                targets: [26],
+                                render: function(data) {
+                                   var element = data;
+                                    return element;
+                                }
+                            },
                         ]
                     },
                     url: {
-                        list: vm.$route('staff.ajax.granteelists.listing'),
+                        list: vm.$route('staff.ajax.emvpayroll.listing'),
                         // delete: 'staff.users.destroy'
                     },
                     notifications: {
-                        delete: vm.$t('staff/notifications.granteelist_deleted_successfully')
+                        delete: vm.$t('staff/notifications.emvpayroll_deleted_successfully')
                     }
                 };
             }

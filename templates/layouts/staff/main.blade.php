@@ -240,11 +240,11 @@ License: You must have a valid license purchased only from themeforest(the above
                                                         </a>
                                                     </li>
                                                     <li class="menu-item" aria-haspopup="true">
-                                                        <a href="{{ route('staff.granteelists.index') }}"  class="menu-link">
+                                                        <a href="{{ route('staff.emvpayroll.index') }}"  class="menu-link">
                                                             <i class="menu-bullet menu-bullet-dot">
                                                                 <span></span>
                                                             </i>
-                                                            <span class="menu-text">{{ __('staff/navigations.reference-grantee_list_index') }}</span>
+                                                            <span class="menu-text">{{ __('staff/navigations.reference-emv_payroll_index') }}</span>
                                                         </a>
                                                     </li>
                                                 </ul>
