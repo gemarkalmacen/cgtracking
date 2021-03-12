@@ -93,5 +93,22 @@ Route::group(['prefix' => 'staff-panel', 'namespace' => 'Staff'], function () {
         Route::get('emvdatabaseimport','EmvdatabaseController@import')->name('staff.emvdatabase.emvdatabaseimport');
         Route::post('emvdatabaseload','EmvdatabaseController@load')->name('staff.emvdatabase.emvdatabaseload');
     });
+    
+    Route::group(['namespace' => 'emvpayroll'], function () {
+        Route::resource('emvpayroll', "EmvpayrollController", [
+            'names' => [
+                'index' => "staff.emvpayroll.index",
+                'create' => "staff.emvpayroll.create",
+                'store' => "staff.emvpayroll.store",
+                'show' => "staff.emvpayroll.show",
+                'edit' => "staff.emvpayroll.edit",
+                'update' => "staff.emvpayroll.update",
+                'destroy' => "staff.emvpayroll.destroy",
+            ]
+        ]);
+
+        Route::get('emvpayrollimport','EmvpayrollController@import')->name('staff.emvpayroll.emvpayrollimport');
+        Route::post('emvpayrollload','EmvpayrollController@load')->name('staff.emvpayroll.emvpayrollload');
+    });
 
 });
