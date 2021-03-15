@@ -14,8 +14,7 @@ class CreateTableArchiveGranteeList extends Migration
     public function up()
     {
         Schema::create('archive_grantee_list', function (Blueprint $table) {
-            $table->id();
-            $table->integer('grantee_list_id');
+            $table->integer('id')->comment('this will serve as grantee_lists_id');
             $table->string('region')->nullable();
             $table->string('province')->nullable();
             $table->string('municipality')->nullable();
@@ -48,7 +47,7 @@ class CreateTableArchiveGranteeList extends Migration
             $table->timestamp('created_at')->nullable();
             $table->timestamp('updated_at')->nullable();
             $table->bigInteger('upload_history_id')->nullable();
-            $table->datetime('archive_date')->nullable();
+            $table->datetime('archive_date')->useCurrent();
         });
     }
 
