@@ -7,6 +7,7 @@ use Carbon\Carbon;
 use App\Models\Uploadhistory;
 use App\Services\CsvFileImporter\Granteelists;
 use App\Services\CsvFileImporter\Emvdatabases;
+use App\Services\CsvFileImporter\Emvpayrolls;
 
 
 class CsvFileImporter
@@ -104,6 +105,10 @@ class CsvFileImporter
             case "emvdatabase":
                 $emvdatabases = new Emvdatabases;
                 $data = $emvdatabases->execute($file_path,$this->_generated_file_name, $this->_original_file_name);
+                break;
+            case "emvpayroll":
+                $emvpayroll = new Emvpayrolls;
+                $data = $emvpayroll->execute($file_path,$this->_generated_file_name, $this->_original_file_name);
                 break;
             default:
                 throw new \ErrorException('Import file contents failure!');

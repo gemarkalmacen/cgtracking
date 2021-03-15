@@ -32,6 +32,14 @@ return [
     'granteelist_import_successfully' => 'Grantee List import sucessfully.',
     'granteelist_import_failed' => 'Grantee List import failed.',
 
+    // emv_payroll
+    'emvpayroll_created_successfully' => 'Emv Payroll created successfully.',
+    'emvpayroll_updated_successfully' => 'Emv Payroll updated successfully.',
+    'emvpayroll_deleted_successfully' => 'Emv Payroll deleted successfully.',
+    'emvpayroll_cannot_delete' => 'Emv Payroll cannot be deleted.',
+    'emvpayroll_import_successfully' => 'Emv Payroll import sucessfully.',
+    'emvpayroll_import_failed' => 'Emv Payroll import failed.',
+    
     // emv_database
     'emvdatabase_created_successfully' => 'Emv List created successfully.',
     'emvdatabase_updated_successfully' => 'Emv List updated successfully.',
