@@ -96,35 +96,62 @@ class CsvFileImporter
      */
     private function importFileContents($file_path, $parameter)
     {
+        DB::beginTransaction();
+        try{
+            switch ($parameter) {
+                case "granteelists":
+                    $granteelists = new Granteelists;
+                    $data = $granteelists->execute($file_path,$this->_generated_file_name, $this->_original_file_name);
+                    $data_total_count = \DB::table('grantee_lists')->count();
+                    if($data_total_count > 0){
+                        $query_copy = DB::statement('
+                            INSERT INTO 
+                                archive_grantee_lists(id, region, province, municipality, barangay, purok, `address`, hh_id, entryid, lastname, firstname, middlename, extensionname, birthday, age, clientstatus, member_status, registrationstatus, sex, relationship_to_hh_head, ipaffiliation, hh_set, `group`, mothers_maiden, date_of_enumeration, lbp_account_number, mode_of_payment, date_tagged_hhstatus, tagged_by, date_registered, created_at, updated_at, upload_history_id)
+                            SELECT 
+                                id, region, province, municipality, barangay, purok, `address`, hh_id, entryid, lastname, firstname, middlename, extensionname, birthday, age, clientstatus, member_status, registrationstatus, sex, relationship_to_hh_head, ipaffiliation, hh_set, `group`, mothers_maiden, date_of_enumeration, lbp_account_number, mode_of_payment, date_tagged_hhstatus, tagged_by, date_registered, created_at, updated_at, upload_history_id 
+                            FROM 
+                                grantee_lists');
+                        if($query_copy==TRUE){
+                            $query_delete = DB::table('grantee_lists')->delete();
+                            if(!$query_delete){
+                                throw new \ErrorException('Granteelists failed to Archived!');
+                            }
+                        } else {
+                            throw new \ErrorException('Granteelists failed to Archived!');
+                        }
+                    }
 
-        switch ($parameter) {
-            case "granteelists":
-                $granteelists = new Granteelists;
-                $data = $granteelists->execute($file_path,$this->_generated_file_name, $this->_original_file_name);
-                break;
+                    $data = DB::connection()->getpdo()->exec($data);
+                    $fixed_invalid_date_registered = DB::statement("UPDATE grantee_lists SET date_registered=NULL WHERE '0000-00-00' = DATE_FORMAT(date_registered,'%Y-%m-%d')");
+                    $fixed_invalid_date_tagged_hhstatus = DB::statement("UPDATE grantee_lists SET date_tagged_hhstatus=NULL WHERE '0000-00-00' = DATE_FORMAT(date_tagged_hhstatus,'%Y-%m-%d')");
+                    $fixed_invalid_date_of_enumeration = DB::statement("UPDATE grantee_lists SET date_of_enumeration=NULL WHERE '0000-00-00' = DATE_FORMAT(date_of_enumeration,'%Y-%m-%d')");
+                    $fixed_invalid_birthday = DB::statement("UPDATE grantee_lists SET birthday=NULL WHERE '0000-00-00' = DATE_FORMAT(birthday,'%Y-%m-%d')");
+                    break;
+                case "emvdatabase":
+                    $emvdatabases = new Emvdatabases;
+                    $data = $emvdatabases->execute($file_path,$this->_generated_file_name, $this->_original_file_name);
+                    $data = DB::connection()->getpdo()->exec($data);
+                    break;
+                case "emvpayroll":
+                    $emvpayroll = new Emvpayrolls;
+                    $data = $emvpayroll->execute($file_path,$this->_generated_file_name, $this->_original_file_name);
+                    $data = DB::connection()->getpdo()->exec($data);
+                    break;
+                default:
+                    throw new \ErrorException('Import file contents failure!');
+                    break;
+            }
 
-            case "emvdatabase":
-                $emvdatabases = new Emvdatabases;
-                $data = $emvdatabases->execute($file_path,$this->_generated_file_name, $this->_original_file_name);
-                break;
-            case "emvpayroll":
-                $emvpayroll = new Emvpayrolls;
-                $data = $emvpayroll->execute($file_path,$this->_generated_file_name, $this->_original_file_name);
-                break;
-            default:
-                throw new \ErrorException('Import file contents failure!');
-                break;
+            DB::commit();
+
+            return $data;
+
+        } catch (Exception $ex) {
+            if( $ex->getMessage() != ''){
+                $this->errorMessage($stock, $ex->getMessage() );
+            }
+            DB::rollback();
         }
-        
-        $data = DB::connection()->getpdo()->exec($data);
-
-        // DB::statement('CALL grantee_list_fix_date_date_registered()');
-        $fixed_invalid_date_registered = DB::statement("UPDATE grantee_lists SET date_registered=NULL WHERE '0000-00-00' = DATE_FORMAT(date_registered,'%Y-%m-%d')");
-        $fixed_invalid_date_tagged_hhstatus = DB::statement("UPDATE grantee_lists SET date_tagged_hhstatus=NULL WHERE '0000-00-00' = DATE_FORMAT(date_tagged_hhstatus,'%Y-%m-%d')");
-        $fixed_invalid_date_of_enumeration = DB::statement("UPDATE grantee_lists SET date_of_enumeration=NULL WHERE '0000-00-00' = DATE_FORMAT(date_of_enumeration,'%Y-%m-%d')");
-        $fixed_invalid_birthday = DB::statement("UPDATE grantee_lists SET birthday=NULL WHERE '0000-00-00' = DATE_FORMAT(birthday,'%Y-%m-%d')");
-
-        return $data;
     }
 }
 ?>
