@@ -96,6 +96,7 @@ class CsvFileImporter
      */
     private function importFileContents($file_path, $parameter)
     {
+
         switch ($parameter) {
             case "granteelists":
                 $granteelists = new Granteelists;
@@ -116,6 +117,13 @@ class CsvFileImporter
         }
         
         $data = DB::connection()->getpdo()->exec($data);
+
+        // DB::statement('CALL grantee_list_fix_date_date_registered()');
+        $fixed_invalid_date_registered = DB::statement("UPDATE grantee_lists SET date_registered=NULL WHERE '0000-00-00' = DATE_FORMAT(date_registered,'%Y-%m-%d')");
+        $fixed_invalid_date_tagged_hhstatus = DB::statement("UPDATE grantee_lists SET date_tagged_hhstatus=NULL WHERE '0000-00-00' = DATE_FORMAT(date_tagged_hhstatus,'%Y-%m-%d')");
+        $fixed_invalid_date_of_enumeration = DB::statement("UPDATE grantee_lists SET date_of_enumeration=NULL WHERE '0000-00-00' = DATE_FORMAT(date_of_enumeration,'%Y-%m-%d')");
+        $fixed_invalid_birthday = DB::statement("UPDATE grantee_lists SET birthday=NULL WHERE '0000-00-00' = DATE_FORMAT(birthday,'%Y-%m-%d')");
+
         return $data;
     }
 }
