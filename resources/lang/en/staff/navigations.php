@@ -2,6 +2,8 @@
 
 return [
     'dashboard' => 'Dashboard',
+    'archived' => 'Archived',
+    'configuration' => 'Configuration',
     'users' => 'Users',
     'roles' => 'Roles',
     'settings' => 'Settings',
