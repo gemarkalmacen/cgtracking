@@ -14,7 +14,7 @@ class OtcpayrollController extends Controller
      * @param GetListingUsers $getListingUsers
      * @return \Illuminate\Http\JsonResponse
      */
-    public function listing(GetListingEmvpayroll $getListingOtcpayroll)
+    public function listing(GetListingOtcpayroll $getListingOtcpayroll)
     {
         $records = $getListingOtcpayroll->execute();
         return response()->json($records);

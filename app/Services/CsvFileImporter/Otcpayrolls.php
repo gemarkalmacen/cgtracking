@@ -4,7 +4,7 @@ namespace App\Services\CsvFileImporter;
 use Ccore\Core\Datatable;
 use Illuminate\Support\Facades\DB;
 
-use App\Models\Emvpayroll;
+use App\Models\Otcpayroll;
 use App\Models\Role;
 use App\Models\Uploadhistory;
 use Illuminate\Support\Facades\Auth;
@@ -30,7 +30,7 @@ class Otcpayrolls
             if($upload_history->save()){
                 $query = sprintf('
                     LOAD DATA LOCAL INFILE "%s" 
-                        INTO TABLE emv_payroll
+                        INTO TABLE otc_payroll
                     CHARACTER SET latin1
                     FIELDS 
                         TERMINATED BY ","

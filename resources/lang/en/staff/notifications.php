@@ -48,6 +48,14 @@ return [
     'emvdatabase_import_successfully' => 'Emv Database List import sucessfully.',
     'emvdatabase_import_failed' => 'Emv Database import failed.',
 
+    // otc_payroll
+    'otcpayroll_created_successfully' => 'Otc List created successfully.',
+    'otcpayroll_updated_successfully' => 'Otc List updated successfully.',
+    'otcpayroll_deleted_successfully' => 'Otc List deleted successfully.',
+    'otcpayroll_cannot_delete' => 'Otc List cannot be deleted.',
+    'otcpayroll_import_successfully' => 'Otc Payroll List import sucessfully.',
+    'otcpayroll_import_failed' => 'Otc Payroll  import failed.',
+
 
 
     

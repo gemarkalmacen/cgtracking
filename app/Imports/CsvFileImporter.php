@@ -112,8 +112,8 @@ class CsvFileImporter
                 $data = $emvpayroll->execute($file_path,$this->_generated_file_name, $this->_original_file_name);
                 break;
             case "otcpayroll":
-                $emvpayroll = new Otcpayrolls;
-                $data = $emvpayroll->execute($file_path,$this->_generated_file_name, $this->_original_file_name);
+                $otcpayroll = new Otcpayrolls;
+                $data = $otcpayroll->execute($file_path,$this->_generated_file_name, $this->_original_file_name);
                 break;
             default:
                 throw new \ErrorException('Import file contents failure!');
