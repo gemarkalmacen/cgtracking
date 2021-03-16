@@ -1,20 +1,20 @@
 <?php
-namespace App\Services\Granteelists;
+namespace App\Services\Archivedgranteelists;
 
 use Ccore\Core\Datatable;
 use Illuminate\Support\Facades\DB;
 
-use App\Models\Granteelist;
-use App\Models\Role;
+use App\Models\Archivegranteelist;
 
-class GetListingGranteelist
+class GetListingArchivedGranteelist
 {
     public function execute()
     {
-        $query = Granteelist::select(['*']);
+        $query = Archivegranteelist::select(['*']);
 
         $result = Datatable::of($query, request(), [
             'searchable' => [
+                'id',
                 'region',
                 'province',
                 'municipality',
@@ -47,8 +47,11 @@ class GetListingGranteelist
                 'created_at',
                 'updated_at',
                 'upload_history_id',
+                'archive_date',
+                'user_id',
             ],
             'orderable' => [
+                'id',
                 'region',
                 'province',
                 'municipality',
@@ -81,6 +84,8 @@ class GetListingGranteelist
                 'created_at',
                 'updated_at',
                 'upload_history_id',
+                'archive_date',
+                'user_id',
             ]
         ]);
 

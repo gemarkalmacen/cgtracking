@@ -111,4 +111,12 @@ Route::group(['prefix' => 'staff-panel', 'namespace' => 'Staff'], function () {
         Route::post('emvpayrollload','EmvpayrollController@load')->name('staff.emvpayroll.emvpayrollload');
     });
 
+    Route::group(['namespace' => 'Archivedgranteelists'], function () {
+        Route::resource('archivedgranteelists', "ArchivedgranteelistsController", [
+            'names' => [
+                'index' => "staff.archivedgranteelists.index",
+            ]
+        ]);
+    });
+
 });

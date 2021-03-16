@@ -28,6 +28,7 @@ module.exports = function(data) {
                         order: [[ 1, 'asc' ]],
                         columns: [
                             {data: 'id'},
+                            {data: 'id'},
                             {data: 'region'},
                             {data: 'province'},
                             {data: 'municipality'},
@@ -60,6 +61,8 @@ module.exports = function(data) {
                             {data: 'created_at'},
                             {data: 'updated_at'},
                             {data: 'upload_history_id'},
+                            {data: 'archive_date'},
+                            {data: 'user_id'},
                         ],
                         columnDefs: [
                             {
@@ -71,7 +74,7 @@ module.exports = function(data) {
                                 targets: [1],
                                 render: function(data) {
                                    var element = data;
-                                    return element.toUpperCase();
+                                    return element;
                                 }
                             },                            
                             {
@@ -99,7 +102,7 @@ module.exports = function(data) {
                                 targets: [5],
                                 render: function(data) {
                                    var element = data;
-                                    return element.toUpperCase();
+                                    return element;
                                 }
                             },
                             {
@@ -113,14 +116,14 @@ module.exports = function(data) {
                                 targets: [7],
                                 render: function(data) {
                                    var element = data;
-                                    return element;
+                                    return element.toUpperCase();
                                 }
                             },
                             {
                                 targets: [8],
                                 render: function(data) {
                                    var element = data;
-                                    return element;
+                                    return element.toUpperCase();
                                 }
                             },
                             {
@@ -134,21 +137,21 @@ module.exports = function(data) {
                                 targets: [10],
                                 render: function(data) {
                                    var element = data;
-                                    return element.toUpperCase();
+                                    return element;
                                 }
                             },
                             {
                                 targets: [11],
                                 render: function(data) {
                                    var element = data;
-                                    return element.toUpperCase();
+                                    return element;
                                 }
                             },
                             {
                                 targets: [12],
                                 render: function(data) {
                                    var element = data;
-                                    return element.toUpperCase();
+                                    return element;
                                 }
                             },
                             {
@@ -291,14 +294,35 @@ module.exports = function(data) {
                                     return element;
                                 }
                             },
+                            {
+                                targets: [33],
+                                render: function(data) {
+                                   var element = data;
+                                    return element;
+                                }
+                            },
+                            {
+                                targets: [34],
+                                render: function(data) {
+                                   var element = data;
+                                    return element;
+                                }
+                            },
+                            {
+                                targets: [35],
+                                render: function(data) {
+                                   var element = data;
+                                    return element;
+                                }
+                            },
                         ]
                     },
                     url: {
-                        list: vm.$route('staff.ajax.granteelists.listing'),
-                        // delete: 'staff.users.destroy'
+                        list: vm.$route('staff.ajax.archivedgranteelists.listing'),
+                        delete: 'staff.users.destroy'
                     },
                     notifications: {
-                        delete: vm.$t('staff/notifications.granteelist_deleted_successfully')
+                        delete: vm.$t('staff/notifications.archived_granteelist_deleted_successfully')
                     }
                 };
             }

@@ -32,6 +32,12 @@ return [
     'granteelist_import_successfully' => 'Grantee List import sucessfully.',
     'granteelist_import_failed' => 'Grantee List import failed.',
 
+    // archived grantee_list
+    'archived_granteelist_created_successfully' => 'Archived Grantee List created successfully.',
+    'archived_granteelist_updated_successfully' => 'Archived Grantee List updated successfully.',
+    'archived_granteelist_deleted_successfully' => 'Archived Grantee List deleted successfully.',
+    'archived_granteelist_cannot_delete' => 'Archived Grantee List cannot be deleted.',
+
     // emv_payroll
     'emvpayroll_created_successfully' => 'Emv Payroll created successfully.',
     'emvpayroll_updated_successfully' => 'Emv Payroll updated successfully.',
