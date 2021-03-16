@@ -8,6 +8,7 @@ use App\Models\Uploadhistory;
 use App\Services\CsvFileImporter\Granteelists;
 use App\Services\CsvFileImporter\Emvdatabases;
 use App\Services\CsvFileImporter\Emvpayrolls;
+use App\Services\CsvFileImporter\Otcpayrolls;
 
 
 class CsvFileImporter
@@ -108,6 +109,10 @@ class CsvFileImporter
                 break;
             case "emvpayroll":
                 $emvpayroll = new Emvpayrolls;
+                $data = $emvpayroll->execute($file_path,$this->_generated_file_name, $this->_original_file_name);
+                break;
+            case "otcpayroll":
+                $emvpayroll = new Otcpayrolls;
                 $data = $emvpayroll->execute($file_path,$this->_generated_file_name, $this->_original_file_name);
                 break;
             default:

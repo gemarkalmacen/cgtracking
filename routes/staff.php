@@ -110,5 +110,21 @@ Route::group(['prefix' => 'staff-panel', 'namespace' => 'Staff'], function () {
         Route::get('emvpayrollimport','EmvpayrollController@import')->name('staff.emvpayroll.emvpayrollimport');
         Route::post('emvpayrollload','EmvpayrollController@load')->name('staff.emvpayroll.emvpayrollload');
     });
+    Route::group(['namespace' => 'otcpayroll'], function () {
+        Route::resource('otcpayroll', "otcpayrollController", [
+            'names' => [
+                'index' => "staff.otcpayroll.index",
+                'create' => "staff.otcpayroll.create",
+                'store' => "staff.otcpayroll.store",
+                'show' => "staff.otcpayroll.show",
+                'edit' => "staff.otcpayroll.edit",
+                'update' => "staff.otcpayroll.update",
+                'destroy' => "staff.otcpayroll.destroy",
+            ]
+        ]);
+
+        Route::get('otcpayrollimport','OtcpayrollController@import')->name('staff.otcpayroll.otcpayrollimport');
+        Route::post('otcpayrollload','OtcpayrollController@load')->name('staff.otcpayroll.otcpayrollload');
+    });
 
 });
