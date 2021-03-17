@@ -142,6 +142,7 @@ class CsvFileImporter
                 case "otcpayroll":
                     $otcpayroll = new Otcpayrolls;
                     $data = $otcpayroll->execute($file_path,$this->_generated_file_name, $this->_original_file_name);
+                    $data = DB::connection()->getpdo()->exec($data);
                     break;
                 default:
                     throw new \ErrorException('Import file contents failure!');
