@@ -38,32 +38,32 @@
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th style="width: 1000px; ">{{ __('staff/tables.period') }}</th>
-                            <th>{{ __('staff/tables.year') }}</th>
-                            <th>{{ __('staff/tables.payroll_type') }}</th>
-                            <th>{{ __('staff/tables.region') }}</th>
-                            <th>{{ __('staff/tables.province') }}</th>
-                            <th>{{ __('staff/tables.municipality') }}</th>
-                            <th>{{ __('staff/tables.barangay') }}</th>
-                            <th>{{ __('staff/tables.address_psgc') }}</th>
-                            <th>{{ __('staff/tables.lastname') }}</th>
-                            <th>{{ __('staff/tables.firstname') }}</th>
-                            <th>{{ __('staff/tables.middlename') }}</th>
-                            <th>{{ __('staff/tables.household_id') }}</th>
-                            <th>{{ __('staff/tables.hhset') }}</th>
-                            <th>{{ __('staff/tables.mop') }}</th>
-                            <th>{{ __('staff/tables.card') }}</th>
-                            <th>{{ __('staff/tables.payroll_date') }}</th>
-                            <th>{{ __('staff/tables.educ_dc_elem') }}</th>
-                            <th>{{ __('staff/tables.educ_jr_hs') }}</th>
-                            <th>{{ __('staff/tables.educ_sr_hs') }}</th>
-                            <th>{{ __('staff/tables.educ_total_hs') }}</th>
-                            <th>{{ __('staff/tables.total_educ') }}</th>
-                            <th>{{ __('staff/tables.health') }}</th>
-                            <th>{{ __('staff/tables.rice') }}</th>
-                            <th>{{ __('staff/tables.total_amount') }}</th>
-                            <th>{{ __('staff/tables.set') }}</th>
-                            <th>{{ __('staff/tables.set_group') }}</th>
+                            <th style="width: 1000px; ">{{ __('staff/tables.emv_payroll_period') }}</th>
+                            <th>{{ __('staff/tables.emv_payroll_year') }}</th>
+                            <th>{{ __('staff/tables.emv_payroll_payroll_type') }}</th>
+                            <th>{{ __('staff/tables.emv_payroll_region') }}</th>
+                            <th>{{ __('staff/tables.emv_payroll_province') }}</th>
+                            <th>{{ __('staff/tables.emv_payroll_municipality') }}</th>
+                            <th>{{ __('staff/tables.emv_payroll_barangay') }}</th>
+                            <th>{{ __('staff/tables.emv_payroll_address_psgc') }}</th>
+                            <th>{{ __('staff/tables.emv_payroll_lastname') }}</th>
+                            <th>{{ __('staff/tables.emv_payroll_firstname') }}</th>
+                            <th>{{ __('staff/tables.emv_payroll_middlename') }}</th>
+                            <th>{{ __('staff/tables.emv_payroll_household_id') }}</th>
+                            <th>{{ __('staff/tables.emv_payroll_hhset') }}</th>
+                            <th>{{ __('staff/tables.emv_payroll_mop') }}</th>
+                            <th>{{ __('staff/tables.emv_payroll_card') }}</th>
+                            <th>{{ __('staff/tables.emv_payroll_payroll_date') }}</th>
+                            <th>{{ __('staff/tables.emv_payroll_educ_dc_elem') }}</th>
+                            <th>{{ __('staff/tables.emv_payroll_educ_jr_hs') }}</th>
+                            <th>{{ __('staff/tables.emv_payroll_educ_sr_hs') }}</th>
+                            <th>{{ __('staff/tables.emv_payroll_educ_total_hs') }}</th>
+                            <th>{{ __('staff/tables.emv_payroll_total_educ') }}</th>
+                            <th>{{ __('staff/tables.emv_payroll_health') }}</th>
+                            <th>{{ __('staff/tables.emv_payroll_rice') }}</th>
+                            <th>{{ __('staff/tables.emv_payroll_total_amount') }}</th>
+                            <th>{{ __('staff/tables.emv_payroll_set') }}</th>
+                            <th>{{ __('staff/tables.emv_payroll_set_group') }}</th>
                         </tr>
                     </thead>
                 </template>
