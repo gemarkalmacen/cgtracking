@@ -37,27 +37,39 @@
                 <template>
                     <thead>
                         <tr>
-                            <th>ID</th>
-                            <th style="width: 1000px; ">{{ __('staff/tables.province') }}</th>
-                            <th>{{ __('staff/tables.municipality') }}</th>
-                            <th>{{ __('staff/tables.barangay') }}</th>
-                            <th>{{ __('staff/tables.hh_id') }}</th>
-                            <th>{{ __('staff/tables.entryid') }}</th>
-                            <th>{{ __('staff/tables.lastname') }}</th>
-                            <th>{{ __('staff/tables.firstname') }}</th>
-                            <th>{{ __('staff/tables.middlename') }}</th>
-                            <th>{{ __('staff/tables.extensionname') }}</th>
-                            <th>{{ __('staff/tables.birthday') }}</th>
-                            <th>{{ __('staff/tables.age') }}</th>
-                            <th>{{ __('staff/tables.clientstatus') }}</th>
-                            <th>{{ __('staff/tables.member_status') }}</th>
-                            <th>{{ __('staff/tables.sex') }}</th>
-                            <th>{{ __('staff/tables.relationship_to_hh_head') }}</th>
-                            <th>{{ __('staff/tables.hh_set') }}</th>
-                            <th>{{ __('staff/tables.group') }}</th>
-                            <th>{{ __('staff/tables.mothers_maiden') }}</th>
-                            <th>{{ __('staff/tables.lbp_account_number') }}</th>
-                            <th>{{ __('staff/tables.mode_of_payment') }}</th>
+                            <th>{{ __('staff/tables.grantee_list_id') }}</th>
+                            <th>{{ __('staff/tables.grantee_list_region') }}</th>
+                            <th>{{ __('staff/tables.grantee_list_province') }}</th>
+                            <th>{{ __('staff/tables.grantee_list_municipality') }}</th>
+                            <th>{{ __('staff/tables.grantee_list_barangay') }}</th>
+                            <th>{{ __('staff/tables.grantee_list_purok') }}</th>
+                            <th>{{ __('staff/tables.grantee_list_address') }}</th>
+                            <th>{{ __('staff/tables.grantee_list_hh_id') }}</th>
+                            <th>{{ __('staff/tables.grantee_list_entryid') }}</th>
+                            <th>{{ __('staff/tables.grantee_list_lastname') }}</th>
+                            <th>{{ __('staff/tables.grantee_list_firstname') }}</th>
+                            <th>{{ __('staff/tables.grantee_list_middlename') }}</th>
+                            <th>{{ __('staff/tables.grantee_list_extensionname') }}</th>
+                            <th>{{ __('staff/tables.grantee_list_birthday') }}</th>
+                            <th>{{ __('staff/tables.grantee_list_age') }}</th>
+                            <th>{{ __('staff/tables.grantee_list_clientstatus') }}</th>
+                            <th>{{ __('staff/tables.grantee_list_member_status') }}</th>
+                            <th>{{ __('staff/tables.grantee_list_registrationstatus') }}</th>
+                            <th>{{ __('staff/tables.grantee_list_sex') }}</th>
+                            <th>{{ __('staff/tables.grantee_list_relationship_to_hh_head') }}</th>
+                            <th>{{ __('staff/tables.grantee_list_ipaffiliation') }}</th>
+                            <th>{{ __('staff/tables.grantee_list_hh_set') }}</th>
+                            <th>{{ __('staff/tables.grantee_list_group') }}</th>
+                            <th>{{ __('staff/tables.grantee_list_mothers_maiden') }}</th>
+                            <th>{{ __('staff/tables.grantee_list_date_of_enumeration') }}</th>
+                            <th>{{ __('staff/tables.grantee_list_lbp_account_number') }}</th>
+                            <th>{{ __('staff/tables.grantee_list_mode_of_payment') }}</th>
+                            <th>{{ __('staff/tables.grantee_list_date_tagged_hhstatus') }}</th>
+                            <th>{{ __('staff/tables.grantee_list_tagged_by') }}</th>
+                            <th>{{ __('staff/tables.grantee_list_date_registered') }}</th>
+                            <th>{{ __('staff/tables.grantee_list_created_at') }}</th>
+                            <th>{{ __('staff/tables.grantee_list_updated_at') }}</th>
+                            <th>{{ __('staff/tables.grantee_list_upload_history_id') }}</th>
                         </tr>
                     </thead>
                 </template>

@@ -6,7 +6,7 @@ use App\Traits\WithPaginate;
 use Illuminate\Database\Eloquent\Model;
 use Ccore\Core\Traits\ExtendedEloquentTrait;
 
-class Granteelist extends Model
+class Archivegranteelist extends Model
 {
     use ExtendedEloquentTrait;
     use WithPaginate;
@@ -14,7 +14,7 @@ class Granteelist extends Model
     /**
      * Database table name
      */
-    protected $table = 'grantee_lists';
+    protected $table = 'archive_grantee_lists';
 
     /**
      * The attributes that are mass assignable.
@@ -22,6 +22,7 @@ class Granteelist extends Model
      * @var array
      */
     protected $fillable = [
+        'id',
         'region',
         'province',
         'municipality',
@@ -54,5 +55,7 @@ class Granteelist extends Model
         'created_at',
         'updated_at',
         'upload_history_id',
+        'archive_date',
+        'user_id',
     ];
 }

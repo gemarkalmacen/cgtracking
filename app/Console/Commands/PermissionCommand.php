@@ -36,6 +36,7 @@ class PermissionCommand extends Command
         'granteelists',
         'emvdatabase',
         'emvpayroll',
+        'archivedgranteelists',
     ];
 
     /**
