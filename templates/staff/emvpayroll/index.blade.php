@@ -49,8 +49,8 @@
                             <th>{{ __('staff/tables.lastname') }}</th>
                             <th>{{ __('staff/tables.firstname') }}</th>
                             <th>{{ __('staff/tables.middlename') }}</th>
-                            <th>{{ __('staff/tables.household_id') }}</th>
-                            <th>{{ __('staff/tables.hhset') }}</th>
+                            <th>{{ __('staff/tables.hh_id') }}</th>
+                            <th>{{ __('staff/tables.hh_set') }}</th>
                             <th>{{ __('staff/tables.mop') }}</th>
                             <th>{{ __('staff/tables.card') }}</th>
                             <th>{{ __('staff/tables.payroll_date') }}</th>

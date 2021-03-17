@@ -24,6 +24,10 @@ return [
     'reference-grantee_list-import' => 'Import - Grantee List',
     'reference-aging' => 'Aging',
     'reference-overpayment' => 'Overpayment',
+    'reference-emv_payroll-import' => 'Import - Emv Payroll',
+
+    // archived granteelist
+    'archived-grantee_list' => 'Archived Grantee List',
     
     // emv database
     'reference-emv_database' => 'Emv Database',

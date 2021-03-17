@@ -127,4 +127,12 @@ Route::group(['prefix' => 'staff-panel', 'namespace' => 'Staff'], function () {
         Route::post('otcpayrollload','OtcpayrollController@load')->name('staff.otcpayroll.otcpayrollload');
     });
 
+    Route::group(['namespace' => 'Archivedgranteelists'], function () {
+        Route::resource('archivedgranteelists', "ArchivedgranteelistsController", [
+            'names' => [
+                'index' => "staff.archivedgranteelists.index",
+            ]
+        ]);
+    });
+
 });

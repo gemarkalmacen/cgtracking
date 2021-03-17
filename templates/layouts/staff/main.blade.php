@@ -350,7 +350,19 @@ License: You must have a valid license purchased only from themeforest(the above
                                         </a>
                                     </li>
                                     <li class="menu-section">
-                                        <h4 class="menu-text">Configuration</h4>
+                                        <h4 class="menu-text">{{ __('staff/navigations.archived') }} {{ __('staff/titles.reference') }}</h4>
+                                        <i class="menu-icon ki ki-bold-more-hor icon-md"></i>
+                                    </li>
+                                    <li class="menu-item" aria-haspopup="true">
+                                        <a href="{{ route('staff.archivedgranteelists.index') }}" class="menu-link">
+                                            <span class="menu-icon">
+                                                <i class="fas fa-user-tag"></i>
+                                            </span>
+                                        <span class="menu-text">{{ __('staff/navigations.reference-grantee_list') }}</span>
+                                        </a>
+                                    </li>
+                                    <li class="menu-section">
+                                        <h4 class="menu-text">{{ __('staff/navigations.configuration') }}</h4>
                                         <i class="menu-icon ki ki-bold-more-hor icon-md"></i>
                                     </li>
                                     <li class="menu-item" aria-haspopup="true">

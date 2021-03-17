@@ -27,4 +27,8 @@ Route::group(['prefix' => 'ajax', 'namespace' => 'Ajax'], function () {
     Route::group(['prefix' => 'otcpayroll', 'namespace' => 'Otcpayroll'], function () {
         Route::post('listing', 'OtcpayrollController@listing')->name('staff.ajax.otcpayroll.listing');
     });
+    
+    Route::group(['prefix' => 'archivedgranteelists', 'namespace' => 'Archivedgranteelists'], function () {
+        Route::post('listing', 'ArchivedgranteelistsController@listing')->name('staff.ajax.archivedgranteelists.listing');
+    });
 });
