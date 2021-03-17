@@ -312,8 +312,8 @@ License: You must have a valid license purchased only from themeforest(the above
                                         </li>
                                         <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
                                             <a href="javascript:;" class="menu-link menu-toggle">
-                                                <span class="menu-icon">
-                                                    <i class="fas fa-layer-group"></i>
+                                                <span class="menu-icon ">
+                                                    <i class="fas fa-file-import"></i>
                                                 </span>
                                                 <span class="menu-text">{{ __('staff/navigations.reference-otc_payroll') }}</span>
                                                 <i class="menu-arrow"></i>
