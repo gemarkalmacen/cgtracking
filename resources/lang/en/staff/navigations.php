@@ -20,4 +20,7 @@ return [
     'reports' => 'Reports',
     'reference-emv_database_import' => 'Import',
     'reference-emv_database_index' => 'List',
+    'reference-over_payment' => 'Overpayment',
+    'reference-over_payment_index' => 'List',
+    'reference-over_payment_import' => 'Import',
 ];

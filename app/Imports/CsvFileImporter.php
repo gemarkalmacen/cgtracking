@@ -8,6 +8,7 @@ use App\Models\Uploadhistory;
 use App\Services\CsvFileImporter\Granteelists;
 use App\Services\CsvFileImporter\Emvdatabases;
 use App\Services\CsvFileImporter\Emvpayrolls;
+use App\Services\CsvFileImporter\Overpayments;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -136,6 +137,11 @@ class CsvFileImporter
                 case "emvpayroll":
                     $emvpayroll = new Emvpayrolls;
                     $data = $emvpayroll->execute($file_path,$this->_generated_file_name, $this->_original_file_name);
+                    $data = DB::connection()->getpdo()->exec($data);
+                    break;
+                case "overpayment":
+                    $overpayment = new Overpayments;
+                    $data = $overpayment->execute($file_path,$this->_generated_file_name, $this->_original_file_name);
                     $data = DB::connection()->getpdo()->exec($data);
                     break;
                 default:

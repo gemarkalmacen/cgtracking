@@ -35,4 +35,9 @@ return [
 
     //emv payroll
     'reference-emv_payroll' => 'EMV Payroll',
+
+    //overpayment
+    'reference-over_payment' => 'Overpayment',
+    'reference-over_payment-import' => 'Import - Overpayment',
+
 ];

@@ -111,6 +111,23 @@ Route::group(['prefix' => 'staff-panel', 'namespace' => 'Staff'], function () {
         Route::post('emvpayrollload','EmvpayrollController@load')->name('staff.emvpayroll.emvpayrollload');
     });
 
+    Route::group(['namespace' => 'Overpayment'], function () {
+        Route::resource('overpayment', "OverpaymentController", [
+            'names' => [
+                'index' => "staff.overpayment.index",
+                'create' => "staff.overpayment.create",
+                'store' => "staff.overpayment.store",
+                'show' => "staff.overpayment.show",
+                'edit' => "staff.overpayment.edit",
+                'update' => "staff.overpayment.update",
+                'destroy' => "staff.overpayment.destroy",
+            ]
+        ]);
+
+        Route::get('overpaymentimport','OverpaymentController@import')->name('staff.overpayment.overpaymentimport');
+        Route::post('overpaymentload','OverpaymentController@load')->name('staff.overpayment.overpaymentload');
+    });
+
     Route::group(['namespace' => 'Archivedgranteelists'], function () {
         Route::resource('archivedgranteelists', "ArchivedgranteelistsController", [
             'names' => [

@@ -27,4 +27,8 @@ Route::group(['prefix' => 'ajax', 'namespace' => 'Ajax'], function () {
     Route::group(['prefix' => 'archivedgranteelists', 'namespace' => 'Archivedgranteelists'], function () {
         Route::post('listing', 'ArchivedgranteelistsController@listing')->name('staff.ajax.archivedgranteelists.listing');
     });
+
+    Route::group(['prefix' => 'overpayment', 'namespace' => 'Overpayment'], function () {
+        Route::post('listing', 'OverpaymentController@listing')->name('staff.ajax.overpayment.listing');
+    });
 });
