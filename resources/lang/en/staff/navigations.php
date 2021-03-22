@@ -23,4 +23,7 @@ return [
     'reference-over_payment' => 'Overpayment',
     'reference-over_payment_index' => 'List',
     'reference-over_payment_import' => 'Import',
+    'reference-otc_payroll' => 'OTC Payroll',
+    'reference-otc_payroll_import' => 'Import',
+    'reference-otc_payroll_index' => 'List',
 ];
