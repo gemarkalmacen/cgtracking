@@ -77,7 +77,7 @@ Route::group(['prefix' => 'staff-panel', 'namespace' => 'Staff'], function () {
         Route::post('granteelistsload','GranteelistController@load')->name('staff.granteelists.granteelistsload');
     });
 
-    Route::group(['namespace' => 'emvdatabase'], function () {
+    Route::group(['namespace' => 'Emvdatabase'], function () {
         Route::resource('emvdatabase', "EmvdatabaseController", [
             'names' => [
                 'index' => "staff.emvdatabase.index",
@@ -94,7 +94,7 @@ Route::group(['prefix' => 'staff-panel', 'namespace' => 'Staff'], function () {
         Route::post('emvdatabaseload','EmvdatabaseController@load')->name('staff.emvdatabase.emvdatabaseload');
     });
     
-    Route::group(['namespace' => 'emvpayroll'], function () {
+    Route::group(['namespace' => 'Emvpayroll'], function () {
         Route::resource('emvpayroll', "EmvpayrollController", [
             'names' => [
                 'index' => "staff.emvpayroll.index",
