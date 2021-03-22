@@ -54,6 +54,14 @@ return [
     'emvdatabase_import_successfully' => 'Emv Database List import sucessfully.',
     'emvdatabase_import_failed' => 'Emv Database import failed.',
 
+    // overpayment
+    'overpayment_created_successfully' => 'Overpayment List created successfully.',
+    'overpayment_updated_successfully' => 'Overpayment List updated successfully.',
+    'overpayment_deleted_successfully' => 'Overpayment List deleted successfully.',
+    'overpayment_cannot_delete' => 'Overpayment List cannot be deleted.',
+    'overpayment_import_successfully' => 'Overpayment List import sucessfully.',
+    'overpayment_import_failed' => 'Overpayment import failed.',
+
 
 
     
