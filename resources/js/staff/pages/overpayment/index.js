@@ -28,31 +28,36 @@ module.exports = function(data) {
                         order: [[ 1, 'asc' ]],
                         columns: [
                             {data: 'id'},
-                            {data: 'province'},
-                            {data: 'municipality'},
-                            {data: 'barangay'},
-                            {data: 'hh_id'},
-                            {data: 'lbp_account'},
+                            {data: 'row_no'},
                             {data: 'run_date'},
-                            {data: 'first_name'},
-                            {data: 'mid_name'},
-                            {data: 'last_name'},
-                            {data: 'acct_description'},
-                            {data: 'cct_type'},
-                            {data: 'lbp_servicing_branch'},
-                            {data: 'distribution_status'},
+                            {data: 'lbp_account'},
+                            {data: 'hh_id'},
+                            {data: 'lastname'},
+                            {data: 'firstname'},
+                            {data: 'extension'},
+                            {data: 'middlename'},
+                            {data: 'filename'},
+                            {data: 'ftp_request_filename'},
                             {data: 'date_claimed'},
-                            {data: 'reason_why_unclaimed'},
-                            {data: 'recommended_action'},
-                            {data: 'action_taken'},
-                            {data: 'date_acted'},
-                            {data: 'agreed_distribution_date'},
-                            {data: 'batch'},
-                            {data: 'entry_id'},
-                            {data: 'embossed_name'},
-                            {data: 'emv_acct_discre'},
+                            {data: 'account_status'},
+                            {data: 'account_balance'},
+                            {data: 'date_acted_by_lbp'},
+                            {data: 'ref_no'},
+                            {data: 'account_status_remarks'},
+                            {data: 'mc_no'},
+                            {data: 'ref_matching'},
+                            {data: 'matching_status'},
+                            {data: 'distribution_status'},
+                            {data: 'region'},
+                            {data: 'status'},
+                            {data: 'mop'},
+                            {data: 'account_number(db)'},
+                            {data: 'old_account'},
+
                             {data: 'hh_status'},
-                            {data: 'hh_set'},
+                            {data: 'bal'},
+                            {data: 'co_remarks'},
+
 
                         ],
                         columnDefs: [
@@ -236,14 +241,35 @@ module.exports = function(data) {
                                     return element;
                                 }
                             },
+                            {
+                                targets: [26],
+                                render: function(data) {
+                                   var element = data;
+                                    return element;
+                                }
+                            },
+                            {
+                                targets: [27],
+                                render: function(data) {
+                                   var element = data;
+                                    return element;
+                                }
+                            },
+                            {
+                                targets: [28],
+                                render: function(data) {
+                                   var element = data;
+                                    return element;
+                                }
+                            },
                         ]
                     },
                     url: {
-                        list: vm.$route('staff.ajax.emvdatabase.listing'),
+                        list: vm.$route('staff.ajax.overpayment.listing'),
                         // delete: 'staff.users.destroy'
                     },
                     notifications: {
-                        delete: vm.$t('staff/notifications.emvdatabase_deleted_successfully')
+                        delete: vm.$t('staff/notifications.overpayment_deleted_successfully')
                     }
                 };
             }

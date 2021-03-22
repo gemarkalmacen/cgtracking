@@ -38,32 +38,34 @@
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th style="width: 1000px; ">{{ __('staff/tables.emv_database_province') }}</th>
-                            <th>{{ __('staff/tables.emv_database_municipality') }}</th>
-                            <th>{{ __('staff/tables.emv_database_barangay') }}</th>
-                            <th>{{ __('staff/tables.emv_database_hh_id') }}</th>
-                            <th>{{ __('staff/tables.emv_database_lbp_account') }}</th>
-                            <th>{{ __('staff/tables.emv_database_run_date') }}</th>
-                            <th>{{ __('staff/tables.emv_database_firstname') }}</th>
-                            <th>{{ __('staff/tables.emv_database_middlename') }}</th>
-                            <th>{{ __('staff/tables.emv_database_lastname') }}</th>
-                            <th>{{ __('staff/tables.emv_database_acct_description') }}</th>
-                            <th>{{ __('staff/tables.emv_database_cct_type') }}</th>
-                            <th>{{ __('staff/tables.emv_database_lbp_servicing_branch') }}</th>
-                            <th>{{ __('staff/tables.emv_database_distribution_status') }}</th>
-                            <th>{{ __('staff/tables.emv_database_date_claimed') }}</th>
-                            <th>{{ __('staff/tables.emv_database_reason_why_unclaimed') }}</th>
-                            <th>{{ __('staff/tables.emv_database_recommended_action') }}</th>
-                            <th>{{ __('staff/tables.emv_database_action_taken') }}</th>
-                            <th>{{ __('staff/tables.emv_database_date_acted') }}</th>
-                            <th>{{ __('staff/tables.emv_database_agreed_distribution_date') }}</th>
-                            <th>{{ __('staff/tables.emv_database_batch') }}</th>
-                            <th>{{ __('staff/tables.emv_database_entry_id') }}</th>
-                            <th>{{ __('staff/tables.emv_database_embossed_name') }}</th>
-                            <th>{{ __('staff/tables.emv_database_emv_acct_discre') }}</th>
-                            <th>{{ __('staff/tables.emv_database_hh_status') }}</th>
-                            <th>{{ __('staff/tables.emv_database_hh_set') }}</th>
-                                                   
+                            <th style="width: 1000px; ">{{ __('staff/tables.over_payment_row_no') }}</th>
+                            <th>{{ __('staff/tables.over_payment_run_date') }}</th>
+                            <th>{{ __('staff/tables.over_payment_lbp_account') }}</th>
+                            <th>{{ __('staff/tables.over_payment_hh_id') }}</th>
+                            <th>{{ __('staff/tables.over_payment_lastname') }}</th>
+                            <th>{{ __('staff/tables.over_payment_firstname') }}</th>
+                            <th>{{ __('staff/tables.over_payment_extension') }}</th>
+                            <th>{{ __('staff/tables.over_payment_middlename') }}</th>
+                            <th>{{ __('staff/tables.over_payment_filename') }}</th>
+                            <th>{{ __('staff/tables.over_payment_ftp_request_filename') }}</th>
+                            <th>{{ __('staff/tables.over_payment_Date_claimed') }}</th>
+                            <th>{{ __('staff/tables.over_payment_account_status') }}</th>
+                            <th>{{ __('staff/tables.over_payment_account_balance') }}</th>
+                            <th>{{ __('staff/tables.over_payment_date_acted_by_lbp') }}</th>
+                            <th>{{ __('staff/tables.over_payment_ref_no') }}</th>
+                            <th>{{ __('staff/tables.over_payment_account_status_remarks') }}</th>
+                            <th>{{ __('staff/tables.over_payment_mc_no') }}</th>
+                            <th>{{ __('staff/tables.over_payment_ref_matching') }}</th>
+                            <th>{{ __('staff/tables.over_payment_matching_status') }}</th>
+                            <th>{{ __('staff/tables.over_payment_distribution_status') }}</th>
+                            <th>{{ __('staff/tables.over_payment_region') }}</th>
+                            <th>{{ __('staff/tables.over_payment_status') }}</th>
+                            <th>{{ __('staff/tables.over_payment_mop') }}</th>
+                            <th>{{ __('staff/tables.over_payment_account_number_(db)') }}</th>
+                            <th>{{ __('staff/tables.over_payment_old_account') }}</th>
+                            <th>{{ __('staff/tables.over_payment_hh_status') }}</th>
+                            <th>{{ __('staff/tables.over_payment_bal') }}</th>
+                            <th>{{ __('staff/tables.over_payment_co_remarks') }}</th>                                                   
                         </tr>
                     </thead>
                 </template>
