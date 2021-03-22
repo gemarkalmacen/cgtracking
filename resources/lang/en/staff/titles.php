@@ -35,4 +35,9 @@ return [
 
     //emv payroll
     'reference-emv_payroll' => 'EMV Payroll',
+    'reference-emv_payroll-import' => 'Import - Emv Payroll',
+
+    //otc payroll
+    'reference-otc_payroll' => 'OTC Payroll',
+    'reference-otc_payroll-import' => 'Import - Otc Payroll',
 ];

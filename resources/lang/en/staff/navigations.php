@@ -20,4 +20,7 @@ return [
     'reports' => 'Reports',
     'reference-emv_database_import' => 'Import',
     'reference-emv_database_index' => 'List',
+    'reference-otc_payroll' => 'OTC Payroll',
+    'reference-otc_payroll_import' => 'Import',
+    'reference-otc_payroll_index' => 'List',
 ];
