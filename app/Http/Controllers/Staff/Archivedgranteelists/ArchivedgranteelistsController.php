@@ -12,21 +12,12 @@ use Illuminate\Support\Facades\Input;
 
 class ArchivedgranteelistsController extends Controller
 {
-    /**
-     * Initialization
-     */
     public function __construct()
     {
         parent::__construct();
-        // permissions
         $this->middleware('permission:archivedgranteelists-list', ['only' => ['index']]);
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         return view('staff.archivedgranteelists.index');

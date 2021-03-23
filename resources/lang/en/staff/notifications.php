@@ -61,6 +61,7 @@ return [
     'overpayment_cannot_delete' => 'Overpayment List cannot be deleted.',
     'overpayment_import_successfully' => 'Overpayment List import sucessfully.',
     'overpayment_import_failed' => 'Overpayment import failed.',
+    
     // otc_payroll
     'otcpayroll_created_successfully' => 'Otc List created successfully.',
     'otcpayroll_updated_successfully' => 'Otc List updated successfully.',
@@ -69,7 +70,12 @@ return [
     'otcpayroll_import_successfully' => 'Otc Payroll List import sucessfully.',
     'otcpayroll_import_failed' => 'Otc Payroll  import failed.',
 
-
-
+    // non_emv
+    'nonemv_created_successfully' => 'Non-Emv created successfully.',
+    'nonemv_updated_successfully' => 'Non-Emv updated successfully.',
+    'nonemv_deleted_successfully' => 'Non-Emv deleted successfully.',
+    'nonemv_cannot_delete' => 'Non-Emv cannot be deleted.',
+    'nonemv_import_successfully' => 'Non-Emv import sucessfully.',
+    'nonemv_import_failed' => 'Non-Emv import failed.',
     
 ];

@@ -17,6 +17,6 @@
 </div>
 <div class="kt-portlet__foot">
     <div class="kt-form__actions">        
-        <button type="submit" class="btn btn-primary" style="margin-top: 40px;">{{ __('staff/buttons.stocks_import') }}</button>        
+        <button type="submit" class="btn btn-primary" style="margin-top: 40px;">{{ __('staff/buttons.import') }}</button>        
     </div>
 </div>

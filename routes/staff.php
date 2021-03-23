@@ -144,6 +144,23 @@ Route::group(['prefix' => 'staff-panel', 'namespace' => 'Staff'], function () {
         Route::post('overpaymentload','OverpaymentController@load')->name('staff.overpayment.overpaymentload');
     });
 
+    Route::group(['namespace' => 'Nonemv'], function () {
+        Route::resource('nonemv', "NonemvController", [
+            'names' => [
+                'index' => "staff.nonemv.index",
+                'create' => "staff.nonemv.create",
+                'store' => "staff.nonemv.store",
+                'show' => "staff.nonemv.show",
+                'edit' => "staff.nonemv.edit",
+                'update' => "staff.nonemv.update",
+                'destroy' => "staff.nonemv.destroy",
+            ]
+        ]);
+
+        Route::get('nonemvimport','NonemvController@import')->name('staff.nonemv.nonemvimport');
+        Route::post('nonemvload','NonemvController@load')->name('staff.nonemv.nonemvload');
+    });
+
     Route::group(['namespace' => 'Archivedgranteelists'], function () {
         Route::resource('archivedgranteelists', "ArchivedgranteelistsController", [
             'names' => [

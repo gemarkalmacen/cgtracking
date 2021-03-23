@@ -53,6 +53,7 @@ class CreateNonEmvTable extends Migration
             $table->string('nma_remarks')->nullable();
             $table->string('nma_remarks_reason')->nullable();
             $table->string('nma_recommended_action')->nullable();
+            $table->bigInteger('upload_history_id');
             $table->timestamps();
         });
     }

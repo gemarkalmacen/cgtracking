@@ -12,13 +12,9 @@ use Illuminate\Support\Facades\Input;
 
 class EmvdatabaseController extends Controller
 {
-    /**
-     * Initialization
-     */
     public function __construct()
     {
         parent::__construct();
-        // permissions
         $this->middleware('permission:emvdatabase-list', ['only' => ['index']]);
         $this->middleware('permission:emvdatabase-create', ['only' => ['create', 'store']]);
         $this->middleware('permission:emvdatabase-edit', ['only' => ['edit', 'update']]);
@@ -26,21 +22,12 @@ class EmvdatabaseController extends Controller
         $this->middleware('permission:emvdatabase-view', ['only' => ['show']]);
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         
         return view('staff.emvdatabase.index');
     }
 
-    /**
-     * Import granteelists
-     * @return \Illuminate\Http\Response
-     */
     public function import(Request $request)
     {
     
@@ -49,19 +36,10 @@ class EmvdatabaseController extends Controller
             $imports = $request->session()->get('import');
         }
         return view('staff.emvdatabase.import',compact('imports'));
-        /**
-         * [POST] Form which will submit the file
-         */
     }
 
-    /**
-     * load stocks
-     * @return \Illuminate\Http\Response
-     */
     public function load(ImportRequest $request, UploadEmvdatabase $uploadEmvdatabase)
     {
-
-        // dd('load');
         $response = $uploadEmvdatabase->execute($request->file);
         if( empty($response['errors']) ){
             $msg = [

@@ -45,4 +45,8 @@ return [
     //otc payroll
     'reference-otc_payroll' => 'OTC Payroll',
     'reference-otc_payroll-import' => 'Import - Otc Payroll',
+
+    // aging - non-emv
+    'reference-nonemv' => 'Non EMV',
+    'reference-nonemv-import' => 'Import - Non Emv',
 ];

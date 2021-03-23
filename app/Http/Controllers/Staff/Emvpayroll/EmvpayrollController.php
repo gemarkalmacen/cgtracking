@@ -59,7 +59,6 @@ class EmvpayrollController extends Controller
     {
 
         $response = $uploadEmvpayroll->execute($request->file);
-        // if( ($response['totalRow'] ==  $response['insert'])  AND empty($response['errors']) ){
         if( empty($response['errors']) ){
             $msg = [
                 'type' => 'success',

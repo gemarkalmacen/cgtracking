@@ -18,7 +18,6 @@ class OverpaymentController extends Controller
     public function __construct()
     {
         parent::__construct();
-        // permissions
         $this->middleware('permission:overpayment-list', ['only' => ['index']]);
         $this->middleware('permission:overpayment-create', ['only' => ['create', 'store']]);
         $this->middleware('permission:overpayment-edit', ['only' => ['edit', 'update']]);
@@ -26,26 +25,13 @@ class OverpaymentController extends Controller
         $this->middleware('permission:overpayment-view', ['only' => ['show']]);
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         return view('staff.overpayment.index');
     }
 
-    /**
-     * Import granteelists
-     * @return \Illuminate\Http\Response
-     */
     public function import(Request $request)
     {
-        /**
-         * [POST] Form which will submit the file
-         */
-
         $imports = [];
         if( $request->session()->has('import') ) {
             $imports = $request->session()->get('import');
@@ -54,15 +40,10 @@ class OverpaymentController extends Controller
         return view('staff.overpayment.import',compact('imports'));
     }
 
-    /**
-     * load stocks
-     * @return \Illuminate\Http\Response
-     */
     public function load(ImportRequest $request, UploadOverpayment $uploadOverpayment)
     {
 
         $response = $uploadOverpayment->execute($request->file);
-        // if( ($response['totalRow'] ==  $response['insert'])  AND empty($response['errors']) ){
         if( empty($response['errors']) ){
             $msg = [
                 'type' => 'success',

@@ -12,13 +12,9 @@ use Illuminate\Support\Facades\Input;
 
 class OtcpayrollController extends Controller
 {
-    /**
-     * Initialization
-     */
     public function __construct()
     {
         parent::__construct();
-        // permissions
         $this->middleware('permission:otcpayroll-list', ['only' => ['index']]);
         $this->middleware('permission:otcpayroll-create', ['only' => ['create', 'store']]);
         $this->middleware('permission:otcpayroll-edit', ['only' => ['edit', 'update']]);
@@ -26,20 +22,11 @@ class OtcpayrollController extends Controller
         $this->middleware('permission:otcpayroll-view', ['only' => ['show']]);
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         return view('staff.otcpayroll.index');
     }
 
-    /**
-     * Import otcpayroll
-     * @return \Illuminate\Http\Response
-     */
     public function import(Request $request)
     {
 
@@ -51,15 +38,10 @@ class OtcpayrollController extends Controller
         return view('staff.otcpayroll.import',compact('imports'));
     }
 
-    /**
-     * load stocks
-     * @return \Illuminate\Http\Response
-     */
     public function load(ImportRequest $request, UploadOtcpayroll $uploadOtcpayroll)
     {
 
         $response = $uploadOtcpayroll->execute($request->file);
-        // if( ($response['totalRow'] ==  $response['insert'])  AND empty($response['errors']) ){
         if( empty($response['errors']) ){
             $msg = [
                 'type' => 'success',
