@@ -255,18 +255,18 @@ License: You must have a valid license purchased only from themeforest(the above
                                                 <span class="menu-icon">
                                                     <i class="fas fa-layer-group"></i>
                                                 </span>
-                                                <span class="menu-text">{{ __('staff/navigations.reference-aging') }}</span>
+                                                <span class="menu-text">{{ __('staff/navigations.reference-aging_non_emv') }}</span>
                                                 <i class="menu-arrow"></i>
                                             </a>
                                             <div class="menu-submenu">
                                                 <i class="menu-arrow"></i>
                                                 <ul class="menu-subnav">
                                                     <li class="menu-item" aria-haspopup="true">
-                                                        <a href="#" class="menu-link">
+                                                        <a href="{{ route('staff.nonemv.nonemvimport') }}"  class="menu-link">
                                                             <i class="menu-bullet menu-bullet-dot">
                                                                 <span></span>
                                                             </i>
-                                                            <span class="menu-text">{{ __('staff/navigations.reference-grantee_list_import') }}</span>
+                                                            <span class="menu-text">{{ __('staff/navigations.reference-aging_non_emv_import') }}</span>
                                                         </a>
                                                     </li>
                                                     <li class="menu-item" aria-haspopup="true">
@@ -274,7 +274,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                             <i class="menu-bullet menu-bullet-dot">
                                                                 <span></span>
                                                             </i>
-                                                            <span class="menu-text">{{ __('staff/navigations.reference-grantee_list_index') }}</span>
+                                                            <span class="menu-text">{{ __('staff/navigations.reference-aging_non_emv_index') }}</span>
                                                         </a>
                                                     </li>
                                                 </ul>
