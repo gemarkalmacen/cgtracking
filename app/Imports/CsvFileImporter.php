@@ -10,6 +10,7 @@ use App\Services\CsvFileImporter\Emvdatabases;
 use App\Services\CsvFileImporter\Emvpayrolls;
 use App\Services\CsvFileImporter\Overpayments;
 use App\Services\CsvFileImporter\Otcpayrolls;
+use App\Services\CsvFileImporter\Nonemvs;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -149,6 +150,34 @@ class CsvFileImporter
                     $otcpayroll = new Otcpayrolls;
                     $data = $otcpayroll->execute($file_path,$this->_generated_file_name, $this->_original_file_name);
                     $data = DB::connection()->getpdo()->exec($data);
+                    break;
+                case "nonemv":
+                    $nonemv = new Nonemvs;
+                    $data = $nonemv->execute($file_path,$this->_generated_file_name, $this->_original_file_name);
+                    $data_total_count = \DB::table('non_emv')->count();
+                    if($data_total_count > 0){
+                        // $query_copy = DB::statement('
+                        //     INSERT INTO 
+                        //         archive_non_emv(id, region, province, municipality, barangay, purok, `address`, hh_id, entryid, lastname, firstname, middlename, extensionname, birthday, age, clientstatus, member_status, registrationstatus, sex, relationship_to_hh_head, ipaffiliation, hh_set, `group`, mothers_maiden, date_of_enumeration, lbp_account_number, mode_of_payment, date_tagged_hhstatus, tagged_by, date_registered, created_at, updated_at, upload_history_id, archive_date, user_id)
+                        //     SELECT 
+                        //         id, region, province, municipality, barangay, purok, `address`, hh_id, entryid, lastname, firstname, middlename, extensionname, birthday, age, clientstatus, member_status, registrationstatus, sex, relationship_to_hh_head, ipaffiliation, hh_set, `group`, mothers_maiden, date_of_enumeration, lbp_account_number, mode_of_payment, date_tagged_hhstatus, tagged_by, date_registered, created_at, updated_at, upload_history_id, CURRENT_TIMESTAMP, '.Auth::id().'
+                        //     FROM 
+                        //         non_emv');
+                        // if($query_copy==TRUE){
+                        //     $query_delete = DB::table('non_emv')->delete();
+                        //     if(!$query_delete){
+                        //         throw new \ErrorException('Non-Emv failed to Archived!');
+                        //     }
+                        // } else {
+                        //     throw new \ErrorException('Non-Emv failed to Archived!');
+                        // }
+                    }
+
+                    $data = DB::connection()->getpdo()->exec($data);
+                    // $fixed_invalid_date_registered = DB::statement("UPDATE grantee_lists SET date_registered=NULL WHERE '0000-00-00' = DATE_FORMAT(date_registered,'%Y-%m-%d')");
+                    // $fixed_invalid_date_tagged_hhstatus = DB::statement("UPDATE grantee_lists SET date_tagged_hhstatus=NULL WHERE '0000-00-00' = DATE_FORMAT(date_tagged_hhstatus,'%Y-%m-%d')");
+                    // $fixed_invalid_date_of_enumeration = DB::statement("UPDATE grantee_lists SET date_of_enumeration=NULL WHERE '0000-00-00' = DATE_FORMAT(date_of_enumeration,'%Y-%m-%d')");
+                    // $fixed_invalid_birthday = DB::statement("UPDATE grantee_lists SET birthday=NULL WHERE '0000-00-00' = DATE_FORMAT(birthday,'%Y-%m-%d')");
                     break;
                 default:
                     throw new \ErrorException('Import file contents failure!');

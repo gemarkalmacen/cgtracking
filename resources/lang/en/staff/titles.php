@@ -48,5 +48,5 @@ return [
 
     // aging - non-emv
     'reference-nonemv' => 'Non EMV',
-    'reference-nonemv-import' => 'Import - Grantee List',
+    'reference-nonemv-import' => 'Import - Non Emv',
 ];

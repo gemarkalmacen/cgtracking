@@ -62,7 +62,6 @@ class GranteelistController extends Controller
     {
 
         $response = $uploadGranteelists->execute($request->file);
-        // if( ($response['totalRow'] ==  $response['insert'])  AND empty($response['errors']) ){
         if( empty($response['errors']) ){
             $msg = [
                 'type' => 'success',

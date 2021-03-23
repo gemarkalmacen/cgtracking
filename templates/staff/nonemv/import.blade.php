@@ -1,5 +1,5 @@
 {{-- Send data to layout defining the current page and data  --}}
-@extends('layouts.staff.main', ['page' => 'granteelists/import', 'data' => []])
+@extends('layouts.staff.main', ['page' => 'nonemv/import', 'data' => []])
 
 @section('title', __('staff/titles.reference-nonemv-import'))
 
@@ -16,9 +16,9 @@
         </div>
     </div>
     <div class="card-body">
-        <form id="granteelistsImport" action="{!! route('staff.granteelists.granteelistsload') !!}" method="POST" enctype="multipart/form-data" class="frm" novalidate="novalidate">
+        <form id="nonemvImport" action="{!! route('staff.nonemv.nonemvload') !!}" method="POST" enctype="multipart/form-data" class="frm" novalidate="novalidate">
             {!! @csrf_field() !!}
-            @include ('staff.granteelists.partials.import')
+            @include ('staff.nonemv.partials.import')
         </form>
         <div class="separator separator-dashed my-10"></div>
         @if( !empty($imports['totalRow']) )
