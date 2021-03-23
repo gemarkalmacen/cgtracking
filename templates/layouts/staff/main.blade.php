@@ -193,7 +193,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                         <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
                                             <a href="javascript:;" class="menu-link menu-toggle">
                                                 <span class="menu-icon">
-                                                    <i class="fas fa-layer-group"></i>
+                                                    <i class="fas fa-database"></i>
                                                 </span>
                                                 <span class="menu-text">{{ __('staff/navigations.reference-emv_database') }}</span>
                                                 <i class="menu-arrow"></i>
@@ -223,7 +223,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                         <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
                                             <a href="javascript:;" class="menu-link menu-toggle">
                                                 <span class="menu-icon">
-                                                    <i class="fas fa-layer-group"></i>
+                                                    <i class="fas fa-scroll"></i>
                                                 </span>
                                                 <span class="menu-text">{{ __('staff/navigations.reference-emv_payroll') }}</span>
                                                 <i class="menu-arrow"></i>
@@ -253,7 +253,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                         <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
                                             <a href="javascript:;" class="menu-link menu-toggle">
                                                 <span class="menu-icon">
-                                                    <i class="fas fa-layer-group"></i>
+                                                    <i class="fas fa-street-view"></i>
                                                 </span>
                                                 <span class="menu-text">{{ __('staff/navigations.reference-aging') }}</span>
                                                 <i class="menu-arrow"></i>
@@ -283,7 +283,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                         <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
                                             <a href="javascript:;" class="menu-link menu-toggle">
                                                 <span class="menu-icon">
-                                                    <i class="fas fa-layer-group"></i>
+                                                    <i class="fas fa-hand-holding-usd"></i>
                                                 </span>
                                                 <span class="menu-text">{{ __('staff/navigations.reference-overpayment') }}</span>
                                                 <i class="menu-arrow"></i>
@@ -313,7 +313,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                         <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
                                             <a href="javascript:;" class="menu-link menu-toggle">
                                                 <span class="menu-icon ">
-                                                    <i class="fas fa-file-import"></i>
+                                                    <i class="fas fa-table"></i>
                                                 </span>
                                                 <span class="menu-text">{{ __('staff/navigations.reference-otc_payroll') }}</span>
                                                 <i class="menu-arrow"></i>
