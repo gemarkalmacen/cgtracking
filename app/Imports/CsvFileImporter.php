@@ -135,26 +135,26 @@ class CsvFileImporter
                     $emvdatabases = new Emvdatabases;
                     $data = $emvdatabases->execute($file_path,$this->_generated_file_name, $this->_original_file_name);
                     $data = DB::connection()->getpdo()->exec($data);
-                    $fixed_invalid_dates = DB::statement("UPDATE emv_database SET run_date=NULL,date_claimed=NULL,date_acted=NULL,agreed_distribution_date=NULL WHERE '0000-00-00' = DATE_FORMAT(run_date,'%Y-%m-%d') AND '0000-00-00' = DATE_FORMAT(date_claimed,'%Y-%m-%d') AND '0000-00-00' = DATE_FORMAT(date_acted,'%Y-%m-%d') AND '0000-00-00' = DATE_FORMAT(agreed_distribution_date,'%Y-%m-%d')");
-                    // $fixed_invalid_date_date_claimed = DB::statement("UPDATE emv_database SET date_claimed=NULL WHERE '0000-00-00' = DATE_FORMAT(date_claimed,'%Y-%m-%d')");
-                    // $fixed_invalid_date_date_acted = DB::statement("UPDATE emv_database SET date_acted=NULL WHERE '0000-00-00' = DATE_FORMAT(date_acted,'%Y-%m-%d')");
-                    // $fixed_invalid_date_agreed_distribution_date = DB::statement("UPDATE emv_database SET agreed_distribution_date=NULL WHERE '0000-00-00' = DATE_FORMAT(agreed_distribution_date,'%Y-%m-%d')");
-                    // $fixed_invalid_date_date_acted = DB::statement("UPDATE emv_database SET date_acted=NULL WHERE '0000-00-00' = DATE_FORMAT(date_acted,'%Y-%m-%d')");
+                    $fixed_invalid_dates = DB::statement("UPDATE emv_database SET date_claimed = CASE WHEN '0000-00-00' = DATE_FORMAT(date_claimed,'%Y-%m-%d')THEN NULL ELSE date_claimed END, date_acted = CASE WHEN '0000-00-00' = DATE_FORMAT(date_acted,'%Y-%m-%d')THEN NULL ELSE date_acted END, agreed_distribution_date = CASE WHEN '0000-00-00' = DATE_FORMAT(agreed_distribution_date,'%Y-%m-%d')THEN NULL ELSE agreed_distribution_date END, date_acted = CASE WHEN '0000-00-00' = DATE_FORMAT(date_acted,'%Y-%m-%d')THEN NULL ELSE date_acted END");
                     break;
                 case "emvpayroll":
                     $emvpayroll = new Emvpayrolls;
                     $data = $emvpayroll->execute($file_path,$this->_generated_file_name, $this->_original_file_name);
                     $data = DB::connection()->getpdo()->exec($data);
+                    $fixed_invalid_dates = DB::statement("UPDATE emv_payroll SET payroll_date = CASE WHEN '0000-00-00' = DATE_FORMAT(payroll_date,'%Y-%m-%d')THEN NULL ELSE payroll_date END");
                     break;
                 case "overpayment":
                     $overpayment = new Overpayments;
                     $data = $overpayment->execute($file_path,$this->_generated_file_name, $this->_original_file_name);
-                    $data = DB::connection()->getpdo()->exec($data);
+                    $data = DB::connection()->getpdo()->exec($data); 
+                    $fixed_invalid_dates = DB::statement("UPDATE overpayment SET payroll_date = CASE WHEN '0000-00-00' = DATE_FORMAT(payroll_date,'%Y-%m-%d')THEN NULL ELSE payroll_date END, date_acted_by_lbp = CASE WHEN '0000-00-00' = DATE_FORMAT(date_acted_by_lbp,'%Y-%m-%d')THEN NULL ELSE date_acted_by_lbp END");
                     break;
                 case "otcpayroll":
                     $otcpayroll = new Otcpayrolls;
                     $data = $otcpayroll->execute($file_path,$this->_generated_file_name, $this->_original_file_name);
                     $data = DB::connection()->getpdo()->exec($data);
+                    $fixed_invalid_dates = DB::statement("UPDATE otc_payroll SET payroll_date = CASE WHEN '0000-00-00' = DATE_FORMAT(payroll_date,'%Y-%m-%d')THEN NULL ELSE payroll_date END");
+
                     break;
                 case "nonemv":
                     $nonemv = new Nonemvs;
