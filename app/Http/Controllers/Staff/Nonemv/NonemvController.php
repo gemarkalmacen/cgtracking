@@ -22,7 +22,7 @@ class NonemvController extends Controller
 
     public function index()
     {
-        return view('staff.granteelists.index');
+        return view('staff.nonemv.index');
     }
 
     public function import(Request $request)
