@@ -35,4 +35,8 @@ Route::group(['prefix' => 'ajax', 'namespace' => 'Ajax'], function () {
     Route::group(['prefix' => 'overpayment', 'namespace' => 'Overpayment'], function () {
         Route::post('listing', 'OverpaymentController@listing')->name('staff.ajax.overpayment.listing');
     });
+
+    Route::group(['prefix' => 'nonemv', 'namespace' => 'Nonemv'], function () {
+        Route::post('listing', 'NonemvController@listing')->name('staff.ajax.nonemv.listing');
+    });
 });
