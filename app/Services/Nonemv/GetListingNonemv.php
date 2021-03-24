@@ -3,94 +3,113 @@ namespace App\Services\Nonemv;
 
 use Ccore\Core\Datatable;
 use Illuminate\Support\Facades\DB;
-use App\Models\Granteelist;
+use App\Models\Nonemv;
 use App\Models\Role;
 
 class GetListingNonemv
 {
     public function execute()
     {
-        dd('./.');
-        // $query = Granteelist::select(['*']);
+        $query = Nonemv::select(['*']);
+        
+        $result = Datatable::of($query, request(), [
+            'searchable' => [
+                'id',
+                'row_id',
+                'card_number',
+                'last_name',
+                'first_name',
+                'middle_name',
+                'naa_address',
+                'cif_permanent_address',
+                'cif_present_address',
+                'nationality_cif_tel_no',
+                'entry_number',
+                'household_number',
+                'birthday',
+                'balance_as_of',
+                'account_balance',
+                'hh_id',
+                'region',
+                'province',
+                'municipality',
+                'barangay',
+                'hh_first_name',
+                'hh_middle_name',
+                'hh_last_name',
+                'hh_ext_name',
+                'hh_birthdate',
+                'entry_id',
+                'mothers_maiden_name',
+                'client_status',
+                'payment_mode',
+                'hh_set',
+                'set_group',
+                'hh_card_number',
+                'kyc_remarks',
+                'account_number_remarks',
+                'age_bracket',
+                'amount_bracket',
+                'nma_remarks',
+                'nma_remarks_reason',
+                'nma_recommended_action',
+                'upload_history_id',
+                'created_at',
+                'updated_at',
+            ],
+            'orderable' => [
+                'id',
+                'row_id',
+                'card_number',
+                'last_name',
+                'first_name',
+                'middle_name',
+                'naa_address',
+                'cif_permanent_address',
+                'cif_present_address',
+                'nationality_cif_tel_no',
+                'entry_number',
+                'household_number',
+                'birthday',
+                'balance_as_of',
+                'account_balance',
+                'hh_id',
+                'region',
+                'province',
+                'municipality',
+                'barangay',
+                'hh_first_name',
+                'hh_middle_name',
+                'hh_last_name',
+                'hh_ext_name',
+                'hh_birthdate',
+                'entry_id',
+                'mothers_maiden_name',
+                'client_status',
+                'payment_mode',
+                'hh_set',
+                'set_group',
+                'hh_card_number',
+                'kyc_remarks',
+                'account_number_remarks',
+                'age_bracket',
+                'amount_bracket',
+                'nma_remarks',
+                'nma_remarks_reason',
+                'nma_recommended_action',
+                'upload_history_id',
+                'created_at',
+                'updated_at',
+            ]
+        ]);
 
-        // $result = Datatable::of($query, request(), [
-        //     'searchable' => [
-        //         'region',
-        //         'province',
-        //         'municipality',
-        //         'barangay',
-        //         'purok',
-        //         'address',
-        //         'hh_id',
-        //         'entryid',
-        //         'lastname',
-        //         'firstname',
-        //         'middlename',
-        //         'extensionname',
-        //         'birthday',
-        //         'age',
-        //         'clientstatus',
-        //         'member_status',
-        //         'registrationstatus',
-        //         'sex',
-        //         'relationship_to_hh_head',
-        //         'ipaffiliation',
-        //         'hh_set',
-        //         'group',
-        //         'mothers_maiden',
-        //         'date_of_enumeration',
-        //         'lbp_account_number',
-        //         'mode_of_payment',
-        //         'date_tagged_hhstatus',
-        //         'tagged_by',
-        //         'date_registered',
-        //         'created_at',
-        //         'updated_at',
-        //         'upload_history_id',
-        //     ],
-        //     'orderable' => [
-        //         'region',
-        //         'province',
-        //         'municipality',
-        //         'barangay',
-        //         'purok',
-        //         'address',
-        //         'hh_id',
-        //         'entryid',
-        //         'lastname',
-        //         'firstname',
-        //         'middlename',
-        //         'extensionname',
-        //         'birthday',
-        //         'age',
-        //         'clientstatus',
-        //         'member_status',
-        //         'registrationstatus',
-        //         'sex',
-        //         'relationship_to_hh_head',
-        //         'ipaffiliation',
-        //         'hh_set',
-        //         'group',
-        //         'mothers_maiden',
-        //         'date_of_enumeration',
-        //         'lbp_account_number',
-        //         'mode_of_payment',
-        //         'date_tagged_hhstatus',
-        //         'tagged_by',
-        //         'date_registered',
-        //         'created_at',
-        //         'updated_at',
-        //         'upload_history_id',
-        //     ]
-        // ]);
+        $records = $result['query']->get();
 
-        // $records = $result['query']->get();
-
-        // return [
-        //     'data' => $records,
-        //     'draw' => intval(request()->draw),
-        //     'recordsTotal' => $result['total'],
-        //     'recordsFiltered' => $result['total']
-        // ];
+        return [
+            'data' => $records,
+            'draw' => intval(request()->draw),
+            'recordsTotal' => $result['total'],
+            'recordsFiltered' => $result['total']
+        ];
     }
 }
