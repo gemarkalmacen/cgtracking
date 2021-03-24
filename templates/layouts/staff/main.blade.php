@@ -358,7 +358,15 @@ License: You must have a valid license purchased only from themeforest(the above
                                             <span class="menu-icon">
                                                 <i class="fas fa-user-tag"></i>
                                             </span>
-                                        <span class="menu-text">{{ __('staff/navigations.reference-grantee_list') }}</span>
+                                        <span class="menu-text">{{ __('staff/navigations.reference-grantee_list_archived') }}</span>
+                                        </a>
+                                    </li>
+                                    <li class="menu-item" aria-haspopup="true">
+                                        <a href="{{ route('staff.archivednonemv.index') }}" class="menu-link">
+                                            <span class="menu-icon">
+                                                <i class="fas fa-user-tag"></i>
+                                            </span>
+                                        <span class="menu-text">{{ __('staff/navigations.reference-aging_non_emv_archived') }}</span>
                                         </a>
                                     </li>
                                     <li class="menu-section">

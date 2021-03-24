@@ -39,4 +39,8 @@ Route::group(['prefix' => 'ajax', 'namespace' => 'Ajax'], function () {
     Route::group(['prefix' => 'nonemv', 'namespace' => 'Nonemv'], function () {
         Route::post('listing', 'NonemvController@listing')->name('staff.ajax.nonemv.listing');
     });
+
+    Route::group(['prefix' => 'archivednonemv', 'namespace' => 'Archivednonemv'], function () {
+        Route::post('listing', 'ArchivednonemvController@listing')->name('staff.ajax.archivednonemv.listing');
+    });
 });

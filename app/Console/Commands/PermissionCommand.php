@@ -40,6 +40,7 @@ class PermissionCommand extends Command
         'archivedgranteelists',
         'overpayment',
         'nonemv',
+        'archivednonemv',
     ];
 
     /**

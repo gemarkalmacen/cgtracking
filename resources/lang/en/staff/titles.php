@@ -28,6 +28,9 @@ return [
 
     // archived granteelist
     'archived-grantee_list' => 'Archived Grantee List',
+
+    // archived non_emv
+    'archived-non_emv' => 'Archived Non Emv',
     
     // emv database
     'reference-emv_database' => 'Emv Database',
