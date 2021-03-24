@@ -156,28 +156,26 @@ class CsvFileImporter
                     $data = $nonemv->execute($file_path,$this->_generated_file_name, $this->_original_file_name);
                     $data_total_count = \DB::table('non_emv')->count();
                     if($data_total_count > 0){
-                        // $query_copy = DB::statement('
-                        //     INSERT INTO 
-                        //         archive_non_emv(id, region, province, municipality, barangay, purok, `address`, hh_id, entryid, lastname, firstname, middlename, extensionname, birthday, age, clientstatus, member_status, registrationstatus, sex, relationship_to_hh_head, ipaffiliation, hh_set, `group`, mothers_maiden, date_of_enumeration, lbp_account_number, mode_of_payment, date_tagged_hhstatus, tagged_by, date_registered, created_at, updated_at, upload_history_id, archive_date, user_id)
-                        //     SELECT 
-                        //         id, region, province, municipality, barangay, purok, `address`, hh_id, entryid, lastname, firstname, middlename, extensionname, birthday, age, clientstatus, member_status, registrationstatus, sex, relationship_to_hh_head, ipaffiliation, hh_set, `group`, mothers_maiden, date_of_enumeration, lbp_account_number, mode_of_payment, date_tagged_hhstatus, tagged_by, date_registered, created_at, updated_at, upload_history_id, CURRENT_TIMESTAMP, '.Auth::id().'
-                        //     FROM 
-                        //         non_emv');
-                        // if($query_copy==TRUE){
-                        //     $query_delete = DB::table('non_emv')->delete();
-                        //     if(!$query_delete){
-                        //         throw new \ErrorException('Non-Emv failed to Archived!');
-                        //     }
-                        // } else {
-                        //     throw new \ErrorException('Non-Emv failed to Archived!');
-                        // }
-                    }
+                        $query_copy = DB::statement('
+                            INSERT INTO 
+                                archive_non_emv(id, row_id, card_number, last_name, first_name, middle_name, naa_address, cif_permanent_address, cif_present_address, nationality_cif_tel_no, entry_number, household_number, birthday, balance_as_of, account_balance, hh_id, region, province, municipality, barangay, hh_first_name, hh_middle_name, hh_last_name, hh_ext_name, hh_birthdate, entry_id, mothers_maiden_name, client_status, payment_mode, hh_set, set_group, hh_card_number, kyc_remarks, account_number_remarks, age_bracket, amount_bracket, nma_remarks, nma_remarks_reason, nma_recommended_action, upload_history_id, created_at, updated_at, archive_date, user_id)
+                            SELECT 
+                                id, row_id, card_number, last_name, first_name, middle_name, naa_address, cif_permanent_address, cif_present_address, nationality_cif_tel_no, entry_number, household_number, birthday, balance_as_of, account_balance, hh_id, region, province, municipality, barangay, hh_first_name, hh_middle_name, hh_last_name, hh_ext_name, hh_birthdate, entry_id, mothers_maiden_name, client_status, payment_mode, hh_set, set_group, hh_card_number, kyc_remarks, account_number_remarks, age_bracket, amount_bracket, nma_remarks, nma_remarks_reason, nma_recommended_action, upload_history_id, created_at, updated_at, CURRENT_TIMESTAMP, '.Auth::id().'
+                            FROM 
+                                non_emv');
 
+                        if($query_copy==TRUE){
+                            $query_delete = DB::table('non_emv')->delete();
+                            if(!$query_delete){
+                                throw new \ErrorException('Non-Emv failed to Archived!');
+                            }
+                        } else {
+                            throw new \ErrorException('Non-Emv failed to Archived!');
+                        }
+                    }
                     $data = DB::connection()->getpdo()->exec($data);
-                    // $fixed_invalid_date_registered = DB::statement("UPDATE grantee_lists SET date_registered=NULL WHERE '0000-00-00' = DATE_FORMAT(date_registered,'%Y-%m-%d')");
-                    // $fixed_invalid_date_tagged_hhstatus = DB::statement("UPDATE grantee_lists SET date_tagged_hhstatus=NULL WHERE '0000-00-00' = DATE_FORMAT(date_tagged_hhstatus,'%Y-%m-%d')");
-                    // $fixed_invalid_date_of_enumeration = DB::statement("UPDATE grantee_lists SET date_of_enumeration=NULL WHERE '0000-00-00' = DATE_FORMAT(date_of_enumeration,'%Y-%m-%d')");
-                    // $fixed_invalid_birthday = DB::statement("UPDATE grantee_lists SET birthday=NULL WHERE '0000-00-00' = DATE_FORMAT(birthday,'%Y-%m-%d')");
+                    $fixed_invalid_hh_birthdate = DB::statement("UPDATE non_emv SET hh_birthdate=NULL WHERE '0000-00-00' = DATE_FORMAT(hh_birthdate,'%Y-%m-%d')");
+                    $fixed_invalid_birthday = DB::statement("UPDATE non_emv SET birthday=NULL WHERE '0000-00-00' = DATE_FORMAT(birthday,'%Y-%m-%d')");
                     break;
                 default:
                     throw new \ErrorException('Import file contents failure!');
