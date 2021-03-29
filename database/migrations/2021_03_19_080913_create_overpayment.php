@@ -28,7 +28,7 @@ class CreateOverpayment extends Migration
             $table->date('date_claimed')->nullable();
             $table->string('account_status')->nullable();
             $table->string('account_balance')->nullable();
-            $table->string('date_acted_by_lbp')->nullable();
+            $table->date('date_acted_by_lbp')->nullable();
             $table->string('ref_no')->nullable();
             $table->string('account_status_remarks')->nullable();
             $table->string('mc_no')->nullable();
