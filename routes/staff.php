@@ -177,4 +177,19 @@ Route::group(['prefix' => 'staff-panel', 'namespace' => 'Staff'], function () {
         ]);
     });
 
+    Route::group(['namespace' => 'Uploadhistory'], function () {
+        Route::resource('uploadhistory', "UploadhistoryController", [
+            'names' => [
+                'index' => "staff.uploadhistory.index",
+                'create' => "staff.uploadhistory.create",
+                'store' => "staff.uploadhistory.store",
+                'show' => "staff.uploadhistory.show",
+                'edit' => "staff.u ploadhistory.edit",
+                'update' => "staff.uploadhistory.update",
+                'destroy' => "staff.uploadhistory.destroy",
+            ]
+        ]);
+        Route::post('uploadhistoryload','UploadhistoryController@load')->name('staff.uploadhistory.uploadhistoryload');
+    });
+
 });

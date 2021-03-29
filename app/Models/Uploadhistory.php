@@ -8,6 +8,8 @@ use Ccore\Core\Traits\ExtendedEloquentTrait;
 
 class Uploadhistory extends Model
 {
+    use ExtendedEloquentTrait;
+    use WithPaginate;
     /**
      * Database table name
      */

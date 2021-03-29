@@ -295,4 +295,12 @@ return [
     'archived_non_emv_updated_at' => 'Updated At',
     'archived_non_emv_archive_date' => 'Archive Date',
     'archived_non_emv_user_id' => 'User ID',
+
+    // Transaction Logs
+    'upload_history_system_file_name' => 'System file name',
+    'upload_history_old_file_name' => 'Old file name',
+    'upload_history_uploaded_date' => 'Uploaded date',
+    'upload_history_uploaded_by_user' => 'Uploaded by',
+    'upload_history_uploaded_by' => 'Uploaded by',
+
 ];

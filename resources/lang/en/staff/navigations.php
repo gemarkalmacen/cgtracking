@@ -30,4 +30,6 @@ return [
     'reference-otc_payroll' => 'OTC Payroll',
     'reference-otc_payroll_import' => 'Import',
     'reference-otc_payroll_index' => 'List',
+    'transaction' => 'Transaction',
+    'reference-upload_history' => 'Upload History',
 ];

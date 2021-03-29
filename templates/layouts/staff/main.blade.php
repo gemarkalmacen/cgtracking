@@ -369,6 +369,21 @@ License: You must have a valid license purchased only from themeforest(the above
                                         <span class="menu-text">{{ __('staff/navigations.reference-aging_non_emv_archived') }}</span>
                                         </a>
                                     </li>
+
+                                    <li class="menu-section">
+                                        <h4 class="menu-text">{{ __('staff/navigations.transaction') }} {{ __('staff/titles.logs') }}</h4>
+                                        <i class="menu-icon ki ki-bold-more-hor icon-md"></i>
+                                    </li>
+                                    <li class="menu-item" aria-haspopup="true">
+                                        <a href="{{ route('staff.uploadhistory.index') }}" class="menu-link">
+                                            <span class="menu-icon">
+                                                <i class="fas fa-cloud-upload-alt"></i>
+                                            </span>
+                                        <span class="menu-text">{{ __('staff/navigations.reference-upload_history') }}</span>
+                                        </a>
+                                    </li>
+                                    
+                                    
                                     <li class="menu-section">
                                         <h4 class="menu-text">{{ __('staff/navigations.configuration') }}</h4>
                                         <i class="menu-icon ki ki-bold-more-hor icon-md"></i>

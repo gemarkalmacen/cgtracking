@@ -41,6 +41,7 @@ class PermissionCommand extends Command
         'overpayment',
         'nonemv',
         'archivednonemv',
+        'uploadhistory',
     ];
 
     /**
