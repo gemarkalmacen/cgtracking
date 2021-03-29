@@ -70,6 +70,8 @@ module.exports = function(data) {
                             },
                             {
                                 targets: [5],
+                                orderable:false,
+                                searchable: false,
                                 render: function(data) {
                                    var element = data;
                                     return element;
