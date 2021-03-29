@@ -169,4 +169,12 @@ Route::group(['prefix' => 'staff-panel', 'namespace' => 'Staff'], function () {
         ]);
     });
 
+    Route::group(['namespace' => 'Archivednonemv'], function () {
+        Route::resource('archivednonemv', "ArchivednonemvController", [
+            'names' => [
+                'index' => "staff.archivednonemv.index",
+            ]
+        ]);
+    });
+
 });
