@@ -64,12 +64,6 @@ Route::group(['prefix' => 'staff-panel', 'namespace' => 'Staff'], function () {
         Route::resource('granteelists', "GranteelistController", [
             'names' => [
                 'index' => "staff.granteelists.index",
-                'create' => "staff.granteelists.create",
-                'store' => "staff.granteelists.store",
-                'show' => "staff.granteelists.show",
-                'edit' => "staff.granteelists.edit",
-                'update' => "staff.granteelists.update",
-                'destroy' => "staff.granteelists.destroy",
             ]
         ]);
 
@@ -81,12 +75,6 @@ Route::group(['prefix' => 'staff-panel', 'namespace' => 'Staff'], function () {
         Route::resource('emvdatabase', "EmvdatabaseController", [
             'names' => [
                 'index' => "staff.emvdatabase.index",
-                'create' => "staff.emvdatabase.create",
-                'store' => "staff.emvdatabase.store",
-                'show' => "staff.emvdatabase.show",
-                'edit' => "staff.emvdatabase.edit",
-                'update' => "staff.emvdatabase.update",
-                'destroy' => "staff.emvdatabase.destroy",
             ]
         ]);
 
@@ -98,12 +86,6 @@ Route::group(['prefix' => 'staff-panel', 'namespace' => 'Staff'], function () {
         Route::resource('emvpayroll', "EmvpayrollController", [
             'names' => [
                 'index' => "staff.emvpayroll.index",
-                'create' => "staff.emvpayroll.create",
-                'store' => "staff.emvpayroll.store",
-                'show' => "staff.emvpayroll.show",
-                'edit' => "staff.emvpayroll.edit",
-                'update' => "staff.emvpayroll.update",
-                'destroy' => "staff.emvpayroll.destroy",
             ]
         ]);
 
@@ -114,12 +96,6 @@ Route::group(['prefix' => 'staff-panel', 'namespace' => 'Staff'], function () {
         Route::resource('otcpayroll', "OtcpayrollController", [
             'names' => [
                 'index' => "staff.otcpayroll.index",
-                'create' => "staff.otcpayroll.create",
-                'store' => "staff.otcpayroll.store",
-                'show' => "staff.otcpayroll.show",
-                'edit' => "staff.otcpayroll.edit",
-                'update' => "staff.otcpayroll.update",
-                'destroy' => "staff.otcpayroll.destroy",
             ]
         ]);
 
@@ -131,12 +107,6 @@ Route::group(['prefix' => 'staff-panel', 'namespace' => 'Staff'], function () {
         Route::resource('overpayment', "OverpaymentController", [
             'names' => [
                 'index' => "staff.overpayment.index",
-                'create' => "staff.overpayment.create",
-                'store' => "staff.overpayment.store",
-                'show' => "staff.overpayment.show",
-                'edit' => "staff.overpayment.edit",
-                'update' => "staff.overpayment.update",
-                'destroy' => "staff.overpayment.destroy",
             ]
         ]);
 
@@ -148,12 +118,6 @@ Route::group(['prefix' => 'staff-panel', 'namespace' => 'Staff'], function () {
         Route::resource('nonemv', "NonemvController", [
             'names' => [
                 'index' => "staff.nonemv.index",
-                'create' => "staff.nonemv.create",
-                'store' => "staff.nonemv.store",
-                'show' => "staff.nonemv.show",
-                'edit' => "staff.nonemv.edit",
-                'update' => "staff.nonemv.update",
-                'destroy' => "staff.nonemv.destroy",
             ]
         ]);
 
@@ -181,12 +145,6 @@ Route::group(['prefix' => 'staff-panel', 'namespace' => 'Staff'], function () {
         Route::resource('uploadhistory', "UploadhistoryController", [
             'names' => [
                 'index' => "staff.uploadhistory.index",
-                'create' => "staff.uploadhistory.create",
-                'store' => "staff.uploadhistory.store",
-                'show' => "staff.uploadhistory.show",
-                'edit' => "staff.u ploadhistory.edit",
-                'update' => "staff.uploadhistory.update",
-                'destroy' => "staff.uploadhistory.destroy",
             ]
         ]);
         Route::post('uploadhistoryload','UploadhistoryController@load')->name('staff.uploadhistory.uploadhistoryload');

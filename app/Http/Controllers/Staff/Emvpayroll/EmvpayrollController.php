@@ -20,10 +20,6 @@ class EmvpayrollController extends Controller
         parent::__construct();
         // permissions
         $this->middleware('permission:emvpayroll-list', ['only' => ['index']]);
-        $this->middleware('permission:emvpayroll-create', ['only' => ['create', 'store']]);
-        $this->middleware('permission:emvpayroll-edit', ['only' => ['edit', 'update']]);
-        $this->middleware('permission:emvpayroll-delete', ['only' => ['destroy']]);
-        $this->middleware('permission:emvpayroll-view', ['only' => ['show']]);
     }
 
     /**

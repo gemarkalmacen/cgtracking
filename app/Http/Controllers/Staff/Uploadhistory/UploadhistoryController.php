@@ -16,10 +16,6 @@ class UploadhistoryController extends Controller
     {
         parent::__construct();
         $this->middleware('permission:uploadhistory-list', ['only' => ['index']]);
-        $this->middleware('permission:uploadhistory-create', ['only' => ['create', 'store']]);
-        $this->middleware('permission:uploadhistory-edit', ['only' => ['edit', 'update']]);
-        $this->middleware('permission:uploadhistory-delete', ['only' => ['destroy']]);
-        $this->middleware('permission:uploadhistory-view', ['only' => ['show']]);
     }
 
     public function index()
