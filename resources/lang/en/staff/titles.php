@@ -52,4 +52,8 @@ return [
     // aging - non-emv
     'reference-nonemv' => 'Non EMV',
     'reference-nonemv-import' => 'Import - Non Emv',
+
+    // Transaction logs
+    'reference-uploadhistory' => 'Upload History',
+    'logs' => 'Logs',
 ];
