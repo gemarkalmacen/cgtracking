@@ -41,7 +41,7 @@
                             <th style="width: 1000px; ">{{ __('staff/tables.upload_history_system_file_name') }}</th>
                             <th>{{ __('staff/tables.upload_history_old_file_name') }}</th>
                             <th>{{ __('staff/tables.upload_history_uploaded_date') }}</th>
-                            <th>{{ __('staff/tables.upload_history_uploaded_by_user') }}</th>
+                            <th>{{ __('staff/tables.upload_history_username') }}</th>
                             <th>{{ __('staff/tables.upload_history_uploaded_by') }}</th>
                         </tr>
                     </thead>
