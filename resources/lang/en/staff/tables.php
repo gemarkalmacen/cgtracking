@@ -298,6 +298,7 @@ return [
 
     // Transaction Logs
     'upload_history_system_file_name' => 'System file name',
+    'upload_history_table_source' => 'Table source',
     'upload_history_old_file_name' => 'Old file name',
     'upload_history_uploaded_date' => 'Uploaded date',
     'upload_history_username' => 'Username',
