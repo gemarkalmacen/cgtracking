@@ -18,11 +18,8 @@ class GetListingUploadhistory
     {
         $query = Uploadhistory::join('users_details', 'upload_history.user_id', '=', 'users_details.user_id')
         ->join('users', 'upload_history.user_id', '=', 'users.id')
-        ->select(['upload_history.*','users.username',DB::raw(' DATE_FORMAT(upload_history.created_at, "%Y-%m-%d-%h:%i %p") AS created_date'),DB::raw('CONCAT(users_details.first_name," - ",users_details.last_name) AS fullname')
+        ->select(['upload_history.*','users.username',DB::raw(' DATE_FORMAT(upload_history.created_at, "%Y-%m-%d-%h:%i %p") AS created_date'),DB::raw('CONCAT(users_details.first_name," - ",users_details.last_name) AS fullname')]);
         
-        ]);
-
- 
         $result = Datatable::of($query, request(), [
             'searchable' => [
                 'file_name',
