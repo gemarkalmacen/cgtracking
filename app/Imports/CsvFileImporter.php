@@ -58,7 +58,8 @@ class CsvFileImporter
 
         $this->_original_file_name = $original_file_name;
         $extension = $newstring = substr($original_file_name, -3);
-        $fileName = Carbon::now()->toDateString() . '-' . mt_rand(00000000, 99999999) . '.' . $extension;
+        $convertion = date("H-i-s-A",time());
+        $fileName = Carbon::now()->toDateString() . '-' . $convertion . '.' . $extension;
         $this->_generated_file_name = $fileName;
 
         // Return moved file as File object
