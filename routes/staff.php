@@ -152,7 +152,7 @@ Route::group(['prefix' => 'staff-panel', 'namespace' => 'Staff'], function () {
                 'store' => "staff.nonemv.store",
                 'show' => "staff.nonemv.show",
                 'edit' => "staff.nonemv.edit",
-                'update' => "staff.nonemv.update",
+                'update' => "staff.nonemv.update", 
                 'destroy' => "staff.nonemv.destroy",
             ]
         ]);
