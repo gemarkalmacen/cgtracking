@@ -4,6 +4,9 @@ window.Vue = require('vue');
 var { i18n } = require('./i18n')
 require('./prototype');
 require('./mixin');
+
+import Loading from 'vue-loading-overlay';
+import 'vue-loading-overlay/dist/vue-loading.css';
 // dataset
 const root = document.getElementById('app')
 const dataset = root.dataset;
@@ -18,7 +21,9 @@ Vue.component('select2', require('^resources/js/staff/components/select2').defau
 Vue.component('v-switch', require('^resources/js/staff/components/v-switch').default);
 Vue.component('mobile', require('^resources/js/staff/components/mobile').default);
 // Vue.component('ktimageinput', require('^resources/js/staff/components/ktimageinput').default);
+Vue.component('loading', Loading);
 Vue.component('v-datetimepicker', require('^resources/js/staff/components/v-datetimepicker').default);
+
 // Vue instance
 var _defaultConfig = {
     el: '#app',
