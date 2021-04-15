@@ -16,6 +16,7 @@ module.exports = function(data) {
                 $(document).ready(function() {
                     vm.$toaster.init();                   
                 });
+                
             },
             loadingEvent(){
                 this.isLoading= true;
