@@ -1,5 +1,6 @@
 <div class="vld-parent">
     <loading 
+        loader="bars"   
         :active.sync="isLoading" 
         :can-cancel="false" 
         :is-full-page="fullPage">

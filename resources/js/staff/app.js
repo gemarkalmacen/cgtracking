@@ -5,6 +5,8 @@ var { i18n } = require('./i18n')
 require('./prototype');
 require('./mixin');
 
+import Vue from 'vue';
+
 import Loading from 'vue-loading-overlay';
 import 'vue-loading-overlay/dist/vue-loading.css';
 // dataset

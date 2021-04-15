@@ -1,7 +1,7 @@
 // script for emvdatabase
 module.exports = function(data) {
     var _data = {
-        config: null, 
+        config: null,     
         isLoading: false,
         fullPage: true   
     };
@@ -22,7 +22,7 @@ module.exports = function(data) {
             },
             onCancel() {
                 this.loading= false;
-            }
+              }
         },
         
     }
