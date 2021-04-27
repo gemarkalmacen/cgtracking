@@ -29,6 +29,7 @@ module.exports = function(data) {
                         columns: [
                             {data: 'id'},
                             {data: 'file_name'},
+                            {data: 'table_source'},
                             {data: 'old_file_name'},
                             {data: 'created_date'},
                             {data: 'username'},
@@ -70,6 +71,13 @@ module.exports = function(data) {
                             },
                             {
                                 targets: [5],
+                                render: function(data) {
+                                   var element = data;
+                                    return element;
+                                }
+                            },
+                            {
+                                targets: [6],
                                 orderable:false,
                                 searchable: false,
                                 render: function(data) {
@@ -81,7 +89,6 @@ module.exports = function(data) {
                     },
                     url: {
                         list: vm.$route('staff.ajax.uploadhistory.listing'),
-                        // delete: 'staff.users.destroy'
                     },
                     notifications: {
                         delete: vm.$t('staff/notifications.otcpayroll_deleted_successfully')
