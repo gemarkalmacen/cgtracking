@@ -1,7 +1,9 @@
 // script for otcpayroll
 module.exports = function(data) {
     var _data = {
-        config: null,        
+        config: null,
+        isLoading: false,
+        fullPage: true         
     };
     return {
         data: (() => Object.assign({}, JSON.parse(data), _data)),
@@ -14,7 +16,14 @@ module.exports = function(data) {
                 $(document).ready(function() {
                     vm.$toaster.init();                   
                 });
+                
             },
+            loadingEvent(){
+                this.isLoading= true;
+            },
+            onCancel() {
+                this.loading= false;
+            }
         },
     }
 };
