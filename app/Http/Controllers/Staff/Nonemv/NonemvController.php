@@ -17,7 +17,6 @@ class NonemvController extends Controller
     {
         parent::__construct();
         $this->middleware('permission:nonemv-list', ['only' => ['index']]);
-        $this->middleware('permission:nonemv-create', ['only' => ['create', 'store']]);
     }
 
     public function index()

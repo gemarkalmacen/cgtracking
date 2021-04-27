@@ -19,10 +19,6 @@ class OverpaymentController extends Controller
     {
         parent::__construct();
         $this->middleware('permission:overpayment-list', ['only' => ['index']]);
-        $this->middleware('permission:overpayment-create', ['only' => ['create', 'store']]);
-        $this->middleware('permission:overpayment-edit', ['only' => ['edit', 'update']]);
-        $this->middleware('permission:overpayment-delete', ['only' => ['destroy']]);
-        $this->middleware('permission:overpayment-view', ['only' => ['show']]);
     }
 
     public function index()

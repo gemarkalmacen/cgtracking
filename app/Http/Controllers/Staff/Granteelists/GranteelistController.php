@@ -20,10 +20,6 @@ class GranteelistController extends Controller
         parent::__construct();
         // permissions
         $this->middleware('permission:granteelists-list', ['only' => ['index']]);
-        $this->middleware('permission:granteelists-create', ['only' => ['create', 'store']]);
-        $this->middleware('permission:granteelists-edit', ['only' => ['edit', 'update']]);
-        $this->middleware('permission:granteelists-delete', ['only' => ['destroy']]);
-        $this->middleware('permission:granteelists-view', ['only' => ['show']]);
     }
 
     /**

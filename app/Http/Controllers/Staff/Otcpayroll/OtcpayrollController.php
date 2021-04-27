@@ -16,10 +16,6 @@ class OtcpayrollController extends Controller
     {
         parent::__construct();
         $this->middleware('permission:otcpayroll-list', ['only' => ['index']]);
-        $this->middleware('permission:otcpayroll-create', ['only' => ['create', 'store']]);
-        $this->middleware('permission:otcpayroll-edit', ['only' => ['edit', 'update']]);
-        $this->middleware('permission:otcpayroll-delete', ['only' => ['destroy']]);
-        $this->middleware('permission:otcpayroll-view', ['only' => ['show']]);
     }
 
     public function index()

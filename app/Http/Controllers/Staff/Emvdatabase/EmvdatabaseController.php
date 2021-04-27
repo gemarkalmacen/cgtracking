@@ -16,15 +16,10 @@ class EmvdatabaseController extends Controller
     {
         parent::__construct();
         $this->middleware('permission:emvdatabase-list', ['only' => ['index']]);
-        $this->middleware('permission:emvdatabase-create', ['only' => ['create', 'store']]);
-        $this->middleware('permission:emvdatabase-edit', ['only' => ['edit', 'update']]);
-        $this->middleware('permission:emvdatabase-delete', ['only' => ['destroy']]);
-        $this->middleware('permission:emvdatabase-view', ['only' => ['show']]);
     }
 
     public function index()
     {
-        
         return view('staff.emvdatabase.index');
     }
 
