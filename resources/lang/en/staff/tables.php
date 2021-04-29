@@ -301,7 +301,7 @@ return [
     'upload_history_table_source' => 'Table source',
     'upload_history_old_file_name' => 'Old file name',
     'upload_history_uploaded_date' => 'Uploaded date',
-    'upload_history_username' => 'Username',
-    'upload_history_uploaded_by' => 'Uploaded by',
+    'upload_history_username_by_username' => 'Uploaded by - Username',
+    'upload_history_uploaded_by_name' => 'Uploaded by - Name',
 
 ];
