@@ -53,6 +53,9 @@ return [
     'reference-nonemv' => 'Non EMV',
     'reference-nonemv-import' => 'Import - Non Emv',
 
+    // transaction
+    'transactions' => 'Transactions',
+    
     // Transaction logs
     'reference-uploadhistory' => 'Upload History',
     'logs' => 'Logs',

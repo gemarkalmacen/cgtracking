@@ -32,4 +32,5 @@ return [
     'reference-otc_payroll_index' => 'List',
     'transaction' => 'Transaction',
     'reference-upload_history' => 'Upload History',
+    'reference-inquiry' => 'Inquiry',
 ];
