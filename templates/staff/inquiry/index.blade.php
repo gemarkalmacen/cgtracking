@@ -7,12 +7,6 @@
 @endsection
 
 @section('content')
-    <!-- <div class="card card-custom">
-        <div class="row">
-            
-        </div>
-    </div> -->
-
     <!--Begin::Card-->
     <div class="card card-custom gutter-b">
         <!--Begin::Body-->
@@ -342,7 +336,7 @@
                             <div class="timeline-items">
                                 <div class="timeline-item">
                                     <div class="timeline-media">
-                                        <img alt="Pic" src="assets/media/users/300_25.jpg" />
+                                        <img alt="Pic" src="{{ url('staff/assets/media/users/300_25.jpg') }}" />
                                     </div>
                                     <div class="timeline-content">
                                         <div class="d-flex align-items-center justify-content-between mb-3">
