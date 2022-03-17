@@ -532,7 +532,21 @@ License: You must have a valid license purchased only from themeforest(the above
                                     <!--begin::Info-->
                                     <div class="d-flex align-items-center flex-wrap mr-2">
                                         <!--begin::Actions-->
-
+                                        <!--begin::Title-->
+                                        <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5"><?= empty($breadcrumbs_main) ? NULL : $breadcrumbs_main ?></h5>
+                                        <!--end::Title-->
+                                        <?php 
+                                        if( !empty($breadcrumbs_main) || !empty($breadcrumbs_sub) ){ ?>
+                                        <!--begin::Separator-->
+                                        <div class="subheader-separator subheader-separator-ver mt-2 mb-2 mr-5 bg-gray-200"></div>
+                                        <!--end::Separator-->
+                                        <?php
+                                        } ?>
+                                        <!--begin::Search Form-->
+                                        <div class="d-flex align-items-center" id="kt_subheader_search">
+                                            <span class="text-dark-50 font-weight-bold" id="kt_subheader_total"><?= empty($breadcrumbs_details) ? NULL : $breadcrumbs_details ?></span>
+                                        </div>
+                                        <!--end::Search Form-->
                                         <!--end::Actions-->
                                     </div>
                                     <!--end::Info-->

@@ -16,6 +16,8 @@ class InquiryController extends Controller
 
     public function index()
     {
-        return view('staff.inquiry.index');
+        $breadcrumbs_main = 'Inquiry';
+        $breadcrumbs_details = 'Search Beneficiary Details';
+        return view('staff.inquiry.index',compact('breadcrumbs_main', 'breadcrumbs_details'));
     }
 }
