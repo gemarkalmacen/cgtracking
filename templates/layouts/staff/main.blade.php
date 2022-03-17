@@ -164,7 +164,6 @@ License: You must have a valid license purchased only from themeforest(the above
                                     <li class="menu-item" aria-haspopup="true">
                                         <a href="{{ route('staff.uploadhistory.index') }}" class="menu-link">
                                             <span class="menu-icon">
-                                                <!-- <i class="fas fa-cloud-upload-alt"></i> -->
                                                 <i class="fa fa-question-circle"></i>
                                             </span>
                                         <span class="menu-text">{{ __('staff/navigations.reference-inquiry') }}</span>

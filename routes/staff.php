@@ -150,4 +150,12 @@ Route::group(['prefix' => 'staff-panel', 'namespace' => 'Staff'], function () {
         Route::post('uploadhistoryload','UploadhistoryController@load')->name('staff.uploadhistory.uploadhistoryload');
     });
 
+    Route::group(['namespace' => 'Inquiry'], function () {
+        Route::resource('inquiry', "InquiryController", [
+            'names' => [
+                'index' => "staff.inquiry.index",
+            ]
+        ]);
+    });
+
 });

@@ -42,6 +42,7 @@ class PermissionCommand extends Command
         'nonemv',
         'archivednonemv',
         'uploadhistory',
+        'inquiry',
     ];
 
     /**
