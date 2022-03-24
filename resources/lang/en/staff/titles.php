@@ -58,5 +58,8 @@ return [
     
     // Transaction logs
     'reference-uploadhistory' => 'Upload History',
+
+    'inquiry' => 'Inquiry',
+
     'logs' => 'Logs',
 ];

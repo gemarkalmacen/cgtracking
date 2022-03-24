@@ -162,7 +162,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                         <i class="menu-icon ki ki-bold-more-hor icon-md"></i>
                                     </li>
                                     <li class="menu-item" aria-haspopup="true">
-                                        <a href="{{ route('staff.uploadhistory.index') }}" class="menu-link">
+                                        <a href="{{ route('staff.inquiry.index') }}" class="menu-link">
                                             <span class="menu-icon">
                                                 <i class="fa fa-question-circle"></i>
                                             </span>

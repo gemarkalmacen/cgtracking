@@ -1,7 +1,7 @@
 {{-- Send data to layout defining the current page and data  --}}
-@extends('layouts.staff.main', ['page' => 'uploadhistory/index', 'data' => []]) 
+@extends('layouts.staff.main', ['page' => 'inquiry/index', 'data' => []]) 
 
-@section('title', __('staff/titles.reference-uploadhistory'))
+@section('title', __('staff/titles.inquiry'))
 
 @section('plugin_css')
 @endsection
@@ -237,7 +237,7 @@
                                     <!--end::Svg Icon-->
                                 </span>
                             </span>
-                            <span class="nav-text font-weight-bold">Personal</span>
+                            <span class="nav-text font-weight-bold">Magstripe</span>
                         </a>
                     </li>
                     <li class="nav-item mr-3">
@@ -255,7 +255,7 @@
                                     <!--end::Svg Icon-->
                                 </span>
                             </span>
-                            <span class="nav-text font-weight-bold">Account</span>
+                            <span class="nav-text font-weight-bold">EMV (Unmatched)</span>
                         </a>
                     </li>
                     <li class="nav-item mr-3">
@@ -273,7 +273,7 @@
                                     <!--end::Svg Icon-->
                                 </span>
                             </span>
-                            <span class="nav-text font-weight-bold">Settings</span>
+                            <span class="nav-text font-weight-bold">EMV (Matched)</span>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -291,7 +291,25 @@
                                     <!--end::Svg Icon-->
                                 </span>
                             </span>
-                            <span class="nav-text font-weight-bold">Notes</span>
+                            <span class="nav-text font-weight-bold">HH Status</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#kt_apps_contacts_view_tab_1">
+                            <span class="nav-icon mr-2">
+                                <span class="svg-icon mr-3">
+                                    <!--begin::Svg Icon | path:assets/media/svg/icons/General/Notification2.svg-->
+                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                            <rect x="0" y="0" width="24" height="24" />
+                                            <path d="M13.2070325,4 C13.0721672,4.47683179 13,4.97998812 13,5.5 C13,8.53756612 15.4624339,11 18.5,11 C19.0200119,11 19.5231682,10.9278328 20,10.7929675 L20,17 C20,18.6568542 18.6568542,20 17,20 L7,20 C5.34314575,20 4,18.6568542 4,17 L4,7 C4,5.34314575 5.34314575,4 7,4 L13.2070325,4 Z" fill="#000000" />
+                                            <circle fill="#000000" opacity="0.3" cx="18.5" cy="5.5" r="2.5" />
+                                        </g>
+                                    </svg>
+                                    <!--end::Svg Icon-->
+                                </span>
+                            </span>
+                            <span class="nav-text font-weight-bold">Payroll History</span>
                         </a>
                     </li>
                 </ul>
