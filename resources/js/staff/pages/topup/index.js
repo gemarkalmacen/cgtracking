@@ -1,4 +1,4 @@
-// script for otc payroll
+// script for top-up
 module.exports = function(data) {
     var _data = {
         config: null
