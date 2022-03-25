@@ -1,17 +1,16 @@
 <?php
 
-namespace App\Services\Otcpayroll;
+namespace App\Services\Topup;
 
 use Doctrine\DBAL\Query\QueryException;
 use Illuminate\Http\Request;
 use Exception;
-use App\Imports\OtcpayrollImport;
 use League\Csv\Reader;
 use League\Csv\Statement;
 use App\Imports\CsvFileImporter;
 use DB;
 
-class UploadOtcpayroll
+class UploadTopup
 {
     protected $errors = [];
     protected $delivery  = null;
@@ -24,7 +23,7 @@ class UploadOtcpayroll
     {
         $lists = [];
         $successRow = 0;
-        $parameter = "otcpayroll";
+        $parameter = "topup";
 
         if ($file->isValid()) {
             DB::beginTransaction();

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Otcpayroll;
+namespace App\Http\Requests\Topup;
 
 use Illuminate\Foundation\Http\FormRequest;
 

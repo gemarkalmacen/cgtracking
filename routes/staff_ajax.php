@@ -24,8 +24,8 @@ Route::group(['prefix' => 'ajax', 'namespace' => 'Ajax'], function () {
         Route::post('listing', 'EmvpayrollController@listing')->name('staff.ajax.emvpayroll.listing');
     });
 
-    Route::group(['prefix' => 'otcpayroll', 'namespace' => 'Otcpayroll'], function () {
-        Route::post('listing', 'OtcpayrollController@listing')->name('staff.ajax.otcpayroll.listing');
+    Route::group(['prefix' => 'topup', 'namespace' => 'Topup'], function () {
+        Route::post('listing', 'TopupController@listing')->name('staff.ajax.topup.listing');
     });
     
     Route::group(['prefix' => 'archivedgranteelists', 'namespace' => 'Archivedgranteelists'], function () {

@@ -9,7 +9,7 @@ use App\Services\CsvFileImporter\Granteelists;
 use App\Services\CsvFileImporter\Emvdatabases;
 use App\Services\CsvFileImporter\Emvpayrolls;
 use App\Services\CsvFileImporter\Overpayments;
-use App\Services\CsvFileImporter\Otcpayrolls;
+use App\Services\CsvFileImporter\Topups;
 use App\Services\CsvFileImporter\Nonemvs;
 use Illuminate\Support\Facades\Auth;
 
@@ -149,9 +149,9 @@ class CsvFileImporter
                     $data = DB::connection()->getpdo()->exec($data); 
                     $fixed_invalid_dates = DB::statement("UPDATE overpayment SET run_date = CASE WHEN '0000-00-00' = DATE_FORMAT(run_date,'%Y-%m-%d')THEN NULL ELSE run_date END, date_claimed = CASE WHEN '0000-00-00' = DATE_FORMAT(date_claimed,'%Y-%m-%d')THEN NULL ELSE date_claimed END, date_acted_by_lbp = CASE WHEN '0000-00-00' = DATE_FORMAT(date_acted_by_lbp,'%Y-%m-%d')THEN NULL ELSE date_acted_by_lbp END");
                     break;
-                case "otcpayroll":
-                    $otcpayroll = new Otcpayrolls;
-                    $data = $otcpayroll->execute($file_path,$this->_generated_file_name, $this->_original_file_name);
+                case "topup":
+                    $topup = new Topups;
+                    $data = $topup->execute($file_path,$this->_generated_file_name, $this->_original_file_name);
                     $data = DB::connection()->getpdo()->exec($data);
                     $fixed_invalid_dates = DB::statement("UPDATE otc_payroll SET payroll_date = CASE WHEN '0000-00-00' = DATE_FORMAT(payroll_date,'%Y-%m-%d')THEN NULL ELSE payroll_date END");
                     break;

@@ -4,12 +4,12 @@ namespace App\Services\CsvFileImporter;
 use Ccore\Core\Datatable;
 use Illuminate\Support\Facades\DB;
 
-use App\Models\Otcpayroll;
+use App\Models\Topup;
 use App\Models\Role;
 use App\Models\Uploadhistory;
 use Illuminate\Support\Facades\Auth;
 
-class Otcpayrolls
+class Topups
 {
     /**
      * Get list of roles execution

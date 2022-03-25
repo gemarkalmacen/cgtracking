@@ -36,7 +36,7 @@ class PermissionCommand extends Command
         'granteelists',
         'emvdatabase',
         'emvpayroll',
-        'otcpayroll',
+        'topup',
         'archivedgranteelists',
         'overpayment',
         'nonemv',

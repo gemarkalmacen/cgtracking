@@ -6,7 +6,7 @@ use App\Traits\WithPaginate;
 use Illuminate\Database\Eloquent\Model;
 use Ccore\Core\Traits\ExtendedEloquentTrait;
 
-class Otcpayroll extends Model
+class Topup extends Model
 {
     use ExtendedEloquentTrait;
     use WithPaginate;
@@ -14,7 +14,7 @@ class Otcpayroll extends Model
     /**
      * Database table name
      */
-    protected $table = 'otc_payroll';
+    protected $table = 'top_up';
 
     /**
      * The attributes that are mass assignable.

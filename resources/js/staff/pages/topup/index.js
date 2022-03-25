@@ -247,11 +247,11 @@ module.exports = function(data) {
                         ]
                     },
                     url: {
-                        list: vm.$route('staff.ajax.otcpayroll.listing'),
+                        list: vm.$route('staff.ajax.topup.listing'),
                         // delete: 'staff.users.destroy'
                     },
                     notifications: {
-                        delete: vm.$t('staff/notifications.otcpayroll_deleted_successfully')
+                        delete: vm.$t('staff/notifications.topup_deleted_successfully')
                     }
                 };
             }

@@ -1,13 +1,13 @@
 <?php
-namespace App\Services\Otcpayroll;
+namespace App\Services\Topup;
 
 use Ccore\Core\Datatable;
 use Illuminate\Support\Facades\DB;
 
-use App\Models\Otcpayroll;
+use App\Models\Topup;
 use App\Models\Role;
 
-class GetListingOtcpayroll
+class GetListingTopup
 {
     /**
      * Get list of roles execution
@@ -16,7 +16,7 @@ class GetListingOtcpayroll
      */
     public function execute()
     {
-        $query = Otcpayroll::select(['*']);
+        $query = Topup::select(['*']);
 
         $result = Datatable::of($query, request(), [
             'searchable' => [

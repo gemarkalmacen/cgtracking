@@ -336,7 +336,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                 <i class="menu-arrow"></i>
                                                 <ul class="menu-subnav">
                                                     <li class="menu-item" aria-haspopup="true">
-                                                        <a href="{{ route('staff.otcpayroll.otcpayrollimport') }}" class="menu-link">
+                                                        <a href="{{ route('staff.topup.topupimport') }}" class="menu-link">
                                                             <i class="menu-bullet menu-bullet-dot">
                                                                 <span></span>
                                                             </i>
@@ -344,7 +344,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                         </a>
                                                     </li>
                                                     <li class="menu-item" aria-haspopup="true">
-                                                        <a href="{{ route('staff.otcpayroll.index') }}"  class="menu-link">
+                                                        <a href="{{ route('staff.topup.index') }}"  class="menu-link">
                                                             <i class="menu-bullet menu-bullet-dot">
                                                                 <span></span>
                                                             </i>

@@ -1,5 +1,5 @@
 {{-- Send data to layout defining the current page and data  --}}
-@extends('layouts.staff.main', ['page' => 'otcpayroll/index', 'data' => []]) 
+@extends('layouts.staff.main', ['page' => 'topup/index', 'data' => []]) 
 
 @section('title', __('staff/titles.reference-otc_payroll'))
 
