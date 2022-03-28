@@ -1,13 +1,13 @@
 <?php
-namespace App\Services\Emvpayroll;
+namespace App\Services\Payroll;
 
 use Ccore\Core\Datatable;
 use Illuminate\Support\Facades\DB;
 
-use App\Models\Emvpayroll;
+use App\Models\Payroll;
 use App\Models\Role;
 
-class GetListingEmvpayroll
+class GetListingPayroll
 {
     /**
      * Get list of roles execution
@@ -16,7 +16,7 @@ class GetListingEmvpayroll
      */
     public function execute()
     {
-        $query = Emvpayroll::select(['*']);
+        $query = Payroll::select(['*']);
 
         $result = Datatable::of($query, request(), [
             'searchable' => [

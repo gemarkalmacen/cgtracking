@@ -1,16 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\Staff\Emvpayroll;
+namespace App\Http\Controllers\Staff\Payroll;
 
 use App\Http\Controllers\Staff\BaseController as Controller;
 use Illuminate\Http\Request;
-use App\Http\Requests\Emvpayroll\ImportRequest;
-use App\Services\Emvpayroll\UploadEmvpayroll;
+use App\Http\Requests\Payroll\ImportRequest;
+use App\Services\Payroll\UploadPayroll;
 use Illuminate\Support\Facades\Input;
 
-// use App\Http\Requests\Roles\RoleStoreRequest;
-
-class EmvpayrollController extends Controller
+class PayrollController extends Controller
 {
     /**
      * Initialization
@@ -19,7 +17,7 @@ class EmvpayrollController extends Controller
     {
         parent::__construct();
         // permissions
-        $this->middleware('permission:emvpayroll-list', ['only' => ['index']]);
+        $this->middleware('permission:payroll-list', ['only' => ['index']]);
     }
 
     /**
@@ -29,7 +27,7 @@ class EmvpayrollController extends Controller
      */
     public function index()
     {
-        return view('staff.emvpayroll.index');
+        return view('staff.payroll.index');
     }
 
     /**
@@ -44,29 +42,29 @@ class EmvpayrollController extends Controller
             $imports = $request->session()->get('import');
         }
         
-        return view('staff.emvpayroll.import',compact('imports'));
+        return view('staff.payroll.import',compact('imports'));
     }
 
     /**
      * load stocks
      * @return \Illuminate\Http\Response
      */
-    public function load(ImportRequest $request, UploadEmvpayroll $uploadEmvpayroll)
+    public function load(ImportRequest $request, UploadPayroll $uploadPayroll)
     {
 
-        $response = $uploadEmvpayroll->execute($request->file);
+        $response = $uploadPayroll->execute($request->file);
         if( empty($response['errors']) ){
             $msg = [
                 'type' => 'success',
-                'message' => __('staff/notifications.emvpayroll_import_successfully')
+                'message' => __('staff/notifications.payroll_import_successfully')
             ];
         }
         else{
             $msg = [
                 'type' => 'error',
-                'message' => __('staff/notifications.emvpayroll_import_failed')
+                'message' => __('staff/notifications.payroll_import_failed')
             ];
         }
-        return redirect()->route('staff.emvpayroll.emvpayrollimport')->with('notification', [$msg])->with('import',$response);
+        return redirect()->route('staff.payroll.payrollimport')->with('notification', [$msg])->with('import',$response);
     }
 }

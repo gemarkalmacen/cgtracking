@@ -20,8 +20,8 @@ Route::group(['prefix' => 'ajax', 'namespace' => 'Ajax'], function () {
         Route::post('listing', 'EmvdatabaseController@listing')->name('staff.ajax.emvdatabase.listing');
     });
 
-    Route::group(['prefix' => 'emvpayroll', 'namespace' => 'Emvpayroll'], function () {
-        Route::post('listing', 'EmvpayrollController@listing')->name('staff.ajax.emvpayroll.listing');
+    Route::group(['prefix' => 'payroll', 'namespace' => 'Payroll'], function () {
+        Route::post('listing', 'PayrollController@listing')->name('staff.ajax.payroll.listing');
     });
 
     Route::group(['prefix' => 'topup', 'namespace' => 'Topup'], function () {

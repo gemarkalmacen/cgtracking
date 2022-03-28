@@ -1,4 +1,4 @@
-// script for emv payroll
+// script for payroll
 module.exports = function(data) {
     var _data = {
         config: null
@@ -247,11 +247,11 @@ module.exports = function(data) {
                         ]
                     },
                     url: {
-                        list: vm.$route('staff.ajax.emvpayroll.listing'),
+                        list: vm.$route('staff.ajax.payroll.listing'),
                         // delete: 'staff.users.destroy'
                     },
                     notifications: {
-                        delete: vm.$t('staff/notifications.emvpayroll_deleted_successfully')
+                        delete: vm.$t('staff/notifications.payroll_deleted_successfully')
                     }
                 };
             }

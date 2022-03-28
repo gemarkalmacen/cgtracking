@@ -239,26 +239,26 @@ License: You must have a valid license purchased only from themeforest(the above
                                                 <span class="menu-icon">
                                                     <i class="fas fa-scroll"></i>
                                                 </span>
-                                                <span class="menu-text">{{ __('staff/navigations.reference-emv_payroll') }}</span>
+                                                <span class="menu-text">{{ __('staff/navigations.reference-payroll') }}</span>
                                                 <i class="menu-arrow"></i>
                                             </a>
                                             <div class="menu-submenu">
                                                 <i class="menu-arrow"></i>
                                                 <ul class="menu-subnav">
                                                     <li class="menu-item" aria-haspopup="true">
-                                                        <a href="{{ route('staff.emvpayroll.emvpayrollimport') }}" class="menu-link">
+                                                        <a href="{{ route('staff.payroll.payrollimport') }}" class="menu-link">
                                                             <i class="menu-bullet menu-bullet-dot">
                                                                 <span></span>
                                                             </i>
-                                                            <span class="menu-text">{{ __('staff/navigations.reference-emv_payroll_import') }}</span>
+                                                            <span class="menu-text">{{ __('staff/navigations.reference-payroll_import') }}</span>
                                                         </a>
                                                     </li>
                                                     <li class="menu-item" aria-haspopup="true">
-                                                        <a href="{{ route('staff.emvpayroll.index') }}"  class="menu-link">
+                                                        <a href="{{ route('staff.payroll.index') }}"  class="menu-link">
                                                             <i class="menu-bullet menu-bullet-dot">
                                                                 <span></span>
                                                             </i>
-                                                            <span class="menu-text">{{ __('staff/navigations.reference-emv_payroll_index') }}</span>
+                                                            <span class="menu-text">{{ __('staff/navigations.reference-payroll_index') }}</span>
                                                         </a>
                                                     </li>
                                                 </ul>

@@ -6,7 +6,7 @@ use App\Traits\WithPaginate;
 use Illuminate\Database\Eloquent\Model;
 use Ccore\Core\Traits\ExtendedEloquentTrait;
 
-class Emvpayroll extends Model
+class Payroll extends Model
 {
     use ExtendedEloquentTrait;
     use WithPaginate;
@@ -14,7 +14,7 @@ class Emvpayroll extends Model
     /**
      * Database table name
      */
-    protected $table = 'emv_payroll';
+    protected $table = 'payroll';
 
     /**
      * The attributes that are mass assignable.

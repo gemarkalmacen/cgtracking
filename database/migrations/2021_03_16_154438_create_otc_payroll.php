@@ -13,7 +13,7 @@ class CreateOtcPayroll extends Migration
      */
     public function up()
     {
-        Schema::create('otc_payroll', function (Blueprint $table) {
+        Schema::create('top_up', function (Blueprint $table) {
             $table->id();
             $table->string('period', 50)->nullable();
             $table->year('year', 50)->nullable();

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Emvpayroll;
+namespace App\Http\Requests\Payroll;
 
 use Illuminate\Foundation\Http\FormRequest;
 

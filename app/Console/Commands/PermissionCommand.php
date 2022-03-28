@@ -35,7 +35,7 @@ class PermissionCommand extends Command
         'roles',
         'granteelists',
         'emvdatabase',
-        'emvpayroll',
+        'payroll',
         'topup',
         'archivedgranteelists',
         'overpayment',

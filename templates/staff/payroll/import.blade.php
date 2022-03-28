@@ -1,7 +1,7 @@
 {{-- Send data to layout defining the current page and data  --}}
-@extends('layouts.staff.main', ['page' => 'emvpayroll/import', 'data' => []])
+@extends('layouts.staff.main', ['page' => 'payroll/import', 'data' => []])
 
-@section('title', __('staff/titles.reference-emv_payroll-import'))
+@section('title', __('staff/titles.reference-payroll-import'))
 
 @section('content')
 <div class="card card-custom">
@@ -10,15 +10,15 @@
             <span class="card-icon">
                 <i class="fas fa-layer-group"></i>
             </span>
-            <h3 class="card-label">{{ __('staff/titles.reference-emv_payroll-import')  }}</h3>
+            <h3 class="card-label">{{ __('staff/titles.reference-payroll-import')  }}</h3>
         </div>
         <div class="card-toolbar">
         </div>
     </div>
     <div class="card-body">
-        <form id="emvpayrollImport" action="{!! route('staff.emvpayroll.emvpayrollload') !!}" method="POST" enctype="multipart/form-data" class="frm" novalidate="novalidate">
+        <form id="payrollImport" action="{!! route('staff.payroll.payrollload') !!}" method="POST" enctype="multipart/form-data" class="frm" novalidate="novalidate">
             {!! @csrf_field() !!}
-            @include ('staff.emvpayroll.partials.import')
+            @include ('staff.payroll.partials.import')
         </form>
         <div class="separator separator-dashed my-10"></div>
         @if( !empty($imports['totalRow']) )

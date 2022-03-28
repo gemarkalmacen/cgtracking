@@ -4,12 +4,12 @@ namespace App\Services\CsvFileImporter;
 use Ccore\Core\Datatable;
 use Illuminate\Support\Facades\DB;
 
-use App\Models\Emvpayroll;
+use App\Models\Payroll;
 use App\Models\Role;
 use App\Models\Uploadhistory;
 use Illuminate\Support\Facades\Auth;
 
-class Emvpayrolls
+class Payrolls
 {
     /**
      * Get list of roles execution
@@ -24,13 +24,13 @@ class Emvpayrolls
         try{
             $upload_history = new Uploadhistory;
             $upload_history->file_name = $_file_name;
-            $upload_history->table_source = 'emv_payroll';
+            $upload_history->table_source = 'payroll';
             $upload_history->old_file_name = $_old_file_name;
             $upload_history->user_id = Auth::id();
             if($upload_history->save()){
                 $query = sprintf('
                     LOAD DATA LOCAL INFILE "%s" 
-                        INTO TABLE emv_payroll
+                        INTO TABLE payroll
                     CHARACTER SET latin1
                     FIELDS 
                         TERMINATED BY ","

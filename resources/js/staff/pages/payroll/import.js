@@ -1,4 +1,4 @@
-// script for emvpayroll
+// script for payroll
 module.exports = function(data) {
     var _data = {
         config: null,    

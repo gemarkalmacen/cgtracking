@@ -38,13 +38,13 @@ return [
     'archived_granteelist_deleted_successfully' => 'Archived Grantee List deleted successfully.',
     'archived_granteelist_cannot_delete' => 'Archived Grantee List cannot be deleted.',
 
-    // emv_payroll
-    'emvpayroll_created_successfully' => 'Emv Payroll created successfully.',
-    'emvpayroll_updated_successfully' => 'Emv Payroll updated successfully.',
-    'emvpayroll_deleted_successfully' => 'Emv Payroll deleted successfully.',
-    'emvpayroll_cannot_delete' => 'Emv Payroll cannot be deleted.',
-    'emvpayroll_import_successfully' => 'Emv Payroll import sucessfully.',
-    'emvpayroll_import_failed' => 'Emv Payroll import failed.',
+    // payroll
+    'payroll_created_successfully' => 'Payroll created successfully.',
+    'payroll_updated_successfully' => 'Payroll updated successfully.',
+    'payroll_deleted_successfully' => 'Payroll deleted successfully.',
+    'payroll_cannot_delete' => 'Payroll cannot be deleted.',
+    'payroll_import_successfully' => 'Payroll import sucessfully.',
+    'payroll_import_failed' => 'Payroll import failed.',
     
     // emv_database
     'emvdatabase_created_successfully' => 'Emv List created successfully.',
