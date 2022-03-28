@@ -24,7 +24,7 @@ return [
     'reference-grantee_list-import' => 'Import - Grantee List',
     'reference-aging' => 'Aging',
     'reference-overpayment' => 'Overpayment',
-    'reference-emv_payroll-import' => 'Import - Emv Payroll',
+    'reference-payroll-import' => 'Import - Payroll',
 
     // archived granteelist
     'archived-grantee_list' => 'Archived Grantee List',
@@ -36,14 +36,14 @@ return [
     'reference-emv_database' => 'Emv Database',
     'reference-emv_database-import' => 'Import - Emv Database',
 
-    //emv payroll
-    'reference-emv_payroll' => 'EMV Payroll',
+    //payroll
+    'reference-payroll' => 'Payroll',
 
     //overpayment
     'reference-over_payment' => 'Overpayment',
     'reference-over_payment-import' => 'Import - Overpayment',
 
-    'reference-emv_payroll-import' => 'Import - Emv Payroll',
+    'reference-payroll-import' => 'Import - Payroll',
 
     //top up
     'reference-topup' => 'Top-Up',

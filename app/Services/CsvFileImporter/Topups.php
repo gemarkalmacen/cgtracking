@@ -24,13 +24,13 @@ class Topups
         try{
             $upload_history = new Uploadhistory;
             $upload_history->file_name = $_file_name;
-            $upload_history->table_source = 'otc_payroll';
+            $upload_history->table_source = 'top_up';
             $upload_history->old_file_name = $_old_file_name;
             $upload_history->user_id = Auth::id();
             if($upload_history->save()){
                 $query = sprintf('
                     LOAD DATA LOCAL INFILE "%s" 
-                        INTO TABLE otc_payroll
+                        INTO TABLE top_up
                     CHARACTER SET latin1
                     FIELDS 
                         TERMINATED BY ","

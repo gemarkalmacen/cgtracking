@@ -82,15 +82,15 @@ Route::group(['prefix' => 'staff-panel', 'namespace' => 'Staff'], function () {
         Route::post('emvdatabaseload','EmvdatabaseController@load')->name('staff.emvdatabase.emvdatabaseload');
     });
     
-    Route::group(['namespace' => 'Emvpayroll'], function () {
-        Route::resource('emvpayroll', "EmvpayrollController", [
+    Route::group(['namespace' => 'Payroll'], function () {
+        Route::resource('payroll', "PayrollController", [
             'names' => [
-                'index' => "staff.emvpayroll.index",
+                'index' => "staff.payroll.index",
             ]
         ]);
 
-        Route::get('emvpayrollimport','EmvpayrollController@import')->name('staff.emvpayroll.emvpayrollimport');
-        Route::post('emvpayrollload','EmvpayrollController@load')->name('staff.emvpayroll.emvpayrollload');
+        Route::get('payrollimport','PayrollController@import')->name('staff.payroll.payrollimport');
+        Route::post('payrollload','PayrollController@load')->name('staff.payroll.payrollload');
     });
     Route::group(['namespace' => 'Topup'], function () {
         Route::resource('topup', "TopupController", [

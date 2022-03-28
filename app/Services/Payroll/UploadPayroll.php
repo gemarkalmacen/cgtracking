@@ -1,17 +1,16 @@
 <?php
 
-namespace App\Services\Emvpayroll;
+namespace App\Services\Payroll;
 
 use Doctrine\DBAL\Query\QueryException;
 use Illuminate\Http\Request;
 use Exception;
-use App\Imports\EmvpayrollImport;
 use League\Csv\Reader;
 use League\Csv\Statement;
 use App\Imports\CsvFileImporter;
 use DB;
 
-class UploadEmvpayroll
+class UploadPayroll
 {
     protected $errors = [];
     protected $delivery  = null;
@@ -24,7 +23,7 @@ class UploadEmvpayroll
     {
         $lists = [];
         $successRow = 0;
-        $parameter = "emvpayroll";
+        $parameter = "payroll";
 
         if ($file->isValid()) {
             DB::beginTransaction();
