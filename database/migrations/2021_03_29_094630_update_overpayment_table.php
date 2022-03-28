@@ -25,6 +25,8 @@ class UpdateOverpaymentTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('overpayment', function (Blueprint $table) {
+            $table->string('date_acted_by_lbp')->change();
+        });
     }
 }

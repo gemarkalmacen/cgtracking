@@ -27,6 +27,10 @@ class UpdateEmvPayroll extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('emv_payroll', function (Blueprint $table) {
+            $table->string('card', 10)->change();
+            $table->string('set', 10)->change();
+            $table->string('set_group', 10)->change();
+        });
     }
 }
