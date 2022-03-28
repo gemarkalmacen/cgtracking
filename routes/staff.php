@@ -92,15 +92,15 @@ Route::group(['prefix' => 'staff-panel', 'namespace' => 'Staff'], function () {
         Route::get('emvpayrollimport','EmvpayrollController@import')->name('staff.emvpayroll.emvpayrollimport');
         Route::post('emvpayrollload','EmvpayrollController@load')->name('staff.emvpayroll.emvpayrollload');
     });
-    Route::group(['namespace' => 'Otcpayroll'], function () {
-        Route::resource('otcpayroll', "OtcpayrollController", [
+    Route::group(['namespace' => 'Topup'], function () {
+        Route::resource('topup', "TopupController", [
             'names' => [
-                'index' => "staff.otcpayroll.index",
+                'index' => "staff.topup.index",
             ]
         ]);
 
-        Route::get('otcpayrollimport','OtcpayrollController@import')->name('staff.otcpayroll.otcpayrollimport');
-        Route::post('otcpayrollload','OtcpayrollController@load')->name('staff.otcpayroll.otcpayrollload');
+        Route::get('topupimport','TopupController@import')->name('staff.topup.topupimport');
+        Route::post('topupload','TopupController@load')->name('staff.topup.topupload');
     });
 
     Route::group(['namespace' => 'Overpayment'], function () {

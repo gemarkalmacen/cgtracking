@@ -329,26 +329,26 @@ License: You must have a valid license purchased only from themeforest(the above
                                                 <span class="menu-icon ">
                                                     <i class="fas fa-table"></i>
                                                 </span>
-                                                <span class="menu-text">{{ __('staff/navigations.reference-otc_payroll') }}</span>
+                                                <span class="menu-text">{{ __('staff/navigations.reference-topup') }}</span>
                                                 <i class="menu-arrow"></i>
                                             </a>
                                             <div class="menu-submenu">
                                                 <i class="menu-arrow"></i>
                                                 <ul class="menu-subnav">
                                                     <li class="menu-item" aria-haspopup="true">
-                                                        <a href="{{ route('staff.otcpayroll.otcpayrollimport') }}" class="menu-link">
+                                                        <a href="{{ route('staff.topup.topupimport') }}" class="menu-link">
                                                             <i class="menu-bullet menu-bullet-dot">
                                                                 <span></span>
                                                             </i>
-                                                            <span class="menu-text">{{ __('staff/navigations.reference-otc_payroll_import') }}</span>
+                                                            <span class="menu-text">{{ __('staff/navigations.reference-topup_import') }}</span>
                                                         </a>
                                                     </li>
                                                     <li class="menu-item" aria-haspopup="true">
-                                                        <a href="{{ route('staff.otcpayroll.index') }}"  class="menu-link">
+                                                        <a href="{{ route('staff.topup.index') }}"  class="menu-link">
                                                             <i class="menu-bullet menu-bullet-dot">
                                                                 <span></span>
                                                             </i>
-                                                            <span class="menu-text">{{ __('staff/navigations.reference-otc_payroll_index') }}</span>
+                                                            <span class="menu-text">{{ __('staff/navigations.reference-topup_index') }}</span>
                                                         </a>
                                                     </li>
                                                 </ul>

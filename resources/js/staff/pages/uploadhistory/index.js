@@ -91,7 +91,7 @@ module.exports = function(data) {
                         list: vm.$route('staff.ajax.uploadhistory.listing'),
                     },
                     notifications: {
-                        delete: vm.$t('staff/notifications.otcpayroll_deleted_successfully')
+                        delete: vm.$t('staff/notifications.topup_deleted_successfully')
                     }
                 };
             }

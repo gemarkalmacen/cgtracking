@@ -1,7 +1,7 @@
 {{-- Send data to layout defining the current page and data  --}}
-@extends('layouts.staff.main', ['page' => 'otcpayroll/import', 'data' => []])
+@extends('layouts.staff.main', ['page' => 'topup/import', 'data' => []])
 
-@section('title', __('staff/titles.reference-otc_payroll-import'))
+@section('title', __('staff/titles.reference-topup-import'))
 
 @section('content')
 <div class="card card-custom">
@@ -10,15 +10,15 @@
             <span class="card-icon">
                 <i class="fas fa-layer-group"></i>
             </span>
-            <h3 class="card-label">{{ __('staff/titles.reference-otc_payroll-import')  }}</h3>
+            <h3 class="card-label">{{ __('staff/titles.reference-topup-import')  }}</h3>
         </div>
         <div class="card-toolbar">
         </div>
     </div>
     <div class="card-body">
-        <form id="otcpayrollImport" action="{!! route('staff.otcpayroll.otcpayrollload') !!}" method="POST" enctype="multipart/form-data" class="frm" novalidate="novalidate">
+        <form id="topupImport" action="{!! route('staff.topup.topupload') !!}" method="POST" enctype="multipart/form-data" class="frm" novalidate="novalidate">
             {!! @csrf_field() !!}
-            @include ('staff.otcpayroll.partials.import')
+            @include ('staff.topup.partials.import')
         </form>
         <div class="separator separator-dashed my-10"></div>
         @if( !empty($imports['totalRow']) )
