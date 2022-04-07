@@ -6,7 +6,8 @@ module.exports = function(data) {
         config: null,
         validate_error: false,
         errors: [],
-        cashcardDetails: false,
+        cc_details_display: false,
+
     };
     return {
         data: (() => Object.assign({}, JSON.parse(data), _data)),
@@ -24,12 +25,12 @@ module.exports = function(data) {
             },
             searchHouseHold(){
                 let vm = this;
-                vm.cashcardDetails = true;
+                vm.cc_details_display = true;
                 console.log("asd");
             },
             clearSearch(){
                 let vm = this;
-                vm.cashcardDetails = false;
+                vm.cc_details_display = false;
             }
         },
         beforeMount(){

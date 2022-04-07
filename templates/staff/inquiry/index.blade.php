@@ -45,7 +45,7 @@
 </div>
 <!--End::Card-->
 
-<div v-if="cashcardDetails == true" class="card card-custom gutter-b">
+<div v-if="cc_details_display == true" class="card card-custom gutter-b">
     <div class="card-body">
         <div class="d-flex">
             <div class="flex-shrink-0 mr-7">
@@ -194,7 +194,7 @@
     </div>
 </div>
 
-<div v-if="cashcardDetails == true" class="row" id="cash_card_details_id">
+<div v-if="cc_details_display == true" class="row" id="cash_card_details_id">
     <div class="col-lg-4">
         <div class="card card-custom card-fit card-border">
             <div class="card-header">
@@ -476,7 +476,7 @@
 </div>
 <br/>
 <!--begin::Card-->
-<div v-if="cashcardDetails == true" class="card card-custom gutter-bs">
+<div v-if="cc_details_display == true" class="card card-custom gutter-bs">
     <div class="card-header card-header-tabs-line">
         <div class="card-toolbar">
             <ul class="nav nav-tabs nav-tabs-space-lg nav-tabs-line nav-tabs-bold nav-tabs-line-3x" role="tablist">
