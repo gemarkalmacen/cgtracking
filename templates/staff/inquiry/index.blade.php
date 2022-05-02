@@ -7,7 +7,6 @@
 @endsection
 
 @section('content')
-<rotate-square2></rotate-square2>
 <!--Begin::Card-->
 <div class="card card-custom gutter-b">
     <div class="card-body">
@@ -16,7 +15,7 @@
             <span class="text-dark-50 font-weight-bold" id="kt_subheader_total">Household #</span>
             <form class="ml-5">
                 <div class="input-group input-group-xs input-group-solid" style="max-width: 475px">
-                    <input type="text" class="form-control" id="kt_subheader_search_form" placeholder="Search..." />
+                    <input v-model="hh_id_search" type="text" class="form-control" id="kt_subheader_search_form" placeholder="Search..." />
                     <div class="input-group-append">
                         <span class="input-group-text">
                             <span class="svg-icon">
@@ -36,6 +35,7 @@
                 </div>
             </form>
             <div>
+                &nbsp;
                 <button @click="searchHouseHold()" type="button" class="btn btn-primary">Search</button>
                 <button @click="clearSearch()" type="button" class="btn btn-secondary">Clear</button>
             </div>
@@ -57,7 +57,7 @@
                 <div class="d-flex align-items-center justify-content-between flex-wrap mt-2">
                     <div class="mr-3">
                         <a href="#" class="d-flex align-items-center text-dark text-hover-primary font-size-h5 font-weight-bold mr-3">
-                            LN: SANDAYA (Current Grantee)
+                            LN: SANDAYA <small>(Current Grantee)</small>
                             <i class="flaticon2-correct text-success icon-md ml-2"></i>
                         </a>
                         <a href="#" class="d-flex align-items-center text-dark text-hover-primary font-size-h5 font-weight-bold mr-3">
@@ -417,57 +417,57 @@
                 </div>
                 <div class="d-flex align-items-center mb-1">
                     <div>
-                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Last Name : </a>
+                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Last Name : @{{ grantee_list.lastname.toUpperCase() }}</a>
                     </div>
                 </div>
                 <div class="d-flex align-items-center mb-1">
                     <div>
-                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">First Name : </a>
+                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">First Name : @{{ grantee_list.firstname.toUpperCase() }}</a>
                     </div>
                 </div>
                 <div class="d-flex align-items-center mb-1">
                     <div>
-                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Middle Name : </a>
+                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Middle Name : @{{ grantee_list.middlename.toUpperCase() }}</a>
                     </div>
                 </div>
                 <div class="d-flex align-items-center mb-1">
                     <div>
-                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Extension Name : </a>
+                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Extension Name : @{{ grantee_list.extensionname.toUpperCase() }}</a>
                     </div>
                 </div>
                 <div class="d-flex align-items-center mb-1">
                     <div>
-                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Province: </a>
+                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Province: @{{ grantee_list.province.toUpperCase() }}</a>
                     </div>
                 </div>
                 <div class="d-flex align-items-center mb-1">
                     <div>
-                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Municipality/City: </a>
+                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Municipality/City: @{{ grantee_list.municipality.toUpperCase() }}</a>
                     </div>
                 </div>
                 <div class="d-flex align-items-center mb-1">
                     <div>
-                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Barangay: </a>
+                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Barangay: @{{ grantee_list.barangay.toUpperCase() }}</a>
                     </div>
                 </div>
                 <div class="d-flex align-items-center mb-1">
                     <div>
-                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Birthday: </a>
+                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Birthday: @{{ grantee_list.birthday }}</a>
                     </div>
                 </div>
                 <div class="d-flex align-items-center mb-1">
                     <div>
-                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Sex : </a>
+                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Sex : @{{ grantee_list.sex.toUpperCase() }}</a>
                     </div>
                 </div>
                 <div class="d-flex align-items-center mb-1">
                     <div>
-                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Set: </a>
+                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Set: @{{ grantee_list.hh_set.toUpperCase() }}</a>
                     </div>
                 </div>
                 <div class="d-flex align-items-center mb-1">
                     <div>
-                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Mother's Maiden Name: </a>
+                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Mother's Maiden Name: @{{ grantee_list.mothers_maiden.toUpperCase() }}</a>
                     </div>
                 </div>
             </div>

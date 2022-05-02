@@ -55,4 +55,9 @@ class Granteelist extends Model
         'updated_at',
         'upload_history_id',
     ];
+
+    public function setFirstNameAttribute($value)
+    {
+        $this->attributes['lastname'] = strtoupper($value);
+    }
 }
