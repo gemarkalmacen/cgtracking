@@ -57,14 +57,14 @@
                 <div class="d-flex align-items-center justify-content-between flex-wrap mt-2">
                     <div class="mr-3">
                         <a href="#" class="d-flex align-items-center text-dark text-hover-primary font-size-h5 font-weight-bold mr-3">
-                            LN: SANDAYA <small>(Current Grantee)</small>
+                            LN: @{{ granteelists[0].lastname.toUpperCase() }}<small>(Current Grantee)</small>
                             <i class="flaticon2-correct text-success icon-md ml-2"></i>
                         </a>
                         <a href="#" class="d-flex align-items-center text-dark text-hover-primary font-size-h5 font-weight-bold mr-3">
-                            FN: JAZIEL
+                            FN: @{{ granteelists[0].firstname.toUpperCase() }}
                         </a>
                         <a href="#" class="d-flex align-items-center text-dark text-hover-primary font-size-h5 font-weight-bold mr-3">
-                            MN: MAINIT
+                            MN: @{{ granteelists[0].middlename.toUpperCase() }}
                         </a>
                         <div class="d-flex flex-wrap my-2">
                             <a href="#" class="text-muted text-hover-primary font-weight-bold mr-lg-8 mr-5 mb-lg-0 mb-2">
@@ -195,6 +195,223 @@
 </div>
 
 <div v-if="cc_details_display == true" class="row" id="cash_card_details_id">
+<div class="col-lg-4">
+        <div class="card card-custom card-fit card-border">
+            <div class="card-header">
+                <div class="card-title">
+                    <span class="svg-icon svg-icon-primary svg-icon-2x">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                <rect x="0" y="0" width="24" height="24" />
+                                <path d="M3.95709826,8.41510662 L11.47855,3.81866389 C11.7986624,3.62303967 12.2013376,3.62303967 12.52145,3.81866389 L20.0429,8.41510557 C20.6374094,8.77841684 21,9.42493654 21,10.1216692 L21,19.0000642 C21,20.1046337 20.1045695,21.0000642 19,21.0000642 L4.99998155,21.0000673 C3.89541205,21.0000673 2.99998155,20.1046368 2.99998155,19.0000673 L2.99999828,10.1216672 C2.99999935,9.42493561 3.36258984,8.77841732 3.95709826,8.41510662 Z M10,13 C9.44771525,13 9,13.4477153 9,14 L9,17 C9,17.5522847 9.44771525,18 10,18 L14,18 C14.5522847,18 15,17.5522847 15,17 L15,14 C15,13.4477153 14.5522847,13 14,13 L10,13 Z" fill="#000000" />
+                            </g>
+                        </svg>
+                    </span>
+                    <h3 class="card-label">HOUSEHOLD STATUS
+                        <small>for SDS & Homeless Street Families</small>
+                    </h3>
+                </div>
+            </div>
+            <div class="card-body pt-2">
+
+                <div class="accordion accordion-light  accordion-toggle-arrow" id="accordionHousehold">
+                    <div class="card" v-for="(grantee_list, index) in granteelists" :key="grantee_list.id">
+                        <div class="card-header" id="headingOne5">
+                            <div class="card-title" data-toggle="collapse" data-target="#collapseHousehold">
+                                <i class="icon-2x flaticon2-medical-records"></i>HH # @{{ index+1 }}
+                            </div>
+                        </div>
+                        <div id="collapseHousehold" class="collapse show" data-parent="#accordionHousehold">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center mb-1">
+                                    <div>
+                                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">HH Status: @{{ grantee_list.clientstatus.toUpperCase() }}</a>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center mb-1">
+                                    <div>
+                                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Entry ID # : @{{ grantee_list.entryid }}</a>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center mb-1">
+                                    <div>
+                                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">(Matched) Cash Card Number : @{{ grantee_list.lbp_account_number.toUpperCase() }}</a>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center mb-1">
+                                    <div>
+                                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Last Name : @{{ grantee_list.lastname.toUpperCase() }}</a>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center mb-1">
+                                    <div>
+                                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">First Name : @{{ grantee_list.firstname.toUpperCase() }}</a>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center mb-1">
+                                    <div>
+                                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Middle Name : @{{ grantee_list.middlename.toUpperCase() }}</a>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center mb-1">
+                                    <div>
+                                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Extension Name : @{{ grantee_list.extensionname.toUpperCase() }}</a>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center mb-1">
+                                    <div>
+                                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Province: @{{ grantee_list.province.toUpperCase() }}</a>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center mb-1">
+                                    <div>
+                                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Municipality/City: @{{ grantee_list.municipality.toUpperCase() }}</a>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center mb-1">
+                                    <div>
+                                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Barangay: @{{ grantee_list.barangay.toUpperCase() }}</a>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center mb-1">
+                                    <div>
+                                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Birthday: @{{ grantee_list.birthday }}</a>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center mb-1">
+                                    <div>
+                                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Sex : @{{ grantee_list.sex.toUpperCase() }}</a>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center mb-1">
+                                    <div>
+                                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Set: @{{ grantee_list.hh_set.toUpperCase() }}</a>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center mb-1">
+                                    <div>
+                                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Mother's Maiden Name: @{{ grantee_list.mothers_maiden.toUpperCase() }}</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="card card-custom card-fit card-border">
+            <div class="card-header">
+                <div class="card-title">
+                    <span class="svg-icon svg-icon-primary svg-icon-2x">
+                        <!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\Shopping\Credit-card.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                <rect x="0" y="0" width="24" height="24" />
+                                <rect fill="#000000" opacity="0.3" x="2" y="5" width="20" height="14" rx="2" />
+                                <rect fill="#000000" x="2" y="8" width="20" height="3" />
+                                <rect fill="#000000" opacity="0.3" x="16" y="14" width="4" height="2" rx="1" />
+                            </g>
+                        </svg>
+                        <!--end::Svg Icon-->
+                    </span>
+                    <h3 class="card-label">EMV
+                        <small>Europay, Master Card & Visa</small>
+                    </h3>
+                </div>
+                <div class="card-toolbar">
+                    <a href="#" class="btn btn-sm btn-primary font-weight-bold">
+                        <i class="flaticon2-medical-records"></i><span>@{{ emvs.length }}</span>
+                    </a>
+                </div>
+            </div>
+            <div class="card-body pt-2">
+                <div class="accordion accordion-light  accordion-toggle-arrow" id="accordionEmv">
+                    <div class="card" v-for="(emv, index) in emvs" :key="emv.id">
+                        <div class="card-header" id="headingOne5">
+                            <div class="card-title" data-toggle="collapse" data-target="#collapseEmv">
+                                <i class="icon-2x flaticon2-medical-records"></i>EMV # @{{ index+1 }}
+                            </div>
+                        </div>
+                        <div id="collapseEmv" class="collapse show" data-parent="#accordionEmv">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center mb-1">
+                                    <div>
+                                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Entry ID # : @{{ emv.entry_id }}</a>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center mb-1">
+                                    <div>
+                                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Card Number : @{{ emv.lbp_account.toUpperCase() }}</a>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center mb-1">
+                                    <div>
+                                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Last Name : @{{ emv.last_name.toUpperCase() }}</a>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center mb-1">
+                                    <div>
+                                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">First Name : @{{ emv.first_name.toUpperCase() }}</a>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center mb-1">
+                                    <div>
+                                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Middle Name : @{{ emv.mid_name.toUpperCase() }}</a>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center mb-1">
+                                    <div>
+                                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Card Status : @{{ emv.distribution_status.toUpperCase() }}</a>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center mb-1">
+                                    <div>
+                                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Card Holder Status : @{{ emv.reason_why_unclaimed.toUpperCase() }}</a>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center mb-1">
+                                    <div>
+                                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Date Claimed/Age : < empty ></a>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center mb-1">
+                                    <div>
+                                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Balance : </Empty></a>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center mb-1">
+                                    <div>
+                                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Description : </a>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center mb-1">
+                                    <div>
+                                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Name Discrepancy? </a>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center mb-1">
+                                    <div>
+                                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Same Grantee? </a>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center mb-1">
+                                    <div>
+                                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">&nbsp;</a>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center mb-1">
+                                    <div>
+                                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">&nbsp;</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="col-lg-4">
         <div class="card card-custom card-fit card-border">
             <div class="card-header">
@@ -202,279 +419,111 @@
                     <span class="svg-icon svg-icon-primary svg-icon-2x">
                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                             <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                <rect x="0" y="0" width="24" height="24"/>
-                                <path d="M4,4 L20,4 C21.1045695,4 22,4.8954305 22,6 L22,18 C22,19.1045695 21.1045695,20 20,20 L4,20 C2.8954305,20 2,19.1045695 2,18 L2,6 C2,4.8954305 2.8954305,4 4,4 Z" fill="#000000" opacity="0.3"/>
-                                <path d="M18.5,11 L5.5,11 C4.67157288,11 4,11.6715729 4,12.5 L4,13 L8.58578644,13 C8.85100293,13 9.10535684,13.1053568 9.29289322,13.2928932 L10.2928932,14.2928932 C10.7456461,14.7456461 11.3597108,15 12,15 C12.6402892,15 13.2543539,14.7456461 13.7071068,14.2928932 L14.7071068,13.2928932 C14.8946432,13.1053568 15.1489971,13 15.4142136,13 L20,13 L20,12.5 C20,11.6715729 19.3284271,11 18.5,11 Z" fill="#000000"/>
-                                <path d="M5.5,6 C4.67157288,6 4,6.67157288 4,7.5 L4,8 L20,8 L20,7.5 C20,6.67157288 19.3284271,6 18.5,6 L5.5,6 Z" fill="#000000"/>
+                                <rect x="0" y="0" width="24" height="24" />
+                                <path d="M4,4 L20,4 C21.1045695,4 22,4.8954305 22,6 L22,18 C22,19.1045695 21.1045695,20 20,20 L4,20 C2.8954305,20 2,19.1045695 2,18 L2,6 C2,4.8954305 2.8954305,4 4,4 Z" fill="#000000" opacity="0.3" />
+                                <path d="M18.5,11 L5.5,11 C4.67157288,11 4,11.6715729 4,12.5 L4,13 L8.58578644,13 C8.85100293,13 9.10535684,13.1053568 9.29289322,13.2928932 L10.2928932,14.2928932 C10.7456461,14.7456461 11.3597108,15 12,15 C12.6402892,15 13.2543539,14.7456461 13.7071068,14.2928932 L14.7071068,13.2928932 C14.8946432,13.1053568 15.1489971,13 15.4142136,13 L20,13 L20,12.5 C20,11.6715729 19.3284271,11 18.5,11 Z" fill="#000000" />
+                                <path d="M5.5,6 C4.67157288,6 4,6.67157288 4,7.5 L4,8 L20,8 L20,7.5 C20,6.67157288 19.3284271,6 18.5,6 L5.5,6 Z" fill="#000000" />
                             </g>
                         </svg>
                     </span>
                     <h3 class="card-label">MAGSTRIPE
-                    <small>(181-365 Days)</small></h3>
+                        <small>(181-365 Days)</small>
+                    </h3>
                 </div>
                 <div class="card-toolbar">
                     <a href="#" class="btn btn-sm btn-primary font-weight-bold">
-                    <i class="flaticon2-gear"></i>Settings</a>
+                        <i class="flaticon2-medical-records"></i> <span>@{{ nonemvs.length }}</span></a>
                 </div>
             </div>
             <div class="card-body pt-2">
-                <div class="d-flex align-items-center mb-1">
-                    <div>
-                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Entry ID # : </a>
-                    </div>
-                </div>
-                <div class="d-flex align-items-center mb-1">
-                    <div>
-                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Card Number : </a>
-                    </div>
-                </div>
-                <div class="d-flex align-items-center mb-1">
-                    <div>
-                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Last Name : </a>
-                    </div>
-                </div>
-                <div class="d-flex align-items-center mb-1">
-                    <div>
-                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">First Name : </a>
-                    </div>
-                </div>
-                <div class="d-flex align-items-center mb-1">
-                    <div>
-                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Middle Name : </a>
-                    </div>
-                </div>
-                <div class="d-flex align-items-center mb-1">
-                    <div>
-                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Extension Name : </a>
-                    </div>
-                </div>
-                <div class="d-flex align-items-center mb-1">
-                    <div>
-                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Card Status : </a>
-                    </div>
-                </div>
-                <div class="d-flex align-items-center mb-1">
-                    <div>
-                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Card Holder Status : </a>
-                    </div>
-                </div>
-                <div class="d-flex align-items-center mb-1">
-                    <div>
-                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Date Claimed/Age : < empty ></a>
-                    </div>
-                </div>
-                <div class="d-flex align-items-center mb-1">
-                    <div>
-                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Balance : </a>
-                    </div>
-                </div>
-                <div class="d-flex align-items-center mb-1">
-                    <div>
-                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">&nbsp;</a>
-                    </div>
-                </div>
-                <div class="d-flex align-items-center mb-1">
-                    <div>
-                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Description : </a>
-                    </div>
-                </div>
-                <div class="d-flex align-items-center mb-1">
-                    <div>
-                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Name Discrepancy? </a>
-                    </div>
-                </div>
-                <div class="d-flex align-items-center mb-1">
-                    <div>
-                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Same Grantee? </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-4">
-        <div class="card card-custom card-fit card-border">
-            <div class="card-header">
-                <div class="card-title">
-                    <span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\Shopping\Credit-card.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                            <rect x="0" y="0" width="24" height="24"/>
-                            <rect fill="#000000" opacity="0.3" x="2" y="5" width="20" height="14" rx="2"/>
-                            <rect fill="#000000" x="2" y="8" width="20" height="3"/>
-                            <rect fill="#000000" opacity="0.3" x="16" y="14" width="4" height="2" rx="1"/>
-                        </g>
-                    </svg><!--end::Svg Icon--></span>
-                    <h3 class="card-label">EMV
-                    <small>Europay, Master Card & Visa</small></h3>
-                </div>
-                <div class="card-toolbar">
-                    <a href="#" class="btn btn-sm btn-primary font-weight-bold">
-                    <i class="flaticon2-gear"></i>Settings</a>
-                </div>
-            </div>
-            <div class="card-body pt-2">
-                <div class="d-flex align-items-center mb-1">
-                    <div>
-                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Entry ID # : </a>
-                    </div>
-                </div>
-                <div class="d-flex align-items-center mb-1">
-                    <div>
-                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Card Number : </a>
-                    </div>
-                </div>
-                <div class="d-flex align-items-center mb-1">
-                    <div>
-                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Last Name : </a>
-                    </div>
-                </div>
-                <div class="d-flex align-items-center mb-1">
-                    <div>
-                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">First Name : </a>
-                    </div>
-                </div>
-                <div class="d-flex align-items-center mb-1">
-                    <div>
-                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Middle Name : </a>
-                    </div>
-                </div>
-                <div class="d-flex align-items-center mb-1">
-                    <div>
-                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Extension Name : </a>
-                    </div>
-                </div>
-                <div class="d-flex align-items-center mb-1">
-                    <div>
-                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Distribution Status: </a>
-                    </div>
-                </div>
-                <div class="d-flex align-items-center mb-1">
-                    <div>
-                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Reason Why Unclaimed: </a>
-                    </div>
-                </div>
-                <div class="d-flex align-items-center mb-1">
-                    <div>
-                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Date Claimed: </a>
-                    </div>
-                </div>
-                <div class="d-flex align-items-center mb-1">
-                    <div>
-                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Balance : < EMPTY ></a>
-                    </div>
-                </div>
-                <div class="d-flex align-items-center mb-1">
-                    <div>
-                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">&nbsp;</a>
-                    </div>
-                </div>
-                <div class="d-flex align-items-center mb-1">
-                    <div>
-                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Description : </a>
-                    </div>
-                </div>
-                <div class="d-flex align-items-center mb-1">
-                    <div>
-                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Name Discrepancy? </a>
-                    </div>
-                </div>
-                <div class="d-flex align-items-center mb-1">
-                    <div>
-                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Same Grantee? </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-4">
-        <div class="card card-custom card-fit card-border">
-            <div class="card-header">
-                <div class="card-title">
-                    <span class="svg-icon svg-icon-primary svg-icon-2x"><!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\Home\Home.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                            <rect x="0" y="0" width="24" height="24"/>
-                            <path d="M3.95709826,8.41510662 L11.47855,3.81866389 C11.7986624,3.62303967 12.2013376,3.62303967 12.52145,3.81866389 L20.0429,8.41510557 C20.6374094,8.77841684 21,9.42493654 21,10.1216692 L21,19.0000642 C21,20.1046337 20.1045695,21.0000642 19,21.0000642 L4.99998155,21.0000673 C3.89541205,21.0000673 2.99998155,20.1046368 2.99998155,19.0000673 L2.99999828,10.1216672 C2.99999935,9.42493561 3.36258984,8.77841732 3.95709826,8.41510662 Z M10,13 C9.44771525,13 9,13.4477153 9,14 L9,17 C9,17.5522847 9.44771525,18 10,18 L14,18 C14.5522847,18 15,17.5522847 15,17 L15,14 C15,13.4477153 14.5522847,13 14,13 L10,13 Z" fill="#000000"/>
-                        </g>
-                    </svg><!--end::Svg Icon--></span>
-                    <h3 class="card-label">HOUSEHOLD STATUS
-                    <small>for SDS & Homeless Street Families</small></h3>
-                </div>
-            </div>
-            <div class="card-body pt-2">
-            <div class="d-flex align-items-center mb-1">
-                    <div>
-                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">HH Status: </a>
-                    </div>
-                </div>
-                <div class="d-flex align-items-center mb-1">
-                    <div>
-                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Entry ID # : </a>
-                    </div>
-                </div>
-                <div class="d-flex align-items-center mb-1">
-                    <div>
-                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">(Matched) Cash Card Number : </a>
-                    </div>
-                </div>
-                <div class="d-flex align-items-center mb-1">
-                    <div>
-                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Last Name : @{{ grantee_list.lastname.toUpperCase() }}</a>
-                    </div>
-                </div>
-                <div class="d-flex align-items-center mb-1">
-                    <div>
-                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">First Name : @{{ grantee_list.firstname.toUpperCase() }}</a>
-                    </div>
-                </div>
-                <div class="d-flex align-items-center mb-1">
-                    <div>
-                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Middle Name : @{{ grantee_list.middlename.toUpperCase() }}</a>
-                    </div>
-                </div>
-                <div class="d-flex align-items-center mb-1">
-                    <div>
-                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Extension Name : @{{ grantee_list.extensionname.toUpperCase() }}</a>
-                    </div>
-                </div>
-                <div class="d-flex align-items-center mb-1">
-                    <div>
-                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Province: @{{ grantee_list.province.toUpperCase() }}</a>
-                    </div>
-                </div>
-                <div class="d-flex align-items-center mb-1">
-                    <div>
-                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Municipality/City: @{{ grantee_list.municipality.toUpperCase() }}</a>
-                    </div>
-                </div>
-                <div class="d-flex align-items-center mb-1">
-                    <div>
-                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Barangay: @{{ grantee_list.barangay.toUpperCase() }}</a>
-                    </div>
-                </div>
-                <div class="d-flex align-items-center mb-1">
-                    <div>
-                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Birthday: @{{ grantee_list.birthday }}</a>
-                    </div>
-                </div>
-                <div class="d-flex align-items-center mb-1">
-                    <div>
-                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Sex : @{{ grantee_list.sex.toUpperCase() }}</a>
-                    </div>
-                </div>
-                <div class="d-flex align-items-center mb-1">
-                    <div>
-                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Set: @{{ grantee_list.hh_set.toUpperCase() }}</a>
-                    </div>
-                </div>
-                <div class="d-flex align-items-center mb-1">
-                    <div>
-                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Mother's Maiden Name: @{{ grantee_list.mothers_maiden.toUpperCase() }}</a>
+                <div class="accordion accordion-light  accordion-toggle-arrow" id="accordionExample5">
+                    <div class="card" v-for="(nonemv, index) in nonemvs" :key="nonemv.id">
+                        <div class="card-header" id="headingOne5">
+                            <div class="card-title" data-toggle="collapse" data-target="#collapseOne5">
+                                <i class="icon-2x flaticon2-medical-records"></i>MS # @{{ index+1 }}
+                            </div>
+                        </div>
+                        <div id="collapseOne5" class="collapse show" data-parent="#accordionExample5">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center mb-1">
+                                    <div>
+                                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Entry ID # : @{{ nonemv.entry_number }}</a>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center mb-1">
+                                    <div>
+                                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Card Number : @{{ nonemv.card_number.toUpperCase() }}</a>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center mb-1">
+                                    <div>
+                                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Last Name : @{{ nonemv.last_name.toUpperCase() }}</a>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center mb-1">
+                                    <div>
+                                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">First Name : @{{ nonemv.first_name.toUpperCase() }}</a>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center mb-1">
+                                    <div>
+                                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Middle Name : @{{ nonemv.middle_name.toUpperCase() }}</a>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center mb-1">
+                                    <div>
+                                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Card Status : @{{ nonemv.card_number.toUpperCase() }}</a>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center mb-1">
+                                    <div>
+                                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Card Holder Status : @{{ nonemv.card_number.toUpperCase() }}</a>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center mb-1">
+                                    <div>
+                                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Date Claimed/Age : < empty ></a>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center mb-1">
+                                    <div>
+                                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Balance : @{{ nonemv.balance_as_of.toUpperCase() }}</a>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center mb-1">
+                                    <div>
+                                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Description : </a>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center mb-1">
+                                    <div>
+                                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Name Discrepancy? </a>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center mb-1">
+                                    <div>
+                                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Same Grantee? </a>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center mb-1">
+                                    <div>
+                                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">&nbsp;</a>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center mb-1">
+                                    <div>
+                                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">&nbsp;</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<br/>
+<br />
 <!--begin::Card-->
 <div v-if="cc_details_display == true" class="card card-custom gutter-bs">
     <div class="card-header card-header-tabs-line">

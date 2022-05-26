@@ -43,7 +43,7 @@ class GetGranteelist
             'updated_at',
             'upload_history_id',
         ];
-        $query = Granteelist::select($select)->where('hh_id', $request_id)->first();
+        $query = Granteelist::select($select)->where('hh_id', $request_id)->get();
         return $query;
     }
 }

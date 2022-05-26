@@ -8,49 +8,11 @@ module.exports = function(data) {
         validate_error: false,
         errors: [],
         cc_details_display: false,
+        cc_details_empty: false,
         hh_id_search: '',
-        non_emv: {
-            id: '',
-            card_number: '',
-            last_name: '',
-            first_name: '',
-            middle_name: '',
-        },
-        grantee_list: {
-            id: '',
-            region: '',
-            province: '',
-            municipality: '',
-            barangay: '',
-            purok: '',
-            address: '',
-            hh_id: '',
-            entryid: '',
-            lastname: '',
-            firstname: '',
-            middlename: '',
-            extensionname: '',
-            birthday: '',
-            age: '',
-            clientstatus: '',
-            member_status: '',
-            registrationstatus: '',
-            sex: '',
-            relationship_to_hh_head: '',
-            ipaffiliation: '',
-            hh_set: '',
-            group: '',
-            mothers_maiden: '',
-            date_of_enumeration: '',
-            lbp_account_number: '',
-            mode_of_payment: '',
-            date_tagged_hhstatus: '',
-            tagged_by: '',
-            date_registered: '',
-            created_at: '',
-            updated_at: '',
-            upload_history_id: '',
-        }
+        granteelists: Object,
+        nonemvs: Object,
+        emvs: Object,
     };
     return {
         data: (() => Object.assign({}, JSON.parse(data), _data)),
@@ -118,22 +80,32 @@ module.exports = function(data) {
                     // },
                     // dataType: 'JSON',
                     success: function (response) {
-                        if (response) {
-                            console.log("start");
-                            // console.log( response['payroll'] );
-                            // console.log( response);
-                            console.log("end");
-
+                        if (response) {                            
                             var data = Object.values(response);
-                            // check if there is data add condition later
                             var payroll = data[0];
                             var granteelist = data[1];
+                            var nonemv = data[2];
+                            var emv = data[3];
                             
-                            vm.grantee_list = granteelist;
-
-                            console.log(data);
+                            if(Object.keys(granteelist).length === 0 && Object.keys(nonemv).length === 0 && Object.keys(nonemv).length === 0){
+                                // display "record not found"
+                                vm.cc_details_empty = true;
+                            } else {
+                                if(Object.keys(granteelist).length !== 0){
+                                    vm.granteelists = granteelist;
+                                }
+                                if(Object.keys(nonemv).length !== 0){
+                                    vm.nonemvs = nonemv;
+                                }
+                                if(Object.keys(nonemv).length !== 0){
+                                    vm.emvs = emv;
+                                }
+                            }
+                            
                         }
-                    }
+                    },
+                    // error: function(){
+                    // }
                 });
 
             },
@@ -141,6 +113,9 @@ module.exports = function(data) {
                 let vm = this;
                 vm.cc_details_display = false;
                 vm.hh_id_search = '';
+                vm.emvs = {};
+                vm.nonemvs = {};
+                vm.granteelists = {};
             }
         },
         beforeMount(){
