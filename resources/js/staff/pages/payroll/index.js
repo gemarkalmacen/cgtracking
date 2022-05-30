@@ -51,7 +51,11 @@ module.exports = function(data) {
                             {data: 'total_educ'},
                             {data: 'health'},
                             {data: 'rice'},
-                            {data: 'total_amount'},
+                            {data: 'gross_amount'},
+
+                            {data: 'adjustment_amount'},
+                            {data: 'net_amount'},
+
                             {data: 'set'},   
                             {data: 'set_group'},
 
@@ -239,6 +243,20 @@ module.exports = function(data) {
                             },
                             {
                                 targets: [26],
+                                render: function(data) {
+                                   var element = data;
+                                    return element;
+                                }
+                            },
+                            {
+                                targets: [27],
+                                render: function(data) {
+                                   var element = data;
+                                    return element;
+                                }
+                            },
+                            {
+                                targets: [28],
                                 render: function(data) {
                                    var element = data;
                                     return element;

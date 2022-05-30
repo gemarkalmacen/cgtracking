@@ -144,7 +144,9 @@ return [
     'payroll_total_educ' => 'Total educ',
     'payroll_health' => 'Health',
     'payroll_rice' => 'Rice',
-    'payroll_total_amount' => 'Total amount',
+    'payroll_gross_amount' => 'Gross amount',
+    'payroll_net_amount' => 'Net amount',
+    'payroll_adjustment_amount' => 'Adjustment amount',
     'payroll_set' => 'Set',
     'payroll_set_group' => 'Set group',
 

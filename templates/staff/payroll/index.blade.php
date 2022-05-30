@@ -61,7 +61,9 @@
                             <th>{{ __('staff/tables.payroll_total_educ') }}</th>
                             <th>{{ __('staff/tables.payroll_health') }}</th>
                             <th>{{ __('staff/tables.payroll_rice') }}</th>
-                            <th>{{ __('staff/tables.payroll_total_amount') }}</th>
+                            <th>{{ __('staff/tables.payroll_gross_amount') }}</th>
+                            <th>{{ __('staff/tables.payroll_net_amount') }}</th>
+                            <th>{{ __('staff/tables.payroll_adjustment_amount') }}</th>
                             <th>{{ __('staff/tables.payroll_set') }}</th>
                             <th>{{ __('staff/tables.payroll_set_group') }}</th>
                         </tr>

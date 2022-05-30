@@ -45,8 +45,11 @@ class Payroll extends Model
         'total_educ',
         'health',
         'rice',
-        'total_amount',
+        'gross_amount',
+        'adjustment_amount',
+        'net_amount',
         'set',
         'set_group',
+        'upload_history_id',
     ];
 }
