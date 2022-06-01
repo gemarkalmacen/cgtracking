@@ -15,7 +15,7 @@ class CreateLibClientstatus extends Migration
     {
         Schema::create('lib_clientstatus', function (Blueprint $table) {
             $table->id();
-            $table->string('clientstatus')->nullable();
+            $table->string('client_status')->nullable();
             $table->timestamps();
         });
     }
