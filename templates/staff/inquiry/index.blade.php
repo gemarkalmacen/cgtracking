@@ -4,6 +4,7 @@
 @section('title', __('staff/titles.inquiry'))
 
 @section('plugin_css')
+    <link href="{{ url('staff/assets/plugins/custom/datatables/datatables.bundle.css?v=7.0.3') }}" rel="stylesheet" type="text/css" />
 @endsection
 
 @section('content')
@@ -195,8 +196,8 @@
 </div>
 
 <div v-if="cc_details_display == true" class="row" id="cash_card_details_id">
-<div class="col-lg-4">
-        <div class="card card-custom card-fit card-border">
+    <div class="col-lg-4">
+        <div class="card card-custom card-fit card-border card-stretch">
             <div class="card-header">
                 <div class="card-title">
                     <span class="svg-icon svg-icon-primary svg-icon-2x">
@@ -301,7 +302,7 @@
         </div>
     </div>
     <div class="col-lg-4">
-        <div class="card card-custom card-fit card-border">
+        <div class="card card-custom card-fit card-border card-stretch">
             <div class="card-header">
                 <div class="card-title">
                     <span class="svg-icon svg-icon-primary svg-icon-2x">
@@ -413,7 +414,7 @@
         </div>
     </div>
     <div class="col-lg-4">
-        <div class="card card-custom card-fit card-border">
+        <div class="card card-custom card-fit card-border card-stretch">
             <div class="card-header">
                 <div class="card-title">
                     <span class="svg-icon svg-icon-primary svg-icon-2x">
@@ -548,314 +549,22 @@
             </ul>
         </div>
     </div>
-    <div class="card-body px-0">
-        <div class="tab-content pt-5">
-            <div class="tab-pane active" id="kt_apps_contacts_view_tab_2" role="tabpanel">
-                <form class="form">
-
-                </form>
-            </div>
-            <div class="tab-pane" id="kt_apps_contacts_view_tab_3" role="tabpanel">
-                <form class="form">
-
-                </form>
-            </div>
-            <div class="tab-pane" id="kt_apps_contacts_view_tab_4" role="tabpanel">
-                <form class="form">
-                    <div class="row">
-                        <label class="col-xl-3"></label>
-                        <div class="col-lg-9 col-xl-6">
-                            <h3 class="font-size-h6 mb-5">Setup Email Notification:</h3>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <div class="tab-pane" id="kt_apps_contacts_view_tab_1" role="tabpanel">
-                <div class="container">
-                    <div class="separator separator-dashed my-10"></div>
-                    <div class="timeline timeline-3">
-                        <div class="timeline-items">
-                            <div class="timeline-item">
-                                <div class="timeline-media">
-                                    <img alt="Pic" src="{{ url('staff/assets/media/users/300_25.jpg') }}" />
-                                </div>
-                                <div class="timeline-content">
-                                    <div class="d-flex align-items-center justify-content-between mb-3">
-                                        <div class="mr-2">
-                                            <a href="#" class="text-dark-75 text-hover-primary font-weight-bold">New order has been placed</a>
-                                            <span class="text-muted ml-2">Today</span>
-                                            <span class="label label-light-success font-weight-bolder label-inline ml-2">new</span>
-                                        </div>
-                                        <div class="dropdown ml-2" data-toggle="tooltip" title="Quick actions" data-placement="left">
-                                            <a href="#" class="btn btn-hover-light-primary btn-sm btn-icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <i class="ki ki-more-hor font-size-lg text-primary"></i>
-                                            </a>
-                                            <div class="dropdown-menu p-0 m-0 dropdown-menu-md dropdown-menu-right">
-                                                <ul class="navi navi-hover">
-                                                    <li class="navi-header font-weight-bold py-4">
-                                                        <span class="font-size-lg">Choose Label:</span>
-                                                        <i class="flaticon2-information icon-md text-muted" data-toggle="tooltip" data-placement="right" title="Click to learn more..."></i>
-                                                    </li>
-                                                    <li class="navi-separator mb-3 opacity-70"></li>
-                                                    <li class="navi-item">
-                                                        <a href="#" class="navi-link">
-                                                            <span class="navi-text">
-                                                                <span class="label label-xl label-inline label-light-success">Customer</span>
-                                                            </span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="navi-item">
-                                                        <a href="#" class="navi-link">
-                                                            <span class="navi-text">
-                                                                <span class="label label-xl label-inline label-light-danger">Partner</span>
-                                                            </span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="navi-item">
-                                                        <a href="#" class="navi-link">
-                                                            <span class="navi-text">
-                                                                <span class="label label-xl label-inline label-light-warning">Suplier</span>
-                                                            </span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="navi-item">
-                                                        <a href="#" class="navi-link">
-                                                            <span class="navi-text">
-                                                                <span class="label label-xl label-inline label-light-primary">Member</span>
-                                                            </span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="navi-item">
-                                                        <a href="#" class="navi-link">
-                                                            <span class="navi-text">
-                                                                <span class="label label-xl label-inline label-light-dark">Staff</span>
-                                                            </span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="navi-separator mt-3 opacity-70"></li>
-                                                    <li class="navi-footer py-4">
-                                                        <a class="btn btn-clean font-weight-bold btn-sm" href="#">
-                                                            <i class="ki ki-plus icon-sm"></i>Add new</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <p class="p-0">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto.</p>
-                                </div>
-                            </div>
-                            <div class="timeline-item">
-                                <div class="timeline-media">
-                                    <i class="flaticon2-shield text-danger"></i>
-                                </div>
-                                <div class="timeline-content">
-                                    <div class="d-flex align-items-center justify-content-between mb-3">
-                                        <div class="mr-2">
-                                            <a href="#" class="text-dark-75 text-hover-primary font-weight-bold">Member has sent a request.</a>
-                                            <span class="text-muted ml-2">8:30PM 20 June</span>
-                                            <span class="label label-light-danger font-weight-bolder label-inline ml-2">pending</span>
-                                        </div>
-                                        <div class="dropdown ml-2" data-toggle="tooltip" title="Quick actions" data-placement="left">
-                                            <a href="#" class="btn btn-hover-light-primary btn-sm btn-icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <i class="ki ki-more-hor font-size-lg text-primary"></i>
-                                            </a>
-                                            <div class="dropdown-menu p-0 m-0 dropdown-menu-md dropdown-menu-right">
-                                                <ul class="navi navi-hover">
-                                                    <li class="navi-header font-weight-bold py-4">
-                                                        <span class="font-size-lg">Choose Label:</span>
-                                                        <i class="flaticon2-information icon-md text-muted" data-toggle="tooltip" data-placement="right" title="Click to learn more..."></i>
-                                                    </li>
-                                                    <li class="navi-separator mb-3 opacity-70"></li>
-                                                    <li class="navi-item">
-                                                        <a href="#" class="navi-link">
-                                                            <span class="navi-text">
-                                                                <span class="label label-xl label-inline label-light-success">Customer</span>
-                                                            </span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="navi-item">
-                                                        <a href="#" class="navi-link">
-                                                            <span class="navi-text">
-                                                                <span class="label label-xl label-inline label-light-danger">Partner</span>
-                                                            </span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="navi-item">
-                                                        <a href="#" class="navi-link">
-                                                            <span class="navi-text">
-                                                                <span class="label label-xl label-inline label-light-warning">Suplier</span>
-                                                            </span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="navi-item">
-                                                        <a href="#" class="navi-link">
-                                                            <span class="navi-text">
-                                                                <span class="label label-xl label-inline label-light-primary">Member</span>
-                                                            </span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="navi-item">
-                                                        <a href="#" class="navi-link">
-                                                            <span class="navi-text">
-                                                                <span class="label label-xl label-inline label-light-dark">Staff</span>
-                                                            </span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="navi-separator mt-3 opacity-70"></li>
-                                                    <li class="navi-footer py-4">
-                                                        <a class="btn btn-clean font-weight-bold btn-sm" href="#">
-                                                            <i class="ki ki-plus icon-sm"></i>Add new</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <p class="p-0">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto.</p>
-                                </div>
-                            </div>
-                            <div class="timeline-item">
-                                <div class="timeline-media">
-                                    <i class="flaticon2-layers text-warning"></i>
-                                </div>
-                                <div class="timeline-content">
-                                    <div class="d-flex align-items-center justify-content-between mb-3">
-                                        <div class="mr-2">
-                                            <a href="#" class="text-dark-75 text-hover-primary font-weight-bold">System deployment has been completed.</a>
-                                            <span class="text-muted ml-2">11:00AM 30 June</span>
-                                            <span class="label label-light-warning font-weight-bolder label-inline ml-2">done</span>
-                                        </div>
-                                        <div class="dropdown ml-2" data-toggle="tooltip" title="Quick actions" data-placement="left">
-                                            <a href="#" class="btn btn-hover-light-primary btn-sm btn-icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <i class="ki ki-more-hor font-size-lg text-primary"></i>
-                                            </a>
-                                            <div class="dropdown-menu p-0 m-0 dropdown-menu-md dropdown-menu-right">
-                                                <ul class="navi navi-hover">
-                                                    <li class="navi-header font-weight-bold py-4">
-                                                        <span class="font-size-lg">Choose Label:</span>
-                                                        <i class="flaticon2-information icon-md text-muted" data-toggle="tooltip" data-placement="right" title="Click to learn more..."></i>
-                                                    </li>
-                                                    <li class="navi-separator mb-3 opacity-70"></li>
-                                                    <li class="navi-item">
-                                                        <a href="#" class="navi-link">
-                                                            <span class="navi-text">
-                                                                <span class="label label-xl label-inline label-light-success">Customer</span>
-                                                            </span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="navi-item">
-                                                        <a href="#" class="navi-link">
-                                                            <span class="navi-text">
-                                                                <span class="label label-xl label-inline label-light-danger">Partner</span>
-                                                            </span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="navi-item">
-                                                        <a href="#" class="navi-link">
-                                                            <span class="navi-text">
-                                                                <span class="label label-xl label-inline label-light-warning">Suplier</span>
-                                                            </span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="navi-item">
-                                                        <a href="#" class="navi-link">
-                                                            <span class="navi-text">
-                                                                <span class="label label-xl label-inline label-light-primary">Member</span>
-                                                            </span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="navi-item">
-                                                        <a href="#" class="navi-link">
-                                                            <span class="navi-text">
-                                                                <span class="label label-xl label-inline label-light-dark">Staff</span>
-                                                            </span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="navi-separator mt-3 opacity-70"></li>
-                                                    <li class="navi-footer py-4">
-                                                        <a class="btn btn-clean font-weight-bold btn-sm" href="#">
-                                                            <i class="ki ki-plus icon-sm"></i>Add new</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <p class="p-0">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto.</p>
-                                </div>
-                            </div>
-                            <div class="timeline-item">
-                                <div class="timeline-media">
-                                    <i class="flaticon2-notification fl text-primary"></i>
-                                </div>
-                                <div class="timeline-content">
-                                    <div class="d-flex align-items-center justify-content-between mb-3">
-                                        <div class="mr-2">
-                                            <a href="#" class="text-dark-75 text-hover-primary font-weight-bold">Database backup has been completed.</a>
-                                            <span class="text-muted ml-2">2 months ago</span>
-                                            <span class="label label-light-primary font-weight-bolder label-inline ml-2">delivered</span>
-                                        </div>
-                                        <div class="dropdown ml-2" data-toggle="tooltip" title="Quick actions" data-placement="left">
-                                            <a href="#" class="btn btn-hover-light-primary btn-sm btn-icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                <i class="ki ki-more-hor font-size-lg text-primary"></i>
-                                            </a>
-                                            <div class="dropdown-menu p-0 m-0 dropdown-menu-md dropdown-menu-right">
-                                                <ul class="navi navi-hover">
-                                                    <li class="navi-header font-weight-bold py-4">
-                                                        <span class="font-size-lg">Choose Label:</span>
-                                                        <i class="flaticon2-information icon-md text-muted" data-toggle="tooltip" data-placement="right" title="Click to learn more..."></i>
-                                                    </li>
-                                                    <li class="navi-separator mb-3 opacity-70"></li>
-                                                    <li class="navi-item">
-                                                        <a href="#" class="navi-link">
-                                                            <span class="navi-text">
-                                                                <span class="label label-xl label-inline label-light-success">Customer</span>
-                                                            </span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="navi-item">
-                                                        <a href="#" class="navi-link">
-                                                            <span class="navi-text">
-                                                                <span class="label label-xl label-inline label-light-danger">Partner</span>
-                                                            </span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="navi-item">
-                                                        <a href="#" class="navi-link">
-                                                            <span class="navi-text">
-                                                                <span class="label label-xl label-inline label-light-warning">Suplier</span>
-                                                            </span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="navi-item">
-                                                        <a href="#" class="navi-link">
-                                                            <span class="navi-text">
-                                                                <span class="label label-xl label-inline label-light-primary">Member</span>
-                                                            </span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="navi-item">
-                                                        <a href="#" class="navi-link">
-                                                            <span class="navi-text">
-                                                                <span class="label label-xl label-inline label-light-dark">Staff</span>
-                                                            </span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="navi-separator mt-3 opacity-70"></li>
-                                                    <li class="navi-footer py-4">
-                                                        <a class="btn btn-clean font-weight-bold btn-sm" href="#">
-                                                            <i class="ki ki-plus icon-sm"></i>Add new</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <p class="p-0">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="card-body">
+        <datatable v-if="config" :options="config.options" :url="config.url" :notifications="config.notifications" style="width: 100%">
+            <template>
+                <thead>
+                    <tr>
+                        <th>{{ __('staff/tables.payroll_history_payroll_type') }}</th>
+                        <th>{{ __('staff/tables.payroll_history_year') }}</th>
+                        <th>{{ __('staff/tables.payroll_history_period') }}</th>
+                        <th>{{ __('staff/tables.payroll_history_payment_mode') }}</th>
+                        <th>{{ __('staff/tables.payroll_history_account') }}</th>
+                        <th>{{ __('staff/tables.payroll_history_amount') }}</th>
+                        <th>{{ __('staff/tables.payroll_history_top_up') }}</th>
+                    </tr>
+                </thead>
+            </template>
+        </datatable>
     </div>
 </div>
 <!--end::Card-->
@@ -863,4 +572,5 @@
 @endsection
 
 @section('plugin_script')
+    <script src="{{ url('staff/assets/plugins/custom/datatables/datatables.bundle.js?v=7.0.3') }}"></script>
 @endsection

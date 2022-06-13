@@ -70,7 +70,7 @@ module.exports = function(data) {
                 // })
 
                 vm.cc_details_display = true;
-                
+            
                 $.ajax({
                     url: vm.$route('staff.ajax.inquiry.search') + '/?id='+vm.hh_id_search,
                     type: 'GET',
@@ -101,7 +101,7 @@ module.exports = function(data) {
                                     vm.emvs = emv;
                                 }
                             }
-                            
+                            vm.setConfig();
                         }
                     },
                     // error: function(){
@@ -116,6 +116,40 @@ module.exports = function(data) {
                 vm.emvs = {};
                 vm.nonemvs = {};
                 vm.granteelists = {};
+            },
+            setConfig() {
+                var vm = this;
+                vm.config = {
+                    options: {
+                        responsive: false,
+                        scrollY: "600px",
+                        scrollX: true,
+                        fixedHeader: true,
+                        order: [[ 1, 'asc' ]],
+                        columns: [
+                            {data: 'payroll_type'},
+                            {data: 'year'},
+                            {data: 'period'},
+                            {data: 'mop'},
+                            {data: 'card'},
+                            {data: 'gross_amount'},
+                            {data: 'gross_amount'},
+                        ],
+                        columnDefs: [
+                            {
+                                targets: [6],
+                                render: function(data) {
+                                   return null;
+                                 }
+                            },
+                        ]
+                    },
+                    url: {
+                        list: vm.$route('staff.ajax.inquiry.listing'),
+                        ext_post: {hh_id: vm.hh_id_search}
+                        // delete: 'staff.users.destroy'
+                    },
+                };
             }
         },
         beforeMount(){
