@@ -25,7 +25,7 @@ class InquiryController extends Controller
         $records_getGranteelist = $getGranteelist->execute($request_id);
         $records_getNonemv = $getNonemv->execute($request_id);
         $records_getEmv = $getEmv->execute($request_id);
-
+      
         return response()->json([
             'payroll' => $records_getPayroll,
             'granteelist' => $records_getGranteelist,
