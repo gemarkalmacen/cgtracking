@@ -198,6 +198,8 @@
 <div v-if="cc_details_display == true" class="row" id="cash_card_details_id">
     <div class="col-lg-4">
         <div class="card card-custom card-fit card-border card-stretch">
+<div class="col-lg-4">
+        <div class="card card-custom card-fit card-border">
             <div class="card-header">
                 <div class="card-title">
                     <span class="svg-icon svg-icon-primary svg-icon-2x">

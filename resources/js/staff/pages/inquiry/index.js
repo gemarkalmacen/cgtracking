@@ -70,7 +70,7 @@ module.exports = function(data) {
                 // })
 
                 vm.cc_details_display = true;
-            
+
                 $.ajax({
                     url: vm.$route('staff.ajax.inquiry.search') + '/?id='+vm.hh_id_search,
                     type: 'GET',
@@ -101,6 +101,7 @@ module.exports = function(data) {
                                     vm.emvs = emv;
                                 }
                             }
+
                             vm.setConfig();
                         }
                     },
@@ -116,6 +117,7 @@ module.exports = function(data) {
                 vm.emvs = {};
                 vm.nonemvs = {};
                 vm.granteelists = {};
+
             },
             setConfig() {
                 var vm = this;
