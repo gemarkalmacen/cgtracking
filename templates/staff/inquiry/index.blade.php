@@ -198,8 +198,6 @@
 <div v-if="cc_details_display == true" class="row" id="cash_card_details_id">
     <div class="col-lg-4">
         <div class="card card-custom card-fit card-border card-stretch">
-<div class="col-lg-4">
-        <div class="card card-custom card-fit card-border">
             <div class="card-header">
                 <div class="card-title">
                     <span class="svg-icon svg-icon-primary svg-icon-2x">
@@ -308,7 +306,6 @@
             <div class="card-header">
                 <div class="card-title">
                     <span class="svg-icon svg-icon-primary svg-icon-2x">
-                        <!--begin::Svg Icon | path:C:\wamp64\www\keenthemes\themes\metronic\theme\html\demo1\dist/../src/media/svg/icons\Shopping\Credit-card.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                             <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                 <rect x="0" y="0" width="24" height="24" />
                                 <rect fill="#000000" opacity="0.3" x="2" y="5" width="20" height="14" rx="2" />
@@ -316,7 +313,6 @@
                                 <rect fill="#000000" opacity="0.3" x="16" y="14" width="4" height="2" rx="1" />
                             </g>
                         </svg>
-                        <!--end::Svg Icon-->
                     </span>
                     <h3 class="card-label">EMV
                         <small>Europay, Master Card & Visa</small>
