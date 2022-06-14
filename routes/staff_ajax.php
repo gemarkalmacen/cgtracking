@@ -47,4 +47,8 @@ Route::group(['prefix' => 'ajax', 'namespace' => 'Ajax'], function () {
     Route::group(['prefix' => 'uploadhistory', 'namespace' => 'Uploadhistory'], function () {
         Route::post('listing', 'UploadhistoryController@listing')->name('staff.ajax.uploadhistory.listing');
     });
+
+    Route::group(['prefix' => 'inquiry', 'namespace' => 'Inquiry'], function () {
+        Route::get('search', 'InquiryController@search')->name('staff.ajax.inquiry.search');
+    });
 });
