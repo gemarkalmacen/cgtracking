@@ -17,7 +17,6 @@ class GetListingPayrollByHHId
     public function execute($hh_id)
     {
         $query = Payroll::select(['*'])->where('household_id', $hh_id);
-
         $result = Datatable::of($query, request(), [
             'searchable' => [
                 'payroll_type',

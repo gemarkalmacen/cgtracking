@@ -36,8 +36,8 @@ class InquiryController extends Controller
 
     public function listing(GetListingPayrollByHHId $getListingPayrollByHHId)
     {
-        $request_id = request('hh_id');
-        $data = $getListingPayrollByHHId->execute($request_id);
+        $request_id = request('_ext_post');
+        $data = $getListingPayrollByHHId->execute($request_id['hh_id']);
         return response()->json($data);
     }
 }
