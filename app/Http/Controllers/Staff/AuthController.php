@@ -126,9 +126,9 @@ class AuthController extends BaseController
                 ];
 
                 if (!User::where('username', $data['preferred_username'])->first()) {
-                    $userData = User::create($userData);
+                    $users = User::create($userData);
                     $userDetailsData = [
-                        'user_id' => $userData->id,
+                        'user_id' => $users->id,
                         'is_active' => 1,
                         'first_name' => $data['given_name'],
                         'last_name' => $data['family_name'],
@@ -137,7 +137,7 @@ class AuthController extends BaseController
                     ModelHasRoles::create([
                         'role_id' => 4,
                         'model_type' => 'App\Models\User',
-                        'model_id' => $userData->id,
+                        'model_id' => $users->id,
                     ]);
                 } else {
                     echo 'Error authentication attempt';
