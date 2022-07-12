@@ -28,7 +28,7 @@
         "spatie/laravel-query-builder": "^3.0",
         "spatie/laravel-translatable": "^4.4",
         "staudenmeir/eloquent-has-many-deep": "^1.12",
-        "stevenmaguire/oauth2-keycloak": "^2.2",
+        "stevenmaguire/oauth2-keycloak": "^3.0",
         "tightenco/ziggy": "^0.9.4"
     },
     "require-dev": {
