@@ -134,11 +134,7 @@ class AuthController extends BaseController
                         'last_name' => $data['family_name'],
                     ];
                     UserDetail::create($userDetailsData);
-                    ModelHasRoles::create([
-                        'role_id' => 4,
-                        'model_type' => 'App\Models\User',
-                        'model_id' => $users->id,
-                    ]);
+                    $users->assignRole(1);
                 } else {
                     echo 'Error authentication attempt';
                 };
