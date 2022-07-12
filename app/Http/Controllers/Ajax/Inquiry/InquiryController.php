@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Ajax\Inquiry;
 use App\Http\Controllers\Controller;
 use App\Services\Inquiry\GetPayroll;
 use App\Services\Inquiry\GetGranteelist;
+use App\Services\Payroll\GetListingPayrollByHHId;
 use App\Services\Inquiry\GetNonemv;
 use App\Services\Inquiry\GetEmv;
 
@@ -24,7 +25,7 @@ class InquiryController extends Controller
         $records_getGranteelist = $getGranteelist->execute($request_id);
         $records_getNonemv = $getNonemv->execute($request_id);
         $records_getEmv = $getEmv->execute($request_id);
-        
+      
         return response()->json([
             'payroll' => $records_getPayroll,
             'granteelist' => $records_getGranteelist,
@@ -33,4 +34,10 @@ class InquiryController extends Controller
         ]);
     }
 
+    public function listing(GetListingPayrollByHHId $getListingPayrollByHHId)
+    {
+        $request_id = request('_ext_post');
+        $data = $getListingPayrollByHHId->execute($request_id['hh_id']);
+        return response()->json($data);
+    }
 }

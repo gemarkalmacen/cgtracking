@@ -58,7 +58,8 @@ export default {
                     "url": vm.url.list,
                     "type": "POST",
                     data: {
-                        _token: window.token
+                        _token: window.token,
+                        _ext_post: vm.url.ext_post
                     }
                 },                
                 drawCallback: function(settings){

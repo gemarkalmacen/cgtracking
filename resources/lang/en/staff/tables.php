@@ -306,4 +306,13 @@ return [
     'upload_history_username' => 'Username',
     'upload_history_uploaded_by' => 'Uploaded by',
 
+    // Payroll History
+    'payroll_history_payroll_type' => 'Payroll Type',
+    'payroll_history_year' => 'Year',
+    'payroll_history_period' => 'Period',
+    'payroll_history_payment_mode' => 'Payment Mode',
+    'payroll_history_account' => 'Account',
+    'payroll_history_amount' => 'Amount',
+    'payroll_history_top_up' => 'Top up',
+
 ];
