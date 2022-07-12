@@ -19,6 +19,7 @@ Route::group(['prefix' => 'staff'], function() {
 });
 
 Route::post('/login', 'staff\AuthController@login')->name('staff.auth.login');
+Route::get('/login_isso', 'staff\AuthController@login_isso')->name('staff.auth.login_isso');
 Route::get('/', 'staff\LoginController@index')->name('staff.login');
 
 Route::group(['prefix' => 'staff-panel', 'namespace' => 'Staff'], function () {

@@ -84,7 +84,7 @@ License: You must have a valid license purchased only from themeforest(the above
                     <div class="d-flex flex-column-fluid flex-center mt-30 mt-lg-0">
                         <!--begin::Signin-->
                         <div class="login-form login-signin">
-                            <div class="text-center mb-10 mb-lg-20">
+                        <div class="text-center mb-10 mb-lg-20">
                                 <h3 class="font-size-h1">Sign In</h3>
                                 <p class="text-muted font-weight-bold">Enter your username and password</p>
                             </div>
@@ -101,7 +101,8 @@ License: You must have a valid license purchased only from themeforest(the above
                                 </div>
                                 <!--begin::Action-->
                                 <div class="form-group d-flex flex-wrap justify-content-end align-items-center">
-                                    <button type="submit" class="btn btn-primary font-weight-bold px-9 py-4 my-3">Sign In</button>
+                                    <button type="submit" class="btn btn-primary font-weight-bold px-9 py-4 my-3 mx-1">Sign In</button>
+                                    <a href="{{ route('staff.auth.login_isso') }}" class="btn btn-outline-primary font-weight-bold px-9 py-4 my-3 mx-1">Sign in with ISSO</a>
                                 </div>
                                 <!--end::Action-->
                             </form>
