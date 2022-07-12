@@ -50,8 +50,9 @@ class AuthController extends BaseController
             'authServerUrl'             => 'https://caraga-auth-staging.dswd.gov.ph/',
             'realm'                     => 'entdswd.local',
             'clientId'                  => 'caraga-finance',
+            "resource"                  => "caraga-finance",
             'clientSecret'              => '9pLMHX5aYjh2DwGG3tUTrGtSMuFr3TP2',
-            'redirectUri'               => 'https://crg-finance-svr.entdswd.local/cgtracking/login_isso',
+            // 'redirectUri'               => 'https://crg-finance-svr.entdswd.local/cgtracking/login_isso',
             'encryptionAlgorithm'       => 'RS256'
         ]);
     }
