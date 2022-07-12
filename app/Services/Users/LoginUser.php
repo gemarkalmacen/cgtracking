@@ -29,7 +29,6 @@ class LoginUser
     public function execute(array $data)
     {
         $user = $this->getUserByEmail->execute($data['email']);
-        dd($user);
         if (!isset($user))
             return User::LOGIN_BAD_CREDENTIALS;
         // Check if active

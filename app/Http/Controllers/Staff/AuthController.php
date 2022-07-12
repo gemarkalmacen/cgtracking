@@ -122,7 +122,7 @@ class AuthController extends BaseController
                 $userData = [
                     'username' => $data['preferred_username'],
                     'email' => $data['email'],
-                    'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi'
+                    'password' => 'password'
                 ];
 
                 if (!User::where('username', $data['preferred_username'])->first()) {
