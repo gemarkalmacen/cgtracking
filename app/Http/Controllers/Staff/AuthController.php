@@ -125,11 +125,6 @@ class AuthController extends BaseController
                     'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi'
                 ];
 
-                $attemptData = [
-                    'username' => $data['preferred_username'],
-                    'password' => 'password'
-                ];
- 
                 if (!User::where('username', $data['preferred_username'])->first()) {
                     $userData = User::create($userData);
                     $userDetailsData = [
@@ -148,9 +143,18 @@ class AuthController extends BaseController
                     echo 'Error authentication attempt';
                 };
 
-                if (auth('users')->attempt($attemptData)) {
-                    return redirect()->route('main.dashboard');
+                $status = $this->loginUser->execute($userData);
+                if ($status === User::LOGIN_BAD_CREDENTIALS || $status === User::LOGIN_INACTIVE) {
+                    // Message
+                    $message = __('staff/notifications.login_bad_credentials');
+                    if ($status === User::LOGIN_INACTIVE)
+                        $message = __('staff/notifications.login_inactive');
+                    // redirect back to login page
+                    return redirect()->back()->with('notification', [
+                        ['type' => 'error', 'message' => $message]
+                    ]);
                 }
+                return redirect()->route('staff.dashboard');
             } catch (Exception $e) {
                 exit('Failed to get resource owner: ' . $e->getMessage());
             }
