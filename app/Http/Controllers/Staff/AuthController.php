@@ -8,6 +8,8 @@ use App\Traits\ThrottlesRequests;
 use App\Services\Users\LoginUser;
 use App\Services\Users\LogoutUser;
 use App\Models\User;
+use App\Models\UserDetail;
+use App\Models\ModelHasRoles;
 
 use Stevenmaguire\OAuth2\Client\Provider\Keycloak;
 
@@ -116,37 +118,39 @@ class AuthController extends BaseController
                 // We got an access token, let's now get the user's details
                 $user = $this->provider->getResourceOwner($token);
                 $data = $user->toArray();
-                dd($data);
-                // $newData = [
-                //     'sub' => $data['sub'],
-                //     'name' => $data['name'],
-                //     'given_name' => $data['given_name'],
-                //     'family_name' => $data['family_name'],
-                //     'username' => $data['preferred_username'],
-                //     'email' => $data['email'],
-                //     'email_verified' => $data['email_verified'],
-                //     'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi'
-                // ];
 
-                // $attemptData = [
-                //     'username' => $data['preferred_username'],
-                //     'password' => 'password'
-                // ];
+                $userData = [
+                    'username' => $data['preferred_username'],
+                    'email' => $data['email'],
+                    'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi'
+                ];
 
-                // if (!User::where('username', $data['preferred_username'])->first()) {
-                //     $userData = User::create($newData);
-                //     ModelRoles::create([
-                //         'role_id' => 4,
-                //         'model_type' => 'App\Models\User',
-                //         'model_id' => $userData->id,
-                //     ]);
-                // } else {
-                //     echo 'Error authentication attempt';
-                // };
+                $attemptData = [
+                    'username' => $data['preferred_username'],
+                    'password' => 'password'
+                ];
+ 
+                if (!User::where('username', $data['preferred_username'])->first()) {
+                    $userData = User::create($userData);
+                    $userDetailsData = [
+                        'user_id' => $userData->id,
+                        'is_active' => 1,
+                        'first_name' => $data['given_name'],
+                        'last_name' => $data['family_name'],
+                    ];
+                    UserDetail::create($userDetailsData);
+                    ModelHasRoles::create([
+                        'role_id' => 4,
+                        'model_type' => 'App\Models\User',
+                        'model_id' => $userData->id,
+                    ]);
+                } else {
+                    echo 'Error authentication attempt';
+                };
 
-                // if (auth('users')->attempt($attemptData)) {
-                //     return redirect()->route('main.dashboard');
-                // }
+                if (auth('users')->attempt($attemptData)) {
+                    return redirect()->route('main.dashboard');
+                }
             } catch (Exception $e) {
                 exit('Failed to get resource owner: ' . $e->getMessage());
             }
