@@ -119,13 +119,18 @@ class AuthController extends BaseController
                 $user = $this->provider->getResourceOwner($token);
                 $data = $user->toArray();
 
-                $userData = [
+                $userAttempt = [
                     'username' => $data['preferred_username'],
                     'email' => $data['email'],
                     'password' => 'password'
                 ];
 
                 if (!User::where('username', $data['preferred_username'])->first()) {
+                    $userData = [
+                        'username' => $data['preferred_username'],
+                        'email' => $data['email'],
+                        'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi'
+                    ];
                     $users = User::create($userData);
                     $userDetailsData = [
                         'user_id' => $users->id,
@@ -139,7 +144,7 @@ class AuthController extends BaseController
                     echo 'Error authentication attempt';
                 };
 
-                $status = $this->loginUser->execute($userData);
+                $status = $this->loginUser->execute($userAttempt);
                 if ($status === User::LOGIN_BAD_CREDENTIALS || $status === User::LOGIN_INACTIVE) {
                     // Message
                     $message = __('staff/notifications.login_bad_credentials');
