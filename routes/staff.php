@@ -13,13 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::group(['prefix' => 'staff'], function() {
+Route::group(['prefix' => 'staff'], function () {
     include('config.php');
     include('staff_ajax.php');
 });
 
-Route::post('/login', 'staff\AuthController@login')->name('staff.auth.login');
-Route::get('/', 'staff\LoginController@index')->name('staff.login');
+Route::post('/login', 'Staff\AuthController@login')->name('staff.auth.login');
+Route::get('/login_isso', 'Staff\AuthController@login_isso')->name('staff.auth.login_isso');
+Route::get('/', 'Staff\LoginController@index')->name('staff.login');
+
 
 Route::group(['prefix' => 'staff-panel', 'namespace' => 'Staff'], function () {
     Route::group(['middleware' => ['auth:users']], function () {
@@ -67,8 +69,8 @@ Route::group(['prefix' => 'staff-panel', 'namespace' => 'Staff'], function () {
             ]
         ]);
 
-        Route::get('granteelistsimport','GranteelistController@import')->name('staff.granteelists.granteelistsimport');
-        Route::post('granteelistsload','GranteelistController@load')->name('staff.granteelists.granteelistsload');
+        Route::get('granteelistsimport', 'GranteelistController@import')->name('staff.granteelists.granteelistsimport');
+        Route::post('granteelistsload', 'GranteelistController@load')->name('staff.granteelists.granteelistsload');
     });
 
     Route::group(['namespace' => 'Emvdatabase'], function () {
@@ -78,10 +80,10 @@ Route::group(['prefix' => 'staff-panel', 'namespace' => 'Staff'], function () {
             ]
         ]);
 
-        Route::get('emvdatabaseimport','EmvdatabaseController@import')->name('staff.emvdatabase.emvdatabaseimport');
-        Route::post('emvdatabaseload','EmvdatabaseController@load')->name('staff.emvdatabase.emvdatabaseload');
+        Route::get('emvdatabaseimport', 'EmvdatabaseController@import')->name('staff.emvdatabase.emvdatabaseimport');
+        Route::post('emvdatabaseload', 'EmvdatabaseController@load')->name('staff.emvdatabase.emvdatabaseload');
     });
-    
+
     Route::group(['namespace' => 'Payroll'], function () {
         Route::resource('payroll', "PayrollController", [
             'names' => [
@@ -89,8 +91,8 @@ Route::group(['prefix' => 'staff-panel', 'namespace' => 'Staff'], function () {
             ]
         ]);
 
-        Route::get('payrollimport','PayrollController@import')->name('staff.payroll.payrollimport');
-        Route::post('payrollload','PayrollController@load')->name('staff.payroll.payrollload');
+        Route::get('payrollimport', 'PayrollController@import')->name('staff.payroll.payrollimport');
+        Route::post('payrollload', 'PayrollController@load')->name('staff.payroll.payrollload');
     });
     Route::group(['namespace' => 'Topup'], function () {
         Route::resource('topup', "TopupController", [
@@ -99,8 +101,8 @@ Route::group(['prefix' => 'staff-panel', 'namespace' => 'Staff'], function () {
             ]
         ]);
 
-        Route::get('topupimport','TopupController@import')->name('staff.topup.topupimport');
-        Route::post('topupload','TopupController@load')->name('staff.topup.topupload');
+        Route::get('topupimport', 'TopupController@import')->name('staff.topup.topupimport');
+        Route::post('topupload', 'TopupController@load')->name('staff.topup.topupload');
     });
 
     Route::group(['namespace' => 'Overpayment'], function () {
@@ -110,8 +112,8 @@ Route::group(['prefix' => 'staff-panel', 'namespace' => 'Staff'], function () {
             ]
         ]);
 
-        Route::get('overpaymentimport','OverpaymentController@import')->name('staff.overpayment.overpaymentimport');
-        Route::post('overpaymentload','OverpaymentController@load')->name('staff.overpayment.overpaymentload');
+        Route::get('overpaymentimport', 'OverpaymentController@import')->name('staff.overpayment.overpaymentimport');
+        Route::post('overpaymentload', 'OverpaymentController@load')->name('staff.overpayment.overpaymentload');
     });
 
     Route::group(['namespace' => 'Nonemv'], function () {
@@ -121,8 +123,8 @@ Route::group(['prefix' => 'staff-panel', 'namespace' => 'Staff'], function () {
             ]
         ]);
 
-        Route::get('nonemvimport','NonemvController@import')->name('staff.nonemv.nonemvimport');
-        Route::post('nonemvload','NonemvController@load')->name('staff.nonemv.nonemvload');
+        Route::get('nonemvimport', 'NonemvController@import')->name('staff.nonemv.nonemvimport');
+        Route::post('nonemvload', 'NonemvController@load')->name('staff.nonemv.nonemvload');
     });
 
     Route::group(['namespace' => 'Archivedgranteelists'], function () {
@@ -147,7 +149,7 @@ Route::group(['prefix' => 'staff-panel', 'namespace' => 'Staff'], function () {
                 'index' => "staff.uploadhistory.index",
             ]
         ]);
-        Route::post('uploadhistoryload','UploadhistoryController@load')->name('staff.uploadhistory.uploadhistoryload');
+        Route::post('uploadhistoryload', 'UploadhistoryController@load')->name('staff.uploadhistory.uploadhistoryload');
     });
 
     Route::group(['namespace' => 'Inquiry'], function () {
@@ -157,5 +159,4 @@ Route::group(['prefix' => 'staff-panel', 'namespace' => 'Staff'], function () {
             ]
         ]);
     });
-
 });
