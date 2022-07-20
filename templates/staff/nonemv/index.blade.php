@@ -53,7 +53,7 @@
                             <th>{{ __('staff/tables.non_emv_balance_as_of') }}</th>
                             <th>{{ __('staff/tables.non_emv_account_balance') }}</th>
                             <th>{{ __('staff/tables.non_emv_hh_id') }}</th>
-                            <th>{{ __('staff/tables.non_emv_region') }}</th>
+                            <th>{{ __('staff/tables.non_emv_card_holder_status') }}</th>
                             <th>{{ __('staff/tables.non_emv_province') }}</th>
                             <th>{{ __('staff/tables.non_emv_municipality') }}</th>
                             <th>{{ __('staff/tables.non_emv_barangay') }}</th>

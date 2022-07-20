@@ -228,6 +228,7 @@ return [
     'non_emv_account_balance' => 'Account Balance',
     'non_emv_hh_id' => 'HH ID',
     'non_emv_region' => 'Region',
+    'non_emv_card_holder_status' => 'Card Holder Status',
     'non_emv_province' => 'Province',
     'non_emv_municipality' => 'Municipality',
     'non_emv_barangay' => 'Barangay',
