@@ -135,28 +135,28 @@ module.exports = function(data) {
                                 targets: [9],
                                 render: function(data) {
                                    var element = data;
-                                    return element.toUpperCase();
+                                    return element;
                                 }
                             },
                             {
                                 targets: [10],
                                 render: function(data) {
                                    var element = data;
-                                    return element.toUpperCase();
+                                    return element;
                                 }
                             },
                             {
                                 targets: [11],
                                 render: function(data) {
                                    var element = data;
-                                    return element.toUpperCase();
+                                    return element;
                                 }
                             },
                             {
                                 targets: [12],
                                 render: function(data) {
                                    var element = data;
-                                    return element.toUpperCase();
+                                    return element;
                                 }
                             },
                             {
