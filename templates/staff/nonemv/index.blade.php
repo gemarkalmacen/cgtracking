@@ -48,7 +48,7 @@
                             <th>{{ __('staff/tables.non_emv_cif_present_address') }}</th>
                             <th>{{ __('staff/tables.non_emv_nationality_cif_tel_no') }}</th>
                             <th>{{ __('staff/tables.non_emv_entry_number') }}</th>
-                            <th>{{ __('staff/tables.non_emv_household_number') }}</th>
+                            <th>{{ __('staff/tables.non_emv_card_status') }}</th>
                             <th>{{ __('staff/tables.non_emv_birthday') }}</th>
                             <th>{{ __('staff/tables.non_emv_balance_as_of') }}</th>
                             <th>{{ __('staff/tables.non_emv_account_balance') }}</th>
