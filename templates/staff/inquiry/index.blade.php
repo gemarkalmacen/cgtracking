@@ -471,12 +471,12 @@
                                 </div>
                                 <div class="d-flex align-items-center mb-1">
                                     <div>
-                                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Card Status : @{{ nonemv.card_number.toUpperCase() }}</a>
+                                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Card Status : @{{ nonemv.card_status.toUpperCase() }}</a>
                                     </div>
                                 </div>
                                 <div class="d-flex align-items-center mb-1">
                                     <div>
-                                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Card Holder Status : @{{ nonemv.card_number.toUpperCase() }}</a>
+                                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Card Holder Status : @{{ nonemv.card_holder_status.toUpperCase() }}</a>
                                     </div>
                                 </div>
                                 <div class="d-flex align-items-center mb-1">
