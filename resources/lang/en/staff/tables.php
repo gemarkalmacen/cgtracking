@@ -222,6 +222,7 @@ return [
     'non_emv_nationality_cif_tel_no' => 'Nationality CIF Tel No',
     'non_emv_entry_number' => 'Entry Number',
     'non_emv_household_number' => 'Household Number',
+    'non_emv_card_status' => 'Card Status',
     'non_emv_birthday' => 'Birthday',
     'non_emv_balance_as_of' => 'Balance as of',
     'non_emv_account_balance' => 'Account Balance',
