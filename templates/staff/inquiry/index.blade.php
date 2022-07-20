@@ -371,7 +371,7 @@
                                 </div>
                                 <div class="d-flex align-items-center mb-1">
                                     <div>
-                                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Date Claimed/Age : @{{ emv.date_claimed.toUpperCase() }}</a>
+                                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Date Claimed/Age : @{{ emv.date_claimed }}</a>
                                     </div>
                                 </div>
                                 <div class="d-flex align-items-center mb-1">
