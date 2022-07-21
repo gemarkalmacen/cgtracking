@@ -11,7 +11,7 @@ use App\Models\User;
 use App\Models\UserDetail;
 use App\Models\ModelHasRoles;
 
-use Stevenmaguire\OAuth2\Client\Provider\Keycloak;
+// use Stevenmaguire\OAuth2\Client\Provider\Keycloak;
 
 /**
  * Controller for admin authentication
@@ -48,14 +48,14 @@ class AuthController extends BaseController
         $this->loginUser = $loginUser;
         $this->logoutUser = $logoutUser;
 
-        $this->provider = new Keycloak([
-            'authServerUrl'             => 'https://caraga-auth-staging.dswd.gov.ph/',
-            'realm'                     => 'entdswd.local',
-            'clientId'                  => 'caraga-finance',
-            'clientSecret'              => '9pLMHX5aYjh2DwGG3tUTrGtSMuFr3TP2',
-            'redirectUri'               => 'https://crg-finance-svr.entdswd.local/cgtracking/login_isso',
-            'encryptionAlgorithm'       => 'RS256'
-        ]);
+        // $this->provider = new Keycloak([
+        //     'authServerUrl'             => 'https://caraga-auth-staging.dswd.gov.ph/',
+        //     'realm'                     => 'entdswd.local',
+        //     'clientId'                  => 'caraga-finance',
+        //     'clientSecret'              => '9pLMHX5aYjh2DwGG3tUTrGtSMuFr3TP2',
+        //     'redirectUri'               => 'https://crg-finance-svr.entdswd.local/cgtracking/login_isso',
+        //     'encryptionAlgorithm'       => 'RS256'
+        // ]);
     }
 
     /**

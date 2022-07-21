@@ -9,7 +9,18 @@
 
 @section('content')
 <!--Begin::Card-->
+
+
+
 <div class="card card-custom gutter-b">
+
+<loading 
+    loader="bars"
+    :active.sync="isLoading" 
+    :can-cancel="false" 
+    :is-full-page="fullPage">
+</loading> 
+
     <div class="card-body">
         <!--begin::Search Form-->
         <div class="d-flex align-items-center" id="kt_subheader_search">
