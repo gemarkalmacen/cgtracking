@@ -56,6 +56,11 @@ module.exports = function(data) {
                             console.log("all data**********");
                             if(Object.keys(granteelist).length === 0 && Object.keys(nonemv).length === 0 && Object.keys(emv).length === 0){
                                 // display "record not found"
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'Invalid!',
+                                    text: 'Household number not found',
+                                  });
                                 vm.cc_details_empty = true;
                             } else {
                                 if(Object.keys(granteelist).length !== 0){
