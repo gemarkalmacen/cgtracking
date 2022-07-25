@@ -35,5 +35,6 @@ class Topup extends Model
         'period_covered',
         'lbp_top_up_status_report',
         'lbp_reject_reason',
+        'upload_history_id',
     ];
 }

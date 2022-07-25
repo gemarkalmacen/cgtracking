@@ -194,7 +194,7 @@ class CsvFileImporter
                     $topup = new Topups;
                     $data = $topup->execute($file_path,$this->_generated_file_name, $this->_original_file_name);
                     $data = DB::connection()->getpdo()->exec($data);
-                    $fixed_invalid_dates = DB::statement("UPDATE top_up SET payroll_date = CASE WHEN '0000-00-00' = DATE_FORMAT(payroll_date,'%Y-%m-%d')THEN NULL ELSE payroll_date END");
+                    $fixed_invalid_dates = DB::statement("UPDATE top_up SET top_up_date = CASE WHEN '0000-00-00' = DATE_FORMAT(top_up_date,'%Y-%m-%d')THEN NULL ELSE top_up_date END");
                     break;
                 case "nonemv":
                     $nonemv = new Nonemvs;

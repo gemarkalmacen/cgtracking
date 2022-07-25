@@ -38,7 +38,6 @@ class UpdateTopupTable extends Migration
             $table->dropColumn('total_amount');
             $table->dropColumn('set');
             $table->dropColumn('set_group');
-            $table->dropColumn('upload_history_id');
 
 
             $table->string('account_number')->nullable()->after('id');
@@ -87,7 +86,6 @@ class UpdateTopupTable extends Migration
             $table->bigInteger('total_amount')->nullable()->after('rice');
             $table->string('set', 10)->nullable()->after('total_amount');
             $table->string('set_group', 10)->nullable()->after('set');
-            $table->bigInteger('upload_history_id')->nullable()->after('set_group');
 
             $table->dropColumn('account_number');
             $table->dropColumn('account_name');
@@ -99,7 +97,7 @@ class UpdateTopupTable extends Migration
             $table->dropColumn('hh_id');
             $table->dropColumn('period_covered');
             $table->dropColumn('lbp_top_up_status_report');
-            $table->dropColumn('lbl_reject_reason');
+            $table->dropColumn('lbp_reject_reason');
         });
     }
 }

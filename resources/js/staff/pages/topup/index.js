@@ -140,13 +140,6 @@ module.exports = function (data) {
                                     return element;
                                 }
                             },
-                            {
-                                targets: [14],
-                                render: function (data) {
-                                    var element = data;
-                                    return element;
-                                }
-                            },
                         ]
                     },
                     url: {
