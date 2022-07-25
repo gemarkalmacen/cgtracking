@@ -16,9 +16,9 @@ return [
     'users_is_active_1' => 'Active',
     'users_is_active_0' => 'Inactive',
     'users_roles' => 'Roles',
-    
+
     // roles
-    'roles_name' => 'Name',    
+    'roles_name' => 'Name',
 
     // grantee list
     'grantee_list_id' => 'ID',
@@ -179,35 +179,22 @@ return [
     'over_payment_hh_status' => 'Hh status',
     'over_payment_bal' => 'Bal',
     'over_payment_co_remarks' => 'Co remarks',
-    
+
     //top-up
-    'top_up_period' => 'Period',
-    'top_up_year' => 'Year',
-    'top_up_payroll_type' => 'Payroll type',
+    'top_up_account_number' => 'Account Number',
+    'top_up_account_name' => 'Account Name',
+    'top_up_amount' => 'Amount',
+    'top_up_transaction_sequence' => 'Trans Seq',
+    'top_up_date' => 'Top-up Date / LBP Run Date',
+    'top_up_lcc_batch_no' => 'LCC Top-up Batch No.',
+    'top_up_cct_type' => 'CCT Type',
+    'top_up_payroll_type' => 'Payroll Type',
     'top_up_region' => 'Region',
-    'top_up_province' => 'Province',
-    'top_up_municipality' => 'Municipality',
-    'top_up_barangay' => 'Barangay',
-    'top_up_account_number' => 'Account number',
-    'top_up_address_psgc' => 'Address Psgc',
-    'top_up_lastname' => 'Lastname',
-    'top_up_firstname' => 'Firstname',
-    'top_up_middlename' => 'Middlename',
-    'top_up_household_id' => 'Household id',
-    'top_up_hhset' => 'Hhset',
-    'top_up_mop' => 'Mop',
-    'top_up_card' => 'Card',
-    'top_up_payroll_date' => 'Payroll date',
-    'top_up_educ_dc_elem' => 'Educ dc elem',
-    'top_up_educ_jr_hs' => 'Educ jr hs',
-    'top_up_educ_sr_hs' => 'Educ sr hs',
-    'top_up_educ_total_hs' => 'Educ total hs',
-    'top_up_total_educ' => 'Total educ',
-    'top_up_health' => 'Health',
-    'top_up_rice' => 'Rice',
-    'top_up_total_amount' => 'Total amount',
-    'top_up_set' => 'Set',
-    'top_up_set_group' => 'Set group',
+    'top_up_household_id' => 'HH ID',
+    'top_up_period_covered' => 'Period Covered',
+    'top_up_lbp_status_report' => 'LBP Top-up Status Report',
+    'top_up_lbp_reject_reason' => 'LBP Reject Reason',
+
 
     // non emv
     'non_emv_id' => 'Id',
