@@ -13,6 +13,8 @@ module.exports = function(data) {
         granteelists: Object,
         nonemvs: Object,
         emvs: Object,
+        isLoading: false,
+        fullPage: true,  
     };
     return {
         data: (() => Object.assign({}, JSON.parse(data), _data)),
@@ -26,35 +28,32 @@ module.exports = function(data) {
                 var vm = this;
                 $(document).ready(function() {
                     vm.$toaster.init();
-                    // vm.searchHouseHold();
                 });
             },
             searchHouseHold(){
                 let vm = this;
                 console.log("cleared . . .");
-                // vm.clearSearch();
                 console.log("searching . . .");
+                vm.isLoading= true;
 
                 vm.cc_details_display = true;
                 $.ajax({
                     url: vm.$route('staff.ajax.inquiry.search') + '?id='+vm.hh_id_search,
                     type: 'GET',
-                    // data: {
-                    //     _token: window.token,
-                    //     category_id:vm.category.value
-                    // },
-                    // dataType: 'JSON',
                     success: function (response) {
-                        if (response) {                            
+                        if (response) {                          
                             var data = Object.values(response);
                             var payroll = data[0];
                             var granteelist = data[1];
                             var nonemv = data[2];
                             var emv = data[3];
+                            vm.isLoading= false;
+
                             console.log("**********all data");
                             console.log(data);
                             console.log("all data**********");
                             if(Object.keys(granteelist).length === 0 && Object.keys(nonemv).length === 0 && Object.keys(emv).length === 0){
+                                
                                 // display "record not found"
                                 Swal.fire({
                                     icon: 'error',
