@@ -20,7 +20,7 @@
                     </div>
                 </div>
             </div>
-            <table class="table table-bordered table-hover table-checkable" style="margin-top: 13px !important" ref="table" :id="id">
+            <table class="data-table table table-bordered table-hover table-checkable" style="margin-top: 13px !important" ref="table" :id="id">
                 <slot></slot>
             </table>
         </div>
@@ -46,10 +46,10 @@ export default {
 
     mounted: function() {
         var vm = this;
-
         $(document).ready(function() {
             var _defaultOptions = {
                 // responsive: true,
+                destroy: true,
                 searchDelay: 500,
                 autoWidth: false,
                 processing: true,
@@ -57,13 +57,13 @@ export default {
                 ajax: {
                     "url": vm.url.list,
                     "type": "POST",
-                    data: {
-                        _token: window.token,
-                        _ext_post: vm.url.ext_post
-                    }
+                    "data": function ( d ) {
+                        d._token = window.token;
+                        d._ext_post = vm.url.ext_post;
+                    },
                 },                
                 drawCallback: function(settings){
-                   vm.drawCallbackEvent(); 
+                    vm.drawCallbackEvent(); 
                 }                
             };
 

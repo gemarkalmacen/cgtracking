@@ -37,7 +37,7 @@ module.exports = function(data) {
 
                 vm.cc_details_display = true;
                 $.ajax({
-                    url: vm.$route('staff.ajax.inquiry.search') + '/?id='+vm.hh_id_search,
+                    url: vm.$route('staff.ajax.inquiry.search') + '?id='+vm.hh_id_search,
                     type: 'GET',
                     // data: {
                     //     _token: window.token,
@@ -73,8 +73,10 @@ module.exports = function(data) {
                                     vm.emvs = emv;
                                 }
                             }
-
                             vm.setConfig();
+                            setTimeout(() => {
+                                $('.data-table').DataTable().ajax.reload()
+                            }, 500);
                         }
                     },
                     // error: function(){
@@ -106,16 +108,10 @@ module.exports = function(data) {
                             {data: 'mop'},
                             {data: 'card'},
                             {data: 'gross_amount'},
-                            {data: 'gross_amount'},
+                            {data: 'top_up_date'},
+                            {data: 'account_number'},
+                            {data: 'amount'},
                         ],
-                        columnDefs: [
-                            {
-                                targets: [6],
-                                render: function(data) {
-                                   return null;
-                                 }
-                            },
-                        ]
                     },
                     url: {
                         list: vm.$route('staff.ajax.inquiry.listing'),
