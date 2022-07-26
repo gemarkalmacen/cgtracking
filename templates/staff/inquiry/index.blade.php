@@ -552,13 +552,19 @@
             <template>
                 <thead>
                     <tr>
+                        <th colspan="6" class="text-center">Payroll Details</th>
+                        <th colspan="3" class="text-center">Top Up Details</th>
+                    </tr>
+                    <tr>
                         <th>{{ __('staff/tables.payroll_history_payroll_type') }}</th>
                         <th>{{ __('staff/tables.payroll_history_year') }}</th>
                         <th>{{ __('staff/tables.payroll_history_period') }}</th>
                         <th>{{ __('staff/tables.payroll_history_payment_mode') }}</th>
                         <th>{{ __('staff/tables.payroll_history_account') }}</th>
                         <th>{{ __('staff/tables.payroll_history_amount') }}</th>
-                        <th>{{ __('staff/tables.payroll_history_top_up') }}</th>
+                        <th>{{ __('staff/tables.payroll_history_top_up_date') }}</th>
+                        <th>{{ __('staff/tables.payroll_history_top_up_account_number') }}</th>
+                        <th>{{ __('staff/tables.payroll_history_top_up_amount') }}</th>
                     </tr>
                 </thead>
             </template>

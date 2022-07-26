@@ -302,6 +302,8 @@ return [
     'payroll_history_payment_mode' => 'Payment Mode',
     'payroll_history_account' => 'Account',
     'payroll_history_amount' => 'Amount',
-    'payroll_history_top_up' => 'Top up',
+    'payroll_history_top_up_date' => 'Top-up Date',
+    'payroll_history_top_up_account_number' => 'Top-up Acc. Num.',
+    'payroll_history_top_up_amount' => 'Top-up Amount',
 
 ];
