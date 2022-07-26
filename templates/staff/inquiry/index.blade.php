@@ -552,6 +552,10 @@
             <template>
                 <thead>
                     <tr>
+                        <th colspan="6" class="text-center">Payroll Details</th>
+                        <th colspan="3" class="text-center">Top Up Details</th>
+                    </tr>
+                    <tr>
                         <th>{{ __('staff/tables.payroll_history_payroll_type') }}</th>
                         <th>{{ __('staff/tables.payroll_history_year') }}</th>
                         <th>{{ __('staff/tables.payroll_history_period') }}</th>
