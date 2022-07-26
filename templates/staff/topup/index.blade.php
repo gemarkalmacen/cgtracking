@@ -38,32 +38,19 @@
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th style="width: 1000px; ">{{ __('staff/tables.top_up_period') }}</th>
-                            <th>{{ __('staff/tables.top_up_year') }}</th>
+                            <th>{{ __('staff/tables.top_up_account_number') }}</th>
+                            <th>{{ __('staff/tables.top_up_account_name') }}</th>
+                            <th>{{ __('staff/tables.top_up_amount') }}</th>
+                            <th>{{ __('staff/tables.top_up_transaction_sequence') }}</th>
+                            <th>{{ __('staff/tables.top_up_date') }}</th>
+                            <th>{{ __('staff/tables.top_up_lcc_batch_no') }}</th>
+                            <th>{{ __('staff/tables.top_up_cct_type') }}</th>
                             <th>{{ __('staff/tables.top_up_payroll_type') }}</th>
                             <th>{{ __('staff/tables.top_up_region') }}</th>
-                            <th>{{ __('staff/tables.top_up_province') }}</th>
-                            <th>{{ __('staff/tables.top_up_municipality') }}</th>
-                            <th>{{ __('staff/tables.top_up_barangay') }}</th>
-                            <th>{{ __('staff/tables.top_up_address_psgc') }}</th>
-                            <th>{{ __('staff/tables.top_up_lastname') }}</th>
-                            <th>{{ __('staff/tables.top_up_firstname') }}</th>
-                            <th>{{ __('staff/tables.top_up_middlename') }}</th>
                             <th>{{ __('staff/tables.top_up_household_id') }}</th>
-                            <th>{{ __('staff/tables.top_up_hhset') }}</th>
-                            <th>{{ __('staff/tables.top_up_mop') }}</th>
-                            <th>{{ __('staff/tables.top_up_card') }}</th>
-                            <th>{{ __('staff/tables.top_up_payroll_date') }}</th>
-                            <th>{{ __('staff/tables.top_up_educ_dc_elem') }}</th>
-                            <th>{{ __('staff/tables.top_up_educ_jr_hs') }}</th>
-                            <th>{{ __('staff/tables.top_up_educ_sr_hs') }}</th>
-                            <th>{{ __('staff/tables.top_up_educ_total_hs') }}</th>
-                            <th>{{ __('staff/tables.top_up_total_educ') }}</th>
-                            <th>{{ __('staff/tables.top_up_health') }}</th>
-                            <th>{{ __('staff/tables.top_up_rice') }}</th>
-                            <th>{{ __('staff/tables.top_up_total_amount') }}</th>
-                            <th>{{ __('staff/tables.top_up_set') }}</th>
-                            <th>{{ __('staff/tables.top_up_set_group') }}</th>
+                            <th>{{ __('staff/tables.top_up_period_covered') }}</th>
+                            <th>{{ __('staff/tables.top_up_lbp_status_report') }}</th>
+                            <th>{{ __('staff/tables.top_up_lbp_reject_reason') }}</th>
                         </tr>
                     </thead>
                 </template>
