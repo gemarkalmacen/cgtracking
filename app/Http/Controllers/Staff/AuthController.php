@@ -48,14 +48,16 @@ class AuthController extends BaseController
         $this->loginUser = $loginUser;
         $this->logoutUser = $logoutUser;
 
-        $this->provider = new Keycloak([
-            'authServerUrl'             => 'https://caraga-auth-staging.dswd.gov.ph/',
-            'realm'                     => 'entdswd.local',
-            'clientId'                  => 'caraga-finance',
-            'clientSecret'              => '9pLMHX5aYjh2DwGG3tUTrGtSMuFr3TP2',
-            'redirectUri'               => 'https://crg-finance-svr.entdswd.local/cgtracking/login_isso',
-            'encryptionAlgorithm'       => 'RS256'
-        ]);
+        if(!env('APP_URL') == "http://cgtracking.test"){
+            $this->provider = new Keycloak([
+                'authServerUrl'             => 'https://caraga-auth-staging.dswd.gov.ph/',
+                'realm'                     => 'entdswd.local',
+                'clientId'                  => 'caraga-finance',
+                'clientSecret'              => '9pLMHX5aYjh2DwGG3tUTrGtSMuFr3TP2',
+                'redirectUri'               => 'https://crg-finance-svr.entdswd.local/cgtracking/login_isso',
+                'encryptionAlgorithm'       => 'RS256'
+            ]);
+        }
     }
 
     /**
