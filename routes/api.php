@@ -13,5 +13,18 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::group(['prefix' => 'v1', 'namespace' => 'Api\V1', 'middleware' => 'locale.api'], function () {    
+Route::group(['prefix' => 'staff', 'namespace' => 'Staff'], function() {
+    // Route::group(
+    //     [
+    //         'middleware' => [
+    //             'auth:sanctum',
+    //             // 'staff',
+    //         ]
+    //     ],
+    //     function() {
+    //         Route::group(['namespace' => 'Categories'], function () {
+    //             Route::apiResource('/categories', 'CategoryController');
+    //         });
+    //     }
+    // );
 });
