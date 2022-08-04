@@ -13,5 +13,6 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::group(['prefix' => 'v1', 'namespace' => 'Api\V1', 'middleware' => 'locale.api'], function () {    
+Route::group(['namespace' => 'Api\V1', 'prefix' => 'v1'], function() {        
+    include('v1/api-staff.php');
 });
