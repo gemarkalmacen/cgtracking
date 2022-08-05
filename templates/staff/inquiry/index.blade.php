@@ -497,7 +497,7 @@
                                 </div>
                                 <div class="d-flex align-items-center mb-1">
                                     <div>
-                                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Balance : @{{ nonemv.balance_as_of.toUpperCase() }}</a>
+                                        <a href="#" class="font-size-h6 text-dark-75 text-hover-primary font-weight-bolder">Balance : @{{ nonemv.account_balance.toUpperCase() }}</a>
                                     </div>
                                 </div>
                                 <div class="d-flex align-items-center mb-1">
