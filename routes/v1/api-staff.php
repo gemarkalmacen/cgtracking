@@ -18,10 +18,7 @@ use Illuminate\Validation\ValidationException;
 Route::group(['prefix' => 'staff', 'namespace' => 'Staff'], function() {
     Route::group(
         [
-            'middleware' => [
-                // 'auth:sanctum',
-                // 'staff',
-            ]
+            'middleware' => ['auth:sanctum']
         ],
         function() {
             Route::group(['namespace' => 'Granteelists'], function () {
