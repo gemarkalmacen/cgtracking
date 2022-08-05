@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Api\V1\Emvdatabase;
+namespace App\Http\Controllers\Api\V1\Staff\Emvdatabase;
 
 use App\Http\Controllers\Staff\BaseController as Controller;
 use Illuminate\Http\Request;

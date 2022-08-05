@@ -15,7 +15,7 @@ use Illuminate\Validation\ValidationException;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::group(['prefix' => 'staff', 'namespace' => ''], function() {
+Route::group(['prefix' => 'staff', 'namespace' => 'Staff'], function() {
     Route::group(
         [
             'middleware' => [
@@ -29,4 +29,7 @@ Route::group(['prefix' => 'staff', 'namespace' => ''], function() {
             });
         }
     );
+
+    Route::post('/auth/login', 'AuthController@login');
+    Route::post('/auth/register', 'AuthController@register');
 });

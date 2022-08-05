@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Api\V1\Granteelists;
+namespace App\Http\Controllers\Api\V1\Staff\Granteelists;
 
 use App\Http\Controllers\Staff\BaseController as Controller;
 use App\Http\Resources\GranteelistResource;
