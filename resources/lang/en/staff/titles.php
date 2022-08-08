@@ -62,4 +62,8 @@ return [
     'inquiry' => 'Inquiry',
 
     'logs' => 'Logs',
+
+    // emv monitoring
+    'tools-emv_monitoring' => 'Emv Monitoring',
+    'tools-emv_monitoring-import' => 'Import - Emv Monitoring',
 ];

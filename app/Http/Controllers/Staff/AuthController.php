@@ -11,7 +11,7 @@ use App\Models\User;
 use App\Models\UserDetail;
 use App\Models\ModelHasRoles;
 
-// use Stevenmaguire\OAuth2\Client\Provider\Keycloak;
+use Stevenmaguire\OAuth2\Client\Provider\Keycloak;
 
 /**
  * Controller for admin authentication
@@ -48,7 +48,7 @@ class AuthController extends BaseController
         $this->loginUser = $loginUser;
         $this->logoutUser = $logoutUser;
 
-        if(!env('APP_URL') == "http://cgtracking.test"){
+        if(env('APP_URL') == "https://crg-finance-svr.entdswd.local/cgtracking"){
             $this->provider = new Keycloak([
                 'authServerUrl'             => 'https://caraga-auth-staging.dswd.gov.ph/',
                 'realm'                     => 'entdswd.local',

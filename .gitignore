@@ -13,6 +13,7 @@
 /vendor
 /.idea/*
 /.phpintel
+update.sh
 .env
 .env.backup
 .phpunit.result.cache
