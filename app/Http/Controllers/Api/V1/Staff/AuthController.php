@@ -10,16 +10,18 @@ use Illuminate\Validation\ValidationException;
 use App\Services\Api\V1\Staff\Users\VerifyPassword;
 use App\Services\Api\V1\Staff\Users\LoginUser;
 // use App\Services\V1\Users\IsUserActive;
-use App\Services\Api\V1\Staff\Users\GetUserByEmail;
+use App\Services\Api\V1\Staff\Users\GetUserByUsername;
 use App\Http\Requests\Api\V1\Staff\Auth\UserLoginRequest;
 
 class AuthController extends Controller
 {
     public function login(
         UserLoginRequest $userLoginRequest, 
-        GetUserByEmail $getUserByEmail, VerifyPassword $verifyPassword, LoginUser $loginUser
+        VerifyPassword $verifyPassword, 
+        LoginUser $loginUser,
+        GetUserByUsername $getUserByUsername
         ){
-        $user = $getUserByEmail->execute($userLoginRequest->email);
+        $user = $getUserByUsername->execute($userLoginRequest->username);
 
         if(!$user) {
             return response()->json([
@@ -45,7 +47,7 @@ class AuthController extends Controller
             ]);
         }
 
-        $token = $loginUser->execute($user, $userLoginRequest->only(['email', 'password']), true);
+        $token = $loginUser->execute($user, $userLoginRequest->only(['username', 'password']), true);
         
         if(!$token) {
             return $this->formatValidation(401, __('messages.unauthorized'), [
@@ -67,6 +69,7 @@ class AuthController extends Controller
                 'email' => $user->email,
                 'mobile' => $user->mobile,
                 'name' => $user->name,
+                'username' => $user->username,
                 // 'user_details' => [
                 //     'first_name' => $user->detail->first_name,
                 //     'middle_name' => $user->detail->middle_name ?? '',

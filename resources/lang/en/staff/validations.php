@@ -14,6 +14,7 @@ return [
     */
 
     'email_required' => 'Email required',
+    'user_name_required' => 'Required',
     'password_required' => 'Password required',
     'credentials_invalid' => 'Credentials invalid',
     'user_inactive' => 'User inactive',
