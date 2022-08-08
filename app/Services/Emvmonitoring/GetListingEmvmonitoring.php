@@ -26,7 +26,13 @@ class GetListingEmvmonitoring
                 'address',
                 'sex',
                 'hh_set_group',
-                'lbp_account',
+                'current_grantee_card_number',
+                'other_card_number_1',
+                'other_card_holder_name_1',
+                'other_card_number_2',
+                'other_card_holder_name_2',
+                'other_card_number_3',
+                'other_card_holder_name_3',
             ],
             'orderable' => [
                 'full_name',
@@ -35,7 +41,13 @@ class GetListingEmvmonitoring
                 'address',
                 'sex',
                 'hh_set_group',
-                'lbp_account',
+                'current_grantee_card_number',
+                'other_card_number_1',
+                'other_card_holder_name_1',
+                'other_card_number_2',
+                'other_card_holder_name_2',
+                'other_card_number_3',
+                'other_card_holder_name_3',
             ]
         ]);
 
