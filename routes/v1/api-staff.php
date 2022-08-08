@@ -15,28 +15,18 @@ use Illuminate\Validation\ValidationException;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
-// Route::group(['namespace' => 'Categories'], function () {
-//     Route::apiResource('/categories', 'CategoryController');
-// });
-
 Route::group(['prefix' => 'staff', 'namespace' => 'Staff'], function() {
-    // Route::post('login', 'AuthController@login');
     Route::group(
         [
-            'middleware' => [
-                'auth:sanctum',
-                // 'staff',
-            ]
+            'middleware' => ['auth:sanctum']
         ],
         function() {
-            Route::group(['namespace' => 'Categories'], function () {
-                Route::apiResource('/categories', 'CategoryController');
+            Route::group(['namespace' => 'Granteelists'], function () {
+                Route::apiResource('/granteelists', 'GranteelistController');
             });
         }
     );
 
-    
     Route::post('/auth/login', 'AuthController@login');
     Route::post('/auth/register', 'AuthController@register');
 });
