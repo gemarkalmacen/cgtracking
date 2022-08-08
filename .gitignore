@@ -1,4 +1,5 @@
 /_files
+/app/Http/Controllers/Staff/AuthController.php
 /node_modules
 /public/hot
 /public/assets
@@ -13,6 +14,7 @@
 /vendor
 /.idea/*
 /.phpintel
+update.sh
 .env
 .env.backup
 .phpunit.result.cache
