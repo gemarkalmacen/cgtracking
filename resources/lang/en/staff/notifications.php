@@ -77,5 +77,13 @@ return [
     'nonemv_cannot_delete' => 'Non-Emv cannot be deleted.',
     'nonemv_import_successfully' => 'Non-Emv import sucessfully.',
     'nonemv_import_failed' => 'Non-Emv import failed.',
+
+    // emv_monitoring
+    'emvmonitoring_created_successfully' => 'Emv Monitoring List created successfully.',
+    'emvmonitoring_updated_successfully' => 'Emv Monitoring List updated successfully.',
+    'emvmonitoring_deleted_successfully' => 'Emv Monitoring List deleted successfully.',
+    'emvmonitoring_cannot_delete' => 'Emv Monitoring List cannot be deleted.',
+    'emvmonitoring_import_successfully' => 'Emv Monitoring List import sucessfully.',
+    'emvmonitoring_import_failed' => 'Emv Monitoring import failed.',
     
 ];
