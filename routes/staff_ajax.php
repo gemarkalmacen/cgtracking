@@ -52,4 +52,8 @@ Route::group(['prefix' => 'ajax', 'namespace' => 'Ajax'], function () {
         Route::get('search', 'InquiryController@search')->name('staff.ajax.inquiry.search');
         Route::post('payrollhistory', 'InquiryController@listing')->name('staff.ajax.inquiry.listing');
     });
+
+    Route::group(['prefix' => 'emvmonitoring', 'namespace' => 'Emvmonitoring'], function () {
+        Route::post('listing', 'EmvmonitoringController@listing')->name('staff.ajax.emvmonitoring.listing');
+    });
 });

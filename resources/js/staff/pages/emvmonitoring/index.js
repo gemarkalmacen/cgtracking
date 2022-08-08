@@ -28,31 +28,13 @@ module.exports = function(data) {
                         order: [[ 1, 'asc' ]],
                         columns: [
                             {data: 'id'},
-                            {data: 'province'},
-                            {data: 'municipality'},
-                            {data: 'barangay'},
+                            {data: 'full_name'},
                             {data: 'hh_id'},
+                            {data: 'client_status'},
+                            {data: 'address'},
+                            {data: 'sex'},
+                            {data: 'hh_set_group'},
                             {data: 'lbp_account'},
-                            {data: 'run_date'},
-                            {data: 'first_name'},
-                            {data: 'mid_name'},
-                            {data: 'last_name'},
-                            {data: 'acct_description'},
-                            {data: 'cct_type'},
-                            {data: 'lbp_servicing_branch'},
-                            {data: 'distribution_status'},
-                            {data: 'date_claimed'},
-                            {data: 'reason_why_unclaimed'},
-                            {data: 'recommended_action'},
-                            {data: 'action_taken'},
-                            {data: 'date_acted'},
-                            {data: 'agreed_distribution_date'},
-                            {data: 'batch'},
-                            {data: 'entry_id'},
-                            {data: 'embossed_name'},
-                            {data: 'emv_acct_discre'},
-                            {data: 'hh_status'},
-                            {data: 'hh_set'},
 
                         ],
                         columnDefs: [
@@ -103,147 +85,13 @@ module.exports = function(data) {
                                     return element;
                                 }
                             },
-                            {
-                                targets: [7],
-                                render: function(data) {
-                                   var element = data;
-                                    return element;
-                                }
-                            },
-                            {
-                                targets: [8],
-                                render: function(data) {
-                                   var element = data;
-                                    return element;
-                                }
-                            },
-                            {
-                                targets: [9],
-                                render: function(data) {
-                                   var element = data;
-                                    return element;
-                                }
-                            },
-                            {
-                                targets: [10],
-                                render: function(data) {
-                                   var element = data;
-                                    return element;
-                                }
-                            },
-                            {
-                                targets: [11],
-                                render: function(data) {
-                                   var element = data;
-                                    return element;
-                                }
-                            },
-                            {
-                                targets: [12],
-                                render: function(data) {
-                                   var element = data;
-                                    return element;
-                                }
-                            },
-                            {
-                                targets: [13],
-                                render: function(data) {
-                                   var element = data;
-                                    return element;
-                                }
-                            },
-                            {
-                                targets: [14],
-                                render: function(data) {
-                                   var element = data;
-                                    return element;
-                                }
-                            },
-                            {
-                                targets: [15],
-                                render: function(data) {
-                                   var element = data;
-                                    return element;
-                                }
-                            },
-                            {
-                                targets: [16],
-                                render: function(data) {
-                                   var element = data;
-                                    return element;
-                                }
-                            },
-                            {
-                                targets: [17],
-                                render: function(data) {
-                                   var element = data;
-                                    return element;
-                                }
-                            },
-                            {
-                                targets: [18],
-                                render: function(data) {
-                                   var element = data;
-                                    return element;
-                                }
-                            },
-                            {
-                                targets: [19],
-                                render: function(data) {
-                                   var element = data;
-                                    return element;
-                                }
-                            },
-                            {
-                                targets: [20],
-                                render: function(data) {
-                                   var element = data;
-                                    return element;
-                                }
-                            },
-                            {
-                                targets: [21],
-                                render: function(data) {
-                                   var element = data;
-                                    return element;
-                                }
-                            },
-                            {
-                                targets: [22],
-                                render: function(data) {
-                                   var element = data;
-                                    return element;
-                                }
-                            },
-                            {
-                                targets: [23],
-                                render: function(data) {
-                                   var element = data;
-                                    return element;
-                                }
-                            },
-                            {
-                                targets: [24],
-                                render: function(data) {
-                                   var element = data;
-                                    return element;
-                                }
-                            },
-                            {
-                                targets: [25],
-                                render: function(data) {
-                                   var element = data;
-                                    return element;
-                                }
-                            },
                         ]
                     },
                     url: {
-                        list: vm.$route('staff.ajax.emvdatabase.listing'),
-                        // delete: 'staff.users.destroy'
+                        list: vm.$route('staff.ajax.emvmonitoring.listing'),
                     },
                     notifications: {
-                        delete: vm.$t('staff/notifications.emvdatabase_deleted_successfully')
+                        delete: vm.$t('staff/notifications.emvmonitoring_deleted_successfully')
                     }
                 };
             }

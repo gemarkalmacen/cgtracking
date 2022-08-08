@@ -1,5 +1,5 @@
 <?php
-namespace App\Services\Emvdatabase;
+namespace App\Services\Emvmonitoring;
 
 use Ccore\Core\Datatable;
 use Illuminate\Support\Facades\DB;
@@ -27,7 +27,6 @@ class GetListingEmvmonitoring
                 'sex',
                 'hh_set_group',
                 'lbp_account',
-                'upload_history_id'
             ],
             'orderable' => [
                 'full_name',
@@ -37,7 +36,6 @@ class GetListingEmvmonitoring
                 'sex',
                 'hh_set_group',
                 'lbp_account',
-                'upload_history_id'
             ]
         ]);
 
