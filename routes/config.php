@@ -13,6 +13,11 @@ Route::group(['prefix' => 'command'], function() {
         Artisan::call('cache:clear');
         echo 'cache:clear';
     });
+    // Optimize clear
+    Route::get('optimize-clear', function () {
+        Artisan::call('optimize:clear');
+        echo 'optimize:clear';
+    });
     // Config cache
     Route::get('config-cache', function () {
         Artisan::call('config:cache');
