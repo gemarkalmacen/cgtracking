@@ -306,4 +306,13 @@ return [
     'payroll_history_top_up_account_number' => 'Top-up Acc. Num.',
     'payroll_history_top_up_amount' => 'Top-up Amount',
 
+    // emv monitoring
+    'emv_monitoring_full_name' => 'Fullname',
+    'emv_monitoring_hh_id' => 'household ID',
+    'emv_monitoring_client_status' => 'Client Status',
+    'emv_monitoring_address' => 'Address',
+    'emv_monitoring_sex' => 'Sex',
+    'emv_monitoring_hh_set_group' => 'HH Set Group',
+    'emv_monitoring_lbp_account' => 'LBP Account',
+
 ];

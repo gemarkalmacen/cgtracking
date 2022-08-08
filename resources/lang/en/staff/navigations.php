@@ -8,6 +8,7 @@ return [
     'roles' => 'Roles',
     'settings' => 'Settings',
     'reference' => 'References',
+    'tools' => 'Tools',
     'reference-grantee_list' => 'Grantee List',
     'reference-grantee_list_archived' => 'Archived Grantee List',
     'reference-grantee_list_index' => 'List',
@@ -33,4 +34,7 @@ return [
     'transaction' => 'Transaction',
     'reference-upload_history' => 'Upload History',
     'reference-inquiry' => 'Inquiry',
+    'tools-emv_monitoring' => 'Emv Monitoring',
+    'tools-emv_monitoring_import' => 'Import',
+    'tools-emv_monitoring_index' => 'List',
 ];

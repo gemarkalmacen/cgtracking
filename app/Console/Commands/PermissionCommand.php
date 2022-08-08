@@ -43,6 +43,7 @@ class PermissionCommand extends Command
         'archivednonemv',
         'uploadhistory',
         'inquiry',
+        'emvmonitoring',
     ];
 
     /**
