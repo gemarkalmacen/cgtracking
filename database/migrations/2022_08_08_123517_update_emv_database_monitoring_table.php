@@ -16,6 +16,7 @@ class UpdateEmvDatabaseMonitoringTableFieldHhSetGroup extends Migration
         Schema::table('emv_database_monitoring', function (Blueprint $table) {
             $table->string('sex', 25)->nullable();
             $table->string('hh_set_group', 25)->nullable();
+            $table->tinyint('is_updated', 1)->nullable();
         });
     }
 
@@ -26,6 +27,10 @@ class UpdateEmvDatabaseMonitoringTableFieldHhSetGroup extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('emv_database_monitoring', function (Blueprint $table) {
+            $table->dropColumn('sex');
+            $table->dropColumn('hh_set_group');
+            $table->dropColumn('is_updated');
+        });
     }
 }
