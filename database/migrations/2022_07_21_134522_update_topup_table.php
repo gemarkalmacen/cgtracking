@@ -62,6 +62,18 @@ class UpdateTopupTable extends Migration
     public function down()
     {
         Schema::table('top_up', function (Blueprint $table) {
+            $table->dropColumn('lbl_reject_reason');
+            $table->dropColumn('lbp_top_up_status_report');
+            $table->dropColumn('period_covered');
+            $table->dropColumn('hh_id');
+            $table->dropColumn('cct_type');
+            $table->dropColumn('lcc_top_up_batch_num');
+            $table->dropColumn('top_up_date');
+            $table->dropColumn('transaction_sequence');
+            $table->dropColumn('amount');
+            $table->dropColumn('account_name');
+            $table->dropColumn('account_number');
+
             $table->string('period', 50)->nullable()->after('id');
             $table->year('year', 50)->nullable()->after('period');
             $table->string('province', 50)->nullable()->after('region');
@@ -69,8 +81,8 @@ class UpdateTopupTable extends Migration
             $table->string('barangay', 150)->nullable()->after('municipality');
             $table->string('address_psgc', 50)->nullable()->after('barangay');
             $table->string('lastname')->nullable()->after('address_psgc');
-            $table->string('firstname')->nullable()->after('firstname');
-            $table->string('middlename')->nullable()->after('middlename');
+            $table->string('firstname')->nullable()->after('lastname');
+            $table->string('middlename')->nullable()->after('firstname');
             $table->string('household_id', 10)->nullable()->after('middlename');
             $table->string('hhset')->nullable()->after('household_id');
             $table->string('mop')->nullable()->after('hhset');
@@ -86,18 +98,6 @@ class UpdateTopupTable extends Migration
             $table->bigInteger('total_amount')->nullable()->after('rice');
             $table->string('set', 10)->nullable()->after('total_amount');
             $table->string('set_group', 10)->nullable()->after('set');
-
-            $table->dropColumn('account_number');
-            $table->dropColumn('account_name');
-            $table->dropColumn('amount');
-            $table->dropColumn('transaction_sequence');
-            $table->dropColumn('top_up_date');
-            $table->dropColumn('lcc_top_up_batch_num');
-            $table->dropColumn('cct_type');
-            $table->dropColumn('hh_id');
-            $table->dropColumn('period_covered');
-            $table->dropColumn('lbp_top_up_status_report');
-            $table->dropColumn('lbp_reject_reason');
         });
     }
 }
