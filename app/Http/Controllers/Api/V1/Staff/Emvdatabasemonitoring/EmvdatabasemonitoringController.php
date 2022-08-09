@@ -4,7 +4,8 @@ namespace App\Http\Controllers\Api\V1\Staff\Emvdatabasemonitoring;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Services\Api\V1\Staff\Emvdatabasemonitoring\GetEmvDatabaseMonitoringByHhId;
+use App\Services\Api\V1\Staff\Emvdatabasemonitoring\PullDataEmvDatabaseMonitoringById;
+use App\Services\Api\V1\Staff\Emvdatabasemonitoring\PullDataEmvDatabaseMonitoringByHhId;
 use App\Http\Resources\Api\V1\Staff\Emvdatabasemonitoring\EmvdatabasemonitoringResource;
 
 class EmvdatabasemonitoringController extends Controller
@@ -54,6 +55,24 @@ class EmvdatabasemonitoringController extends Controller
                 'created_at' => !empty($response->created_at) ? $response->created_at->format('Y-m-d H:i:s') : NULL,
                 'updated_at' => !empty($response->updated_at) ? $response->updated_at->format('Y-m-d H:i:s') : NULL,
             ]
+        ],200);
+    }
+
+    public function pulldata($id, PullDataEmvDatabaseMonitoringById $pullDataEmvDatabaseMonitoringById)
+    {
+        $response = $pullDataEmvDatabaseMonitoringById->execute($id);
+        
+        if(!$response){
+            return response()->json([                
+                'status' => __('messages.error'),
+                'description' => __('messages.not_found'),
+            ],404);
+        }
+        
+        return response()->json([                
+            'status' => __('messages.success'),
+            'description' => __('messages.ok'),
+            'data' => EmvdatabasemonitoringResource::collection($response)
         ],200);
     }
 
