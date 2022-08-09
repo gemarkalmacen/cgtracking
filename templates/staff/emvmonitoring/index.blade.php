@@ -44,7 +44,13 @@
                             <th>{{ __('staff/tables.emv_monitoring_address') }}</th>
                             <th>{{ __('staff/tables.emv_monitoring_sex') }}</th>
                             <th>{{ __('staff/tables.emv_monitoring_hh_set_group') }}</th>
-                            <th>{{ __('staff/tables.emv_monitoring_lbp_account') }}</th>
+                            <th>{{ __('staff/tables.emv_monitoring_current_grantee_card_number') }}</th>
+                            <th>{{ __('staff/tables.emv_monitoring_other_card_number_1') }}</th>
+                            <th>{{ __('staff/tables.emv_monitoring_other_card_holder_name_1') }}</th>
+                            <th>{{ __('staff/tables.emv_monitoring_other_card_number_2') }}</th>
+                            <th>{{ __('staff/tables.emv_monitoring_other_card_holder_name_2') }}</th>
+                            <th>{{ __('staff/tables.emv_monitoring_other_card_number_3') }}</th>
+                            <th>{{ __('staff/tables.emv_monitoring_other_card_holder_name_3') }}</th>
                         </tr>
                     </thead>
                 </template>

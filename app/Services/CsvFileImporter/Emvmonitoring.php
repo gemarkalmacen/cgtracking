@@ -38,9 +38,9 @@ class Emvmonitoring
                     LINES 
                         TERMINATED BY "\\n"
                     IGNORE 1 LINES
-                        (@col1, @col2, @col3, @col4, @col5, @col6, @col7) 
+                        (@col1, @col2, @col3, @col4, @col5, @col6, @col7, @col8, @col9, @col10, @col11, @col12, @col13) 
                     SET 
-                    full_name = @col1, hh_id = @col2, client_status = @col3, address = @col4, sex = @col5, hh_set_group = @col6, lbp_account = @col7, created_at = CURRENT_TIMESTAMP, upload_history_id = '.$upload_history->id.'
+                    full_name = @col1, hh_id = @col2, client_status = @col3, hh_set_group = @col4, address = @col5, sex = @col6, current_grantee_card_number = @col7, other_card_number_1 = @col8, other_card_holder_name_1 = @col9, other_card_number_2 = @col10, other_card_holder_name_2 = @col11, other_card_number_3 = @col12, other_card_holder_name_3 = @col13, created_at = CURRENT_TIMESTAMP, upload_history_id = '.$upload_history->id.'
                     ', ($file_path));
                 DB::commit();
                 

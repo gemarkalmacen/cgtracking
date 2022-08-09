@@ -313,6 +313,12 @@ return [
     'emv_monitoring_address' => 'Address',
     'emv_monitoring_sex' => 'Sex',
     'emv_monitoring_hh_set_group' => 'HH Set Group',
-    'emv_monitoring_lbp_account' => 'LBP Account',
+    'emv_monitoring_current_grantee_card_number' => 'Current Grantee Card Number',
+    'emv_monitoring_other_card_number_1' => 'Other Card Number 1',
+    'emv_monitoring_other_card_holder_name_1' => 'Other Card Holder Name 1',
+    'emv_monitoring_other_card_number_2' => 'Other Card Number 2',
+    'emv_monitoring_other_card_holder_name_2' => 'Other Card Holder Name 2',
+    'emv_monitoring_other_card_number_3' => 'Other Card Number 3',
+    'emv_monitoring_other_card_holder_name_3' => 'Other Card Holder Name 3',
 
 ];

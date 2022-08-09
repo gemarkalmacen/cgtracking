@@ -34,7 +34,13 @@ module.exports = function(data) {
                             {data: 'address'},
                             {data: 'sex'},
                             {data: 'hh_set_group'},
-                            {data: 'lbp_account'},
+                            {data: 'current_grantee_card_number'},
+                            {data: 'other_card_number_1'},
+                            {data: 'other_card_holder_name_1'},
+                            {data: 'other_card_number_2'},
+                            {data: 'other_card_holder_name_2'},
+                            {data: 'other_card_number_3'},
+                            {data: 'other_card_holder_name_3'},
 
                         ],
                         columnDefs: [
@@ -80,6 +86,48 @@ module.exports = function(data) {
                             },
                             {
                                 targets: [6],
+                                render: function(data) {
+                                   var element = data;
+                                    return element;
+                                }
+                            },
+                            {
+                                targets: [7],
+                                render: function(data) {
+                                   var element = data;
+                                    return element;
+                                }
+                            },
+                            {
+                                targets: [8],
+                                render: function(data) {
+                                   var element = data;
+                                    return element;
+                                }
+                            },
+                            {
+                                targets: [9],
+                                render: function(data) {
+                                   var element = data;
+                                    return element;
+                                }
+                            },
+                            {
+                                targets: [10],
+                                render: function(data) {
+                                   var element = data;
+                                    return element;
+                                }
+                            },
+                            {
+                                targets: [11],
+                                render: function(data) {
+                                   var element = data;
+                                    return element;
+                                }
+                            },
+                            {
+                                targets: [12],
                                 render: function(data) {
                                    var element = data;
                                     return element;
