@@ -55,6 +55,6 @@ class CreateGranteeListTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('grantee_list');
+        Schema::dropIfExists('grantee_lists');
     }
 }

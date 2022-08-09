@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class UpdateEmvDatabaseMonitoringTableFieldHhSetGroup extends Migration
+class UpdateEmvDatabaseMonitoringSomeFieldsToBeNullable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,9 +14,9 @@ class UpdateEmvDatabaseMonitoringTableFieldHhSetGroup extends Migration
     public function up()
     {
         Schema::table('emv_database_monitoring', function (Blueprint $table) {
-            $table->string('sex', 25)->change();
-            $table->string('hh_set_group', 25)->change();
-            $table->integer('is_updated');
+            $table->string('full_name')->nullable()->change();
+            $table->string('hh_id')->nullable()->change();
+            $table->integer('is_updated')->nullable()->change();
         });
     }
 
@@ -28,9 +28,9 @@ class UpdateEmvDatabaseMonitoringTableFieldHhSetGroup extends Migration
     public function down()
     {
         Schema::table('emv_database_monitoring', function (Blueprint $table) {
-            $table->string('sex', 10)->change();
-            $table->string('hh_set_group', 5)->change();
-            $table->dropColumn('is_updated');
+            $table->string('full_name')->change();
+            $table->string('hh_id')->change();
+            $table->integer('is_updated')->change();
         });
     }
 }

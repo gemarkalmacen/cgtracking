@@ -25,8 +25,10 @@ class UpdateMigrationTableNonEmv extends Migration
      */
     public function down()
     {
-        Schema::table('non_emv', function (Blueprint $table) {
-            $table->double('balance_as_of',15,2)->nullable()->change();
-        });
+        // Schema::table('non_emv', function (Blueprint $table) {
+        //     $table->double('balance_as_of',15,2)->nullable()->change();
+        // });
+
+        DB::statement('ALTER TABLE `non_emv` MODIFY `balance_as_of` DOUBLE(15,2) DEFAULT NULL;');
     }
 }
