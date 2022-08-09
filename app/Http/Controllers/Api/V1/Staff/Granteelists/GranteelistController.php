@@ -40,10 +40,7 @@ class GranteelistController extends Controller
             'purok', 
             'address', 
             'hh_id',
-        )->get();
-        // print_r($granteelist);
-        // // // $granteelist = Granteelist::all();
-        // die("asd");
+        )->paginate(100);
         return GranteelistResource::collection($granteelist);
     }
 
