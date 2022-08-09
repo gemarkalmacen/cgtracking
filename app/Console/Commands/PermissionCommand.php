@@ -44,6 +44,7 @@ class PermissionCommand extends Command
         'uploadhistory',
         'inquiry',
         'emvmonitoring',
+        'apiemvdatabasemonitoring',
     ];
 
     /**

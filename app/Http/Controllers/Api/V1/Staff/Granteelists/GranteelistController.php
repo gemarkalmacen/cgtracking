@@ -30,19 +30,20 @@ class GranteelistController extends Controller
      */
     public function index()
     {
-        // $granteelist = Granteelist::select(
-        //     'id', 
-        //     'region', 
-        //     'province', 
-        //     'municipality', 
-        //     'barangay', 
-        //     'purok', 
-        //     'address', 
-        //     'hh_id',
-        // )->get();
-
-        $granteelist = Granteelist::all();
-
+        
+        $granteelist = Granteelist::select(
+            'id', 
+            'region', 
+            'province', 
+            'municipality', 
+            'barangay', 
+            'purok', 
+            'address', 
+            'hh_id',
+        )->get();
+        // print_r($granteelist);
+        // // // $granteelist = Granteelist::all();
+        // die("asd");
         return GranteelistResource::collection($granteelist);
     }
 

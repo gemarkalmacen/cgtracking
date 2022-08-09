@@ -24,6 +24,9 @@ Route::group(['prefix' => 'staff', 'namespace' => 'Staff'], function() {
             Route::group(['namespace' => 'Granteelists'], function () {
                 Route::apiResource('/granteelists', 'GranteelistController');
             });
+            Route::group(['namespace' => 'Emvdatabasemonitoring'], function () {
+                Route::apiResource('/emvdatabasemonitoring', 'EmvdatabasemonitoringController');
+            });
         }
     );
 
