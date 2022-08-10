@@ -15,6 +15,7 @@ class UpdateTableEmvDatabaseMonitoringDetailsAddFieldSyncAtUserId extends Migrat
     {
         Schema::table('emv_database_monitoring_details', function (Blueprint $table) {
             $table->timestamp('sync_at')->after('current_grantee_card_number_series')->useCurrent()->nullable();
+            $table->integer('user_id')->after('current_grantee_card_number_series')->comment('uploaded/validated by user_id');
         });
     }
 
@@ -27,6 +28,7 @@ class UpdateTableEmvDatabaseMonitoringDetailsAddFieldSyncAtUserId extends Migrat
     {
         Schema::table('emv_database_monitoring_details', function (Blueprint $table) {
             $table->dropColumn('sync_at');
+            $table->dropColumn('user_id');
         });
     }
 }
