@@ -25,8 +25,9 @@ Route::group(['prefix' => 'staff', 'namespace' => 'Staff'], function() {
                 Route::apiResource('/granteelists', 'GranteelistController');
             });
             Route::group(['namespace' => 'Emvdatabasemonitoring'], function () {
-                Route::apiResource('/emvdatabasemonitoring', 'EmvdatabasemonitoringController');
                 Route::get('emvdatabasemonitoring/pulldata/{emvdatabasemonitoring}','EmvdatabasemonitoringController@pulldata');
+                Route::get('emvdatabasemonitoring/updater','EmvdatabasemonitoringController@updater')->name('emvdatabasemonitoring.updater');;
+                Route::apiResource('/emvdatabasemonitoring', 'EmvdatabasemonitoringController');
             });
         }
     );
