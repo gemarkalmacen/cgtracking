@@ -12,7 +12,7 @@ class UpdaterEmvDatabaseMonitoring
      */
     public function execute($id = null)
     {
-        $data = Emvmonitoring::whereNotNull('is_validated')->get();
+        $data = Emvmonitoring::whereNotNull('validated_at')->get();
         if(empty($data)){
             return false;
         }

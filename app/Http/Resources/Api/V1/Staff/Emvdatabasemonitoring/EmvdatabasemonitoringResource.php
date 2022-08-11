@@ -32,7 +32,7 @@ class EmvdatabasemonitoringResource extends JsonResource
             'upload_history_id' => $this->upload_history_id,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
-            'is_updated' => $this->is_updated,
+            'validated_at' => $this->validated_at,
         ];
     }
 }
