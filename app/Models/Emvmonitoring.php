@@ -36,5 +36,8 @@ class Emvmonitoring extends Model
         'other_card_number_3',
         'other_card_holder_name_3',
         'upload_history_id',
+        'validated_at',
+        'created_at',
+        'updated_at',
     ];
 }
