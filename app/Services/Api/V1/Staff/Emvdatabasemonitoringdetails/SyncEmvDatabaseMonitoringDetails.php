@@ -17,12 +17,12 @@ class SyncEmvDatabaseMonitoringDetails
     /**
      * Get the City by id
      */
-    public function execute($fields = null)
+    public function execute($request = null)
     {
         DB::beginTransaction();
         try {
             
-            $emvmonitoring_checker = Emvmonitoring::where(['hh_id' => $fields->hh_id])->get();
+            $emvmonitoring_checker = Emvmonitoring::where(['hh_id' => $request->hh_id])->get();
             if( count($emvmonitoring_checker) == 0 ){
                 $response = ([
                     'custom_error' => 1
@@ -36,76 +36,83 @@ class SyncEmvDatabaseMonitoringDetails
                 ]);
                 return $response;
             }
-
-            $emvmonitoring_update = Emvmonitoring::where(['hh_id' => $fields->hh_id])->first();
+            
+            $emvmonitoring_update = Emvmonitoring::where(['hh_id' => $request->hh_id])->first();
             $emvmonitoring_update->record_counter = $emvmonitoring_update->record_counter + 1;
-            $emvmonitoring_update->validated_at = Carbon::now();
+            $emvmonitoring_update->validated_at = $request->created_at;
             $emvmonitoring_update->save();
             
             if($emvmonitoring_update){
+                $input = $request->all();
+                $input['full_name'] = $request->full_name;
+                $input['hh_id'] = $request->hh_id;
+                $input['client_status'] = $request->client_status;
+                $input['address'] = $request->address;
+                $input['sex'] = $request->sex;
+                $input['hh_set_group'] = $request->hh_set_group;
+                $input['assigned_staff'] = $request->assigned_staff;
+                $input['minor_grantee'] = $request->minor_grantee;
+                $input['contact'] = $request->contact;
+                $input['current_grantee_card_release_date'] = $request->current_grantee_card_release_date;
+                $input['current_grantee_card_release_place'] = $request->current_grantee_card_release_place;
+                $input['current_grantee_card_release_by'] = $request->current_grantee_card_release_by;
+                $input['current_grantee_is_available'] = $request->current_grantee_is_available;
+                $input['current_grantee_reason'] = $request->current_grantee_reason;
+                $input['current_grantee_card_number'] = $request->current_grantee_card_number;
+                $input['other_card_number_1'] = $request->other_card_number_1;
+                $input['other_card_holder_name_1'] = $request->other_card_holder_name_1;
+                $input['other_card_number_2'] = $request->other_card_number_2;
+                $input['other_card_holder_name_2'] = $request->other_card_holder_name_2;
+                $input['other_card_number_3'] = $request->other_card_number_3;
+                $input['other_card_holder_name_3'] = $request->other_card_holder_name_3;
+                $input['other_card_is_available'] = $request->other_card_is_available;
+                $input['other_card_reason'] = $request->other_card_reason;
+                $input['nma_amount'] = $request->nma_amount;
+                $input['nma_date_claimed'] = $request->nma_date_claimed;
+                $input['nma_reason'] = $request->nma_reason;
+                $input['nma_remarks'] = $request->nma_remarks;
+                $input['pawn_name_of_lender'] = $request->pawn_name_of_lender;
+                $input['pawn_date'] = $request->pawn_date;
+                $input['pawn_retrieved_date'] = $request->pawn_retrieved_date;
+                $input['pawn_status'] = $request->pawn_status;
+                $input['pawn_reason'] = $request->pawn_reason;
+                $input['pawn_offense_history'] = $request->pawn_offense_history;
+                $input['pawn_offense_date'] = $request->pawn_offense_date;
+                $input['pawn_remarks'] = $request->pawn_remarks;
+                $input['pawn_intervention_staff'] = $request->pawn_intervention_staff;
+                $input['pawn_other_details'] = $request->pawn_other_details;
+                $input['accomplish_e_signature'] = $request->accomplish_e_signature;
+                $input['informant_e_signature'] = $request->informant_e_signature;
+                $input['attested_by_e_signature'] = $request->attested_by_e_signature;
+                $input['attested_by_full_name'] = $request->attested_by_full_name;
+                $input['other_card_number_series_1'] = $request->other_card_number_series_1;
+                $input['other_card_number_series_2'] = $request->other_card_number_series_2;
+                $input['other_card_number_series_3'] = $request->other_card_number_series_3;
+                $input['emv_database_monitoring_id'] = $emvmonitoring_update->id;
+                $input['current_grantee_card_number_series'] = $request->current_grantee_card_number_series;
+                $input['user_id'] = $request->user_id;
+                $input['created_at'] = $request->created_at;
+                
+                $validator = Validator::make($request->all(), [
+                    'full_name' => 'required',
+                    'client_status' => 'required',
+                    'address' => 'required',
+                    'sex' => 'required',
+                    'hh_id' => 'required',
+                ]);
 
-                $emv_monitoring_details_data = [
-                    'full_name' => $fields->full_name,
-                    'hh_id' => $fields->hh_id,
-                    'client_status' => $fields->client_status,
-                    'address' => $fields->address,
-                    'sex' => $fields->sex,
-                    'hh_set_group' => $fields->hh_set_group,
-                    'assigned_staff' => $fields->assigned_staff,
-                    'minor_grantee' => $fields->minor_grantee,
-                    'contact' => $fields->contact,
-                    'current_grantee_card_release_date' => $fields->current_grantee_card_release_date,
-                    'current_grantee_card_release_place' => $fields->current_grantee_card_release_place,
-                    'current_grantee_card_release_by' => $fields->current_grantee_card_release_by,
-                    'current_grantee_is_available' => $fields->current_grantee_is_available,
-                    'current_grantee_reason' => $fields->current_grantee_reason,
-                    'current_grantee_card_number' => $fields->current_grantee_card_number,
-                    'other_card_number_1' => $fields->other_card_number_1,
-                    'other_card_holder_name_1' => $fields->other_card_holder_name_1,
-                    'other_card_number_2' => $fields->other_card_number_2,
-                    'other_card_holder_name_2' => $fields->other_card_holder_name_2,
-                    'other_card_number_3' => $fields->other_card_number_3,
-                    'other_card_holder_name_3' => $fields->other_card_holder_name_3,
-                    'other_card_is_available' => $fields->other_card_is_available,
-                    'other_card_reason' => $fields->other_card_reason,
-                    'nma_amount' => $fields->nma_amount,
-                    'nma_date_claimed' => $fields->nma_date_claimed,
-                    'nma_reason' => $fields->nma_reason,
-                    'nma_remarks' => $fields->nma_remarks,
-                    'pawn_name_of_lender' => $fields->pawn_name_of_lender,
-                    'pawn_date' => $fields->pawn_date,
-                    'pawn_retrieved_date' => $fields->pawn_retrieved_date,
-                    'pawn_status' => $fields->pawn_status,
-                    'pawn_reason' => $fields->pawn_reason,
-                    'pawn_offense_history' => $fields->pawn_offense_history,
-                    'pawn_offense_date' => $fields->pawn_offense_date,
-                    'pawn_remarks' => $fields->pawn_remarks,
-                    'pawn_intervention_staff' => $fields->pawn_intervention_staff,
-                    'pawn_other_details' => $fields->pawn_other_details,
-                    'accomplish_e_signature' => $fields->accomplish_e_signature,
-                    'informant_e_signature' => $fields->informant_e_signature,
-                    'attested_by_e_signature' => $fields->attested_by_e_signature,
-                    'attested_by_full_name' => $fields->attested_by_full_name,
-                    'other_card_number_series_1' => $fields->other_card_number_series_1,
-                    'other_card_number_series_2' => $fields->other_card_number_series_2,
-                    'other_card_number_series_3' => $fields->other_card_number_series_3,
-                    'emv_database_monitoring_id' => $emvmonitoring_update->id,
-                    'current_grantee_card_number_series' => $fields->current_grantee_card_number_series,
-                    'user_id' => $fields->user_id,
-                ];
+                if($validator->fails()){
+                    $response = ([
+                        'custom_error' => 3,
+                        'error_message' => $validator->errors()->messages()
+                    ]);
+                    return $response;
+                }
                 
-                // $fields->emv_database_monitoring_id = $emvmonitoring_update->id;
-                // $fields->user_id = 123;
-
-                
-                // dd($fields->emv_database_monitoring_id);
-                
-                $response = Emvdatabasemonitoringdetails::create($emv_monitoring_details_data);
-                
+                $response = Emvdatabasemonitoringdetails::create($input);
                 if($response){
                     DB::commit();
-                    // dd($emv_monitoring_details_data);
-                    return $emv_monitoring_details_data;
+                    return $input;
                 }
             }
         } catch (Exception $ex) {

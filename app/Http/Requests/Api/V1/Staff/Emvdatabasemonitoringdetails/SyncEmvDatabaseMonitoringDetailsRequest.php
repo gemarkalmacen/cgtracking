@@ -26,16 +26,14 @@ class SyncEmvDatabaseMonitoringDetailsRequest extends FormRequest
     public function rules()
     {
         return [
-            // 'name' => 'required|string',
+            // 'full_name' => 'required',
         ];
     }
 
     public function messages()
     {
         return[
-            // 'username.required' => __('staff/validation.user_name_required'),
-            // 'password.required' => __('staff/validation.password_required'),
-            'full_name' => __('staff/validation.emvmonitoringdetails-fullname'),
+            // 'full_name.required' => __('staff/validation.full_name_required'),
         ];
     }
 
