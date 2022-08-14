@@ -81,9 +81,13 @@ class SyncEmvDatabaseMonitoringDetails
                 $input['pawn_remarks'] = $request->pawn_remarks;
                 $input['pawn_intervention_staff'] = $request->pawn_intervention_staff;
                 $input['pawn_other_details'] = $request->pawn_other_details;
+                $input['informant_full_name'] = $request->informant_full_name;
+                $input['accomplish_by_full_name'] = $request->accomplish_by_full_name;
                 $input['accomplish_e_signature'] = $request->accomplish_e_signature;
                 $input['informant_e_signature'] = $request->informant_e_signature;
                 $input['attested_by_e_signature'] = $request->attested_by_e_signature;
+                $input['current_cash_card_picture'] = $request->current_cash_card_picture;
+                $input['beneficiary_picture'] = $request->beneficiary_picture;
                 $input['attested_by_full_name'] = $request->attested_by_full_name;
                 $input['other_card_number_series_1'] = $request->other_card_number_series_1;
                 $input['other_card_number_series_2'] = $request->other_card_number_series_2;
