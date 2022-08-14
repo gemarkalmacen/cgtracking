@@ -9,6 +9,14 @@ use App\Services\Api\V1\Staff\Emvdatabasemonitoring\GetEmvDatabaseMonitoringByHh
 use App\Services\Api\V1\Staff\Emvdatabasemonitoring\CountEmvDatabaseMonitoringById;
 use App\Http\Resources\Api\V1\Staff\Emvdatabasemonitoring\EmvdatabasemonitoringResource;
 use App\Services\Api\V1\Staff\Emvdatabasemonitoring\UpdaterEmvDatabaseMonitoring;
+use App\Http\Requests\Api\V1\Staff\Emvdatabasemonitoringdetails\SyncEmvDatabaseMonitoringDetailsRequest;
+use App\Exceptions\NotFoundException;
+use App\Http\Resources\Api\V1\Staff\Emvdatabasemonitoringdetails\EmvdatabasemonitoringdetailsResource;
+use App\Models\Emvdatabase;
+use App\Models\Emvdatabasemonitoringdetails;
+use App\Services\Api\V1\Staff\Emvdatabasemonitoringdetails\SyncEmvDatabaseMonitoringDetails;
+use Exception;
+use Illuminate\Support\Facades\DB;
 
 class EmvdatabasemonitoringdetailsController extends Controller
 {
@@ -18,45 +26,43 @@ class EmvdatabasemonitoringdetailsController extends Controller
         // $this->middleware('permission:apiemvdatabasemonitoring-view', ['only' => ['show']]);
     }
 
-    public function sync()
+    public function sync(SyncEmvDatabaseMonitoringDetailsRequest $request, SyncEmvDatabaseMonitoringDetails $syncEmvDatabaseMonitoringDetails)
+    // public function sync(SyncEmvDatabaseMonitoringDetailsRequest $request)
     {
-        dd("test123");
-    }
+        $response = $syncEmvDatabaseMonitoringDetails->execute($request);
 
-    public function pulldata($id, PullDataEmvDatabaseMonitoringById $pullDataEmvDatabaseMonitoringById, CountEmvDatabaseMonitoringById $countEmvDatabaseMonitoringById)
-    {
-        // $response = $pullDataEmvDatabaseMonitoringById->execute($id);
-        // $counter_response = $countEmvDatabaseMonitoringById->execute($id);
-
-        // if(!$response){
-        //     return response()->json([                
-        //         'status' => __('messages.error'),
-        //         'description' => __('messages.not_found'),
-        //     ],404);
-        // }
+        if(!$response){
+            return response()->json([                
+                'status' => __('messages.error'),
+                'description' => __('messages.not_found'),
+            ],404);
+        }
         
-        // return response()->json([                
-        //     'status' => __('messages.success'),
-        //     'total_data_count' => $counter_response,
-        //     'description' => __('messages.ok'),
-        //     'data' => EmvdatabasemonitoringResource::collection($response)
-        // ],200);
-    }
+        if(isset($response['custom_error']))
+        {
+            if($response['custom_error'] == 1){
+                return response()->json([                
+                    'status' => __('messages.error'),
+                    'description' => "HouseholdID (" . $request->hh_id . ") couldn't be found on database." . " Please pull data from server",
+                ],404);
+            }
 
-    public function updater(UpdaterEmvDatabaseMonitoring $updaterEmvDatabaseMonitoring){
-        // $response = $updaterEmvDatabaseMonitoring->execute();
-        // if(!$response){
-        //     return response()->json([                
-        //         'status' => __('messages.error'),
-        //         'description' => __('messages.not_found'),
-        //     ],404);
-        // }
-        
-        // return response()->json([                
-        //     'status' => __('messages.success'),
-        //     'description' => __('messages.ok'),
-        //     'data' => EmvdatabasemonitoringResource::collection($response)
-        // ],200);
-    }
+            if($response['custom_error'] == 2){
+                return response()->json([                
+                    'status' => __('messages.error'),
+                    'description' => "HouseholdID (" . $request->hh_id . "), Multiple data found on server",
+                ],404);
+            }
+        }
 
+        // dd($response);
+
+        return response()->json([                
+            'status' => __('messages.success'),
+            'description' => __('messages.ok'),
+            'data' => $response
+        ],200);
+
+        // return $response;
+    }
 }

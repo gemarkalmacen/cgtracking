@@ -30,8 +30,7 @@ Route::group(['prefix' => 'staff', 'namespace' => 'Staff'], function() {
                 Route::apiResource('/emvdatabasemonitoring', 'EmvdatabasemonitoringController');
             });
             Route::group(['namespace' => 'Emvdatabasemonitoringdetails'], function () {
-                Route::get('emvdatabasemonitoringdetails/sync','EmvdatabasemonitoringdetailsController@sync')->name('Emvdatabasemonitoringdetails.sync');
-                Route::apiResource('/emvdatabasemonitoringdetails', 'EmvdatabasemonitoringdetailsController');
+                Route::post('emvdatabasemonitoringdetails/sync','EmvdatabasemonitoringdetailsController@sync'); //->name('Emvdatabasemonitoringdetails.sync');
             });
         }
     );
