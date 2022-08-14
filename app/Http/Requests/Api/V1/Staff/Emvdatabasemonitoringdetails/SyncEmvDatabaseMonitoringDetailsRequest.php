@@ -35,6 +35,7 @@ class SyncEmvDatabaseMonitoringDetailsRequest extends FormRequest
         return[
             // 'username.required' => __('staff/validation.user_name_required'),
             // 'password.required' => __('staff/validation.password_required'),
+            'full_name' => __('staff/validation.emvmonitoringdetails-fullname'),
         ];
     }
 

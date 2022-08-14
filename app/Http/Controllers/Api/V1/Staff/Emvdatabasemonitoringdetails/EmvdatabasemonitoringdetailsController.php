@@ -59,7 +59,7 @@ class EmvdatabasemonitoringdetailsController extends Controller
 
         return response()->json([                
             'status' => __('messages.success'),
-            'description' => __('messages.ok'),
+            'description' => __('staff/notifications.emvdatabasemonitoringdetails_sync'),
             'data' => $response
         ],200);
 

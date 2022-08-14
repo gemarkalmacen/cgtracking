@@ -37,4 +37,6 @@ return [
     'tools-emv_monitoring' => 'Emv Monitoring',
     'tools-emv_monitoring_import' => 'Import',
     'tools-emv_monitoring_index' => 'List',
+
+    'emvmonitoringdetails-fullname' => 'Full Name',
 ];
