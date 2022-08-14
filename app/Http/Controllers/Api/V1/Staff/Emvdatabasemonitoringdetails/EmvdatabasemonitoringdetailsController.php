@@ -53,13 +53,18 @@ class EmvdatabasemonitoringdetailsController extends Controller
                     'description' => "HouseholdID (" . $request->hh_id . "), Multiple data found on server",
                 ],404);
             }
-        }
 
-        // dd($response);
+            if($response['custom_error'] == 3){
+                return response()->json([                
+                    'status' => __('messages.error'),
+                    'description' => $response['error_message'],
+                ],404);
+            }
+        }
 
         return response()->json([                
             'status' => __('messages.success'),
-            'description' => __('messages.ok'),
+            'description' => __('staff/notifications.emvdatabasemonitoringdetails_sync'),
             'data' => $response
         ],200);
 

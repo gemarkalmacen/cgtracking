@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Traits\WithPaginate;
 use Illuminate\Database\Eloquent\Model;
 use Ccore\Core\Traits\ExtendedEloquentTrait;
+use App\Models\Emvmonitoring;
 
 class Emvdatabasemonitoringdetails extends Model
 {
@@ -74,4 +75,9 @@ class Emvdatabasemonitoringdetails extends Model
         'created_at',
         'updated_at',
     ];
+
+    public function emvmonitoring()
+    {
+        return $this->belongsTo(Emvmonitoring::class, "emv_database_monitoring_id");
+    }
 }
