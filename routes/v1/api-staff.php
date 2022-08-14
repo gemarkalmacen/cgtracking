@@ -29,6 +29,9 @@ Route::group(['prefix' => 'staff', 'namespace' => 'Staff'], function() {
                 Route::get('emvdatabasemonitoring/updater','EmvdatabasemonitoringController@updater')->name('emvdatabasemonitoring.updater');;
                 Route::apiResource('/emvdatabasemonitoring', 'EmvdatabasemonitoringController');
             });
+            Route::group(['namespace' => 'Emvdatabasemonitoringdetails'], function () {
+                Route::post('emvdatabasemonitoringdetails/sync','EmvdatabasemonitoringdetailsController@sync'); //->name('Emvdatabasemonitoringdetails.sync');
+            });
         }
     );
 
