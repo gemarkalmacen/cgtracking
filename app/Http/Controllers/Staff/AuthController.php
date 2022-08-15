@@ -173,7 +173,11 @@ class AuthController extends BaseController
     public function logout()
     {
         $this->logoutUser->execute();
-        // return redirect()->route('staff.login');
-        return redirect($this->provider->getLogoutUrl());
+        
+        if(env('APP_URL') == "https://crg-finance-svr.entdswd.local/cgtracking"){
+            return redirect($this->provider->getLogoutUrl());
+        } else {
+            return redirect()->route('staff.login');
+        }
     }
 }
