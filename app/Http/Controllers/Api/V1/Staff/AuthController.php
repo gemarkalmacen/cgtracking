@@ -62,6 +62,8 @@ class AuthController extends Controller
         
         // $role = $user->roles()->first();
 
+        $fullname = $user->details->first_name . " " . substr($user->details->middle_name, 0, 1) . "." . " " . $user->details->last_name;
+
         return response()->json([
             'status' => __('messages.status_success'),
             'description' => __('messages.ok'),
@@ -70,12 +72,10 @@ class AuthController extends Controller
                 'id' => $user->id,
                 'email' => $user->email,
                 'mobile' => $user->mobile,
-                'name' => $user->name,
+                'name' => $fullname,
                 'username' => $user->username,
                 // 'user_details' => [
-                //     'first_name' => $user->detail->first_name,
-                //     'middle_name' => $user->detail->middle_name ?? '',
-                //     'last_name' => $user->detail->last_name,
+                //     'full_name' => $fullname,
                 // ],
                 // 'roles' => [
                 //     'id' => $role->id,
