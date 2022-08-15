@@ -13,7 +13,10 @@ class UpdateTableEmvDatabaseMonitoringChangeIsValidatedIntoValidatedAt extends M
      */
     public function up()
     {
-        DB::statement('ALTER TABLE `emv_database_monitoring` MODIFY COLUMN `is_validated` timestamp DEFAULT NULL;');
+        DB::statement('ALTER TABLE emv_database_monitoring DROP COLUMN is_validated;');
+        Schema::table('emv_database_monitoring', function (Blueprint $table) {
+            $table->timestamp('is_validated')->after('updated_at')->nullable();
+        });
     }
 
     /**
