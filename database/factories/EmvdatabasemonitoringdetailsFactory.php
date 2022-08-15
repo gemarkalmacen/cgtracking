@@ -20,7 +20,7 @@ $factory->define(Emvdatabasemonitoringdetails::class, function (Faker $faker) {
         // 'full_name' => $faker->firstName,  // Random task title
         // 'user_id' => 1, // Random task description
 
-        'full_name' => $faker->firstName,
+        'full_name' => $faker->name,
         'hh_id' => '160310001-12779-00017',
         'client_status' => '1 - Active',
         'address' => 'Surigao del Sur',
