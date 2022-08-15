@@ -27,6 +27,7 @@ class Kernel extends HttpKernel
     /**
      * The application's route middleware groups.
      *
+     *  'throttle:60,1', default value change to 100 used for mobile app validation, change it later
      * @var array
      */
     protected $middlewareGroups = [
@@ -51,11 +52,9 @@ class Kernel extends HttpKernel
         ],
         'api' => [
            EnsureFrontendRequestsAreStateful::class,
-            'throttle:1000,1', 
+            'throttle:100,1', 
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
-
-        // 'throttle:60,1', default value change to 1000 used for mobile app validation, change it later
     ];
 
     /**
