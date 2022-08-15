@@ -12,6 +12,8 @@ use App\Services\Api\V1\Staff\Users\LoginUser;
 // use App\Services\V1\Users\IsUserActive;
 use App\Services\Api\V1\Staff\Users\GetUserByUsername;
 use App\Http\Requests\Api\V1\Staff\Auth\UserLoginRequest;
+use App\Http\Requests\Api\V1\Staff\Auth\UserRegistrationRequest;
+use App\Services\Api\V1\Staff\Users\RegisterUser;
 
 class AuthController extends Controller
 {
@@ -91,4 +93,40 @@ class AuthController extends Controller
             ]
         ]);
     }
+
+    public function register(UserRegistrationRequest $request, RegisterUser $registerUser)
+    {
+        $response = $registerUser->execute($request);
+
+        if(isset($response['custom_error']))
+        {
+            if($response['custom_error'] == 1){
+                return response()->json([                
+                    'status' => __('messages.error'),
+                    'description' => "Username already exist!",
+                ],404);
+            }
+
+            if($response['custom_error'] == 2){
+                return response()->json([                
+                    'status' => __('messages.error'),
+                    'description' => "Failed to register user!",
+                ],404);
+            }
+
+            if($response['custom_error'] == 3){
+                return response()->json([                
+                    'status' => __('messages.error'),
+                    'description' => $response['error_message'],
+                ],404);
+            }
+        }
+
+        return response()->json([                
+            'status' => __('messages.success'),
+            'description' => __('staff/notifications.users_created_successfully'),
+            'data' => $response
+        ],200);
+    }
+
 }
