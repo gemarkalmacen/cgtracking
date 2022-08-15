@@ -51,9 +51,11 @@ class Kernel extends HttpKernel
         ],
         'api' => [
            EnsureFrontendRequestsAreStateful::class,
-            'throttle:60,1', 
+            'throttle:1000,1', 
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
+
+        // 'throttle:60,1', default value change to 1000 used for mobile app validation, change it later
     ];
 
     /**
