@@ -78,6 +78,13 @@ class Emvdatabasemonitoringdetails extends Model
         'sync_at',
         'created_at',
         'updated_at',
+        'other_card_is_available_2',
+        'other_card_is_available_3',
+        'other_card_reason_2',
+        'other_card_reason_3',
+        'pawn_loaned_amount',
+        'pawn_lender_address',
+        'pawn_interest'
     ];
 
     public function emvmonitoring()
