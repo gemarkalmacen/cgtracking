@@ -7,7 +7,7 @@ Route::group(['prefix' => 'ajax', 'namespace' => 'Ajax'], function () {
         Route::post('listing', 'UserController@listing')->name('staff.ajax.users.listing');
     });
 
-    Route::group(['prefix' => 'roles', 'namespace' => 'roles'], function (){
+    Route::group(['prefix' => 'roles', 'namespace' => 'roles'], function () {
         Route::post('listing', 'RoleController@listing')->name('staff.ajax.roles.listing');
         Route::get('/', 'RoleController@index')->name('staff.ajax.roles');
     });
@@ -27,7 +27,7 @@ Route::group(['prefix' => 'ajax', 'namespace' => 'Ajax'], function () {
     Route::group(['prefix' => 'topup', 'namespace' => 'Topup'], function () {
         Route::post('listing', 'TopupController@listing')->name('staff.ajax.topup.listing');
     });
-    
+
     Route::group(['prefix' => 'archivedgranteelists', 'namespace' => 'Archivedgranteelists'], function () {
         Route::post('listing', 'ArchivedgranteelistsController@listing')->name('staff.ajax.archivedgranteelists.listing');
     });
@@ -55,5 +55,9 @@ Route::group(['prefix' => 'ajax', 'namespace' => 'Ajax'], function () {
 
     Route::group(['prefix' => 'emvmonitoring', 'namespace' => 'Emvmonitoring'], function () {
         Route::post('listing', 'EmvmonitoringController@listing')->name('staff.ajax.emvmonitoring.listing');
+    });
+
+    Route::group(['prefix' => 'emvdatabasemonitoringdetails', 'namespace' => 'Emvdatabasemonitoringdetails'], function () {
+        Route::get('listing', 'EmvdatabasemonitoringdetailsController@getBlob')->name('staff.ajax.emvdatabasemonitoringdetails.getblob');
     });
 });
