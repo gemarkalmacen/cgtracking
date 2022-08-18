@@ -19,6 +19,11 @@ class UpdateTableEmvDatabaseMonitoringDetailsBlobToLongblobColumns extends Migra
             DB::statement("ALTER TABLE `emv_database_monitoring_details` MODIFY `attested_by_e_signature` LONGBLOB;");
             DB::statement("ALTER TABLE `emv_database_monitoring_details` MODIFY `current_cash_card_picture` LONGBLOB;");
             DB::statement("ALTER TABLE `emv_database_monitoring_details` MODIFY `beneficiary_picture` LONGBLOB;");
+            $table->decimal("pawn_loaned_amount", 15)->nullable()->change();
+            $table->decimal("pawn_interest", 15)->nullable()->change();
+            $table->string("other_card_number_series_1", 255)->nullable()->change();
+            $table->string("other_card_number_series_2", 255)->nullable()->change();
+            $table->string("other_card_number_series_3", 255)->nullable()->change();
         });
     }
 
@@ -35,6 +40,11 @@ class UpdateTableEmvDatabaseMonitoringDetailsBlobToLongblobColumns extends Migra
             $table->binary('attested_by_e_signature')->nullable()->change();
             $table->binary('current_cash_card_picture')->nullable()->change();
             $table->binary('beneficiary_picture')->nullable()->change();
+            DB::statement("ALTER TABLE `emv_database_monitoring_details` MODIFY `pawn_loaned_amount` DOUBLE;");
+            DB::statement("ALTER TABLE `emv_database_monitoring_details` MODIFY `pawn_interest` DOUBLE;");
+            $table->string("other_card_number_series_1", 10)->nullable()->change();
+            $table->string("other_card_number_series_2", 10)->nullable()->change();
+            $table->string("other_card_number_series_3", 10)->nullable()->change();
         });
     }
 }
