@@ -56,4 +56,8 @@ Route::group(['prefix' => 'ajax', 'namespace' => 'Ajax'], function () {
     Route::group(['prefix' => 'emvmonitoring', 'namespace' => 'Emvmonitoring'], function () {
         Route::post('listing', 'EmvmonitoringController@listing')->name('staff.ajax.emvmonitoring.listing');
     });
+
+    Route::group(['prefix' => 'emvmonitoringdetails', 'namespace' => 'Emvmonitoringdetails'], function () {
+        Route::get('listing', 'EmvmonitoringdetailsController@listing')->name('staff.ajax.emvmonitoringdetails.listing');
+    });
 });

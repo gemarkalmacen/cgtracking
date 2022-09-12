@@ -170,4 +170,12 @@ Route::group(['prefix' => 'staff-panel', 'namespace' => 'Staff'], function () {
         Route::get('emvmonitoringimport', 'EmvmonitoringController@import')->name('staff.emvmonitoring.emvmonitoringimport');
         Route::post('emvmonitoringload', 'EmvmonitoringController@load')->name('staff.emvmonitoring.emvmonitoringload');
     });
+
+    Route::group(['namespace' => 'Emvmonitoringdetails'], function () {
+        Route::resource('emvmonitoringdetails', "EmvmonitoringdetailsController", [
+            'names' => [
+                'index' => "staff.emvmonitoringdetails.index",
+            ]
+        ]);
+    });
 });
