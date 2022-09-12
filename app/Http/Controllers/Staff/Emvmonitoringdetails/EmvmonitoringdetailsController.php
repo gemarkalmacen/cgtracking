@@ -23,7 +23,10 @@ class EmvmonitoringdetailsController extends Controller
     {
         $getListingEmvmonitoringdetails = new GetListingEmvmonitoringdetails;
         $records = $getListingEmvmonitoringdetails->execute();
-        return view('staff.emvmonitoringdetails.index', ['data_object' => 'asdasdasd']);
+
+        $breadcrumbs_main = 'Validated Accounts';
+        $breadcrumbs_details = '-';
+        return view('staff.emvmonitoringdetails.index', ['data_object' => ''], compact('breadcrumbs_main', 'breadcrumbs_details'));
     }
 
 }
