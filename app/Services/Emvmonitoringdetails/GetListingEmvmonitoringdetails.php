@@ -20,6 +20,7 @@ class GetListingEmvmonitoringdetails
                 // ->filter(Request2::only('search', 'trashed', 'sort', 'tab'))
                 // ->sort(Request2::only('sort'))
                 ->paginate(6)
+                ->fragment('emvdatabasemonitoringdetails')
                 // ->get()
                 ;
 

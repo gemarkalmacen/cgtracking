@@ -21,9 +21,6 @@ class EmvmonitoringdetailsController extends Controller
 
     public function index()
     {
-        $getListingEmvmonitoringdetails = new GetListingEmvmonitoringdetails;
-        $records = $getListingEmvmonitoringdetails->execute();
-
         $breadcrumbs_main = 'Validated Accounts';
         $breadcrumbs_details = '-';
         return view('staff.emvmonitoringdetails.index', ['data_object' => ''], compact('breadcrumbs_main', 'breadcrumbs_details'));
