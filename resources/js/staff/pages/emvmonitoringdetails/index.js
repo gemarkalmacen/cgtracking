@@ -52,52 +52,60 @@ module.exports = function(data) {
                 });
             },
             firstpage(link){
-                var vm = this;
-                $.ajax({
-                    url: link,
-                    type: 'GET',
-                    success: function (response) {
-                        if (response) {
-                            vm.emvdetailsdata = response;
-                        }
-                    },
-                });
+                if(link){
+                    var vm = this;
+                    $.ajax({
+                        url: link,
+                        type: 'GET',
+                        success: function (response) {
+                            if (response) {
+                                vm.emvdetailsdata = response;
+                            }
+                        },
+                    });
+                }
             },
             lastpage(link){
-                var vm = this;
-                $.ajax({
-                    url: link,
-                    type: 'GET',
-                    success: function (response) {
-                        if (response) {
-                            vm.emvdetailsdata = response;
-                        }
-                    },
-                });
+                if(link){
+                    var vm = this;
+                    $.ajax({
+                        url: link,
+                        type: 'GET',
+                        success: function (response) {
+                            if (response) {
+                                vm.emvdetailsdata = response;
+                            }
+                        },
+                    });
+                }
             },
             nextpage(link){
-                var vm = this;
-                $.ajax({
-                    url: link,
-                    type: 'GET',
-                    success: function (response) {
-                        if (response) {
-                            vm.emvdetailsdata = response;
-                        }
-                    },
-                });
+                if(link){
+                    var vm = this;
+                    $.ajax({
+                        url: link,
+                        type: 'GET',
+                        success: function (response) {
+                            if (response) {
+                                vm.emvdetailsdata = response;
+                            }
+                        },
+                    });
+                }
             },
             prevpage(link){
-                var vm = this;
-                $.ajax({
-                    url: link,
-                    type: 'GET',
-                    success: function (response) {
-                        if (response) {
-                            vm.emvdetailsdata = response;
-                        }
-                    },
-                });
+                if(link){
+                    var vm = this;
+                    $.ajax({
+                        url: link,
+                        type: 'GET',
+                        success: function (response) {
+                            if (response) {
+                                vm.emvdetailsdata = response;
+                            }
+                        },
+                    });
+                }
             },
         },
         computed: {
