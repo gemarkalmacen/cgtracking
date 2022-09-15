@@ -17,13 +17,18 @@
                             <div class="row align-items-center">
                                 <div class="col-md-4 my-2 my-md-0">
                                     <div class="input-icon">
-                                        <input type="text" class="form-control" placeholder="Search..." id="kt_datatable_search_query" />
+                                        <input type="text" v-model="search_value" @change="search" class="form-control" placeholder="Search..." id="search_value" name="search_value" />
                                         <span>
                                             <i class="flaticon2-search-1 text-muted"></i>
                                         </span>
                                     </div>
                                 </div>
-                                <div class="col-md-4 my-2 my-md-0">
+                                
+                                <div class="col-lg-3 col-xl-4 mt-5 mt-lg-0">
+                                    <a href="#" @click="search" class="btn btn-light-primary px-6 font-weight-bold">Search</a>
+                                    <a href="#" @click="clearData" class="btn btn-light-primary px-6 font-weight-bold">Clear</a>
+                                </div>
+                                <!-- <div class="col-md-4 my-2 my-md-0">
                                     <div class="d-flex align-items-center">
                                         <label class="mr-3 mb-0 d-none d-md-block">Status:</label>
                                         <select class="form-control" id="kt_datatable_search_status">
@@ -36,8 +41,8 @@
                                             <option value="6">Danger</option>
                                         </select>
                                     </div>
-                                </div>
-                                <div class="col-md-4 my-2 my-md-0">
+                                </div> -->
+                                <!-- <div class="col-md-4 my-2 my-md-0">
                                     <div class="d-flex align-items-center">
                                         <label class="mr-3 mb-0 d-none d-md-block">Type:</label>
                                         <select class="form-control" id="kt_datatable_search_type">
@@ -47,11 +52,8 @@
                                             <option value="3">Direct</option>
                                         </select>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
-                        </div>
-                        <div class="col-lg-3 col-xl-4 mt-5 mt-lg-0">
-                            <a href="#" class="btn btn-light-primary px-6 font-weight-bold">Search</a>
                         </div>
                     </div>
                 </div>
@@ -400,8 +402,43 @@
 
         <br />
 
-    <!-- </div> -->
-    <!--end::Card-->
+        <!--begin::Pagination-->
+        <div class="card card-custom">
+            <div class="card-body">
+                <!--begin::Pagination-->
+                <div class="d-flex justify-content-between align-items-center flex-wrap">
+                    <div class="d-flex flex-wrap mr-3">
+                        <a href="#" @click="firstpage(emvdetailsdata.first_page_url)" class="btn btn-icon btn-sm btn-light-primary mr-2 my-1">
+                            <i class="ki ki-bold-double-arrow-back icon-xs"></i>
+                        </a>
+                        <a href="#" @click="prevpage(emvdetailsdata.prev_page_url)" class="btn btn-icon btn-sm btn-light-primary mr-2 my-1">
+                            <i class="ki ki-bold-arrow-back icon-xs"></i>
+                        </a>
+                        <a href="#" class="btn btn-icon btn-sm border-0 btn-hover-success active mr-2 my-1">@{{ emvdetailsdata.current_page }}</a>
+                        <a href="#" @click="nextpage(emvdetailsdata.next_page_url)" class="btn btn-icon btn-sm btn-light-primary mr-2 my-1">
+                            <i class="ki ki-bold-arrow-next icon-xs font-weight-bold"></i>
+                        </a>
+                        <a href="#" @click="lastpage(emvdetailsdata.last_page_url)" class="btn btn-icon btn-sm btn-light-primary mr-2 my-1">
+                            <i class="ki ki-bold-double-arrow-next icon-xs"></i>
+                        </a>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <select class="form-control form-control-sm text-primary font-weight-bold mr-4 border-0 bg-light-primary" style="width: 75px;">
+                            <option value="6">6</option>
+                            <option value="10">10</option>
+                            <option value="20">20</option>
+                            <option value="30">30</option>
+                            <option value="50">50</option>
+                            <option value="100">100</option>
+                        </select>
+                        <span class="text-dark font-weight-bold">Displaying @{{ emvdetailsdata.per_page }} of @{{ emvdetailsdata.total }} records</span>
+                    </div>
+                </div>
+                <!--end:: Pagination-->
+            </div>
+        </div>
+        <!--end::Pagination-->
+        
 @endsection
 
 @section('plugin_script')

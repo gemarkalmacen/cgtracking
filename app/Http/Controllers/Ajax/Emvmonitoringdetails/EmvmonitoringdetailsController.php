@@ -17,6 +17,7 @@ class EmvmonitoringdetailsController extends Controller
      */
     public function listing(GetListingEmvmonitoringdetails $getListingEmvmonitoringdetails)
     {
+        $request_id = request('filter');
         $records = $getListingEmvmonitoringdetails->execute();
         return response()->json($records);
 

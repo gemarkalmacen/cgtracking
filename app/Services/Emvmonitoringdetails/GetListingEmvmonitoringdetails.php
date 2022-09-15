@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\DB;
 
 use App\Models\Emvdatabasemonitoringdetails;
 use App\Models\Role;
+use Illuminate\Support\Facades\Request;
 
 class GetListingEmvmonitoringdetails
 {
@@ -19,10 +20,12 @@ class GetListingEmvmonitoringdetails
         $query = Emvdatabasemonitoringdetails::select(['*'])
                 // ->filter(Request2::only('search', 'trashed', 'sort', 'tab'))
                 // ->sort(Request2::only('sort'))
+                // ->filter(Request::only('search'))
+                ->filter( Request::all('filter') )
                 ->paginate(6)
-                ->fragment('emvdatabasemonitoringdetails')
-                // ->get()
                 ;
+
+        // dd($query);
 
         return $query;
     }

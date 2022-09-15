@@ -8,6 +8,7 @@ module.exports = function(data) {
         // emvmonitoringdetails: Object,
         n: 1,
         emvdetailsdata: Object,
+        search_value: '',
     };
     return {
         data: (() => Object.assign({}, data, _data)),
@@ -28,27 +29,34 @@ module.exports = function(data) {
                     vm.getEmvdatabasedetailsList();
                 });
             },
+            clearData(){
+                var vm = this;
+                vm.search_value = "";
+                vm.search();
+            },
+            search(){
+                var vm = this;
+
+                $.ajax({
+                    url: vm.$route('staff.ajax.emvmonitoringdetails.listing') + '/?filter='+vm.search_value,
+                    type: 'GET',
+                    success: function (response) {
+                        if (response) {                            
+                            vm.emvdetailsdata = response;
+                        }
+                    },
+                });
+            },
             getEmvdatabasedetailsList(){
                 var vm = this;
                 $.ajax({
-                    // url: vm.$route('staff.ajax.emvmonitoring.listing') + '?id='+vm.hh_id_search,
-                    url: vm.$route('staff.ajax.emvmonitoringdetails.listing'),
+                    url: vm.$route('staff.ajax.emvmonitoringdetails.listing') + '/?filter='+vm.search_value,
                     type: 'GET',
                     success: function (response) {
-                        if (response) {                          
-                            // var data = Object.values(response);
-                            // var payroll = data[0];
-                            // var granteelist = data[1];
-                            // var nonemv = data[2];
-                            // var emv = data[3];
-                            
+                        if (response) {                            
                             vm.emvdetailsdata = response;
-
-                            console.log(vm.emvmonitoringdetails);
                         }
                     },
-                    // error: function(){
-                    // }
                 });
             },
             firstpage(link){

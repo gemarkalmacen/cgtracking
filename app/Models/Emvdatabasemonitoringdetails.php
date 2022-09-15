@@ -87,6 +87,19 @@ class Emvdatabasemonitoringdetails extends Model
         'pawn_interest'
     ];
 
+    public function scopeFilter($query, array $filters)
+    {
+        $query->when($filters['filter'] ?? null, function ($query, $filters) {
+            $query->where(function ($query) use ($filters) {
+                $query  ->where('hh_id', 'like', '%'.$filters.'%')
+                        ->orWhere('full_name', 'like', '%'.$filters.'%')
+                        // ->orWhere('address', 'like', '%'.$filters.'%')
+                        // ->orWhere('current_grantee_card_number', 'like', '%'.$filters.'%');
+                        ;
+            });
+        });
+    }
+
     public function emvmonitoring()
     {
         return $this->belongsTo(Emvmonitoring::class, "emv_database_monitoring_id");
