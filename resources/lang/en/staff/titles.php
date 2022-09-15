@@ -66,4 +66,7 @@ return [
     // emv monitoring
     'tools-emv_monitoring' => 'Emv Monitoring',
     'tools-emv_monitoring-import' => 'Import - Emv Monitoring',
+
+    // em movnitoring details
+    'tools-validated_accounts' => 'Validated Accounts',
 ];

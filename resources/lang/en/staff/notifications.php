@@ -88,4 +88,6 @@ return [
     'emvmonitoring_import_successfully' => 'Emv Monitoring List import sucessfully.',
     'emvmonitoring_import_failed' => 'Emv Monitoring import failed.',
     
+    // emv_monitoring_details
+    
 ];
