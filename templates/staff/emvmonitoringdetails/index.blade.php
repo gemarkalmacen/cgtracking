@@ -180,7 +180,8 @@
                                                 <!--begin::Pic-->
                                                 <div class="flex-shrink-0 mr-7">
                                                     <!-- <div class=""> -->
-                                                        <img alt="Pic" width="320px" src="{{ url('staff/assets/media/users/valid_id_test.jpg') }}" />
+                                                        <!-- <img alt="Pic" width="320px" src="{{ url('staff/assets/media/users/valid_id_test.jpg') }}" /> -->
+                                                        <img width="250px" style="border: 1px solid black; " :src="'data:image/png;base64,' + emv.current_cash_card_picture" alt="Red dot" />
                                                     <!-- </div> -->
                                                     <!-- <div class=""> -->
                                                         <img alt="Pic" width="300px" src="{{ url('staff/assets/media/users/lbp_cashcard_sample.jpg') }}" />
