@@ -16,15 +16,27 @@ class RoleSeeder extends Seeder
         [
             'id' => 2,
             'guard_name' => 'users',
-            'name' => 'doctors',
+            'name' => 'financial analyst iii',
             'is_staff' => 0
         ],
         [
             'id' => 3,
             'guard_name' => 'users',
-            'name' => 'sellers',
+            'name' => 'financial analyst ii',
             'is_staff' => 0
-        ]
+        ],
+        [
+            'id' => 4,
+            'guard_name' => 'users',
+            'name' => 'financial analyst i',
+            'is_staff' => 0
+        ],
+        [
+            'id' => 5,
+            'guard_name' => 'users',
+            'name' => 'mrb',
+            'is_staff' => 0
+        ],
     ];
 
     /**
