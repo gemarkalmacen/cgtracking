@@ -34,7 +34,7 @@ class ChangeClientStatusIntoHhStatusTableEmvdbmonitoringAndEmvdbmonitoringDetail
             $table->string('other_card_release_date_1')->nullable()->after('other_card_distribution_status_1');
             $table->string('other_card_distribution_status_2')->nullable()->after('other_card_number_2');
             $table->string('other_card_release_date_2')->nullable()->after('other_card_distribution_status_2');
-            $table->decimal('nma_amount', 15, 2)->nullable();
+            $table->decimal('nma_amount', 15, 2)->nullable()->after('hh_set_group');
         });
     }
 
