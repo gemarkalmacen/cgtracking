@@ -16,6 +16,7 @@ class Role extends Roles
      * Mass assignment column
      */
     protected $fillable = [
-        'name',               
+        'name',
+        'guard_name'
     ];    
 }

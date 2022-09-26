@@ -60,5 +60,33 @@ Route::group(['prefix' => 'command'], function() {
         shell_exec('composer refresh-app');
         echo 'composer refresh-app';
     });
-});
 
+    // to alter incorrect data seeders and other concern
+    Route::get('system-deployment-configuration', function()
+    {
+        $role_is_fa_iii = DB::table('roles')
+            ->where('id', 2)
+            ->update(['name' => 'financial analyst iii']);
+
+        $role_is_fa_ii = DB::table('roles')
+            ->where('id', 3)
+            ->update(['name' => 'financial analyst ii']);
+
+        $roles = App\Models\Role::updateOrCreate(
+            ['id' => 4],
+            [
+                'name' => 'financial analyst i',
+                'guard_name' => 'users',
+                'is_staff' => 0
+            ],
+        );
+        $roles = App\Models\Role::updateOrCreate(
+            ['id' => 5],
+            [
+                'name' => 'mrb',
+                'guard_name' => 'users',
+                'is_staff' => 0
+            ]
+        );
+    });
+});
