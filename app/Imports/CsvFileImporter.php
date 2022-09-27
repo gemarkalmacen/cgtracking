@@ -128,45 +128,6 @@ class CsvFileImporter
                         }
                     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    // $granteelists = new Granteelists;
-                    // $data = $granteelists->execute($file_path,$this->_generated_file_name, $this->_original_file_name);
-                    // $data_total_count = \DB::table('grantee_lists')->count();
-                    // if($data_total_count > 0){
-                    //     $query_copy = DB::statement('
-                    //         INSERT INTO 
-                    //             archive_grantee_lists(id, region, province, municipality, barangay, purok, `address`, hh_id, entryid, lastname, firstname, middlename, extensionname, birthday, age, clientstatus, member_status, registrationstatus, sex, relationship_to_hh_head, ipaffiliation, hh_set, `group`, mothers_maiden, date_of_enumeration, lbp_account_number, mode_of_payment, date_tagged_hhstatus, tagged_by, date_registered, created_at, updated_at, upload_history_id, archive_date, user_id)
-                    //         SELECT 
-                    //             id, region, province, municipality, barangay, purok, `address`, hh_id, entryid, lastname, firstname, middlename, extensionname, birthday, age, clientstatus, member_status, registrationstatus, sex, relationship_to_hh_head, ipaffiliation, hh_set, `group`, mothers_maiden, date_of_enumeration, lbp_account_number, mode_of_payment, date_tagged_hhstatus, tagged_by, date_registered, created_at, updated_at, upload_history_id, CURRENT_TIMESTAMP, '.Auth::id().'
-                    //         FROM 
-                    //             grantee_lists');
-                    //     if($query_copy==TRUE){
-                    //         $query_delete = DB::table('grantee_lists')->delete();
-                    //         if(!$query_delete){
-                    //             throw new \ErrorException('Granteelists failed to Archived!');
-                    //         }
-                    //     } else {
-                    //         throw new \ErrorException('Granteelists failed to Archived!');
-                    //     }
-                    // }
-
                     $data = DB::connection()->getpdo()->exec($data);
                     $fixed_invalid_date_registered = DB::statement("UPDATE grantee_lists SET date_registered=NULL WHERE '0000-00-00' = DATE_FORMAT(date_registered,'%Y-%m-%d')");
                     $fixed_invalid_date_tagged_hhstatus = DB::statement("UPDATE grantee_lists SET date_tagged_hhstatus=NULL WHERE '0000-00-00' = DATE_FORMAT(date_tagged_hhstatus,'%Y-%m-%d')");
