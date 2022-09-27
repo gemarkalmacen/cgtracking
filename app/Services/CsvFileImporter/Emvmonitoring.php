@@ -38,9 +38,9 @@ class Emvmonitoring
                     LINES 
                         TERMINATED BY "\\n"
                     IGNORE 1 LINES
-                        (@col1, @col2, @col3, @col4, @col5, @col6, @col7, @col8, @col9, @col10, @col11, @col12, @col13) 
-                    SET 
-                    full_name = @col1, hh_id = @col2, client_status = @col3, hh_set_group = @col4, address = @col5, sex = @col6, current_grantee_card_number = @col7, other_card_number_1 = @col8, other_card_holder_name_1 = @col9, other_card_number_2 = @col10, other_card_holder_name_2 = @col11, other_card_number_3 = @col12, other_card_holder_name_3 = @col13, created_at = CURRENT_TIMESTAMP, upload_history_id = '.$upload_history->id.'
+                        (@col1, @col2, @col3, @col4, @col5, @col6, @col7, @col8, @col9, @col10, @col11, @col12, @col13, @col14, @col15, @col16, @col17, @col18, @col19, @col20, @col21) 
+                    SET
+                    hh_id = @col1, hh_set_group = @col2, last_name = @col3, first_name = @col4, middle_name = @col5, ext_name = @col6, hh_status = @col7, province = @col8, municipality = @col9, barangay = @col10, sex = @col11, current_grantee_card_number = @col12, current_grantee_distribution_status = @col13, current_grantee_card_release_date = @col14, other_card_number_1 = @col15, other_card_distribution_status_1 = @col16, other_card_release_date_1 = @col17, other_card_number_2 = @col18, other_card_distribution_status_2 = @col19, other_card_release_date_2 = @col20, nma_amount = @col21, created_at = CURRENT_TIMESTAMP, upload_history_id = '.$upload_history->id.'
                     ', ($file_path));
                 DB::commit();
                 
