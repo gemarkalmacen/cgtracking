@@ -438,6 +438,40 @@ License: You must have a valid license purchased only from themeforest(the above
                                         </a>
                                     </li>
                                     
+                                    <li class="menu-section">
+                                        <h4 class="menu-text">{{ __('staff/titles.library') }}</h4>
+                                        <i class="menu-icon ki ki-bold-more-hor icon-md"></i>
+                                    </li>
+                                    <li class="menu-item menu-item-submenu" aria-haspopup="true" data-menu-toggle="hover">
+                                        <a href="javascript:;" class="menu-link menu-toggle">
+                                            <span class="menu-icon ">
+                                                <i class="icon flaticon-map"></i>
+                                            </span>
+                                            <span class="menu-text">{{ __('staff/navigations.library-psgc') }}</span>
+                                            <i class="menu-arrow"></i>
+                                        </a>
+                                        <div class="menu-submenu">
+                                            <i class="menu-arrow"></i>
+                                            <ul class="menu-subnav">
+                                                <li class="menu-item" aria-haspopup="true">
+                                                    <a href="{{ route('staff.psgc.psgcimport') }}" class="menu-link">
+                                                        <i class="menu-bullet menu-bullet-dot">
+                                                            <span></span>
+                                                        </i>
+                                                        <span class="menu-text">{{ __('staff/navigations.library-psgc-import') }}</span>
+                                                    </a>
+                                                </li>
+                                                <li class="menu-item" aria-haspopup="true">
+                                                    <a href="{{ route('staff.psgc.index') }}"  class="menu-link">
+                                                        <i class="menu-bullet menu-bullet-dot">
+                                                            <span></span>
+                                                        </i>
+                                                        <span class="menu-text">{{ __('staff/navigations.library-psgc-list') }}</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
                                     
                                     <li class="menu-section">
                                         <h4 class="menu-text">{{ __('staff/navigations.configuration') }}</h4>

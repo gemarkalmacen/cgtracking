@@ -178,4 +178,15 @@ Route::group(['prefix' => 'staff-panel', 'namespace' => 'Staff'], function () {
             ]
         ]);
     });
+
+    Route::group(['namespace' => 'Psgc'], function () {
+        Route::resource('psgc', "PsgcController", [
+            'names' => [
+                'index' => "staff.psgc.index",
+            ]
+        ]);
+        
+        Route::get('psgcimport', 'PsgcController@import')->name('staff.psgc.psgcimport');
+        Route::post('psgcload', 'PsgcController@load')->name('staff.psgc.psgcload');
+    });
 });

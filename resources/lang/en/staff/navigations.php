@@ -38,4 +38,7 @@ return [
     'tools-emv_monitoring_import' => 'Import',
     'tools-emv_monitoring_index' => 'List',
     'tools-validated_accounts' => 'Validated Accounts',
+    'library-psgc' => 'PSGC',
+    'library-psgc-import' => 'Import',
+    'library-psgc-list' => 'List',
 ];

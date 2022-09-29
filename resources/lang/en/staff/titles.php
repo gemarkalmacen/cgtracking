@@ -62,6 +62,8 @@ return [
     'inquiry' => 'Inquiry',
 
     'logs' => 'Logs',
+    'library' => 'Libraries',
+    'library-psgc-import' => 'Psgc - Import',
 
     // emv monitoring
     'tools-emv_monitoring' => 'Emv Monitoring',

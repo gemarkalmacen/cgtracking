@@ -90,4 +90,11 @@ return [
     
     // emv_monitoring_details
     
+    // psgc
+    'psgc_created_successfully' => 'Psgc created successfully.',
+    'psgc_updated_successfully' => 'Psgc updated successfully.',
+    'psgc_deleted_successfully' => 'Psgc deleted successfully.',
+    'psgc_cannot_delete' => 'Psgc cannot be deleted.',
+    'psgc_import_successfully' => 'Psgc import sucessfully.',
+    'psgc_import_failed' => 'Psgc import failed.',
 ];
