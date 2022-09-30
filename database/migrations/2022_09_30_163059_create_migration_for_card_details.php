@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMigrationForNonMovingAccount extends Migration
+class CreateMigrationForCardDetails extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,9 @@ class CreateMigrationForNonMovingAccount extends Migration
      */
     public function up()
     {
-        Schema::create('non_moving_accounts', function (Blueprint $table) {
+        Schema::create('card_details', function (Blueprint $table) {
             $table->id();
-            $table->double('amount',15,2)->nullable();
-            $table->date('date_claimed')->nullable();
-            $table->text('reason')->nullable();
-            $table->text('remarks')->nullable();
+            
             $table->timestamps();
         });
     }
@@ -30,6 +27,6 @@ class CreateMigrationForNonMovingAccount extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('non_moving_accounts');
+        Schema::dropIfExists('card_details');
     }
 }
