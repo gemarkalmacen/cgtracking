@@ -59,12 +59,12 @@ class RemoveOtherCardsOnTableEmvdbmonitoringDetails extends Migration
      */
     public function down()
     {
-        DB::statement("ALTER TABLE emv_database_monitoring_details ADD other_card_is_available_1 VARCHAR(255);");
-        DB::statement("ALTER TABLE emv_database_monitoring_details ADD other_card_reason_1 VARCHAR(255);");
-        DB::statement("ALTER TABLE emv_database_monitoring_details ADD other_card_is_available_2 VARCHAR(255);");
-        DB::statement("ALTER TABLE emv_database_monitoring_details ADD other_card_reason_2 VARCHAR(255);");
-        DB::statement("ALTER TABLE emv_database_monitoring_details ADD other_card_is_available_3 VARCHAR(255);");
-        DB::statement("ALTER TABLE emv_database_monitoring_details ADD other_card_reason_3 VARCHAR(255);");
+        DB::statement("ALTER TABLE emv_database_monitoring_details ADD other_card_is_available_1 VARCHAR(5);");
+        DB::statement("ALTER TABLE emv_database_monitoring_details ADD other_card_reason_1 VARCHAR(5);");
+        DB::statement("ALTER TABLE emv_database_monitoring_details ADD other_card_is_available_2 VARCHAR(5);");
+        DB::statement("ALTER TABLE emv_database_monitoring_details ADD other_card_reason_2 VARCHAR(5);");
+        DB::statement("ALTER TABLE emv_database_monitoring_details ADD other_card_is_available_3 VARCHAR(5);");
+        DB::statement("ALTER TABLE emv_database_monitoring_details ADD other_card_reason_3 VARCHAR(5);");
 
         Schema::table('emv_database_monitoring_details', function (Blueprint $table) {
             $table->string('other_card_number_1')->nullable();
