@@ -13,7 +13,7 @@ class CreateMigrationForGrantee extends Migration
      */
     public function up()
     {
-        Schema::create('grantee', function (Blueprint $table) {
+        Schema::create('grantees', function (Blueprint $table) {
             $table->id();
             $table->string('hh_id', 30)->nullable();
             $table->text('first_name')->nullable();
@@ -37,6 +37,6 @@ class CreateMigrationForGrantee extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('grantee');
+        Schema::dropIfExists('grantees');
     }
 }
