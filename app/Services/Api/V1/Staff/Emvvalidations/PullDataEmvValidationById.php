@@ -1,18 +1,18 @@
 <?php
 
-namespace App\Services\Api\V1\Staff\Emvdatabasemonitoring;
+namespace App\Services\Api\V1\Staff\Emvvalidations;
 
-use App\Models\Emvmonitoring;
+use App\Models\Emvvalidations;
 use Spatie\QueryBuilder\QueryBuilder;
 
-class UpdaterEmvDatabaseMonitoring
+class PullDataEmvValidationById
 {
     /**
      * Get the City by id
      */
     public function execute($id = null)
     {
-        $data = Emvmonitoring::whereNotNull('validated_at')->get();
+        $data = Emvvalidations::where('id', '>', $id)->limit(500)->get();
         if(empty($data)){
             return false;
         }
