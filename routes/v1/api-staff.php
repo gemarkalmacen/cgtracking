@@ -21,17 +21,14 @@ Route::group(['prefix' => 'staff', 'namespace' => 'Staff'], function() {
             'middleware' => ['auth:sanctum']
         ],
         function() {
-            Route::group(['namespace' => 'Granteelists'], function () {
-                Route::apiResource('/granteelists', 'GranteelistController');
+            Route::group(['namespace' => 'Emvvalidations'], function () {
+                Route::get('emvvalidations/pulldata/{emvvalidations}','EmvvalidationController@pulldata');
+                Route::get('emvvalidations/updater','EmvvalidationController@updater')->name('emvvalidations.updater');
+                Route::apiResource('/emvvalidations', 'EmvvalidationController');
             });
-            Route::group(['namespace' => 'Emvdatabasemonitoring'], function () {
-                Route::get('emvdatabasemonitoring/pulldata/{emvdatabasemonitoring}','EmvdatabasemonitoringController@pulldata');
-                Route::get('emvdatabasemonitoring/updater','EmvdatabasemonitoringController@updater')->name('emvdatabasemonitoring.updater');;
-                Route::apiResource('/emvdatabasemonitoring', 'EmvdatabasemonitoringController');
-            });
-            Route::group(['namespace' => 'Emvdatabasemonitoringdetails'], function () {
-                Route::post('emvdatabasemonitoringdetails/sync','EmvdatabasemonitoringdetailsController@sync'); //->name('Emvdatabasemonitoringdetails.sync');
-            });
+            // Route::group(['namespace' => 'Emvdatabasemonitoringdetails'], function () {
+            //     Route::post('emvdatabasemonitoringdetails/sync','EmvdatabasemonitoringdetailsController@sync'); //->name('Emvdatabasemonitoringdetails.sync');
+            // });
         }
     );
 

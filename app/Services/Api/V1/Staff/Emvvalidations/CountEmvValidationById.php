@@ -1,18 +1,18 @@
 <?php
 
-namespace App\Services\Api\V1\Staff\Emvdatabasemonitoring;
+namespace App\Services\Api\V1\Staff\Emvvalidations;
 
-use App\Models\Emvmonitoring;
+use App\Models\Emvvalidations;
 use Spatie\QueryBuilder\QueryBuilder;
 
-class PullDataEmvDatabaseMonitoringById
+class CountEmvValidationById
 {
     /**
      * Get the City by id
      */
     public function execute($id = null)
     {
-        $data = Emvmonitoring::where('id', '>', $id)->limit(500)->get();
+        $data = Emvvalidations::count();
         if(empty($data)){
             return false;
         }

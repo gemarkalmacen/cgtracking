@@ -1,19 +1,19 @@
 <?php
 
-namespace App\Services\Api\V1\Staff\Emvdatabasemonitoring;
+namespace App\Services\Api\V1\Staff\Emvvalidations;
 
 use App\Models\Emvmonitoring;
+use App\Models\Emvvalidations;
 use Spatie\QueryBuilder\QueryBuilder;
 
-class GetEmvDatabaseMonitoringByHhId
+class UpdaterEmvDatabaseMonitoring
 {
     /**
      * Get the City by id
      */
     public function execute($id = null)
     {
-        
-        $data = Emvmonitoring::where('hh_id', $id)->first();
+        $data = Emvvalidations::whereNotNull('validated_at')->get();
         if(empty($data)){
             return false;
         }

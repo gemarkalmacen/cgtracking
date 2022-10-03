@@ -1,21 +1,21 @@
 <?php
 
-namespace App\Http\Controllers\Api\V1\Staff\Emvdatabasemonitoring;
+namespace App\Http\Controllers\Api\V1\Staff\Emvvalidations;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Services\Api\V1\Staff\Emvdatabasemonitoring\PullDataEmvDatabaseMonitoringById;
+use App\Services\Api\V1\Staff\Emvvalidations\PullDataEmvValidationById;
 use App\Services\Api\V1\Staff\Emvdatabasemonitoring\GetEmvDatabaseMonitoringByHhId;
-use App\Services\Api\V1\Staff\Emvdatabasemonitoring\CountEmvDatabaseMonitoringById;
-use App\Http\Resources\Api\V1\Staff\Emvdatabasemonitoring\EmvdatabasemonitoringResource;
+use App\Services\Api\V1\Staff\Emvvalidations\CountEmvValidationById;
+use App\Http\Resources\Api\V1\Staff\Emvvalidations\EmvvalidationResource;
 use App\Services\Api\V1\Staff\Emvdatabasemonitoring\UpdaterEmvDatabaseMonitoring;
 
-class EmvdatabasemonitoringController extends Controller
+class EmvvalidationController extends Controller
 {
 
     public function __construct()
     {
-        $this->middleware('permission:apiemvdatabasemonitoring-view', ['only' => ['show']]);
+        $this->middleware('permission:apiemvvalidations-view', ['only' => ['show']]);
     }
 
     /**
@@ -60,10 +60,10 @@ class EmvdatabasemonitoringController extends Controller
         ],200);
     }
 
-    public function pulldata($id, PullDataEmvDatabaseMonitoringById $pullDataEmvDatabaseMonitoringById, CountEmvDatabaseMonitoringById $countEmvDatabaseMonitoringById)
+    public function pulldata($id, PullDataEmvValidationById $pullDataEmvValidationById, CountEmvValidationById $countEmvValidationById)
     {
-        $response = $pullDataEmvDatabaseMonitoringById->execute($id);
-        $counter_response = $countEmvDatabaseMonitoringById->execute($id);
+        $response = $pullDataEmvValidationById->execute($id);
+        $counter_response = $countEmvValidationById->execute($id);
 
         if(!$response){
             return response()->json([                
@@ -76,7 +76,7 @@ class EmvdatabasemonitoringController extends Controller
             'status' => __('messages.success'),
             'total_data_count' => $counter_response,
             'description' => __('messages.ok'),
-            'data' => EmvdatabasemonitoringResource::collection($response)
+            'data' => EmvvalidationResource::collection($response)
         ],200);
     }
 
@@ -92,7 +92,7 @@ class EmvdatabasemonitoringController extends Controller
         return response()->json([                
             'status' => __('messages.success'),
             'description' => __('messages.ok'),
-            'data' => EmvdatabasemonitoringResource::collection($response)
+            'data' => EmvvalidationResource::collection($response)
         ],200);
     }
 

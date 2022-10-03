@@ -45,7 +45,7 @@ class PermissionCommand extends Command
         'inquiry',
         'emvvalidations',
         'emvmonitoringdetails',
-        'apiemvdatabasemonitoring',
+        'apiemvvalidations',
     ];
 
     /**
