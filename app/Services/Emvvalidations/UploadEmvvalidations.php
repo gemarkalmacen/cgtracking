@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\Emvmonitoring;
+namespace App\Services\Emvvalidations;
 
 use Doctrine\DBAL\Query\QueryException;
 use Illuminate\Http\Request;
@@ -10,7 +10,7 @@ use League\Csv\Statement;
 use App\Imports\CsvFileImporter;
 use DB;
 
-class UploadEmvmonitoring
+class UploadEmvvalidations
 {
     protected $errors = [];
     protected $delivery  = null;
@@ -23,7 +23,7 @@ class UploadEmvmonitoring
     {
         $lists = [];
         $successRow = 0;
-        $parameter = "emvmonitoring";
+        $parameter = "emvvalidations";
 
         if ($file->isValid()) {
             DB::beginTransaction();

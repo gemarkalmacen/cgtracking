@@ -64,8 +64,8 @@ return [
     'logs' => 'Logs',
 
     // emv monitoring
-    'tools-emv_monitoring' => 'Emv Monitoring',
-    'tools-emv_monitoring-import' => 'Import - Emv Monitoring',
+    'tools-emv_validations' => 'Emv Validation',
+    'tools-emv_validations-import' => 'Import - Emv Validation',
 
     // em movnitoring details
     'tools-validated_accounts' => 'Validated Accounts',

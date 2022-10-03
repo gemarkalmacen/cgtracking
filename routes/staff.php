@@ -160,22 +160,22 @@ Route::group(['prefix' => 'staff-panel', 'namespace' => 'Staff'], function () {
         ]);
     });
 
-    Route::group(['namespace' => 'Emvmonitoring'], function () {
-        Route::resource('emvmonitoring', "EmvmonitoringController", [
+    Route::group(['namespace' => 'Emvvalidations'], function () {
+        Route::resource('emvvalidations', "EmvvalidationController", [
             'names' => [
-                'index' => "staff.emvmonitoring.index",
+                'index' => "staff.emvvalidations.index",
             ]
         ]);
 
-        Route::get('emvmonitoringimport', 'EmvmonitoringController@import')->name('staff.emvmonitoring.emvmonitoringimport');
-        Route::post('emvmonitoringload', 'EmvmonitoringController@load')->name('staff.emvmonitoring.emvmonitoringload');
+        Route::get('emvvalidationsimport', 'EmvvalidationController@import')->name('staff.emvvalidations.emvvalidationsimport');
+        Route::post('emvvalidationsload', 'EmvvalidationController@load')->name('staff.emvvalidations.emvvalidationsload');
     });
 
-    Route::group(['namespace' => 'Emvmonitoringdetails'], function () {
-        Route::resource('emvmonitoringdetails', "EmvmonitoringdetailsController", [
-            'names' => [
-                'index' => "staff.emvmonitoringdetails.index",
-            ]
-        ]);
-    });
+    // Route::group(['namespace' => 'Emvmonitoringdetails'], function () {
+    //     Route::resource('emvmonitoringdetails', "EmvmonitoringdetailsController", [
+    //         'names' => [
+    //             'index' => "staff.emvmonitoringdetails.index",
+    //         ]
+    //     ]);
+    // });
 });

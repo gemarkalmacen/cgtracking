@@ -7,7 +7,7 @@ use Carbon\Carbon;
 use App\Models\Uploadhistory;
 use App\Services\CsvFileImporter\Granteelists;
 use App\Services\CsvFileImporter\Emvdatabases;
-use App\Services\CsvFileImporter\Emvmonitoring;
+use App\Services\CsvFileImporter\Emvvalidations;
 use App\Services\CsvFileImporter\Payrolls;
 use App\Services\CsvFileImporter\Overpayments;
 use App\Services\CsvFileImporter\Topups;
@@ -184,9 +184,9 @@ class CsvFileImporter
                     $fixed_invalid_hh_birthdate = DB::statement("UPDATE non_emv SET hh_birthdate=NULL WHERE '0000-00-00' = DATE_FORMAT(hh_birthdate,'%Y-%m-%d')");
                     $fixed_invalid_birthday = DB::statement("UPDATE non_emv SET birthday=NULL WHERE '0000-00-00' = DATE_FORMAT(birthday,'%Y-%m-%d')");
                     break;
-                case "emvmonitoring":
-                    $emvmonitoring = new Emvmonitoring;
-                    $data = $emvmonitoring->execute($file_path,$this->_generated_file_name, $this->_original_file_name);
+                case "emvvalidations":
+                    $emvvalidations = new Emvvalidations;
+                    $data = $emvvalidations->execute($file_path,$this->_generated_file_name, $this->_original_file_name);
                     $data = DB::connection()->getpdo()->exec($data);
                     break;
                 default:

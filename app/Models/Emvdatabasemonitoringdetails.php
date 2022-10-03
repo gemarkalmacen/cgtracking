@@ -5,7 +5,6 @@ namespace App\Models;
 use App\Traits\WithPaginate;
 use Illuminate\Database\Eloquent\Model;
 use Ccore\Core\Traits\ExtendedEloquentTrait;
-use App\Models\Emvmonitoring;
 
 class Emvdatabasemonitoringdetails extends Model
 {
@@ -87,8 +86,8 @@ class Emvdatabasemonitoringdetails extends Model
         'pawn_interest'
     ];
 
-    public function emvmonitoring()
+    public function emvvalidations()
     {
-        return $this->belongsTo(Emvmonitoring::class, "emv_database_monitoring_id");
+        // return $this->belongsTo(Emvvalidations::class, "emv_database_monitoring_id");
     }
 }

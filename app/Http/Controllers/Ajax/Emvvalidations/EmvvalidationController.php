@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Ajax\Emvmonitoring;
+namespace App\Http\Controllers\Ajax\Emvvalidations;
 
 use App\Http\Controllers\Controller;
 use App\Services\Emvmonitoring\GetListingEmvmonitoring;
 
-class EmvmonitoringController extends Controller
+class EmvvalidationController extends Controller
 {
 
     /**
