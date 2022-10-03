@@ -10,13 +10,13 @@
             <span class="card-icon">
                 <i class="fas fa-layer-group"></i>
             </span>
-            <h3 class="card-label">{{ __('staff/titles.tools-emv_monitoring-import')  }}</h3>
+            <h3 class="card-label">{{ __('staff/titles.tools-emv_validations-import')  }}</h3>
         </div>
         <div class="card-toolbar">
         </div>
     </div>
     <div class="card-body">
-        <form id="emvmonitoringImport" action="{!! route('staff.emvmonitoring.emvmonitoringload') !!}" method="POST" enctype="multipart/form-data" class="frm" novalidate="novalidate">
+        <form id="emvmonitoringImport" action="{!! route('staff.emvvalidations.emvvalidationsload') !!}" method="POST" enctype="multipart/form-data" class="frm" novalidate="novalidate">
             {!! @csrf_field() !!}
             @include ('staff.emvdatabase.partials.import')
         </form>

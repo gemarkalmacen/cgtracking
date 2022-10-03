@@ -8,7 +8,7 @@ use App\Models\Role;
 use App\Models\Uploadhistory;
 use Illuminate\Support\Facades\Auth;
 
-class Emvmonitoring
+class Emvvalidations
 {
     /**
      * Get list of roles execution
@@ -23,13 +23,13 @@ class Emvmonitoring
         try{
             $upload_history = new Uploadhistory;
             $upload_history->file_name = $_file_name;
-            $upload_history->table_source = 'emv_database_monitoring';
+            $upload_history->table_source = 'emv_validations';
             $upload_history->old_file_name = $_old_file_name;
             $upload_history->user_id = Auth::id();
             if($upload_history->save()){
                 $query = sprintf('
                     LOAD DATA LOCAL INFILE "%s" 
-                        INTO TABLE emv_database_monitoring
+                        INTO TABLE emv_validations
                     CHARACTER SET latin1
                     FIELDS 
                         TERMINATED BY ","
@@ -40,7 +40,7 @@ class Emvmonitoring
                     IGNORE 1 LINES
                         (@col1, @col2, @col3, @col4, @col5, @col6, @col7, @col8, @col9, @col10, @col11, @col12, @col13, @col14, @col15, @col16, @col17, @col18, @col19, @col20, @col21) 
                     SET
-                    hh_id = @col1, hh_set_group = @col2, last_name = @col3, first_name = @col4, middle_name = @col5, ext_name = @col6, hh_status = @col7, province = @col8, municipality = @col9, barangay = @col10, sex = @col11, current_grantee_card_number = @col12, current_grantee_distribution_status = @col13, current_grantee_card_release_date = @col14, other_card_number_1 = @col15, other_card_distribution_status_1 = @col16, other_card_release_date_1 = @col17, other_card_number_2 = @col18, other_card_distribution_status_2 = @col19, other_card_release_date_2 = @col20, nma_amount = @col21, created_at = CURRENT_TIMESTAMP, upload_history_id = '.$upload_history->id.'
+                    hh_id = @col1, hh_set_group = @col2, last_name = @col3, first_name = @col4, middle_name = @col5, ext_name = @col6, hh_status = @col7, province = @col8, municipality = @col9, barangay = @col10, sex = @col11, grantee_card_number = @col12, grantee_distribution_status = @col13, grantee_card_release_date = @col14, other_card_number_1 = @col15, other_card_distribution_status_1 = @col16, other_card_release_date_1 = @col17, other_card_number_2 = @col18, other_card_distribution_status_2 = @col19, other_card_release_date_2 = @col20, nma_amount = @col21, created_at = CURRENT_TIMESTAMP, upload_history_id = '.$upload_history->id.'
                     ', ($file_path));
                 DB::commit();
                 

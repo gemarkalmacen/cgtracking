@@ -17,6 +17,9 @@ class AddValidationPrefixesIntoTablesThatHasEffectOnValidationModule extends Mig
         Schema::rename('emv_monitoring', 'emv_validations');
         Schema::rename('emv_monitoring_details', 'emv_validation_details');
         Schema::rename('other_card_details', 'other_card_validations');
+        Schema::rename('card_details', 'card_validation_details');
+        Schema::rename('pawning_details', 'pawning_validation_details');
+        Schema::rename('non_moving_accounts', 'nma_validations');
     }
 
     /**
@@ -30,5 +33,8 @@ class AddValidationPrefixesIntoTablesThatHasEffectOnValidationModule extends Mig
         Schema::rename('emv_validations', 'emv_monitoring');
         Schema::rename('emv_validation_details', 'emv_monitoring_details');
         Schema::rename('other_card_validations', 'other_card_details');
+        Schema::rename('card_validation_details', 'card_details');
+        Schema::rename('pawning_validation_details', 'pawning_details');
+        Schema::rename('nma_validations', 'non_moving_accounts');
     }
 }

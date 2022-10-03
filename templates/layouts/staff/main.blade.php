@@ -392,39 +392,39 @@ License: You must have a valid license purchased only from themeforest(the above
                                             <span class="menu-icon ">
                                                 <i class="fas fa-desktop"></i>
                                             </span>
-                                            <span class="menu-text">{{ __('staff/navigations.tools-emv_monitoring') }}</span>
+                                            <span class="menu-text">{{ __('staff/navigations.tools-emv_validations') }}</span>
                                             <i class="menu-arrow"></i>
                                         </a>
                                         <div class="menu-submenu">
                                             <i class="menu-arrow"></i>
                                             <ul class="menu-subnav">
                                                 <li class="menu-item" aria-haspopup="true">
-                                                    <a href="{{ route('staff.emvmonitoring.emvmonitoringimport') }}" class="menu-link">
+                                                    <a href="{{ route('staff.emvvalidations.emvvalidationsimport') }}" class="menu-link">
                                                         <i class="menu-bullet menu-bullet-dot">
                                                             <span></span>
                                                         </i>
-                                                        <span class="menu-text">{{ __('staff/navigations.tools-emv_monitoring_import') }}</span>
+                                                        <span class="menu-text">{{ __('staff/navigations.tools-emv_validations_import') }}</span>
                                                     </a>
                                                 </li>
                                                 <li class="menu-item" aria-haspopup="true">
-                                                    <a href="{{ route('staff.emvmonitoring.index') }}"  class="menu-link">
+                                                    <a href="{{ route('staff.emvvalidations.index') }}"  class="menu-link">
                                                         <i class="menu-bullet menu-bullet-dot">
                                                             <span></span>
                                                         </i>
-                                                        <span class="menu-text">{{ __('staff/navigations.tools-emv_monitoring_index') }}</span>
+                                                        <span class="menu-text">{{ __('staff/navigations.tools-emv_validations_index') }}</span>
                                                     </a>
                                                 </li>
                                             </ul>
                                         </div>
                                     </li>
-                                    <li class="menu-item" aria-haspopup="true">
-                                        <a href="{{ route('staff.emvmonitoringdetails.index') }}" class="menu-link">
+                                    <!-- <li class="menu-item" aria-haspopup="true">
+                                        <a href="{{ route('staff.emvvalidations.emvvalidationsimport') }}" class="menu-link">
                                             <span class="menu-icon">
                                                 <i class="menu-bullet icon-xl la la-clipboard-check" style="margin-left: -2px; "></i>
                                             </span>
                                         <span class="menu-text">{{ __('staff/navigations.tools-validated_accounts') }}</span>
                                         </a>
-                                    </li>
+                                    </li> -->
                                     <li class="menu-section">
                                         <h4 class="menu-text">{{ __('staff/titles.logs') }}</h4>
                                         <i class="menu-icon ki ki-bold-more-hor icon-md"></i>

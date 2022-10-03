@@ -34,8 +34,8 @@ return [
     'transaction' => 'Transaction',
     'reference-upload_history' => 'Upload History',
     'reference-inquiry' => 'Inquiry',
-    'tools-emv_monitoring' => 'Emv Monitoring',
-    'tools-emv_monitoring_import' => 'Import',
-    'tools-emv_monitoring_index' => 'List',
+    'tools-emv_validations' => 'Emv Validation',
+    'tools-emv_validations_import' => 'Import',
+    'tools-emv_validations_index' => 'List',
     'tools-validated_accounts' => 'Validated Accounts',
 ];

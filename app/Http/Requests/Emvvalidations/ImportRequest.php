@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Emvmonitoring;
+namespace App\Http\Requests\Emvvalidations;
 
 use Illuminate\Foundation\Http\FormRequest;
 

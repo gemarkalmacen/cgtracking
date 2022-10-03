@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Ccore\Core\Traits\ExtendedEloquentTrait;
 use App\Models\Emvdatabasemonitoringdetails;
 
-class Emvmonitoring extends Model
+class Emvvalidations extends Model
 {
     use ExtendedEloquentTrait;
     use WithPaginate;
@@ -15,7 +15,7 @@ class Emvmonitoring extends Model
     /**
      * Database table name
      */
-    protected $table = 'emv_database_monitoring';
+    protected $table = 'emv_validations';
 
     /**
      * The attributes that are mass assignable.
@@ -23,23 +23,33 @@ class Emvmonitoring extends Model
      * @var array
      */
     protected $fillable = [
-        'full_name',
+        'id',
+        'first_name',
+        'last_name',
+        'middle_name',
+        'ext_name',
         'hh_id',
-        'client_status',
-        'address',
+        'hh_status',
+        'province',
+        'municipality',
+        'barangay',
         'sex',
         'hh_set_group',
-        'current_grantee_card_number',
+        'nma_amount',
+        'grantee_card_number',
+        'grantee_distribution_status',
+        'grantee_card_release_date',
         'other_card_number_1',
-        'other_card_holder_name_1',
+        'other_card_distribution_status_1',
+        'other_card_release_date_1',
         'other_card_number_2',
-        'other_card_holder_name_2',
-        'other_card_number_3',
-        'other_card_holder_name_3',
+        'other_card_distribution_status_2',
+        'other_card_release_date_2',
         'upload_history_id',
-        'validated_at',
+        'record_counter',
         'created_at',
         'updated_at',
+        'validated_at',
     ];
 
     public function emvmonitoringdEmvdatabasemonitoringdetailsetails()

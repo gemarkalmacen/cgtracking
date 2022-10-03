@@ -81,12 +81,12 @@ return [
     'nonemv_import_failed' => 'Non-Emv import failed.',
 
     // emv_monitoring
-    'emvmonitoring_created_successfully' => 'Emv Monitoring List created successfully.',
-    'emvmonitoring_updated_successfully' => 'Emv Monitoring List updated successfully.',
-    'emvmonitoring_deleted_successfully' => 'Emv Monitoring List deleted successfully.',
-    'emvmonitoring_cannot_delete' => 'Emv Monitoring List cannot be deleted.',
-    'emvmonitoring_import_successfully' => 'Emv Monitoring List import sucessfully.',
-    'emvmonitoring_import_failed' => 'Emv Monitoring import failed.',
+    'emvvalidations_created_successfully' => 'Emv Validation List created successfully.',
+    'emvvalidations_updated_successfully' => 'Emv Validation List updated successfully.',
+    'emvvalidations_deleted_successfully' => 'Emv Validation List deleted successfully.',
+    'emvvalidations_cannot_delete' => 'Emv Validation List cannot be deleted.',
+    'emvvalidations_import_successfully' => 'Emv Validation List import sucessfully.',
+    'emvvalidations_import_failed' => 'Emv Validation import failed.',
     
     // emv_monitoring_details
     
