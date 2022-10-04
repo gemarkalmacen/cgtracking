@@ -13,7 +13,6 @@ class GetPsgcList
      */
     public function execute()
     {
-        dd(Psgc::get());
         return Psgc::all();
     }
 }
