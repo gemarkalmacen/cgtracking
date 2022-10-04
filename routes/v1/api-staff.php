@@ -26,6 +26,9 @@ Route::group(['prefix' => 'staff', 'namespace' => 'Staff'], function() {
                 Route::get('emvvalidations/updater','EmvvalidationController@updater')->name('emvvalidations.updater');
                 Route::apiResource('/emvvalidations', 'EmvvalidationController');
             });
+            Route::group(['namespace' => 'Psgc'], function () {
+                Route::apiResource('/psgc', 'PsgcController');
+            });
             // Route::group(['namespace' => 'Emvdatabasemonitoringdetails'], function () {
             //     Route::post('emvdatabasemonitoringdetails/sync','EmvdatabasemonitoringdetailsController@sync'); //->name('Emvdatabasemonitoringdetails.sync');
             // });
