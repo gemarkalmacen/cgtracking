@@ -18,6 +18,7 @@ class CreateTablePsgc extends Migration
             $table->text('name_new')->comment('Based on PSGC 2Q 2022 Publication');
             $table->text('name_old')->comment('Based on Cash Grants data');
             $table->string('code', 15);
+            $table->string('correspondence_code', 15);
             $table->text('geographic_level')->nullable();
             $table->timestamps();
         });
