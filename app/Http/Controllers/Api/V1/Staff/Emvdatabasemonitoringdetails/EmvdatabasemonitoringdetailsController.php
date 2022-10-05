@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Services\Api\V1\Staff\Emvvalidations\PullDataEmvValidationById;
 use App\Services\Api\V1\Staff\Emvdatabasemonitoring\GetEmvDatabaseMonitoringByHhId;
-use App\Services\Api\V1\Staff\Emvdatabasemonitoring\UpdaterEmvDatabaseMonitoring;
+use App\Services\Api\V1\Staff\Emvdatabasemonitoring\UpdaterEmvValidation;
 use App\Http\Requests\Api\V1\Staff\Emvdatabasemonitoringdetails\SyncEmvDatabaseMonitoringDetailsRequest;
 use App\Exceptions\NotFoundException;
 use App\Http\Resources\Api\V1\Staff\Emvdatabasemonitoringdetails\EmvdatabasemonitoringdetailsResource;

@@ -6,7 +6,7 @@ use App\Models\Emvmonitoring;
 use App\Models\Emvvalidations;
 use Spatie\QueryBuilder\QueryBuilder;
 
-class UpdaterEmvDatabaseMonitoring
+class UpdaterEmvValidation
 {
     /**
      * Get the City by id
