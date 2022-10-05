@@ -28,20 +28,27 @@ module.exports = function(data) {
                         order: [[ 1, 'asc' ]],
                         columns: [
                             {data: 'id'},
-                            {data: 'full_name'},
+                            {data: 'first_name'},
+                            {data: 'last_name'},
+                            {data: 'middle_name'},
+                            {data: 'ext_name'},
                             {data: 'hh_id'},
-                            {data: 'client_status'},
-                            {data: 'address'},
+                            {data: 'hh_status'},
+                            {data: 'province'},
+                            {data: 'municipality'},
+                            {data: 'barangay'},
                             {data: 'sex'},
                             {data: 'hh_set_group'},
-                            {data: 'current_grantee_card_number'},
+                            {data: 'nma_amount'},
+                            {data: 'grantee_card_number'},
+                            {data: 'grantee_distribution_status'},
+                            {data: 'grantee_card_release_date'},
                             {data: 'other_card_number_1'},
-                            {data: 'other_card_holder_name_1'},
+                            {data: 'other_card_distribution_status_1'},
+                            {data: 'other_card_release_date_1'},
                             {data: 'other_card_number_2'},
-                            {data: 'other_card_holder_name_2'},
-                            {data: 'other_card_number_3'},
-                            {data: 'other_card_holder_name_3'},
-
+                            {data: 'other_card_distribution_status_2'},
+                            {data: 'other_card_release_date_2'},
                         ],
                         columnDefs: [
                             {
@@ -133,10 +140,73 @@ module.exports = function(data) {
                                     return element;
                                 }
                             },
+                            {
+                                targets: [13],
+                                render: function(data) {
+                                   var element = data;
+                                    return element;
+                                }
+                            },
+                            {
+                                targets: [14],
+                                render: function(data) {
+                                   var element = data;
+                                    return element;
+                                }
+                            },
+                            {
+                                targets: [15],
+                                render: function(data) {
+                                   var element = data;
+                                    return element;
+                                }
+                            },
+                            {
+                                targets: [16],
+                                render: function(data) {
+                                   var element = data;
+                                    return element;
+                                }
+                            },
+                            {
+                                targets: [17],
+                                render: function(data) {
+                                   var element = data;
+                                    return element;
+                                }
+                            },
+                            {
+                                targets: [18],
+                                render: function(data) {
+                                   var element = data;
+                                    return element;
+                                }
+                            },
+                            {
+                                targets: [19],
+                                render: function(data) {
+                                   var element = data;
+                                    return element;
+                                }
+                            },
+                            {
+                                targets: [20],
+                                render: function(data) {
+                                   var element = data;
+                                    return element;
+                                }
+                            },
+                            {
+                                targets: [21],
+                                render: function(data) {
+                                   var element = data;
+                                    return element;
+                                }
+                            },
                         ]
                     },
                     url: {
-                        list: vm.$route('staff.ajax.emvmonitoring.listing'),
+                        list: vm.$route('staff.ajax.emvvalidations.listing'),
                     },
                     notifications: {
                         delete: vm.$t('staff/notifications.emvmonitoring_deleted_successfully')

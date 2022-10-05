@@ -1,7 +1,7 @@
 {{-- Send data to layout defining the current page and data  --}}
 @extends('layouts.staff.main', ['page' => 'emvmonitoring/import', 'data' => []])
 
-@section('title', __('staff/titles.tools-emv_monitoring-import'))
+@section('title', __('staff/titles.tools-emv_validations-import'))
 
 @section('content')
 <div class="card card-custom">
