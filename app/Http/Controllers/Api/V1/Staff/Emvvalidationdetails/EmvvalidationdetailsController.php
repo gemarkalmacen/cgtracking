@@ -1,22 +1,22 @@
 <?php
 
-namespace App\Http\Controllers\Api\V1\Staff\Emvdatabasemonitoringdetails;
+namespace App\Http\Controllers\Api\V1\Staff\Emvvalidationdetails;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Services\Api\V1\Staff\Emvvalidations\PullDataEmvValidationById;
 use App\Services\Api\V1\Staff\Emvdatabasemonitoring\GetEmvDatabaseMonitoringByHhId;
 use App\Services\Api\V1\Staff\Emvdatabasemonitoring\UpdaterEmvValidation;
-use App\Http\Requests\Api\V1\Staff\Emvdatabasemonitoringdetails\SyncEmvDatabaseMonitoringDetailsRequest;
 use App\Exceptions\NotFoundException;
-use App\Http\Resources\Api\V1\Staff\Emvdatabasemonitoringdetails\EmvdatabasemonitoringdetailsResource;
+use App\Http\Requests\Api\V1\Staff\Emvvalidationdetails\SyncEmvValidationDetailsRequest;
+use App\Http\Resources\Api\V1\Staff\Emvvalidationdetails\EmvdatabasemonitoringdetailsResource;
 use App\Models\Emvdatabase;
-use App\Models\Emvdatabasemonitoringdetails;
-use App\Services\Api\V1\Staff\Emvdatabasemonitoringdetails\SyncEmvDatabaseMonitoringDetails;
+use App\Models\Emvvalidationdetails;
+use App\Services\Api\V1\Staff\Emvvalidationdetails\SyncEmvValidationDetails;
 use Exception;
 use Illuminate\Support\Facades\DB;
 
-class EmvdatabasemonitoringdetailsController extends Controller
+class EmvvalidationdetailsController extends Controller
 {
 
     public function __construct()
@@ -24,10 +24,9 @@ class EmvdatabasemonitoringdetailsController extends Controller
         // $this->middleware('permission:apiemvdatabasemonitoring-view', ['only' => ['show']]);
     }
 
-    public function sync(SyncEmvDatabaseMonitoringDetailsRequest $request, SyncEmvDatabaseMonitoringDetails $syncEmvDatabaseMonitoringDetails)
-    // public function sync(SyncEmvDatabaseMonitoringDetailsRequest $request)
+    public function sync(SyncEmvValidationDetailsRequest $request, SyncEmvValidationDetails $SyncEmvValidationDetails)
     {
-        $response = $syncEmvDatabaseMonitoringDetails->execute($request);
+        $response = $SyncEmvValidationDetails->execute($request);
 
         if(!$response){
             return response()->json([                
@@ -65,7 +64,5 @@ class EmvdatabasemonitoringdetailsController extends Controller
             'description' => __('staff/notifications.emvdatabasemonitoringdetails_sync'),
             'data' => $response
         ],200);
-
-        // return $response;
     }
 }

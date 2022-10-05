@@ -4,7 +4,7 @@ namespace App\Services\Emvmonitoringdetails;
 use Ccore\Core\Datatable;
 use Illuminate\Support\Facades\DB;
 
-use App\Models\Emvdatabasemonitoringdetails;
+use App\Models\Emvvalidationdetails;
 use App\Models\Role;
 
 class GetListingEmvmonitoringdetails
@@ -16,11 +16,11 @@ class GetListingEmvmonitoringdetails
      */
     public function execute()
     {
-        $query = Emvdatabasemonitoringdetails::select(['*'])
+        $query = Emvvalidationdetails::select(['*'])
                 // ->filter(Request2::only('search', 'trashed', 'sort', 'tab'))
                 // ->sort(Request2::only('sort'))
                 ->paginate(6)
-                ->fragment('emvdatabasemonitoringdetails')
+                ->fragment('Emvvalidationdetails')
                 // ->get()
                 ;
 

@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Requests\Api\V1\Staff\Emvdatabasemonitoringdetails;
+namespace App\Http\Requests\Api\V1\Staff\Emvvalidationdetails;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class SyncEmvDatabaseMonitoringDetailsRequest extends FormRequest
+class SyncEmvValidationDetailsRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
