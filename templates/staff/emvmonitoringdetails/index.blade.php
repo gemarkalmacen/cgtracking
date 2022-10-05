@@ -1,7 +1,7 @@
 {{-- Send data to layout defining the current page and data  --}}
 @extends('layouts.staff.main', ['page' => 'emvmonitoringdetails/index', 'data' => ($data_object)]) 
 
-@section('title', __('staff/titles.tools-emv_monitoring'))
+@section('title', __('staff/titles.tools-emv_validations'))
 
 @section('plugin_css')
     <!-- <link href="{{ url('staff/assets/plugins/custom/datatables/datatables.bundle.css?v=7.0.3') }}" rel="stylesheet" type="text/css" /> -->

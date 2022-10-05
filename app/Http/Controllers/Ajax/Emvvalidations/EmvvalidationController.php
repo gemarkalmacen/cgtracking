@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Ajax\Emvvalidations;
 
 use App\Http\Controllers\Controller;
-use App\Services\Emvmonitoring\GetListingEmvmonitoring;
+use App\Services\Emvvalidations\GetListingEmvvalidations;
 
 class EmvvalidationController extends Controller
 {
@@ -14,9 +14,9 @@ class EmvvalidationController extends Controller
      * @param GetListingUsers $getListingUsers
      * @return \Illuminate\Http\JsonResponse
      */
-    public function listing(GetListingEmvmonitoring $getListingEmvmonitoring)
+    public function listing(GetListingEmvvalidations $GetListingEmvvalidations)
     {
-        $records = $getListingEmvmonitoring->execute();
+        $records = $GetListingEmvvalidations->execute();
         return response()->json($records);
     }
 
