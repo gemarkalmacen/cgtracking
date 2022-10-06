@@ -61,7 +61,7 @@ class EmvvalidationdetailsController extends Controller
 
         return response()->json([                
             'status' => __('messages.success'),
-            'description' => __('staff/notifications.emvdatabasemonitoringdetails_sync'),
+            'description' => __('staff/notifications.emvvalidationdetails_sync'),
             'data' => $response
         ],200);
     }

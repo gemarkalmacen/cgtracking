@@ -36,6 +36,7 @@ class Emvvalidationdetails extends Model
         'nma_validation_id',
         'pawning_validation_detail_id',
         'card_validation_detail_id',
+        'emv_validation_id',
         'sync_at',
         'created_at',
         'updated_at',

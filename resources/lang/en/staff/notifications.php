@@ -54,7 +54,7 @@ return [
     'emvdatabase_import_successfully' => 'Emv Database List import sucessfully.',
     'emvdatabase_import_failed' => 'Emv Database import failed.',
 
-    'emvdatabasemonitoringdetails_sync' => 'Emv details successfully sync',
+    'emvvalidationdetails_sync' => 'Emv Details successfully sync',
 
     // overpayment
     'overpayment_created_successfully' => 'Overpayment List created successfully.',
