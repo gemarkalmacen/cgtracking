@@ -8,7 +8,7 @@ use App\Services\Api\V1\Staff\Emvvalidations\PullDataEmvValidationById;
 use App\Services\Api\V1\Staff\Emvdatabasemonitoring\GetEmvDatabaseMonitoringByHhId;
 use App\Services\Api\V1\Staff\Emvvalidations\CountEmvValidationById;
 use App\Http\Resources\Api\V1\Staff\Emvvalidations\EmvvalidationResource;
-use App\Services\Api\V1\Staff\Emvdatabasemonitoring\UpdaterEmvDatabaseMonitoring;
+use App\Services\Api\V1\Staff\Emvvalidations\UpdaterEmvValidation;
 
 class EmvvalidationController extends Controller
 {
@@ -80,20 +80,20 @@ class EmvvalidationController extends Controller
         ],200);
     }
 
-    // public function updater(UpdaterEmvDatabaseMonitoring $updaterEmvDatabaseMonitoring){
-        // $response = $updaterEmvDatabaseMonitoring->execute();
-        // if(!$response){
-        //     return response()->json([                
-        //         'status' => __('messages.error'),
-        //         'description' => __('messages.not_found'),
-        //     ],404);
-        // }
+    public function updater(UpdaterEmvValidation $UpdaterEmvValidation){
+        $response = $UpdaterEmvValidation->execute();
+        if(!$response){
+            return response()->json([                
+                'status' => __('messages.error'),
+                'description' => __('messages.not_found'),
+            ],404);
+        }
         
-        // return response()->json([                
-        //     'status' => __('messages.success'),
-        //     'description' => __('messages.ok'),
-        //     'data' => EmvvalidationResource::collection($response)
-        // ],200);
-    // }
+        return response()->json([                
+            'status' => __('messages.success'),
+            'description' => __('messages.ok'),
+            'data' => EmvvalidationResource::collection($response)
+        ],200);
+    }
 
 }

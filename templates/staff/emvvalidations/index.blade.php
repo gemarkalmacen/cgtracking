@@ -53,9 +53,11 @@
                             <th>{{ __('staff/tables.emv_validations_grantee_distribution_status') }}</th>
                             <th>{{ __('staff/tables.emv_validations_grantee_card_release_date') }}</th>
                             <th>{{ __('staff/tables.emv_validations_other_card_number_1') }}</th>
+                            <th>{{ __('staff/tables.emv_validations_other_card_holder_name_1') }}</th>
                             <th>{{ __('staff/tables.emv_validations_other_card_distribution_status_1') }}</th>
                             <th>{{ __('staff/tables.emv_validations_other_card_release_date_1') }}</th>
                             <th>{{ __('staff/tables.emv_validations_other_card_number_2') }}</th>
+                            <th>{{ __('staff/tables.emv_validations_other_card_holder_name_2') }}</th>
                             <th>{{ __('staff/tables.emv_validations_other_card_distribution_status_2') }}</th>
                             <th>{{ __('staff/tables.emv_validations_other_card_release_date_2') }}</th>
                         </tr>

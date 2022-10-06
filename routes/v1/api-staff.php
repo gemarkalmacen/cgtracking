@@ -29,9 +29,9 @@ Route::group(['prefix' => 'staff', 'namespace' => 'Staff'], function() {
             Route::group(['namespace' => 'Psgc'], function () {
                 Route::apiResource('/psgc', 'PsgcController');
             });
-            // Route::group(['namespace' => 'Emvdatabasemonitoringdetails'], function () {
-            //     Route::post('emvdatabasemonitoringdetails/sync','EmvdatabasemonitoringdetailsController@sync'); //->name('Emvdatabasemonitoringdetails.sync');
-            // });
+            Route::group(['namespace' => 'Emvvalidationdetails'], function () {
+                Route::post('emvvalidationdetails/sync','EmvvalidationdetailsController@sync'); //->name('Emvvalidationdetails.sync');
+            });
         }
     );
 

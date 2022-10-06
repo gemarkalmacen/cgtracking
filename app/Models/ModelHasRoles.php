@@ -8,11 +8,6 @@ class ModelHasRoles extends Model
 {
     protected $table = 'model_has_roles';
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
     protected $fillable = [
         'role_id',
         'model_type',
