@@ -47,11 +47,16 @@ class Emvvalidationdetails extends Model
 
     public function nmavalidation()
     {
-        return $this->hasMany(Nmavalidations::class, 'nma_validation_id');
+        return $this->hasMany(Nmavalidations::class);
     }
 
     public function pawningvalidationdetail()
     {
-        return $this->hasMany(Pawningvalidationdetails::class, 'nma_validation_id');
+        return $this->hasMany(Pawningvalidationdetails::class);
+    }
+
+    public function cardvalidationdetail()
+    {
+        return $this->belongsTo(Cardvalidationdetail::class, 'emv_validation_detail_id', 'id');
     }
 }

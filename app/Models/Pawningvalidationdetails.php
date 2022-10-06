@@ -43,6 +43,6 @@ class Pawningvalidationdetails extends Model
 
     public function emvvalidationdetail()
     {
-        return $this->belongsTo(Emvvalidationdetails::class, 'pawning_validation_detail_id');
+        return $this->belongsTo(Emvvalidationdetails::class, 'pawning_validation_detail_id', 'id');
     }
 }

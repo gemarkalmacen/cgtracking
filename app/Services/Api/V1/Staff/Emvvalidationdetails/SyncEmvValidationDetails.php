@@ -5,6 +5,7 @@ namespace App\Services\Api\V1\Staff\Emvvalidationdetails;
 use App\Exceptions\NotFoundException;
 use App\Models\Emvvalidationdetails;
 use App\Models\Emvvalidations;
+use App\Models\Nmavalidations;
 use Spatie\QueryBuilder\QueryBuilder;
 use Exception;
 use Illuminate\Support\Facades\DB;
@@ -224,10 +225,10 @@ class SyncEmvValidationDetails
                     return $response;
                 }
                 
-                $response = Emvvalidationdetails::create($input);
+                // $response = Emvvalidationdetails::create($input);
 
-                Emvvalidationdetails::create($input_emv_validation_details);
-                // input_nma_validations
+                $response_evd = Emvvalidationdetails::create($input_emv_validation_details);
+                $response_nv = Nmavalidations::create($input_nma_validations);
                 // input_card_validation_details
                 // input_other_card_validations
                 // input_grantee_validations
