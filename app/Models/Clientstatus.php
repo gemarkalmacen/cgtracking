@@ -11,16 +11,8 @@ class Clientstatus extends Model
     use ExtendedEloquentTrait;
     use WithPaginate;
 
-    /**
-     * Database table name
-     */
     protected $table = 'lib_clientstatus';
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
     protected $fillable = [
         'id',
         'client_status',

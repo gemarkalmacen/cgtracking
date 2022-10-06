@@ -12,9 +12,6 @@ class Role extends Roles
     use ExtendedEloquentTrait;    
     use WithPaginate;
 
-    /**
-     * Mass assignment column
-     */
     protected $fillable = [
         'name',
         'guard_name'

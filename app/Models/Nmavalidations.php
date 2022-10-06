@@ -12,16 +12,8 @@ class Nmavalidations extends Model
     use ExtendedEloquentTrait;
     use WithPaginate;
 
-    /**
-     * Database table name
-     */
     protected $table = 'nma_validations';
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
     protected $fillable = [
         'id',
         'amount',

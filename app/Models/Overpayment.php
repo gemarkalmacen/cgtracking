@@ -11,16 +11,8 @@ class Overpayment extends Model
     use ExtendedEloquentTrait;
     use WithPaginate;
 
-    /**
-     * Database table name
-     */
     protected $table = 'overpayment';
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
     protected $fillable = [
         'row_no',
         'run_date',

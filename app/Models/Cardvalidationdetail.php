@@ -12,16 +12,8 @@ class Cardvalidationdetail extends Model
     use ExtendedEloquentTrait;
     use WithPaginate;
 
-    /**
-     * Database table name
-     */
     protected $table = 'card_validation_details';
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
     protected $fillable = [
         'id',
         'card_number_prefilled',

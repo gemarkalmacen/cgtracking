@@ -11,16 +11,8 @@ class Pawningvalidationdetails extends Model
     use ExtendedEloquentTrait;
     use WithPaginate;
 
-    /**
-     * Database table name
-     */
-    protected $table = 'emv_validation_details';
+    protected $table = 'pawning_validation_details';
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
     protected $fillable = [
         'id',
         'lender_name',
@@ -38,7 +30,6 @@ class Pawningvalidationdetails extends Model
         'other_details',
         'created_at',
         'updated_at',
-        
     ];
 
     public function emvvalidationdetail()

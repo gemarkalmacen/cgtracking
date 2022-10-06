@@ -10,16 +10,9 @@ class Uploadhistory extends Model
 {
     use ExtendedEloquentTrait;
     use WithPaginate;
-    /**
-     * Database table name
-     */
+    
     protected $table = 'upload_history';
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
     protected $fillable = [
         'id',
         'file_name',

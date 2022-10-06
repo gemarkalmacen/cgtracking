@@ -11,16 +11,8 @@ class Emvdatabase extends Model
     use ExtendedEloquentTrait;
     use WithPaginate;
 
-    /**
-     * Database table name
-     */
     protected $table = 'emv_database';
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
     protected $fillable = [
         'region',
         'province',
