@@ -14,7 +14,7 @@ class Granteevalidation extends Model
     /**
      * Database table name
      */
-    protected $table = 'emv_validation_details';
+    protected $table = 'grantee_validations';
 
     /**
      * The attributes that are mass assignable.
@@ -39,6 +39,6 @@ class Granteevalidation extends Model
 
     public function emvvalidationdetail()
     {
-        return $this->belongsTo(Emvvalidationdetails::class, 'pawning_validation_detail_id');
+        return $this->belongsTo(Emvvalidationdetails::class, 'grantee_validation_id', 'id');
     }
 }

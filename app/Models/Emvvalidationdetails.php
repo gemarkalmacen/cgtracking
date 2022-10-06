@@ -27,36 +27,47 @@ class Emvvalidationdetails extends Model
         'contact_no',
         'assigned_staff',
         'representative_name',
-        'grantee_id',
+        'grantee_validation_id',
+        'contact_no_of',
         'is_grantee',
         'is_minor',
         'relationship_to_grantee',
         'user_id',
+        'nma_validation_id',
+        'pawning_validation_detail_id',
+        'card_validation_detail_id',
         'sync_at',
         'created_at',
         'updated_at',
-        'contact_no_of',
-        'pawning_validation_detail_id',
-        'nma_validation_id',
     ];
-
-    public function emvvalidations()
-    {
-        // return $this->belongsTo(Emvvalidations::class, "emv_database_monitoring_id");
-    }
-
-    public function nmavalidation()
-    {
-        return $this->hasMany(Nmavalidations::class);
+    
+    public function granteevalidation(){
+        return $this->hasOne(Granteevalidation::class);
     }
 
     public function pawningvalidationdetail()
     {
-        return $this->hasMany(Pawningvalidationdetails::class);
+        return $this->hasOne(Pawningvalidationdetails::class);
     }
 
     public function cardvalidationdetail()
     {
-        return $this->belongsTo(Cardvalidationdetail::class, 'emv_validation_detail_id', 'id');
+        return $this->hasOne(Cardvalidationdetail::class);
     }
+
+    public function nmavalidation()
+    {
+        return $this->hasOne(Nmavalidations::class);
+    }
+
+    public function othercardvalidation()
+    {
+        return $this->hasMany(Othercardvalidation::class, 'emv_validation_detail_id', 'id');
+    }
+
+    public function emvvalidations()
+    {
+        return $this->belongsTo(Emvvalidations::class, "emv_database_monitoring_id");
+    }
+
 }

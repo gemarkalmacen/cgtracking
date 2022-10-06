@@ -26,6 +26,6 @@ class Nmavalidations extends Model
 
     public function emvvalidationdetail()
     {
-        return $this->belongsTo(Emvvalidationdetails::class, 'id');
+        return $this->belongsTo(Emvvalidationdetails::class, 'nma_validation_id', 'id');
     }
 }
