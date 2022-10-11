@@ -3,10 +3,9 @@
 namespace App\Http\Controllers\Ajax\Emvvalidationdetails;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\Api\V1\Staff\Emvvalidationdetails\EmvvalidationdetailsResource;
 use App\Services\Emvmonitoringdetails\GetListingEmvmonitoringdetails;
 
-class EmvmonitoringdetailsController extends Controller
+class EmvvalidationdetailsController extends Controller
 {
 
     /**
@@ -19,8 +18,5 @@ class EmvmonitoringdetailsController extends Controller
     {
         $records = $getListingEmvmonitoringdetails->execute();
         return response()->json($records);
-
-        // return EmvvalidationdetailsResource::collection($records);
     }
-
 }
