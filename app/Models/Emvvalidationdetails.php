@@ -32,6 +32,7 @@ class Emvvalidationdetails extends Model
         'is_grantee',
         'is_minor',
         'relationship_to_grantee',
+        'overall_remarks',
         'user_id',
         'nma_validation_id',
         'pawning_validation_detail_id',
