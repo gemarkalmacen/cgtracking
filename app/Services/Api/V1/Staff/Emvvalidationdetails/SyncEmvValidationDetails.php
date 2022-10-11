@@ -63,6 +63,7 @@ class SyncEmvValidationDetails
                 $input_emv_validation_details['is_grantee'] = $request->is_grantee;
                 $input_emv_validation_details['is_minor'] = $request->is_minor;
                 $input_emv_validation_details['relationship_to_grantee'] = $request->relationship_to_grantee;
+                $input_emv_validation_details['overall_remarks'] = $request->overall_remarks;
                 $input_emv_validation_details['user_id'] = $request->user_id;
                 $input_emv_validation_details['nma_validation_id'] = $request->nma_validation_id;
                 $input_emv_validation_details['pawning_validation_detail_id'] = $request->pawning_validation_detail_id;

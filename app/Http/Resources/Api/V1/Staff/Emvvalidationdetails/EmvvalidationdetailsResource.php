@@ -24,6 +24,7 @@ class EmvvalidationdetailsResource extends JsonResource
             'is_grantee' => $this->is_grantee,
             'is_minor' => $this->is_minor,
             'relationship_to_grantee' => $this->relationship_to_grantee,
+            'overall_remarks' => $this->overall_remarks,
             'contact_no_of' => $this->contact_no_of,
             'pawning_validation_detail_id' => $this->pawning_validation_detail_id,
             'nma_validation_id' => $this->nma_validation_id,
