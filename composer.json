@@ -24,6 +24,7 @@
         "mll-lab/laravel-graphql-playground": "^2.2",
         "nuwave/lighthouse": "^4.15",
         "spatie/laravel-image-optimizer": "^1.6",
+        "spatie/laravel-medialibrary": "^9.0.0",
         "spatie/laravel-permission": "^3.13",
         "spatie/laravel-query-builder": "^3.0",
         "spatie/laravel-translatable": "^4.4",
