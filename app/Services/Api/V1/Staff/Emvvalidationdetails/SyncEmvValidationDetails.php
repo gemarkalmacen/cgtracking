@@ -24,7 +24,7 @@ class SyncEmvValidationDetails
         DB::beginTransaction();
         try {
             
-            $emvmonitoring_checker = Emvvalidations::where(['hh_id' => $request->hh_id])->get();
+            $emvmonitoring_checker = Emvvalidations::where(['hh_id' => $request->gv_hh_id])->get();
             if( count($emvmonitoring_checker) == 0 ){
                 $response = ([
                     'custom_error' => 1
@@ -39,132 +39,130 @@ class SyncEmvValidationDetails
                 return $response;
             }
             
-            $emvmonitoring_update = Emvvalidations::where(['hh_id' => $request->hh_id])->first();
+            $emvmonitoring_update = Emvvalidations::where(['hh_id' => $request->gv_hh_id])->first();
             $emvmonitoring_update->record_counter = $emvmonitoring_update->record_counter + 1;
             $emvmonitoring_update->validated_at = $request->created_at;
             $emvmonitoring_update->save();
             
             if($emvmonitoring_update){
+                $input_emv_validation_details = [
+                    'hh_status' => $request->evd_hh_status,
+                    'contact_no' => $request->evd_contact_no,
+                    'contact_no_of' => $request->evd_contact_no_of,
+                    'assigned_staff' => $request->evd_assigned_staff,
+                    'representative_name' => $request->evd_representative_name,
+                    'grantee_validation_id' => $request->evd_grantee_validation_id,
+                    'is_grantee' => $request->evd_is_grantee,
+                    'is_minor' => $request->evd_is_minor,
+                    'relationship_to_grantee' => $request->evd_relationship_to_grantee,
+                    'overall_remarks' => $request->evd_overall_remarks,
+                    'user_id' => $request->evd_user_id,
+                    // 'nma_validation_id' => $request->nma_validation_id,
+                    // 'pawning_validation_detail_id' => $request->pawning_validation_detail_id,
+                    // 'card_validation_detail_id' => $request->card_validation_detail_id,
+                    // 'emv_validation_id' => $request->emv_validation_id,
+                    // 'sync_at' => $request->sync_at,
+                    'created_at' => $request->evd_created_at,
+                ];
 
+                $input_nma_validations = [
+                    'amount' => $request->nv_amount,
+                    'date_claimed' => $request->nv_date_claimed,
+                    'reason' => $request->nv_reason,
+                    'remarks' => $request->nv_remarks,
+                    'created_at' => $request->evd_created_at,
+                ];
 
-                // dd($request->all());
+                $input_card_validation_details = [
+                    'card_number_prefilled' => $request->cvd_card_number_prefilled,
+                    'card_number_system_generated' => $request->cvd_card_number_system_generated,
+                    'card_number_inputted' => $request->cvd_card_number_inputted,
+                    'card_number_series' => $request->cvd_card_number_series,
+                    'distribution_status' => $request->cvd_distribution_status,
+                    'release_date' => $request->cvd_release_date,
+                    'release_by' => $request->cvd_release_by,
+                    'release_place' => $request->cvd_release_place,
+                    'card_physically_presented' => $request->cvd_card_physically_presented,
+                    'card_pin_is_attached' => $request->cvd_card_pin_is_attached,
+                    'reason_not_presented' => $request->cvd_reason_not_presented,
+                    'reason_unclaimed' => $request->cvd_reason_unclaimed,
+                    'card_replacement_request' => $request->cvd_card_replacement_request,
+                    'card_replacement_submitted_details' => $request->cvd_card_replacement_submitted_details,
+                    'created_at' => $request->evd_created_at,
+                ];
 
-                // $input_emv_validation_details = [
-                //     'hh_status' => $request->hh_status,
+                $input_other_card_validations = [
+                    'card_holder_name' => $request->ocv_card_holder_name,
+                    'card_number_system_generated' => $request->ocv_card_number_system_generated,
+                    'card_number_inputted' => $request->ocv_card_number_inputted,
+                    'card_number_series' => $request->ocv_card_number_series,
+                    'distribution_status' => $request->ocv_distribution_status,
+                    'release_date' => $request->ocv_release_date,
+                    'release_by' => $request->ocv_release_by,
+                    'release_place' => $request->ocv_release_place,
+                    'card_physically_presented' => $request->ocv_card_physically_presented,
+                    'card_pin_is_attached' => $request->ocv_card_pin_is_attached,
+                    'reason_not_presented' => $request->ocv_reason_not_presented,
+                    'reason_unclaimed' => $request->ocv_reason_unclaimed,
+                    'card_replacement_request' => $request->ocv_card_replacement_request,
+                    'card_replacement_submitted_details' => $request->ocv_card_replacement_submitted_details,
+                    'pawning_remarks' => $request->ocv_pawning_remarks,
+                    // 'emv_validation_detail_id' => $request->emv_validation_detail_id,
+                    'created_at' => $request->evd_created_at,
+                ];
 
-                // ];
+                $input_grantee_validations = [
+                    'hh_id' => $request->gv_hh_id,
+                    'first_name' => $request->gv_first_name,
+                    'last_name' => $request->gv_last_name,
+                    'middle_name' => $request->gv_middle_name,
+                    'ext_name' => $request->gv_ext_name,
+                    'sex' => $request->gv_sex,
+                    'province_code' => $request->gv_province_code,
+                    'municipality_code' => $request->gv_municipality_code,
+                    'barangay_code' => $request->gv_barangay_code,
+                    'set' => $request->gv_set,
+                    'created_at' => $request->gv_evd_created_at,
+                ];
 
-                // dd($input_emv_validation_details);
+                $input_pawning_validation_details = [
+                    'lender_name' => $request->lender_name,
+                    'lender_address' => $request->lender_address,
+                    'date_pawned' => $request->date_pawned,
+                    'date_retrieved' => $request->date_retrieved,
+                    'loan_amount' => $request->loan_amount,
+                    'status' => $request->status,
+                    'reason' => $request->reason,
+                    'interest' => $request->interest,
+                    'offense_history' => $request->offense_history,
+                    'offense_date' => $request->offense_date,
+                    'remarks' => $request->remarks,
+                    'staff_intervention' => $request->staff_intervention,
+                    'other_details' => $request->other_details,
+                    'created_at' => $request->created_at,
+                ];
 
-                $input_emv_validation_details = $request->all();
-                $input_nma_validations = $request->all();
-                $input_card_validation_details = $request->all();
-                $input_other_card_validations = $request->all();
-                $input_grantee_validations = $request->all();
-                $input_pawning_validation_details = $request->all();
+                // saving file
+                if($request->hasFile('image'))
+                {
+                    $detination_path = 'public/images/validations';
+                    $image = $request->file('image');
+                    $current_timestamp = Carbon::now()->toDateTimeString();
+                    $current_timestamp = str_replace("-", "", $current_timestamp);
+                    $current_timestamp = str_replace(" ", "", $current_timestamp);
+                    $current_timestamp = str_replace(":", "", $current_timestamp);
+                    $image_name = $current_timestamp."-gv-image-".$request->gv_hh_id;
 
-                // $input_emv_validation_details['id'] = $request->id;
-                $input_emv_validation_details['hh_status'] = $request->hh_status;
-                $input_emv_validation_details['contact_no'] = $request->contact_no;
-                $input_emv_validation_details['assigned_staff'] = $request->assigned_staff;
-                $input_emv_validation_details['representative_name'] = $request->representative_name;
-                $input_emv_validation_details['grantee_validation_id'] = $request->grantee_validation_id;
-                $input_emv_validation_details['contact_no_of'] = $request->contact_no_of;
-                $input_emv_validation_details['is_grantee'] = $request->is_grantee;
-                $input_emv_validation_details['is_minor'] = $request->is_minor;
-                $input_emv_validation_details['relationship_to_grantee'] = $request->relationship_to_grantee;
-                $input_emv_validation_details['overall_remarks'] = $request->overall_remarks;
-                $input_emv_validation_details['user_id'] = $request->user_id;
+                    // $gv_image_name = $current_timestamp."-gv-image-".$request->gv_hh_id;
+                    // $gv_additional_image = $current_timestamp."-gv-image-".$request->gv_hh_id;
 
-                dd($input_grantee_validations);
+                    dd($image_name);
 
-                // $input_emv_validation_details['nma_validation_id'] = $request->nma_validation_id;
-                // $input_emv_validation_details['pawning_validation_detail_id'] = $request->pawning_validation_detail_id;
-                // $input_emv_validation_details['card_validation_detail_id'] = $request->card_validation_detail_id;
-                // $input_emv_validation_details['emv_validation_id'] = $request->emv_validation_id;
-                // $input_emv_validation_details['sync_at'] = $request->sync_at;
-                $input_emv_validation_details['created_at'] = $request->created_at;
-                // $input_emv_validation_details['updated_at'] = $request->updated_at;
-
-                // $input_nma_validations['id'] = $request->id;
-                $input_nma_validations['amount'] = $request->amount;
-                $input_nma_validations['date_claimed'] = $request->date_claimed;
-                $input_nma_validations['reason'] = $request->reason;
-                $input_nma_validations['remarks'] = $request->remarks;
-                $input_nma_validations['created_at'] = $request->created_at;
-                // $input_nma_validations['updated_at'] = $request->updated_at;
-
-                // $input_card_validation_details['id'] = $request->id;
-                $input_card_validation_details['card_number_prefilled'] = $request->card_number_prefilled;
-                $input_card_validation_details['card_number_system_generated'] = $request->card_number_system_generated;
-                $input_card_validation_details['card_number_inputted'] = $request->card_number_inputted;
-                $input_card_validation_details['card_number_series'] = $request->card_number_series;
-                $input_card_validation_details['distribution_status'] = $request->distribution_status;
-                $input_card_validation_details['release_date'] = $request->release_date;
-                $input_card_validation_details['release_by'] = $request->release_by;
-                $input_card_validation_details['release_place'] = $request->release_place;
-                $input_card_validation_details['card_physically_presented'] = $request->card_physically_presented;
-                $input_card_validation_details['card_pin_is_attached'] = $request->card_pin_is_attached;
-                $input_card_validation_details['reason_not_presented'] = $request->reason_not_presented;
-                $input_card_validation_details['reason_unclaimed'] = $request->reason_unclaimed;
-                $input_card_validation_details['card_replacement_request'] = $request->card_replacement_request;
-                $input_card_validation_details['card_replacement_submitted_details'] = $request->card_replacement_submitted_details;
-                $input_card_validation_details['created_at'] = $request->created_at;
-                // $input_card_validation_details['updated_at'] = $request->updated_at;
-
-
+                    $path = $request->file('image')->storeAs($detination_path, $image_name);
+                    $input_emv_validation_details['image'] = $image_name;
+                }
                 
-                // $input_other_card_validations['id'] = $request->id;
-                $input_other_card_validations['card_holder_name'] = $request->card_holder_name;
-                $input_other_card_validations['card_number_system_generated'] = $request->card_number_system_generated;
-                $input_other_card_validations['card_number_inputted'] = $request->card_number_inputted;
-                $input_other_card_validations['card_number_series'] = $request->card_number_series;
-                $input_other_card_validations['distribution_status'] = $request->distribution_status;
-                $input_other_card_validations['release_date'] = $request->release_date;
-                $input_other_card_validations['release_by'] = $request->release_by;
-                $input_other_card_validations['release_place'] = $request->release_place;
-                $input_other_card_validations['card_physically_presented'] = $request->card_physically_presented;
-                $input_other_card_validations['card_pin_is_attached'] = $request->card_pin_is_attached;
-                $input_other_card_validations['reason_not_presented'] = $request->reason_not_presented;
-                $input_other_card_validations['reason_unclaimed'] = $request->reason_unclaimed;
-                $input_other_card_validations['card_replacement_request'] = $request->card_replacement_request;
-                $input_other_card_validations['card_replacement_submitted_details'] = $request->card_replacement_submitted_details;
-                $input_other_card_validations['pawning_remarks'] = $request->pawning_remarks;
-                // $input_other_card_validations['emv_validation_detail_id'] = $request->emv_validation_detail_id;
-                $input_other_card_validations['created_at'] = $request->created_at;
-                // $input_other_card_validations['updated_at'] = $request->updated_at;
                 
-
-                // $input_grantee_validations['id'] = $request->id;
-                $input_grantee_validations['hh_id'] = $request->hh_id;
-                $input_grantee_validations['first_name'] = $request->first_name;
-                $input_grantee_validations['last_name'] = $request->last_name;
-                $input_grantee_validations['middle_name'] = $request->middle_name;
-                $input_grantee_validations['ext_name'] = $request->ext_name;
-                $input_grantee_validations['sex'] = $request->sex;
-                $input_grantee_validations['province_code'] = $request->province_code;
-                $input_grantee_validations['municipality_code'] = $request->municipality_code;
-                $input_grantee_validations['barangay_code'] = $request->barangay_code;
-                $input_grantee_validations['set'] = $request->set;
-                $input_grantee_validations['created_at'] = $request->created_at;
-                // $input_grantee_validations['updated_at'] = $request->updated_at;
-
-                // $input_pawning_validation_details['id'] = $request->id;
-                $input_pawning_validation_details['lender_name'] = $request->lender_name;
-                $input_pawning_validation_details['lender_address'] = $request->lender_address;
-                $input_pawning_validation_details['date_pawned'] = $request->date_pawned;
-                $input_pawning_validation_details['date_retrieved'] = $request->date_retrieved;
-                $input_pawning_validation_details['loan_amount'] = $request->loan_amount;
-                $input_pawning_validation_details['status'] = $request->status;
-                $input_pawning_validation_details['reason'] = $request->reason;
-                $input_pawning_validation_details['interest'] = $request->interest;
-                $input_pawning_validation_details['offense_history'] = $request->offense_history;
-                $input_pawning_validation_details['offense_date'] = $request->offense_date;
-                $input_pawning_validation_details['remarks'] = $request->remarks;
-                $input_pawning_validation_details['staff_intervention'] = $request->staff_intervention;
-                $input_pawning_validation_details['other_details'] = $request->other_details;
-                $input_pawning_validation_details['created_at'] = $request->created_at;
-                // $input_pawning_validation_details['updated_at'] = $request->updated_at;
                 
                 $validator = Validator::make($request->all(), [
                     'first_name' => 'required',
@@ -174,7 +172,7 @@ class SyncEmvValidationDetails
                     'municipality' => 'required',
                     'barangay' => 'required',
                     'sex' => 'required',
-                    'hh_id' => 'required',
+                    'gv_hh_id' => 'required',
                     'user_id' => 'required',
                     // 'nma_validation_id' => 'required',
                     // 'pawning_validation_detail_id' => 'required',
