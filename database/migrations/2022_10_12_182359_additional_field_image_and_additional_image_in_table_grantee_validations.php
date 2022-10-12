@@ -27,8 +27,8 @@ class AdditionalFieldImageAndAdditionalImageInTableGranteeValidations extends Mi
     public function down()
     {
         Schema::table('grantee_validations', function (Blueprint $table) {
-            $table->string('image');
-            $table->string('image_additional');
+            $table->dropColumn('image');
+            $table->dropColumn('image_additional');
         });
     }
 }
