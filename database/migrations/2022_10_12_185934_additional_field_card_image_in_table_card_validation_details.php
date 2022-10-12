@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AdditionalFieldCardImageInTableOtherCardValidations extends Migration
+class AdditionalFieldCardImageInTableCardValidationDetails extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class AdditionalFieldCardImageInTableOtherCardValidations extends Migration
      */
     public function up()
     {
-        Schema::table('other_card_validations', function (Blueprint $table) {
+        Schema::table('card_validation_details', function (Blueprint $table) {
             $table->string('card_image')->nullable()->after('card_number_series');
         });
     }
@@ -25,7 +25,7 @@ class AdditionalFieldCardImageInTableOtherCardValidations extends Migration
      */
     public function down()
     {
-        Schema::table('other_card_validations', function (Blueprint $table) {
+        Schema::table('card_validation_details', function (Blueprint $table) {
             $table->dropColumn('card_image');
         });
     }

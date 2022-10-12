@@ -14,8 +14,8 @@ class AdditionalFieldImageAndAdditionalImageInTableGranteeValidations extends Mi
     public function up()
     {
         Schema::table('grantee_validations', function (Blueprint $table) {
-            $table->string('image')->nullable()->after('hh_id');
-            $table->string('image_additional')->nullable()->after('additional_image');
+            $table->string('image')->nullable()->after('set');
+            $table->string('image_additional')->nullable()->after('image');
         });
     }
 
