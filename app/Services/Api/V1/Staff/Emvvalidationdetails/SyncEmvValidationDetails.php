@@ -46,6 +46,16 @@ class SyncEmvValidationDetails
             
             if($emvmonitoring_update){
 
+
+                // dd($request->all());
+
+                // $input_emv_validation_details = [
+                //     'hh_status' => $request->hh_status,
+
+                // ];
+
+                // dd($input_emv_validation_details);
+
                 $input_emv_validation_details = $request->all();
                 $input_nma_validations = $request->all();
                 $input_card_validation_details = $request->all();
@@ -53,7 +63,7 @@ class SyncEmvValidationDetails
                 $input_grantee_validations = $request->all();
                 $input_pawning_validation_details = $request->all();
 
-                $input_emv_validation_details['id'] = $request->id;
+                // $input_emv_validation_details['id'] = $request->id;
                 $input_emv_validation_details['hh_status'] = $request->hh_status;
                 $input_emv_validation_details['contact_no'] = $request->contact_no;
                 $input_emv_validation_details['assigned_staff'] = $request->assigned_staff;
@@ -65,15 +75,18 @@ class SyncEmvValidationDetails
                 $input_emv_validation_details['relationship_to_grantee'] = $request->relationship_to_grantee;
                 $input_emv_validation_details['overall_remarks'] = $request->overall_remarks;
                 $input_emv_validation_details['user_id'] = $request->user_id;
-                $input_emv_validation_details['nma_validation_id'] = $request->nma_validation_id;
-                $input_emv_validation_details['pawning_validation_detail_id'] = $request->pawning_validation_detail_id;
-                $input_emv_validation_details['card_validation_detail_id'] = $request->card_validation_detail_id;
-                $input_emv_validation_details['emv_validation_id'] = $request->emv_validation_id;
-                $input_emv_validation_details['sync_at'] = $request->sync_at;
+
+                dd($input_grantee_validations);
+
+                // $input_emv_validation_details['nma_validation_id'] = $request->nma_validation_id;
+                // $input_emv_validation_details['pawning_validation_detail_id'] = $request->pawning_validation_detail_id;
+                // $input_emv_validation_details['card_validation_detail_id'] = $request->card_validation_detail_id;
+                // $input_emv_validation_details['emv_validation_id'] = $request->emv_validation_id;
+                // $input_emv_validation_details['sync_at'] = $request->sync_at;
                 $input_emv_validation_details['created_at'] = $request->created_at;
                 // $input_emv_validation_details['updated_at'] = $request->updated_at;
 
-                $input_nma_validations['id'] = $request->id;
+                // $input_nma_validations['id'] = $request->id;
                 $input_nma_validations['amount'] = $request->amount;
                 $input_nma_validations['date_claimed'] = $request->date_claimed;
                 $input_nma_validations['reason'] = $request->reason;
@@ -81,7 +94,7 @@ class SyncEmvValidationDetails
                 $input_nma_validations['created_at'] = $request->created_at;
                 // $input_nma_validations['updated_at'] = $request->updated_at;
 
-                $input_card_validation_details['id'] = $request->id;
+                // $input_card_validation_details['id'] = $request->id;
                 $input_card_validation_details['card_number_prefilled'] = $request->card_number_prefilled;
                 $input_card_validation_details['card_number_system_generated'] = $request->card_number_system_generated;
                 $input_card_validation_details['card_number_inputted'] = $request->card_number_inputted;
@@ -101,7 +114,7 @@ class SyncEmvValidationDetails
 
 
                 
-                $input_other_card_validations['id'] = $request->id;
+                // $input_other_card_validations['id'] = $request->id;
                 $input_other_card_validations['card_holder_name'] = $request->card_holder_name;
                 $input_other_card_validations['card_number_system_generated'] = $request->card_number_system_generated;
                 $input_other_card_validations['card_number_inputted'] = $request->card_number_inputted;
@@ -117,12 +130,12 @@ class SyncEmvValidationDetails
                 $input_other_card_validations['card_replacement_request'] = $request->card_replacement_request;
                 $input_other_card_validations['card_replacement_submitted_details'] = $request->card_replacement_submitted_details;
                 $input_other_card_validations['pawning_remarks'] = $request->pawning_remarks;
-                $input_other_card_validations['emv_validation_detail_id'] = $request->emv_validation_detail_id;
+                // $input_other_card_validations['emv_validation_detail_id'] = $request->emv_validation_detail_id;
                 $input_other_card_validations['created_at'] = $request->created_at;
                 // $input_other_card_validations['updated_at'] = $request->updated_at;
                 
 
-                $input_grantee_validations['id'] = $request->id;
+                // $input_grantee_validations['id'] = $request->id;
                 $input_grantee_validations['hh_id'] = $request->hh_id;
                 $input_grantee_validations['first_name'] = $request->first_name;
                 $input_grantee_validations['last_name'] = $request->last_name;
@@ -136,7 +149,7 @@ class SyncEmvValidationDetails
                 $input_grantee_validations['created_at'] = $request->created_at;
                 // $input_grantee_validations['updated_at'] = $request->updated_at;
 
-                $input_pawning_validation_details['id'] = $request->id;
+                // $input_pawning_validation_details['id'] = $request->id;
                 $input_pawning_validation_details['lender_name'] = $request->lender_name;
                 $input_pawning_validation_details['lender_address'] = $request->lender_address;
                 $input_pawning_validation_details['date_pawned'] = $request->date_pawned;
@@ -156,7 +169,6 @@ class SyncEmvValidationDetails
                 $validator = Validator::make($request->all(), [
                     'first_name' => 'required',
                     'last_name' => 'required',
-                    'last_name' => 'required',
                     'hh_status' => 'required',
                     'province' => 'required',
                     'municipality' => 'required',
@@ -164,10 +176,10 @@ class SyncEmvValidationDetails
                     'sex' => 'required',
                     'hh_id' => 'required',
                     'user_id' => 'required',
-                    'nma_validation_id' => 'required',
-                    'pawning_validation_detail_id' => 'required',
-                    'card_validation_detail_id' => 'required',
-                    'emv_validation_id' => 'required',
+                    // 'nma_validation_id' => 'required',
+                    // 'pawning_validation_detail_id' => 'required',
+                    // 'card_validation_detail_id' => 'required',
+                    // 'emv_validation_id' => 'required',
                     'sync_at' => 'required',
 
                 ]);
