@@ -53,6 +53,16 @@ class SyncEmvValidationDetails
                 $input_grantee_validations = $request->all();
                 $input_pawning_validation_details = $request->all();
 
+                // $input_emv_validation_details['photo'];
+                if($request->hasFile('image'))
+                {
+                    $detination_path = 'public/images/validations';
+                    $image = $request->file('image');
+                    $image_name = $image->getClientOriginalName();
+                    $path = $request->file('image')->storeAs($detination_path, $image_name);
+                    $input_emv_validation_details['image'] = $image_name;
+                }
+
                 $input_emv_validation_details['id'] = $request->id;
                 $input_emv_validation_details['hh_status'] = $request->hh_status;
                 $input_emv_validation_details['contact_no'] = $request->contact_no;
