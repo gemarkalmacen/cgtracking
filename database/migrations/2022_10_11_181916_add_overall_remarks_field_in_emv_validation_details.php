@@ -14,7 +14,7 @@ class AddOverallRemarksFieldInEmvValidationDetails extends Migration
     public function up()
     {
         Schema::table('emv_validation_details', function (Blueprint $table) {
-            $table->string('overall_remarks')->after('relationship_to_grantee');
+            $table->string('overall_remarks')->nullable()->after('relationship_to_grantee');
         });
     }
 

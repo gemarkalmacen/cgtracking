@@ -33,6 +33,8 @@ class Granteevalidation extends Model
         'municipality_code',
         'barangay_code',
         'set',
+        'image',
+        'image_additional',
         'created_at',
         'updated_at',
     ];

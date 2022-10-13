@@ -20,6 +20,7 @@ class Cardvalidationdetail extends Model
         'card_number_system_generated',
         'card_number_inputted',
         'card_number_series',
+        'card_image',
         'distribution_status',
         'release_date',
         'release_by',
