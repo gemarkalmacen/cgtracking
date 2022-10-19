@@ -42,7 +42,7 @@ class SyncEmvValidationDetails
             
             $emvvalidations_update = Emvvalidations::where(['hh_id' => $request->gv_hh_id])->first();
             $emvvalidations_update->record_counter = $emvvalidations_update->record_counter + 1;
-            $emvvalidations_update->validated_at = $request->created_at;
+            $emvvalidations_update->validated_at = $request->evd_created_at;
             $emvvalidations_update->save();
 
             if($emvvalidations_update){
