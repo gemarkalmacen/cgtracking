@@ -66,7 +66,7 @@ License: You must have a valid license purchased only from themeforest(the above
                         <!--end: Aside content-->
                         <!--begin: Aside footer for desktop-->
                         <div class="d-none flex-column-auto d-lg-flex justify-content-between mt-10">
-                            <div class="opacity-70 font-weight-bold text-white">© 2020 LGS Dev</div>
+                            <div class="opacity-70 font-weight-bold text-white">© 2022 LGS Dev</div>
                             <div class="d-flex">
                                 <a href="#" class="text-white">Privacy</a>
                                 <a href="#" class="text-white ml-10">Legal</a>
