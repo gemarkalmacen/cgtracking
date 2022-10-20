@@ -32,6 +32,9 @@ Route::group(['prefix' => 'staff', 'namespace' => 'Staff'], function() {
             Route::group(['namespace' => 'Emvvalidationdetails'], function () {
                 Route::post('emvvalidationdetails/sync','EmvvalidationdetailsController@sync'); //->name('Emvvalidationdetails.sync');
             });
+            Route::group(['namespace' => 'Syncmonitoring'], function () {
+                Route::apiResource('/syncmonitoring', 'SyncmonitoringController');
+            });
         }
     );
 

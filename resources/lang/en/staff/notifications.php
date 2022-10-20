@@ -89,5 +89,9 @@ return [
     'emvvalidations_import_failed' => 'Emv Validation import failed.',
     
     // emv_monitoring_details
+    'sync_monitoring_created_successfully' => 'Sync Monitoring created successfully.',
+    'sync_monitoring_updated_successfully' => 'Sync Monitoring updated successfully.',
+    'sync_monitoring_deleted_successfully' => 'Sync Monitoring deleted successfully.',
+    'sync_monitoring_cannot_delete' => 'Sync Monitoring cannot be deleted.',
     
 ];

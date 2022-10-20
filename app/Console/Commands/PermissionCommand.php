@@ -47,6 +47,7 @@ class PermissionCommand extends Command
         'emvmonitoringdetails',
         'apiemvvalidations',
         'psgc',
+        'syncmonitoring',
     ];
 
     /**
