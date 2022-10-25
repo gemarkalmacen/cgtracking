@@ -60,8 +60,9 @@ class RegisterUser
                     ]);
                     return $response;
                 }
-
+                
                 $user_data = User::create($input_user);
+                $user_data->assignRole(1);
                 $input_user_details['user_id'] = $user_data->id;
                 $input_user_details['is_active'] = 1;
                 
