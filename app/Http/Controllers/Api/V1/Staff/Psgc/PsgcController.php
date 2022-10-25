@@ -13,7 +13,7 @@ class PsgcController extends Controller
 
     public function __construct()
     {
-        $this->middleware('permission:psgc-list', ['only' => ['index']]);
+        // $this->middleware('permission:psgc-list', ['only' => ['index']]);
     }
 
     public function index(GetPsgcList $getPsgcList)
