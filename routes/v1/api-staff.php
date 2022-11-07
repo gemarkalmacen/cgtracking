@@ -37,7 +37,7 @@ Route::group(['prefix' => 'staff', 'namespace' => 'Staff'], function() {
             });
         }
     );
-
+    Route::post('/auth/change_password', 'AuthController@change_password');
     Route::post('/auth/login', 'AuthController@login');
     Route::post('/auth/register', 'AuthController@register');
 });
