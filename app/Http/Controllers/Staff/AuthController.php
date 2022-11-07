@@ -48,7 +48,9 @@ class AuthController extends BaseController
         $this->loginUser = $loginUser;
         $this->logoutUser = $logoutUser;
 
-        if(env('APP_URL') == "https://crg-finance-svr.entdswd.local/cgtracking"){
+        $app_url = \Config::get('env.app_url');
+
+        if($app_url == "https://crg-finance-svr.entdswd.local/cgtracking"){
             $this->provider = new Keycloak([
                 'authServerUrl'             => 'https://caraga-auth-staging.dswd.gov.ph/',
                 'realm'                     => 'entdswd.local',
