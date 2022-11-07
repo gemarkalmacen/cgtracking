@@ -51,6 +51,8 @@ class Emvvalidations extends Model
         'other_card_holder_name_5',
         'other_card_distribution_status_5',
         'other_card_release_date_5',
+        'non_emv_card_number',
+        'card_name',
         'upload_history_id',
         'record_counter',
         'created_at',

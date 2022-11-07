@@ -330,8 +330,9 @@ return [
     'emv_validations_other_card_holder_name_2' => 'Other Card Holder Name 2',
     'emv_validations_other_card_distribution_status_2' => 'Other Card Distribution Status 2',
     'emv_validations_other_card_release_date_2' => 'Other Card Release Date 2',
+    'emv_validations_non_emv_card_number' => 'Non-emv Card Number',
+    'emv_validations_card_name' => 'Card Name',
     'emv_validations_upload_history_id' => 'Upload History ID',
     'emv_validations_record_counter' => 'Record Counter',
-
 
 ];

@@ -60,6 +60,8 @@
                             <th>{{ __('staff/tables.emv_validations_other_card_holder_name_2') }}</th>
                             <th>{{ __('staff/tables.emv_validations_other_card_distribution_status_2') }}</th>
                             <th>{{ __('staff/tables.emv_validations_other_card_release_date_2') }}</th>
+                            <th>{{ __('staff/tables.emv_validations_non_emv_card_number') }}</th>
+                            <th>{{ __('staff/tables.emv_validations_card_name') }}</th>
                         </tr>
                     </thead>
                 </template>

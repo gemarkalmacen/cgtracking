@@ -51,6 +51,8 @@ class EmvvalidationResource extends JsonResource
             'other_card_holder_name_5' => $this->other_card_holder_name_5,
             'other_card_distribution_status_5' => $this->other_card_distribution_status_5,
             'other_card_release_date_5' => $this->other_card_release_date_5,
+            'non_emv_card_number' => $this->non_emv_card_number,
+            'card_name' => $this->card_name,
             'upload_history_id' => $this->upload_history_id,
             'record_counter' => $this->record_counter,
             'created_at' => $this->created_at,

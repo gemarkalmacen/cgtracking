@@ -38,6 +38,8 @@ class GetListingEmvvalidations
                 'other_card_holder_name_2',
                 'other_card_distribution_status_2',
                 'other_card_release_date_2',
+                'non_emv_card_number',
+                'card_name'
             ],
             'orderable' => [
                 'id',
@@ -64,6 +66,8 @@ class GetListingEmvvalidations
                 'other_card_holder_name_2',
                 'other_card_distribution_status_2',
                 'other_card_release_date_2',
+                'non_emv_card_number',
+                'card_name'
             ]
         ]);
 
