@@ -13,7 +13,9 @@ use App\Services\Api\V1\Staff\Users\LoginUser;
 use App\Services\Api\V1\Staff\Users\GetUserByUsername;
 use App\Http\Requests\Api\V1\Staff\Auth\UserLoginRequest;
 use App\Http\Requests\Api\V1\Staff\Auth\UserRegistrationRequest;
+use App\Http\Requests\Api\V1\Staff\Auth\UserChangePasswordRequest;
 use App\Services\Api\V1\Staff\Users\RegisterUser;
+use App\Services\Api\V1\Staff\Users\ChangeUserPassword;
 
 class AuthController extends Controller
 {
@@ -126,6 +128,24 @@ class AuthController extends Controller
             'status' => __('messages.success'),
             'description' => __('staff/notifications.users_created_successfully'),
             'data' => $response
+        ],200);
+    }
+
+    public function change_password(UserChangePasswordRequest $request, ChangeUserPassword $changeUserPassword)
+    {
+        $response = $changeUserPassword->execute($request);
+
+        if(isset($response['custom_error']))
+        {
+            return response()->json([                
+                'status' => __('messages.error'),
+                'description' => $response['error_message'],
+            ],422);
+        }
+
+        return response()->json([                
+            'status' => __('messages.success'),
+            'description' => __('staff/notifications.password_changed_successfully'),
         ],200);
     }
 

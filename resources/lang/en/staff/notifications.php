@@ -17,6 +17,7 @@ return [
     'users_updated_successfully' => 'User updated successfully.',
     'users_deleted_successfully' => 'User deleted successfully.',
     'users_cannot_delete' => 'User cannot be deleted.',
+    'password_changed_successfully' => 'Password changed successfully',
 
     // roles
     'roles_created_successfully' => 'Roles created successfully.',
