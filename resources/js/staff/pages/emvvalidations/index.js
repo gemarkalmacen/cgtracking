@@ -51,6 +51,8 @@ module.exports = function(data) {
                             {data: 'other_card_holder_name_2'},
                             {data: 'other_card_distribution_status_2'},
                             {data: 'other_card_release_date_2'},
+                            {data: 'non_emv_card_number'},
+                            {data: 'card_name'},
                         ],
                         columnDefs: [
                             {
@@ -200,6 +202,20 @@ module.exports = function(data) {
                             },
                             {
                                 targets: [21],
+                                render: function(data) {
+                                   var element = data;
+                                    return element;
+                                }
+                            },
+                            {
+                                targets: [22],
+                                render: function(data) {
+                                   var element = data;
+                                    return element;
+                                }
+                            },
+                            {
+                                targets: [23],
                                 render: function(data) {
                                    var element = data;
                                     return element;
