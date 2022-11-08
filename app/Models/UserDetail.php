@@ -4,6 +4,8 @@ namespace App\Models;
 
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
+
 
 class UserDetail extends Model
 {
@@ -23,5 +25,10 @@ class UserDetail extends Model
     public function users()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function fullname($id)
+    {
+        return self::select(DB::raw("CONCAT(first_name, ' ', last_name) AS fullname"))->where('user_id', $id)->pluck('fullname');
     }
 }

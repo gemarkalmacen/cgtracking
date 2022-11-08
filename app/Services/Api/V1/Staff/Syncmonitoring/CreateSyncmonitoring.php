@@ -4,6 +4,7 @@ namespace App\Services\Api\V1\Staff\Syncmonitoring;
 
 use App\Exceptions\NotFoundException;
 use App\Models\Syncmonitoring;
+use App\Models\UserDetail;
 use Spatie\QueryBuilder\QueryBuilder;
 use Exception;
 use Illuminate\Support\Facades\DB;
@@ -28,7 +29,13 @@ class CreateSyncmonitoring
             
             if($sync_monitoring->save()){
                 DB::commit();
-                return $request->all();
+
+                $userDetail = new UserDetail;
+
+                $con_data = $sync_monitoring->refresh();
+                $con_data->users_name = $userDetail->fullname($request->user_id)->first();
+
+                return $con_data;
             }
 
         } catch (Exception $ex) {
