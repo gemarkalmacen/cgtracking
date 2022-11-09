@@ -26,9 +26,5 @@ class UserDetail extends Model
     {
         return $this->belongsTo(User::class);
     }
-
-    public function fullname($id)
-    {
-        return self::select(DB::raw("CONCAT(first_name, ' ', last_name) AS fullname"))->where('user_id', $id)->pluck('fullname');
-    }
+    
 }

@@ -9,6 +9,7 @@ use App\Http\Resources\Api\V1\Staff\Emvvalidations\EmvvalidationResource;
 use App\Http\Resources\Api\V1\Staff\Psgc\PsgcResource;
 use App\Services\Api\V1\Staff\Psgc\GetPsgcList;
 use App\Services\Api\V1\Staff\Syncmonitoring\CreateSyncmonitoring;
+use App\Services\Api\V1\Staff\Syncmonitoring\GetSyncMonitoringListByDate;
 
 class SyncmonitoringController extends Controller
 {
@@ -18,23 +19,40 @@ class SyncmonitoringController extends Controller
         $this->middleware('permission:syncmonitoring-list', ['only' => ['index', '']]);
     }
 
-    public function index(
-        // GetPsgcList $getPsgcList
-    )
+    public function index(GetSyncMonitoringListByDate $getSyncMonitoringListByDate)
     {
-        // $response = $getPsgcList->execute();
-        // if(!$response){
-        //     return response()->json([                
-        //         'status' => __('messages.error'),
-        //         'description' => __('messages.not_found'),
-        //     ],404);
-        // }
+        $response = $getSyncMonitoringListByDate->execute(now());
 
-        // return response()->json([                
-        //     'status' => __('messages.success'),
-        //     'description' => __('messages.ok'),
-        //     'data' => PsgcResource::collection($response)
-        // ],200);
+        if(!$response){
+            return response()->json([                
+                'status' => __('messages.error'),
+                'description' => __('messages.not_found'),
+            ],404);
+        }
+        
+        return response()->json([                
+            'status' => __('messages.success'),
+            'description' => __('messages.ok'),
+            'data' => $response
+        ],200);
+    }
+
+    public function show($date, GetSyncMonitoringListByDate $getSyncMonitoringListByDate)
+    {
+        $response = $getSyncMonitoringListByDate->execute($date);
+
+        if(!$response){
+            return response()->json([                
+                'status' => __('messages.error'),
+                'description' => __('messages.not_found'),
+            ],404);
+        }
+        
+        return response()->json([                
+            'status' => __('messages.success'),
+            'description' => __('messages.ok'),
+            'data' => $response
+        ],200);
     }
 
     public function store(SyncmonitoringRequest $request, CreateSyncmonitoring $createSyncmonitoring)

@@ -29,13 +29,7 @@ class CreateSyncmonitoring
             
             if($sync_monitoring->save()){
                 DB::commit();
-
-                $userDetail = new UserDetail;
-
-                $con_data = $sync_monitoring->refresh();
-                $con_data->users_name = $userDetail->fullname($request->user_id)->first();
-
-                return $con_data;
+                return $request->all();
             }
 
         } catch (Exception $ex) {
