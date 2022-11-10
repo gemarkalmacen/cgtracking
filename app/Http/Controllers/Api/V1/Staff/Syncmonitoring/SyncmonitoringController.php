@@ -21,7 +21,7 @@ class SyncmonitoringController extends Controller
 
     public function index(GetSyncMonitoringListByDate $getSyncMonitoringListByDate)
     {
-        $response = $getSyncMonitoringListByDate->execute(now());
+        $response = $getSyncMonitoringListByDate->execute();
 
         if(!$response){
             return response()->json([                
@@ -37,25 +37,7 @@ class SyncmonitoringController extends Controller
         ],200);
     }
 
-    public function show($date, GetSyncMonitoringListByDate $getSyncMonitoringListByDate)
-    {
-        $response = $getSyncMonitoringListByDate->execute($date);
-
-        if(!$response){
-            return response()->json([                
-                'status' => __('messages.error'),
-                'description' => __('messages.not_found'),
-            ],404);
-        }
-        
-        return response()->json([                
-            'status' => __('messages.success'),
-            'description' => __('messages.ok'),
-            'data' => $response
-        ],200);
-    }
-
-    public function store(SyncmonitoringRequest $request, CreateSyncmonitoring $createSyncmonitoring)
+        public function store(SyncmonitoringRequest $request, CreateSyncmonitoring $createSyncmonitoring)
     {
         $response = $createSyncmonitoring->execute($request);
 
