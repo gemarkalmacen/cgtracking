@@ -186,7 +186,8 @@ class SyncEmvValidationDetails
 
                 if($response_nv){
                     
-                    $input_emv_validation_details['user_id'] =$request->evd_user_id;
+                    $input_emv_validation_details['user_id'] = $request->evd_user_id;
+                    $input_emv_validation_details['grantee_validation_id'] = $response_gv->id;
                     $input_emv_validation_details['nma_validation_id'] = $response_nv->id;
                     $input_emv_validation_details['pawning_validation_detail_id'] = $response_pvd->id;
                     $input_emv_validation_details['card_validation_detail_id'] = $reponse_cvd->id;
