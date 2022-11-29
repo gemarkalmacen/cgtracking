@@ -30,13 +30,14 @@ class GetSyncMonitoringListByDate
             WHERE sync_monitoring.user_id = sm.user_id
             ORDER BY sync_at DESC 
             LIMIT 1) AS update_counter'),
-            'u.username', 
-            'sm.sync_at')
-        ->from('sync_monitoring AS sm')
-        ->leftJoin('users AS u', 'u.id', '=', 'sm.user_id')
-        ->groupBy('sm.user_id')
-        ->orderBy('u.username')
-        ->get();
+            'u.username',
+            DB::raw('MAX(sm.sync_at)')
+        )
+            ->from('sync_monitoring AS sm')
+            ->leftJoin('users AS u', 'u.id', '=', 'sm.user_id')
+            ->groupBy('sm.user_id')
+            ->orderBy('u.username')
+            ->get();
 
         return $result;
     }
