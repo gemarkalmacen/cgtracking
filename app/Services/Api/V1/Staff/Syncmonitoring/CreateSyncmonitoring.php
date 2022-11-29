@@ -26,7 +26,6 @@ class CreateSyncmonitoring
             $sync_monitoring->psgc_counter = $request->psgc_counter;
             $sync_monitoring->user_id = $request->user_id;
             $sync_monitoring->sync_at = now();
-            $sync_monitoring->created_at = now();
             $sync_monitoring->updated_at = null;
 
             if ($sync_monitoring->save()) {
