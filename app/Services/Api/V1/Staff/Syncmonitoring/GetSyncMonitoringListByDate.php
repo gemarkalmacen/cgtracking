@@ -31,7 +31,7 @@ class GetSyncMonitoringListByDate
             ORDER BY sync_at DESC 
             LIMIT 1) AS update_counter'),
             'u.username',
-            DB::raw('MAX(sm.sync_at)')
+            DB::raw('MAX(sm.sync_at) as sync_at')
         )
             ->from('sync_monitoring AS sm')
             ->leftJoin('users AS u', 'u.id', '=', 'sm.user_id')
