@@ -67,7 +67,7 @@ return [
     |
     */
 
-    'timezone' => env('TIMEZONE','Asia/Bangkok'),
+    'timezone' => env('TIMEZONE', 'Asia/Manila'),
 
     /*
     |--------------------------------------------------------------------------
@@ -166,7 +166,7 @@ return [
         Barryvdh\Debugbar\ServiceProvider::class,
 
         /* Spatie Permission */
-        Spatie\Permission\PermissionServiceProvider::class,         
+        Spatie\Permission\PermissionServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -182,7 +182,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\ViewServiceProvider::class,
         App\Providers\ActionServiceProvider::class,
-        
+
         /** Api Documentation */
         L5Swagger\L5SwaggerServiceProvider::class,
 
@@ -242,7 +242,7 @@ return [
 
         /* For Debugbar */
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
-        
+
         /** Excel */
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
 
