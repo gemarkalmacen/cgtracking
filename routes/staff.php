@@ -171,11 +171,11 @@ Route::group(['prefix' => 'staff-panel', 'namespace' => 'Staff'], function () {
         Route::post('emvvalidationsload', 'EmvvalidationController@load')->name('staff.emvvalidations.emvvalidationsload');
     });
 
-    // Route::group(['namespace' => 'Emvmonitoringdetails'], function () {
-    //     Route::resource('emvmonitoringdetails', "EmvmonitoringdetailsController", [
-    //         'names' => [
-    //             'index' => "staff.emvmonitoringdetails.index",
-    //         ]
-    //     ]);
-    // });
+    Route::group(['namespace' => 'Emvmonitoringdetails'], function () {
+        Route::resource('emvmonitoringdetails', "EmvmonitoringdetailsController", [
+            'names' => [
+                'index' => "staff.emvmonitoringdetails.index",
+            ]
+        ]);
+    });
 });
