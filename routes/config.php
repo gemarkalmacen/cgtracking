@@ -78,7 +78,7 @@ Route::group(['prefix' => 'command'], function() {
                 'name' => 'financial analyst i',
                 'guard_name' => 'users',
                 'is_staff' => 0
-            ],
+            ]
         );
         $roles = App\Models\Role::updateOrCreate(
             ['id' => 5],
