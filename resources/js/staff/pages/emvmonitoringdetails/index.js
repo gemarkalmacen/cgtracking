@@ -2,12 +2,9 @@
 module.exports = function(data) {
     var _data = {
         config: null,
-        // object: {
-        //     emvmonitoringdetails: 'emvmonitoringdetails',
-        // }
-        // emvmonitoringdetails: Object,
         n: 1,
         emvdetailsdata: Object,
+        emv_hh_id: null
     };
     return {
         data: (() => Object.assign({}, data, _data)),
@@ -28,28 +25,50 @@ module.exports = function(data) {
                     vm.getEmvdatabasedetailsList();
                 });
             },
-            getEmvdatabasedetailsList(){
-                var vm = this;
+
+            searchEmvdatabaseList(){
+                let vm = this;
+                console.log("cleared . . .");
+                console.log("searching . . .");
+                // vm.isLoading= true;
+                // vm.cc_details_display = true;
                 $.ajax({
-                    // url: vm.$route('staff.ajax.emvmonitoring.listing') + '?id='+vm.hh_id_search,
-                    url: vm.$route('staff.ajax.emvmonitoringdetails.listing'),
+                    url: vm.$route('staff.ajax.emvvalidationdetails.search') + '?id='+vm.emv_hh_id,
                     type: 'GET',
                     success: function (response) {
-                        if (response) {                          
-                            // var data = Object.values(response);
-                            // var payroll = data[0];
-                            // var granteelist = data[1];
-                            // var nonemv = data[2];
-                            // var emv = data[3];
-                            
+                        if (response) {        
+                            console.log(response);                  
                             vm.emvdetailsdata = response;
-
-                            console.log(vm.emvmonitoringdetails);
+                            
                         }
                     },
-                    // error: function(){
-                    // }
+
                 });
+            },
+
+
+            getEmvdatabasedetailsList(){
+                // var vm = this;
+                // $.ajax({
+                //     // url: vm.$route('staff.ajax.emvmonitoring.listing') + '?id='+vm.hh_id_search,
+                //     url: vm.$route('staff.ajax.emvmonitoringdetails.listing'),
+                //     type: 'GET',
+                //     success: function (response) {
+                //         if (response) {                          
+                //             // var data = Object.values(response);
+                //             // var payroll = data[0];
+                //             // var granteelist = data[1];
+                //             // var nonemv = data[2];
+                //             // var emv = data[3];
+                            
+                //             vm.emvdetailsdata = response;
+
+                //             console.log(vm.emvmonitoringdetails);
+                //         }
+                //     },
+                //     // error: function(){
+                //     // }
+                // });
             },
             firstpage(link){
                 if(link){

@@ -57,7 +57,8 @@ Route::group(['prefix' => 'ajax', 'namespace' => 'Ajax'], function () {
         Route::post('listing', 'EmvvalidationController@listing')->name('staff.ajax.emvvalidations.listing');
     });
 
-    // Route::group(['prefix' => 'emvmonitoringdetails', 'namespace' => 'Emvmonitoringdetails'], function () {
-    //     Route::get('listing', 'EmvmonitoringdetailsController@listing')->name('staff.ajax.emvmonitoringdetails.listing');
-    // });
+    Route::group(['prefix' => 'emvvalidationdetails', 'namespace' => 'Emvvalidationdetails'], function () {
+        Route::get('listing', 'EmvvalidationdetailsController@listing')->name('staff.ajax.emvmonitoringdetails.listing');
+        Route::get('search', 'EmvvalidationdetailsController@search')->name('staff.ajax.emvvalidationdetails.search');
+    });
 });

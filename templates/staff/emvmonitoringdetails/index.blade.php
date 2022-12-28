@@ -17,7 +17,7 @@
                             <div class="row align-items-center">
                                 <div class="col-md-4 my-2 my-md-0">
                                     <div class="input-icon">
-                                        <input type="text" class="form-control" placeholder="Search..." id="kt_datatable_search_query" />
+                                        <input v-model="emv_hh_id" type="text" class="form-control" placeholder="Search..." id="kt_datatable_search_query" />
                                         <span>
                                             <i class="flaticon2-search-1 text-muted"></i>
                                         </span>
@@ -51,7 +51,8 @@
                             </div>
                         </div>
                         <div class="col-lg-3 col-xl-4 mt-5 mt-lg-0">
-                            <a href="#" class="btn btn-light-primary px-6 font-weight-bold">Search</a>
+                            <!-- <a href="#" class="btn btn-light-primary px-6 font-weight-bold">Search</a> -->
+                            <button @click="searchEmvdatabaseList()" type="button" class="btn btn-light-primary px-6 font-weight-bold">Search</button>
                         </div>
                     </div>
                 </div>
@@ -99,7 +100,7 @@
 
         <br />
 
-        <div class="custom" v-for="(emv, index) in emvdetailsdata.data" :key="emv.id">
+        <div class="custom"  v-for="(emv, index) in emvdetailsdata" :key="emv.evd_id"  >
             <!--begin::Card-->
             <div class="card card-custom">
                 <!--begin::Card header-->
@@ -120,7 +121,7 @@
                             <!--end::Item-->
                             <!--begin::Item-->
                             <li class="nav-item mr-3">
-                                <a class="nav-link active" data-toggle="tab" :href="'#kt_user_edit_tab_1' + emv.id">
+                                <a class="nav-link active" data-toggle="tab" >
                                     <span class="nav-icon">
                                         <span class="svg-icon">
                                             <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Layers.svg-->
@@ -140,7 +141,7 @@
                             <!--end::Item-->
                             <!--begin::Item-->
                             <li class="nav-item mr-3">
-                                <a class="nav-link" data-toggle="tab" :href="'#kt_user_edit_tab_2' + emv.id">
+                                <a class="nav-link" data-toggle="tab">
                                     <span class="nav-icon">
                                         <span class="svg-icon">
                                             <!--begin::Svg Icon | path:assets/media/svg/icons/General/User.svg-->
@@ -168,7 +169,7 @@
                     <form class="form" id="kt_form">
                         <div class="tab-content">
                             <!--begin::Tab-->
-                            <div class="tab-pane show active px-7" :id="'kt_user_edit_tab_1' + emv.id" role="tabpanel">
+                            <div class="tab-pane show active px-7" role="tabpanel">
                                 <!--begin::Row-->
                                 <div class="row">
                                     <div class="col-xl-12 my-2">
@@ -180,11 +181,18 @@
                                                 <!--begin::Pic-->
                                                 <div class="flex-shrink-0 mr-7">
                                                     <!-- <div class=""> -->
-                                                        <!-- <img alt="Pic" width="320px" src="{{ url('staff/assets/media/users/valid_id_test.jpg') }}" /> -->
-                                                        <img width="250px" style="border: 1px solid black; " :src="'data:image/png;base64,' + emv.current_cash_card_picture" alt="Red dot" />
+                        
+                                                        <img width="300px" v-if="!emv.card_image.length" src="{{ url('staff/assets/media/users/lbp_default.jpg') }}" alt="Red dot"  />
+                                                        <img width="300px" v-else :src="'/storage/images/validations/'+emv.card_image" alt="Red dot" />
+
+
                                                     <!-- </div> -->
                                                     <!-- <div class=""> -->
-                                                        <img alt="Pic" width="300px" src="{{ url('staff/assets/media/users/lbp_cashcard_sample.jpg') }}" />
+                                                        <img alt="Pic" v-if="!emv.image.length" width="300px" src="{{ url('staff/assets/media/users/default_grantee.jpg') }}" />
+                                                        <img alt="Pic" v-else width="300px" :src="'/storage/images/validations/'+emv.image" />
+
+                                                        
+                                                        
                                                     <!-- </div> -->
                                                 </div>
                                                 <!--end::Pic-->
@@ -195,9 +203,9 @@
                                                         <!--begin::User-->
                                                         <div class="mr-3">
                                                             <!--begin::Name-->
-                                                            <a href="#" class="d-flex align-items-center text-dark text-hover-primary font-size-h5 font-weight-bold mr-3">@{{ emv.full_name }}
+                                                            <a href="#" class="d-flex align-items-center text-dark text-hover-primary font-size-h5 font-weight-bold mr-3">
                                                                 <i class="flaticon2-correct text-primary icon-md ml-2 "></i>&nbsp;
-                                                                <span class="label label-primary label-inline font-size-h5 font-weight-bold mr-2">@{{ emv.client_status }}</span>
+                                                                <span class="label label-primary label-inline font-size-h5 font-weight-bold mr-2"></span>
                                                             </a>
                                                             <!--end::Name-->
                                                             <!--begin::Contacts-->
@@ -213,7 +221,7 @@
                                                                         </g>
                                                                     </svg>
                                                                     <!--end::Svg Icon-->
-                                                                </span>@{{ emv.contact }}</a>
+                                                                </span></a>
                                                                 <a href="#" class="text-hover-primary text-dark font-size-h5 font-weight-bold mr-lg-8 mr-5 mb-lg-0 mb-2">
                                                                 <span class="svg-icon svg-icon-md svg-icon-gray-500 mr-1">
                                                                     <!--begin::Svg Icon | path:assets/media/svg/icons/General/Lock.svg-->
@@ -227,7 +235,7 @@
                                                                         </g>
                                                                     </svg>
                                                                     <!--end::Svg Icon-->
-                                                                </span>@{{ emv.hh_id }}</a>
+                                                                </span></a>
                                                                 <a href="#" class="text-dark text-hover-primary font-size-h5 font-weight-bold">
                                                                 <span class="svg-icon svg-icon-md svg-icon-gray-500 mr-1">
                                                                     <!--begin::Svg Icon | path:assets/media/svg/icons/Map/Marker2.svg-->
@@ -238,7 +246,7 @@
                                                                         </g>
                                                                     </svg>
                                                                     <!--end::Svg Icon-->
-                                                                </span>@{{ emv.address }}</a>
+                                                                </span>@{{ emv.province }}&nbsp;| @{{ emv.municipality }}&nbsp;| @{{ emv.barangay }}</a>
                                                             </div>
                                                             <!--end::Contacts-->
                                                         </div>
@@ -256,31 +264,47 @@
                                                         <div class="flex-grow-1 font-weight-bold font-size-h5 text-dark py-2 py-lg-2 mr-5">
                                                             <table class="table table-bordered table-sm">
                                                                 <tr>
+                                                                    <td>Fullname:</td>
+                                                                    <td><span class="label label-inline mr-2 font-size-h5">@{{ emv.first_name }} @{{ emv.middle_name }} @{{ emv.last_name }} @{{ emv.ext_name }}</span></td>
                                                                     <td>SET:</td>
-                                                                    <td><span class="label label-outline-info label-pill label-inline mr-2 font-size-h5">@{{ emv.hh_set_group }}</span></td>
-                                                                    <td>Minor Grantee:</td>
-                                                                    <td><span class="label label-outline-info label-pill label-inline mr-2 font-size-h5">@{{ emv.minor_grantee }}</span></td>
+                                                                    <td><span class="label  label-inline mr-2 font-size-h5">@{{ emv.set}}</span></td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td>Assigned C/ML:</td>
-                                                                    <td><span class="label label-outline-info label-pill label-inline mr-2 font-size-h5">@{{ emv.assigned_staff }}</span></td>
+                                                                    <td>Client status:</td>
+                                                                    <td><span class="label label-inline mr-2 font-size-h6 h-auto">
+
+                                                                    @{{ emv.hh_status }}
+                                                                    </span></td>
                                                                     <td>Sex:</td>
-                                                                    <td><span class="label label-outline-info label-pill label-inline mr-2 font-size-h5">@{{ emv.sex }}</span></td>
+                                                                    <td><span class="label  label-inline mr-2 font-size-h5">@{{ emv.sex }}</span></td>
+
+                                                                    <!-- <td>Interviewee:</td>
+                                                                    <td><span class="label label-outline-info label-pill label-inline mr-2 font-size-h5">@{{ emv.is_grantee }}</span></td> -->
                                                                 </tr>
+                                                                <tr>
+                                                                    <td>Interviewee:</td>
+                                                                    <td><span class="label label-inline mr-2 font-size-h5">@{{ emv.is_grantee }}</span></td>
+                                                                    <td>Contact No:</td>
+                                                                    <td><span class="label label-inline mr-2 font-size-h5">@{{ emv.contact_no}}</span></td>
+                                                                </tr>
+
                                                                 <tr>
                                                                     <th colspan="4" class="text-center">II. EMV Cash Card Information</th>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td>Date Release:</td>
-                                                                    <td><span class="label label-outline-info label-pill label-inline mr-2 font-size-h5">@{{ emv.current_grantee_card_release_date }}</span></td>
-                                                                    <td>Place Release:</td>
-                                                                    <td><span class="label label-outline-info label-pill label-inline mr-2 font-size-h5">@{{ emv.current_grantee_card_release_place }}</span></td>
+                                                                    <td>Current Grantee Card No:</td>
+                                                                    <td><span class="label label-inline mr-2 font-size-h5">@{{ emv.card_number_prefilled }}</span></td>
+                                                                    <td>Distribution status (Record)</td>
+
+                                                                    <td><span class="label label-inline mr-2 font-size-h5">@{{ emv.ev_distribution_status_record }}</span></td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td>Is Card Available?</td>
-                                                                    <td><span class="label label-outline-info label-pill label-inline mr-2 font-size-h5">@{{ emv.current_grantee_is_available }}</span></td>
-                                                                    <td>Current Grantee Card No:</td>
-                                                                    <td><span class="label label-outline-info label-pill label-inline mr-2 font-size-h5">@{{ emv.current_grantee_card_number }}</span></td>
+                                                                    <td>Card Release (Record)</td>
+                                                                    <td><span class="label label-inline mr-2 font-size-h5">@{{ emv.ev_card_release_date_record }}</span></td>
+                                                                    <td>Distribution status (Actual)</td>
+                                                                    <td><span class="label label-inline mr-2 font-size-h5">@{{ emv.distribution_status }}</span></td>
+
+                                                                    
                                                                 </tr>
                                                                 <tr>
                                                                     <th colspan="2" class="text-center">Other Card No:</th>
@@ -288,19 +312,19 @@
                                                                     <th>Is Card Available?</th>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td colspan="2">1. <span class="label label-outline-info label-pill label-inline mr-2 font-size-h5">@{{ emv.other_card_number_1 }}</span></td>
-                                                                    <td><span class="label label-outline-info label-pill label-inline mr-2 font-size-h5">@{{ emv.other_card_holder_name_1 }}</span></td>
-                                                                    <td><span class="label label-outline-info label-pill label-inline mr-2 font-size-h5">@{{ emv.other_card_is_available }}</span></td>
+                                                                    <td colspan="2">1. <span class="label label-outline-info label-pill label-inline mr-2 font-size-h5"></span></td>
+                                                                    <td><span class="label label-outline-info label-pill label-inline mr-2 font-size-h5"></span></td>
+                                                                    <td><span class="label label-outline-info label-pill label-inline mr-2 font-size-h5"></span></td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td colspan="2">2. <span class="label label-outline-info label-pill label-inline mr-2 font-size-h5">@{{ emv.other_card_number_2 }}</span></td>
-                                                                    <td><span class="label label-outline-info label-pill label-inline mr-2 font-size-h5">@{{ emv.other_card_holder_name_2 }}</span></td>
-                                                                    <td><span class="label label-outline-info label-pill label-inline mr-2 font-size-h5">@{{ emv.other_card_is_available_2 }}</span></td>
+                                                                    <td colspan="2">2. <span class="label label-outline-info label-pill label-inline mr-2 font-size-h5"></span></td>
+                                                                    <td><span class="label label-outline-info label-pill label-inline mr-2 font-size-h5"></span></td>
+                                                                    <td><span class="label label-outline-info label-pill label-inline mr-2 font-size-h5"></span></td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td colspan="2">3. <span class="label label-outline-info label-pill label-inline mr-2 font-size-h5">@{{ emv.other_card_number_3 }}</span></td>
-                                                                    <td><span class="label label-outline-info label-pill label-inline mr-2 font-size-h5">@{{ emv.other_card_holder_name_3 }}</span></td>
-                                                                    <td><span class="label label-outline-info label-pill label-inline mr-2 font-size-h5">@{{ emv.other_card_is_available_3 }}</span></td>
+                                                                    <td colspan="2">3. <span class="label label-outline-info label-pill label-inline mr-2 font-size-h5"></span></td>
+                                                                    <td><span class="label label-outline-info label-pill label-inline mr-2 font-size-h5"></span></td>
+                                                                    <td><span class="label label-outline-info label-pill label-inline mr-2 font-size-h5"></span></td>
                                                                 </tr>
                                                             </table>
                                                         </div>
@@ -322,7 +346,7 @@
                             </div>
                             <!--end::Tab-->
                             <!--begin::Tab-->
-                            <div class="tab-pane px-7" :id="'kt_user_edit_tab_2' + emv.id" role="tabpanel">
+                            <div class="tab-pane px-7" role="tabpanel">
                                 <!--begin::Row-->
                                 <div class="row">
                                     <div class="col-xl-12 my-2">
@@ -333,54 +357,54 @@
                                                 </tr>
                                                 <tr>
                                                     <td>NMA Amount:</td>
-                                                    <td colspan="3"><span class="label label-outline-info label-pill label-inline mr-2 font-size-h5">@{{ emv.nma_amount }}</span></td>
+                                                    <td colspan="3"><span class="label label-outline-info label-pill label-inline mr-2 font-size-h5"></span></td>
                                                     <td>Date Withdrawn/Claim: </td>
-                                                    <td><span class="label label-outline-info label-pill label-inline mr-2 font-size-h5">@{{ emv.nma_date_claimed }}</span></td>
+                                                    <td><span class="label label-outline-info label-pill label-inline mr-2 font-size-h5"></span></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Reason for NMA:</td>
-                                                    <td colspan="3"><span class="label label-outline-info label-pill label-inline mr-2 font-size-h5">@{{ emv.nma_reason }}</span></td>
+                                                    <td colspan="3"><span class="label label-outline-info label-pill label-inline mr-2 font-size-h5"></span></td>
                                                     <td>Remarks: </td>
-                                                    <td><span class="label label-outline-info label-pill label-inline mr-2 font-size-h5">@{{ emv.nma_remarks }}</span></td>
+                                                    <td><span class="label label-outline-info label-pill label-inline mr-2 font-size-h5"></span></td>
                                                 </tr>
                                                 <tr>
                                                     <th colspan="6" class="text-center">III-B. Pawning Details</th>
                                                 </tr>
                                                 <tr>
                                                     <td>Name of Lender:</td>
-                                                    <td colspan="3"><span class="label label-outline-info label-pill label-inline mr-2 font-size-h5">@{{ emv.pawn_name_of_lender }}</span></td>
+                                                    <td colspan="3"><span class="label label-outline-info label-pill label-inline mr-2 font-size-h5"></span></td>
                                                     <td>Address of Lender: </td>
-                                                    <td><span class="label label-outline-info label-pill label-inline mr-2 font-size-h5">@{{ emv.pawn_lender_address }}</span></td>
+                                                    <td><span class="label label-outline-info label-pill label-inline mr-2 font-size-h5"></span></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Pawning Date: </td>
-                                                    <td colspan="3"><span class="label label-outline-info label-pill label-inline mr-2 font-size-h5">@{{ emv.pawn_date }}</span></td>
+                                                    <td colspan="3"><span class="label label-outline-info label-pill label-inline mr-2 font-size-h5"></span></td>
                                                     <td>Date Retrieved: </td>
-                                                    <td><span class="label label-outline-info label-pill label-inline mr-2 font-size-h5">@{{ emv.pawn_retrieved_date }}</span></td>
+                                                    <td><span class="label label-outline-info label-pill label-inline mr-2 font-size-h5"></span></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Loaned Amount: </td>
-                                                    <td colspan="3"><span class="label label-outline-info label-pill label-inline mr-2 font-size-h5">@{{ emv.pawn_loaned_amount }}</span></td>
+                                                    <td colspan="3"><span class="label label-outline-info label-pill label-inline mr-2 font-size-h5"></span></td>
                                                     <td>Interest: </td>
-                                                    <td><span class="label label-outline-info label-pill label-inline mr-2 font-size-h5">@{{ emv.pawn_interest }}</span></td>
+                                                    <td><span class="label label-outline-info label-pill label-inline mr-2 font-size-h5"></span></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Status: </td>
-                                                    <td colspan="3"><span class="label label-outline-info label-pill label-inline mr-2 font-size-h5">@{{ emv.pawn_status }}</span></td>
+                                                    <td colspan="3"><span class="label label-outline-info label-pill label-inline mr-2 font-size-h5"></span></td>
                                                     <td>Reason for Pawning: </td>
-                                                    <td><span class="label label-outline-info label-pill label-inline mr-2 font-size-h5">@{{ emv.pawn_reason }}</span></td>
+                                                    <td><span class="label label-outline-info label-pill label-inline mr-2 font-size-h5"></span></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Offense History: </td>
-                                                    <td colspan="3"><span class="label label-outline-info label-pill label-inline mr-2 font-size-h5">@{{ emv.pawn_offense_history }}</span></td>
+                                                    <td colspan="3"><span class="label label-outline-info label-pill label-inline mr-2 font-size-h5"></span></td>
                                                     <td>Remarks: </td>
-                                                    <td><span class="label label-outline-info label-pill label-inline mr-2 font-size-h5">@{{ emv.pawn_remarks }}</span></td>
+                                                    <td><span class="label label-outline-info label-pill label-inline mr-2 font-size-h5"></span></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Intervention of C/ML: </td>
-                                                    <td colspan="3"><span class="label label-outline-info label-pill label-inline mr-2 font-size-h5">@{{ emv.pawn_intervention_staff }}</span></td>
+                                                    <td colspan="3"><span class="label label-outline-info label-pill label-inline mr-2 font-size-h5"></span></td>
                                                     <td>Other Details: </td>
-                                                    <td><span class="label label-outline-info label-pill label-inline mr-2 font-size-h5">@{{ emv.pawn_other_details }}</span></td>
+                                                    <td><span class="label label-outline-info label-pill label-inline mr-2 font-size-h5"></span></td>
                                                 </tr>
                                             </table>
                                         </div>
