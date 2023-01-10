@@ -38,4 +38,5 @@ return [
     'tools-emv_validations_import' => 'Import',
     'tools-emv_validations_index' => 'List',
     'tools-validated_accounts' => 'Validated Accounts',
+    'tools-validated' => 'Validated Accounts',
 ];

@@ -26,6 +26,7 @@ License: You must have a valid license purchased only from themeforest(the above
         @yield('plugin_css')
 		<!--end::Page Vendors Styles-->
 		<!--begin::Global Theme Styles(used by all pages)-->
+
 		<link href="{{ url('staff/assets/plugins/global/plugins.bundle.css?v=7.0.3') }}" rel="stylesheet" type="text/css" />
 		<link href="{{ url('staff/assets/plugins/custom/prismjs/prismjs.bundle.css?v=7.0.3') }}" rel="stylesheet" type="text/css" />
 		<link href="{{ url('staff/assets/css/style.bundle.css?v=7.0.3') }}" rel="stylesheet" type="text/css" />
@@ -122,7 +123,7 @@ License: You must have a valid license purchased only from themeforest(the above
                         <div class="brand flex-column-auto" id="kt_brand">
                             <!--begin::Logo-->
                             <a href="#" class="brand-logo" >
-                                <img alt="Logo" src="{{ url('staff/assets/media/logos/cgtracking_logo.png') }}" height="40"/>
+                                <img alt="Logo" src="{{ url('staff/assets/media/logos/ecav_logo.png') }}" height="40"/>
                             </a>
                             <!--end::Logo-->
                             <!--begin::Toggle-->
@@ -419,6 +420,14 @@ License: You must have a valid license purchased only from themeforest(the above
                                     </li>
                                     <li class="menu-item" aria-haspopup="true">
                                         <a href="{{ route('staff.emvmonitoringdetails.index') }}" class="menu-link">
+                                            <span class="menu-icon">
+                                                <i class="menu-bullet icon-xl la la-clipboard-check" style="margin-left: -2px; "></i>
+                                            </span>
+                                        <span class="menu-text">{{ __('staff/navigations.tools-validated_accounts') }}</span>
+                                        </a>
+                                    </li>
+                                    <li class="menu-item" aria-haspopup="true">
+                                        <a href="{{ route('staff.emvvalidationdetails.index') }}" class="menu-link">
                                             <span class="menu-icon">
                                                 <i class="menu-bullet icon-xl la la-clipboard-check" style="margin-left: -2px; "></i>
                                             </span>
@@ -1823,6 +1832,11 @@ License: You must have a valid license purchased only from themeforest(the above
 		<!--end::Page Vendors-->
 		<!--begin::Page Scripts(used by this page)-->
 		<script src="{{ url('staff/assets/js/pages/widgets.js?v=7.0.3') }}"></script>
+
+        <script src="{{ url('staff/assets/plugins/custom/datatables/datatables.bundle.js?v=7.0.3') }}"></script>
+        <script src="{{ url('staff/assets/js/pages/crud/datatables/advanced/column-rendering.js') }}"></script>
+
+
         <!--end::Page Scripts-->
         @yield('plugin_script')
 		<script src="{{ url('staff/js/app.js') }}"></script>

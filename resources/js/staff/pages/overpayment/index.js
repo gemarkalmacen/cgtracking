@@ -53,7 +53,6 @@ module.exports = function(data) {
                             {data: 'mop'},
                             {data: 'account_number(db)'},
                             {data: 'old_account'},
-
                             {data: 'hh_status'},
                             {data: 'bal'},
                             {data: 'co_remarks'},
