@@ -267,7 +267,8 @@
                                                                     <td>Fullname:</td>
                                                                     <td><span class="label label-inline mr-2 font-size-h5">@{{ emv.first_name }} @{{ emv.middle_name }} @{{ emv.last_name }} @{{ emv.ext_name }}</span></td>
                                                                     <td>SET:</td>
-                                                                    <td><span class="label  label-inline mr-2 font-size-h5">@{{ emv.set}}</span></td>
+                                                                    <td><span class="mr-2 font-size-h5">@{{ emv.set}}</span>
+                                                                    </td>
                                                                 </tr>
                                                                 <tr>
                                                                     <td>Client status:</td>
@@ -294,14 +295,14 @@
                                                                 <tr>
                                                                     <td>Current Grantee Card No:</td>
                                                                     <td><span class="label label-inline mr-2 font-size-h5">@{{ emv.card_number_prefilled }}</span></td>
-                                                                    <td>Distribution status (Record)</td>
+                                                                    <td>Distribution statusa <small><b> (Record)</b></small></td>
 
                                                                     <td><span class="label label-inline mr-2 font-size-h5">@{{ emv.ev_distribution_status_record }}</span></td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td>Card Release (Record)</td>
+                                                                    <td>Card Release <small><b> (Record)</b></small></td>
                                                                     <td><span class="label label-inline mr-2 font-size-h5">@{{ emv.ev_card_release_date_record }}</span></td>
-                                                                    <td>Distribution status (Actual)</td>
+                                                                    <td>Distribution status<small><b> (Actual)</b></small></td>
                                                                     <td><span class="label label-inline mr-2 font-size-h5">@{{ emv.distribution_status }}</span></td>
 
                                                                     

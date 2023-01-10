@@ -20,7 +20,7 @@
                     </div>
                 </div>
             </div>
-            <table class="data-table table table-bordered table-hover table-checkable" style="margin-top: 13px !important" ref="table" :id="id">
+            <table class="table table-separate table-head-custom table-checkable" style="margin-top: 13px !important" ref="table" :id="id">
                 <slot></slot>
             </table>
         </div>

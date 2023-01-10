@@ -178,4 +178,21 @@ Route::group(['prefix' => 'staff-panel', 'namespace' => 'Staff'], function () {
             ]
         ]);
     });
+
+    Route::group(['namespace' => 'Emvvalidationdetails'], function () {
+        Route::resource('emvvalidationdetails', "EmvvalidationdetailsController", [
+            'names' => [
+                'index' => "staff.emvvalidationdetails.index",
+            ]
+        ]);
+        Route::get('emvvalidationdetailsshow', 'EmvvalidationdetailsController@show')->name('staff.emvvalidationdetails.show');
+    });
+
+    
+    
+
+
+    // {{ route('staff.emvdatabase.emvdatabaseimport') }}
+
+
 });

@@ -8,68 +8,34 @@ module.exports = function(data) {
     };
     return {
         data: (() => Object.assign({}, data, _data)),
-        // props: {
-        //     data_object: Object,
-        // },
+        props: {
+            data_object: Object,
+        },
         mounted() {
             this.init();
-            
-            // console.log(this.emvmonitoringdetails);
         },
         methods: {
             init() {
                 var vm = this;
                 var t;
+                
                 $(document).ready(function() {
+                    
+                    console.log("test11");
                     vm.$toaster.init();
-                    vm.getEmvdatabasedetailsList();
+                    vm.emvvalidationDetails();
                 });
             },
 
-            searchEmvdatabaseList(){
-                let vm = this;
-                console.log("cleared . . .");
-                console.log("searching . . .");
-                // vm.isLoading= true;
-                // vm.cc_details_display = true;
-                $.ajax({
-                    url: vm.$route('staff.ajax.emvvalidationdetails.search') + '?id='+vm.emv_hh_id,
-                    type: 'GET',
-                    success: function (response) {
-                        if (response) {        
-                            console.log(response[0].barangay);                  
-                            vm.emvdetailsdata = response;
-                            
-                        }
-                    },
-
-                });
+            emvvalidationDetails(){
+                var vm = this;
+                const objt = JSON.parse(data);
+                console.log(objt);
+                console.log(objt[0].image_additional);
+                
+                vm.emvdetailsdata = objt;
             },
 
-
-            getEmvdatabasedetailsList(){
-                // var vm = this;
-                // $.ajax({
-                //     // url: vm.$route('staff.ajax.emvmonitoring.listing') + '?id='+vm.hh_id_search,
-                //     url: vm.$route('staff.ajax.emvmonitoringdetails.listing'),
-                //     type: 'GET',
-                //     success: function (response) {
-                //         if (response) {                          
-                //             // var data = Object.values(response);
-                //             // var payroll = data[0];
-                //             // var granteelist = data[1];
-                //             // var nonemv = data[2];
-                //             // var emv = data[3];
-                            
-                //             vm.emvdetailsdata = response;
-
-                //             console.log(vm.emvmonitoringdetails);
-                //         }
-                //     },
-                //     // error: function(){
-                //     // }
-                // });
-            },
             firstpage(link){
                 if(link){
                     var vm = this;
