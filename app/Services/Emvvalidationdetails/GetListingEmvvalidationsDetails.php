@@ -32,18 +32,25 @@ class GetListingEmvvalidationsDetails
             'cvd.release_by','cvd.release_place as cvd_card_release_place','cvd.card_physically_presented','cvd.card_pin_is_attached',
             'cvd.reason_not_presented','cvd.reason_unclaimed','cvd.card_replacement_request',
             'cvd.card_replacement_submitted_details','pvd.lender_name','pvd.date_pawned','pvd.loan_amount',
-            'pvd.lender_address','pvd.date_retrieved','pvd.interest','pvd.status','pvd.reason',
-            'pvd.offense_history','pvd.offense_date','pvd.remarks','pvd.staff_intervention','pvd.other_details',
+            'pvd.lender_address','pvd.date_retrieved','pvd.interest','pvd.status','pvd.reason as pv_reason',
+            'pvd.offense_history','pvd.offense_date','pvd.remarks as pvd_remarks','pvd.staff_intervention','pvd.other_details',
             'cvd.card_image','cvd.card_number_system_generated','cvd.card_number_inputted',
             'cvd.card_number_series','gv.image_additional','gv.image','ev.non_emv_card_number',
             'ev.card_name','nv.amount','nv.reason','nv.date_claimed','nv.remarks',
-            'emv_validation_details.overall_remarks','u.username','emv_validation_details.created_at','emv_validation_details.id'
+            'emv_validation_details.overall_remarks','u.username','emv_validation_details.created_at','emv_validation_details.id as evd_id'
             ])
             ->where('gv.hh_id', $id)->get();
+            // dd(Othercardvalidation::where('emv_validation_detail_id',115)->get());
             
-            for ($i=0; $i < count($query) ; $i++) { 
+            for ($i=0; $i < count($query); $i++) { 
+                // dd($query[1]->id);
+                
                 $query[$i]['other_card']= Othercardvalidation::where('emv_validation_detail_id', $query[$i]->evd_id)->get();
-            }
+
+                
+                // $query[$i]['other_card']= Othercardvalidation::select(['card_holder_name as AAA','card_number_system_generated AS BBB','card_number_inputted AS CCC','card_number_series AS DDD','card_image AS EEE','distribution_status AS FFF'])
+                // ->where('emv_validation_detail_id', $query[$i]->evd_id)->get();
+            }  
             return $query;
 
  

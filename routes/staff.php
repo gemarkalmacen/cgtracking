@@ -186,13 +186,6 @@ Route::group(['prefix' => 'staff-panel', 'namespace' => 'Staff'], function () {
             ]
         ]);
         Route::get('emvvalidationdetailsshow', 'EmvvalidationdetailsController@show')->name('staff.emvvalidationdetails.show');
+        Route::get('emvvalidationdetailsothercard', 'EmvvalidationdetailsController@UpdateOtherCard')->name('staff.emvvalidationdetails.UpdateOtherCard');
     });
-
-    
-    
-
-
-    // {{ route('staff.emvdatabase.emvdatabaseimport') }}
-
-
 });

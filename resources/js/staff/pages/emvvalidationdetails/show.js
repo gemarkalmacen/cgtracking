@@ -21,7 +21,7 @@ module.exports = function(data) {
                 
                 $(document).ready(function() {
                     
-                    console.log("test11");
+
                     vm.$toaster.init();
                     vm.emvvalidationDetails();
                 });
