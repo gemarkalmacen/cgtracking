@@ -123,7 +123,7 @@ License: You must have a valid license purchased only from themeforest(the above
                         <div class="brand flex-column-auto" id="kt_brand">
                             <!--begin::Logo-->
                             <a href="#" class="brand-logo" >
-                                <img alt="Logo" src="{{ url('staff/assets/media/logos/ecav_logo.png') }}" height="40"/>
+                                <img alt="Logo" src="{{ url('staff/assets/media/logos/ecav_logo_2.png') }}" height="40"  />
                             </a>
                             <!--end::Logo-->
                             <!--begin::Toggle-->

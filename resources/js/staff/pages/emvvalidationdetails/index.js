@@ -17,6 +17,23 @@ module.exports = function(data) {
                     vm.setConfig();
                 });
             },
+            exportData(){
+                let vm = this;
+                $.ajax({
+                    // url: vm.$route('staff.ajax.emvvalidationdetails.export_user'),
+                    url: vm.$route('export_user'),
+                    type: 'GET',
+                    success: function (response) {
+                        if (response) {        
+                            // console.log(response[0].barangay);                  
+                           
+                            
+                        }
+                    },
+
+                });
+
+            },
             setConfig() {
                 var vm = this;
                 

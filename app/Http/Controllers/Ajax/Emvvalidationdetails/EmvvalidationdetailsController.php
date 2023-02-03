@@ -8,6 +8,15 @@ use App\Services\Emvvalidationdetails\GetListingEmvvalidationsDetailsList;
 
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Input;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Imports\ImportUser;
+use App\Exports\ExportData;
+use App\Exports\EmvMultiSheetExport;
+use App\Exports\ExportOcv;
+use App\Models\User;
+
+
 use App\Services\Emvvalidationdetails\details;
 
 class EmvvalidationdetailsController extends Controller
@@ -39,5 +48,17 @@ class EmvvalidationdetailsController extends Controller
         return response()->json($records);
 
 
+    }
+    public function exportemv(Request $request){
+        return Excel::download(new ExportData, 'users-data.xlsx');
+    }
+
+    public function export_user(Request $request){
+
+
+        return (new EmvMultiSheetExport)->download('Validated data [' . date('Y-m-d H-i-s') . '].xlsx');
+
+       
+        // return Excel::download(new ExportData, 'Validated data [' . date('Y-m-d H-i-s') . '].xlsx');
     }
 }

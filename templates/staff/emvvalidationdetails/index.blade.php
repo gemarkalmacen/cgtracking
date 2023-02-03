@@ -85,10 +85,17 @@
                                     </g>
                                 </svg>
                                 <!--end::Svg Icon-->
+                              
+
+
+                                
                             </span>Export</button>
+
+                            <a  type="button" class="btn btn-light-primary px-6 font-weight-bold" href="{{ route('export_user') }}" >Export file</a>
+
                             <!--begin::Dropdown Menu-->
-                            <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">
-                                <!--begin::Navigation-->
+                            <!-- <div class="dropdown-menu dropdown-menu-sm dropdown-menu-right">
+                            
                                 <ul class="navi flex-column navi-hover py-2">
                                     <li class="navi-header font-weight-bolder text-uppercase font-size-sm text-primary pb-2">Choose an option:</li>
                                     <li class="navi-item">
@@ -112,7 +119,9 @@
                                             <span class="navi-icon">
                                                 <i class="la la-file-excel-o"></i>
                                             </span>
-                                            <span class="navi-text">Excel</span>
+
+                                            <a href="../../public/bassengweb/logout">Logg ut</a><span class="label label-danger">Danger</span>
+                                            <span class="navi-text" href="{{ route('export_user') }}">Excel</span>
                                         </a>
                                     </li>
                                     <li class="navi-item">
@@ -132,8 +141,8 @@
                                         </a>
                                     </li>
                                 </ul>
-                                <!--end::Navigation-->
-                            </div>
+                                
+                            </div> -->
                             <!--end::Dropdown Menu-->
                         </div>
                         <!--end::Dropdown-->

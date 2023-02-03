@@ -1,8 +1,13 @@
 "use strict";
 
+
+
 // Class definition
 var KTSweetAlert2Demo = function () {
+
+
 	var _init = function () {
+
 		// Sweetalert Demo 1
 		$('#kt_sweetalert_demo_1').click(function (e) {
 			Swal.fire('Good job!');
@@ -105,6 +110,25 @@ var KTSweetAlert2Demo = function () {
 			});
 		});
 
+		$('#kt_sweetalert_update').click(function (e) {
+			Swal.fire({
+				title: 'Are you sure?s' + e,
+				text: "You won't be able to revert this!",
+				icon: 'warning',
+				showCancelButton: true,
+				confirmButtonText: 'Yes, update it!'
+
+			}).then(function (result) {
+				if (result.value) {
+					Swal.fire(
+						'Update!',
+						'Your file has been updated.',
+						'success'
+					)
+				}
+			});
+		});
+
 		$('#kt_sweetalert_demo_9').click(function (e) {
 			Swal.fire({
 				title: 'Are you sure?',
@@ -164,12 +188,18 @@ var KTSweetAlert2Demo = function () {
 	return {
 		// Init
 		init: function () {
+	
 			_init();
 		},
 	};
 }();
 
 // Class Initialization
-jQuery(document).ready(function () {
+// jQuery(document).ready(function () {
+// 	KTSweetAlert2Demo.init();
+// });
+
+setTimeout(function(){
 	KTSweetAlert2Demo.init();
-});
+
+}, 500); 

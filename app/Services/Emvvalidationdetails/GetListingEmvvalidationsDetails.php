@@ -15,6 +15,7 @@ class GetListingEmvvalidationsDetails
     public function execute($id)
     {
 
+
           $query = Emvvalidationdetails::leftJoin('emv_validations as ev', 'ev.id', '=', 'emv_validation_details.emv_validation_id')
             ->leftJoin('grantee_validations as gv', 'gv.id', '=', 'emv_validation_details.grantee_validation_id')
             ->leftJoin('nma_validations as nv', 'nv.id', '=', 'emv_validation_details.nma_validation_id')
@@ -51,6 +52,8 @@ class GetListingEmvvalidationsDetails
                 // $query[$i]['other_card']= Othercardvalidation::select(['card_holder_name as AAA','card_number_system_generated AS BBB','card_number_inputted AS CCC','card_number_series AS DDD','card_image AS EEE','distribution_status AS FFF'])
                 // ->where('emv_validation_detail_id', $query[$i]->evd_id)->get();
             }  
+
+            
             return $query;
 
  

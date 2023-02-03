@@ -4,7 +4,7 @@ module.exports = function(data) {
         config: null,
         n: 1,
         emvdetailsdata: Object,
-        emv_hh_id: null
+        card_holder_name: null
     };
     return {
         data: (() => Object.assign({}, data, _data)),
@@ -18,23 +18,47 @@ module.exports = function(data) {
             init() {
                 var vm = this;
                 var t;
-                
                 $(document).ready(function() {
-                    
-
                     vm.$toaster.init();
-                    vm.emvvalidationDetails();
-                   
+                    vm.emvupdateDetails();
+                    // vm.emvupdateOcv();
+                });
+
+                $('#kt_sweetalert_demo_88').click(function (e) {
+                    Swal.fire({
+                        title: 'Are you sure?',
+                        text: "You won't be able to revert this!",
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonText: 'Yes, delete it!'
+                    }).then(function (result) {
+                        if (result.value) {
+                            Swal.fire(
+                                'Deleted!',
+                                'Your file has been deleted.',
+                                'success'
+                            )
+                        }
+                    });
                 });
             },
 
-            emvvalidationDetails(){
+            emvupdateDetails(){
                 var vm = this;
                 const objt = JSON.parse(data);
                 console.log(objt);
-                console.log(objt[0].image_additional);
-                
+                // console.log(objt[0].card_holder_name);
                 vm.emvdetailsdata = objt;
+                // console.log("Pagsure oi");
+            },
+            
+
+            emvupdateOcv(){
+
+                
+                
+                alert(this.card_holder_name);
+                // console.log("Pagsure oi");
             },
             firstpage(link){
                 if(link){
@@ -94,11 +118,6 @@ module.exports = function(data) {
             },
         },
         computed: {
-            // groupedEmvData() {
-                // return _.chunk(this.emvdetailsdata.data, 3);
-                // returns a nested array: 
-                // [[article, article, article], [article, article, article], ...]
-            // },
         },
     }
 };

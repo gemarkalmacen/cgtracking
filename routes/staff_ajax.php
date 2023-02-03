@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Ajax\Emvvalidationdetails\EmvvalidationdetailsController;
+
+
 
 Route::group(['prefix' => 'ajax', 'namespace' => 'Ajax'], function () {
     Route::group(['prefix' => 'users', 'namespace' => 'Users'], function () {
@@ -60,5 +63,13 @@ Route::group(['prefix' => 'ajax', 'namespace' => 'Ajax'], function () {
     Route::group(['prefix' => 'emvvalidationdetails', 'namespace' => 'Emvvalidationdetails'], function () {
         Route::post('listing', 'EmvvalidationdetailsController@listing')->name('staff.ajax.emvvalidationdetails.listing');
         Route::get('search', 'EmvvalidationdetailsController@search')->name('staff.ajax.emvvalidationdetails.search');
+        Route::get('exportemv', 'EmvvalidationdetailsController@exportemv')->name('staff.ajax.emvvalidationdetails.exportemv');
+        Route::get('/export_user',[EmvvalidationdetailsController::class,'export_user'])->name('export_user');
     });
+
+    // Route::get('/file-import',[UserController::class,'importView'])->name('import-view');
+    // Route::post('/import',[UserController::class,'import'])->name('import');
+    Route::get('/export_user',[EmvvalidationdetailsController::class,'export_user'])->name('export_user');
+
+
 });

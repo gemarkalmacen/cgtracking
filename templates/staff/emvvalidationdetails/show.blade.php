@@ -130,28 +130,28 @@
                                     <tr>
                                         <td ><h6 class="card-label">Fullname:</h6></td>
                                         <td><span class="label label-inline mr-2 font-size-h5">@{{ emv.first_name }} @{{ emv.middle_name }} @{{ emv.last_name }} @{{ emv.ext_name }}</span></td>
-                                        <td>SET:</td>
+                                        <td><h6 class="card-label">SET:</h6></td>
                                         <td><span class="label  label-inline mr-2 font-size-h5">@{{ emv.set}}</span></td>
-                                        <td>Client status:</td>
+                                        <td><h6 class="card-label">Client status:</h6></td>
                                         <td><span class="label label-inline mr-2 font-size-h6 h-auto">@{{ emv.hh_status }}</span></td>
                                         
                                     </tr>
                                     <tr>
                                         </span></td>
-                                        <td>Sex:</td>
+                                        <td><h6 class="card-label">Sex:</h6></td>
                                         <td><span class="label  label-inline mr-2 font-size-h5">@{{ emv.sex }}</span></td>
-                                        <td>Interviewee:</td>
+                                        <td><h6 class="card-label">Interviewee:</h6></td>
                                         <td><span class="label label-inline mr-2 font-size-h5">@{{ emv.is_grantee }}</span></td>
-                                        <td>Contact No:</td>
+                                        <td><h6 class="card-label">Contact No:</h6></td>
                                         <td><span class="label label-inline mr-2 font-size-h5">@{{ emv.contact_no}}</span></td>
                                     </tr>
 
                                     <tr>
-                                        <td>Address:</td>
+                                        <td><h6 class="card-label">Address:</h6></td>
                                         <td><span class="label label-inline mr-2 font-size-h5">@{{ emv.barangay }} @{{ emv.municipality }} @{{ emv.province }}</span></td>
-                                        <td>Contact No of:</td>
+                                        <td><h6 class="card-label">Contact No of:</h6></td>
                                         <td><span class="label label-inline mr-2 font-size-h5">@{{ emv.is_grantee}}</span></td>
-                                        <td>Other's Name</td>
+                                        <td><h6 class="card-label">Other's Name</h6></td>
                                         <td><span v-if="emv.is_grantee !='Grantee'" class="label label-inline mr-2 font-size-h5">@{{ emv.is_grantee}}</span></td>
                                     </tr>
 
@@ -159,50 +159,50 @@
                                         <th colspan="6" class="text-center">II. EMV Cash Card Information</th>
                                     </tr>
                                     <tr>
-                                        <td>Current Grantee Card No:</td>
+                                        <td><h6 class="card-label">Current Grantee Card No:</h6></td>
                                         <td><span class="label label-inline mr-2 font-size-h5">@{{ emv.card_number_prefilled }}</span></td>
-                                        <td>Distribution status <small><b> (Record)</b></small></td>
+                                        <td><h6 class="card-label">Distribution status <small><b> (Record)</b></small></h6></td>
                                         <td><span class="label label-inline mr-2 font-size-h5">@{{ emv.ev_distribution_status_record }}</span></td>
-                                        <td>Date of Card Release <small><b> (Record)</b></small></td>
+                                        <td><h6 class="card-label">Date of Card Release <small><b> (Record)</b></small></h6></td>
                                         <td><span v-if="emv.ev_card_release_date_record ==null" class="label label-inline mr-2 font-size-h5">@{{ emv.ev_card_release_date_record }}</span></td>
                                     </tr>
                                     <tr>
 
-                                        <td>Distribution status<small><b> (Actual)</b></small></td>
+                                        <td><h6 class="card-label">Distribution status<small><b> (Actual)</b></small></h6></td>
                                         <td><span class="label label-inline mr-2 font-size-h5">@{{ emv.distribution_status }}</span></td>
-                                        <td>Date of card released <small><b> (Actual)</b></small></td>
+                                        <td><h6 class="card-label">Date of card released <small><b> (Actual)</b></small></h6></td>
                                         <td><span class="label-inline mr-2 font-size-h5">@{{ emv.cvd_card_release_date_actual }}</span></td>
-                                        <td>Who released the card</td>
+                                        <td><h6 class="card-label">Who released the card</h6></td>
                                         <td><span class="label-inline mr-2 font-size-h5">@{{ emv.release_by }}</span></td>
                                     </tr>
 
                                     <tr>
-                                        <td>Where the Cash card Released</td>
+                                        <td><h6 class="card-label">Where the Cash card Released</h6></td>
                                         <td><span class="label label-inline mr-2 font-size-h5">@{{ emv.cvd_card_release_place }}</span></td>
 
-                                        <td>Physical Cash card Presented</td>
+                                        <td><h6 class="card-label">Physical Cash card Presented</h6></td>
                                         <td><span class="label-inline mr-2 font-size-h5">@{{ emv.card_physically_presented }}</span></td>
-                                        <td>Pin Attached</td>
+                                        <td><h6 class="card-label">Pin Attached</h6></td>
                                         <td><span class="label-inline mr-2 font-size-h5">@{{ emv.card_pin_is_attached }}</span></td>
                                     </tr>
 
                                     <tr>
-                                        <td>Reason Cash card not presented</td>
+                                        <td><h6 class="card-label">Reason Cash card not presented</h6></td>
                                         <td><span class="label label-inline mr-2 font-size-h5">@{{ emv.reason_not_presented }}</span></td>
 
-                                        <td>Already filed request for replacement</td>
+                                        <td><h6 class="card-label">Already filed request for replacement</h6></td>
                                         <td><span class="label-inline mr-2 font-size-h5">@{{ emv.card_replacement_request }}</span></td>
-                                        <td>When and whom replacement requests</td>
+                                        <td><h6 class="card-label">When and whom replacement requests</h6></td>
                                         <td><span class="label label-inline mr-2 font-size-h5">@{{ emv.card_replacement_submitted_details }}</span></td>
                                     
                                     </tr>
 
                                     <tr>
-                                        <td>Reason</td>
+                                        <td><h6 class="card-label">Reason</h6></td>
                                         <td><span class="label-inline mr-2 font-size-h5">@{{ emv.reason }}</span></td>
-                                        <td>Reason not presented</td>
+                                        <td><h6 class="card-label">Reason not presented</h6></td>
                                         <td><span class="label-inline mr-2 font-size-h5">@{{ emv.reason_not_presented }}</span></td>
-                                        <td>Card Series</td>
+                                        <td><h6 class="card-label">Card Series</h6></td>
                                         <td><span class="label-inline mr-2 font-size-h5">@{{ emv.card_number_series }}</span></td>
                         
                                     </tr>
@@ -212,41 +212,41 @@
                                     </tr>
 
                                     <tr v-if="emv.reason_not_presented =='Pawned'">
-                                        <td>Name of Lender</td>
+                                        <td><h6 class="card-label">Name of Lender</h6></td>
                                         <td><span class="label-inline mr-2 font-size-h5">@{{ emv.lender_name }}</span></td>
-                                        <td>Date of Pawning</td>
+                                        <td><h6 class="card-label">Date of Pawning</h6></td>
                                         <td><span class="label-inline mr-2 font-size-h5">@{{ emv.date_pawned }}</span></td>
-                                        <td>Loaned Amount</td>
+                                        <td><h6 class="card-label">Loaned Amount</h6></td>
                                         <td><span class="label-inline mr-2 font-size-h5">@{{ emv.loan_amount }}</span></td>
                                     </tr>
                                     <tr v-if="emv.reason_not_presented =='Pawned'">
-                                        <td>Address of Lender</td>
+                                        <td><h6 class="card-label">Address of Lender</h6></td>
                                         <td><span class="label-inline mr-2 font-size-h5">@{{ emv.lender_address }}</span></td>
-                                        <td>Date Retrieved</td>
+                                        <td><h6 class="card-label">Date Retrieved</h6></td>
                                         <td><span class="label-inline mr-2 font-size-h5">@{{ emv.date_retrieved }}</span></td>
-                                        <td>Interest</td>
+                                        <td><h6 class="card-label">Interest</h6></td>
                                         <td><span class="label-inline mr-2 font-size-h5">@{{ emv.interest }}</span></td>
                                     </tr>
 
                                     <tr v-if="emv.reason_not_presented =='Pawned'">
-                                        <td>Status</td>
+                                        <td><h6 class="card-label">Status</h6></td>
                                         <td><span class="label-inline mr-2 font-size-h5">@{{ emv.status }}</span></td>
-                                        <td>Reason for Pawning</td>
+                                        <td><h6 class="card-label">Reason for Pawning</h6></td>
                                         <td><span class="label-inline mr-2 font-size-h5">@{{ emv.pv_reason }}</span></td>
-                                        <td>Offense History</td>
+                                        <td><h6 class="card-label">Offense History</h6></td>
                                         <td><span class="label-inline mr-2 font-size-h5">@{{ emv.offense_history }}</span></td>
                                     </tr>
 
                                     <tr v-if="emv.reason_not_presented =='Pawned'">
-                                        <td>Offense History Date</td>
+                                        <td><h6 class="card-label">Offense History Date</h6></td>
                                         <td><span class="label-inline mr-2 font-size-h5">@{{ emv.offense_date }}</span></td>
-                                        <td>Remarks</td>
+                                        <td><h6 class="card-label">Remarks</h6></td>
                                         <td><span class="label-inline mr-2 font-size-h5">@{{ emv.pvd_remarks}}</span></td>
-                                        <td>Intervention of C/ML</td>
+                                        <td><h6 class="card-label">Intervention of C/ML</h6></td>
                                         <td><span class="label-inline mr-2 font-size-h5">@{{ emv.staff_intervention }}</span></td>
                                     </tr>
                                     <tr v-if="emv.reason_not_presented =='Pawned'">
-                                    <td>Other Details</td>
+                                    <td><h6 class="card-label">Other Details</h6></td>
                                         <td><span class="label-inline mr-2 font-size-h5">@{{ emv.other_details }}</span></td>
                                     </tr>
                                     <!-- <tbody>
