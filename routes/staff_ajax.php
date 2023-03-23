@@ -65,10 +65,9 @@ Route::group(['prefix' => 'ajax', 'namespace' => 'Ajax'], function () {
         Route::get('search', 'EmvvalidationdetailsController@search')->name('staff.ajax.emvvalidationdetails.search');
         Route::get('exportemv', 'EmvvalidationdetailsController@exportemv')->name('staff.ajax.emvvalidationdetails.exportemv');
         Route::get('/export_user',[EmvvalidationdetailsController::class,'export_user'])->name('export_user');
+        Route::post('updatecard', 'EmvvalidationdetailsController@updatecard')->name('staff.ajax.emvvalidationdetails.updatecard');
+        Route::post('update', 'EmvvalidationdetailsController@update')->name('staff.ajax.emvvalidationdetails.update');
     });
-
-    // Route::get('/file-import',[UserController::class,'importView'])->name('import-view');
-    // Route::post('/import',[UserController::class,'import'])->name('import');
     Route::get('/export_user',[EmvvalidationdetailsController::class,'export_user'])->name('export_user');
 
 

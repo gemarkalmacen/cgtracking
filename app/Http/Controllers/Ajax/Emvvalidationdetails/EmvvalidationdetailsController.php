@@ -5,6 +5,10 @@ namespace App\Http\Controllers\Ajax\Emvvalidationdetails;
 use App\Http\Controllers\Controller;
 use App\Services\Emvvalidationdetails\GetListingEmvvalidationsDetails;
 use App\Services\Emvvalidationdetails\GetListingEmvvalidationsDetailsList;
+use App\Services\Emvvalidationdetails\UpdateEmvOcv;
+use App\Services\Emvvalidationdetails\UpdateEmvCard;
+
+
 
 use Illuminate\Http\Request;
 
@@ -60,5 +64,17 @@ class EmvvalidationdetailsController extends Controller
 
        
         // return Excel::download(new ExportData, 'Validated data [' . date('Y-m-d H-i-s') . '].xlsx');
+    }
+
+    public function updatecard(Request $request,UpdateEmvCard $updateEmvCard)
+    {
+       $records = $updateEmvCard->execute($request);
+       return response()->json($records);
+    }
+
+    public function update(Request $request,UpdateEmvOcv $updateEmvOcv)
+    {
+       $records = $updateEmvOcv->execute($request);
+       return response()->json($records);
     }
 }

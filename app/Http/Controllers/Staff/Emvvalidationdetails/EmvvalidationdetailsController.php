@@ -7,11 +7,15 @@ use Illuminate\Http\Request;
 use App\Services\Emvvalidationdetails\GetListingEmvvalidationsdetails;
 use App\Services\Emvvalidationdetails\GetListingEmvvalidationsdetailsList;
 use App\Services\Emvvalidationdetails\GetEmvDetailsById;
+use App\Services\Emvvalidationdetails\GetEmvDetailsByEvdId;
+use App\Services\Psgc\GetPsgc;
+use App\Services\Clientstatus\GetClientStatus;
+use App\Services\RelationshipGrantee\GetRelationshipGrantee;
 
 use Illuminate\Support\Facades\Input;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Imports\ImportUser;
-use App\Exports\ExportUser;
+use App\Exports\ExportData;
 use App\Models\User;
 
 use App\Models\Emvvalidationdetails;
@@ -33,10 +37,24 @@ class EmvvalidationdetailsController extends Controller
         return view('staff.emvvalidationdetails.index', ['data_object' => ''], compact('breadcrumbs_main', 'breadcrumbs_details'));
     }
 
+
+    public function emvcard($id,GetEmvDetailsByEvdId $getEmvDetailsByEvdId, GetPsgc $getpsgc, GetClientStatus $getclientstatus, GetRelationshipGrantee $getrelationshipgrantee)
+    {
+        
+        $records['emv'] = $getEmvDetailsByEvdId->execute($id);
+        $records['psgc'] = $getpsgc->execute();
+        $records['clientstatus'] = $getclientstatus->execute();
+        $records['relationshiptograntee'] = $getrelationshipgrantee->execute();
+        $breadcrumbs_main = 'Validated Accounts';
+        $breadcrumbs_details = '-';
+    
+        return view('staff.emvvalidationdetails.update_card',['data_object' => $records],compact('breadcrumbs_main', 'breadcrumbs_details'));
+    }
+
+
     public function show(Request $request, GetListingEmvvalidationsdetails $getListingEmvvalidationsDetails)
     {
         $records = $getListingEmvvalidationsDetails->execute($request->id);
-        // return response()->json($records);
         $breadcrumbs_main = 'Validated Accounts';
         $breadcrumbs_details = '-';
         return view('staff.emvvalidationdetails.show', ['data_object' => $records], compact('breadcrumbs_main', 'breadcrumbs_details'));

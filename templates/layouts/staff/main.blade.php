@@ -418,14 +418,14 @@ License: You must have a valid license purchased only from themeforest(the above
                                             </ul>
                                         </div>
                                     </li>
-                                    <li class="menu-item" aria-haspopup="true">
+                                    <!-- <li class="menu-item" aria-haspopup="true">
                                         <a href="{{ route('staff.emvmonitoringdetails.index') }}" class="menu-link">
                                             <span class="menu-icon">
                                                 <i class="menu-bullet icon-xl la la-clipboard-check" style="margin-left: -2px; "></i>
                                             </span>
                                         <span class="menu-text">{{ __('staff/navigations.tools-validated_accounts') }}</span>
                                         </a>
-                                    </li>
+                                    </li> -->
                                     <li class="menu-item" aria-haspopup="true">
                                         <a href="{{ route('staff.emvvalidationdetails.index') }}" class="menu-link">
                                             <span class="menu-icon">

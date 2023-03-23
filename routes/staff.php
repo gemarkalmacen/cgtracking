@@ -185,6 +185,7 @@ Route::group(['prefix' => 'staff-panel', 'namespace' => 'Staff'], function () {
                 'index' => "staff.emvvalidationdetails.index",
             ]
         ]);
+        Route::get('emvvalidationdetailsemvcard/{id}', 'EmvvalidationdetailsController@emvcard')->name('staff.emvvalidationdetails.emvcard');
         Route::get('emvvalidationdetailsshow', 'EmvvalidationdetailsController@show')->name('staff.emvvalidationdetails.show');
         Route::get('emvvalidationdetailsothercard', 'EmvvalidationdetailsController@UpdateOtherCard')->name('staff.emvvalidationdetails.UpdateOtherCard');
     });

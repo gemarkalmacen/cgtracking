@@ -15,5 +15,6 @@ class DatabaseSeeder extends Seeder
         $this->call(RoleSeeder::class);
         $this->call(ClientStatusSeeder::class);
         $this->call(PsgcSeeder::class);
+        $this->call(RelationshipGranteeSeeder::class);
     }
 }

@@ -113,10 +113,27 @@
                                         <span class="nav-text font-size-lg">Profile</span>
                                     </a>
                                 </li>
+                                
                                 <!--end::Item-->
                             </ul>
                         </div>
                         <!--end::Toolbar-->
+                        <!-- staff.emvvalidationdetails.emvcard -->
+                        <div class="card-toolbar">
+                            <a :href="'emvvalidationdetailsemvcard/'+emv.evd_id" class="btn btn-primary font-weight-bolder">
+                            <span class="svg-icon svg-icon-md">
+                                <!--begin::Svg Icon | path:assets/media/svg/icons/Design/Flatten.svg-->
+                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                        <rect x="0" y="0" width="24" height="24" />
+                                        <circle fill="#000000" cx="9" cy="15" r="6" />
+                                        <path d="M8.8012943,7.00241953 C9.83837775,5.20768121 11.7781543,4 14,4 C17.3137085,4 20,6.6862915 20,10 C20,12.2218457 18.7923188,14.1616223 16.9975805,15.1987057 C16.9991904,15.1326658 17,15.0664274 17,15 C17,10.581722 13.418278,7 9,7 C8.93357256,7 8.86733422,7.00080962 8.8012943,7.00241953 Z" fill="#000000" opacity="0.3" />
+                                    </g>
+                                </svg>
+                                <!--end::Svg Icon-->
+                            </span>Update</a>
+                            <!--end::Button-->
+                        </div>
                     </div>
                     <!--end::Card header-->
                     <!--begin::Card body-->
@@ -175,6 +192,7 @@
                                         <td><h6 class="card-label">Who released the card</h6></td>
                                         <td><span class="label-inline mr-2 font-size-h5">@{{ emv.release_by }}</span></td>
                                     </tr>
+                                    <!-- ---- -->
 
                                     <tr>
                                         <td><h6 class="card-label">Where the Cash card Released</h6></td>
@@ -248,29 +266,7 @@
                                     <tr v-if="emv.reason_not_presented =='Pawned'">
                                     <td><h6 class="card-label">Other Details</h6></td>
                                         <td><span class="label-inline mr-2 font-size-h5">@{{ emv.other_details }}</span></td>
-                                    </tr>
-                                    <!-- <tbody>
-                                        <tr>
-                                            <th class="text-center">Card Number System Generated</th>
-                                            <th>Card Number Inputted</th>
-                                            <th>Card Holder Name</th>
-                                            <th>Card Number Inputted</th>
-                                            <th>Card Number Series?</th>
-                                            <th>Card Physically Presented</th>
-                                        </tr>
-                                        <tr v-for="(ocn, index) in emv.other_card" :key="index" class="view">
-                                            <td><span v-if="ocn.card_number_system_generated" class="label label-outline-info label-pill label-inline mr-2 font-size-h5">@{{ ocn.card_number_system_generated }}</span></td>  
-                                            <td><span v-if="ocn.card_number_inputted" class="label label-outline-info label-pill label-inline mr-2 font-size-h5">@{{ ocn.card_number_inputted }}</span></td>
-                                            <td><span v-if="ocn.card_holder_name" class="label label-outline-info label-pill label-inline mr-2 font-size-h5">@{{ ocn.card_holder_name }}</span></td>
-                                            <td><span v-if="ocn.card_number_series" class="label label-outline-info label-pill label-inline mr-2 font-size-h5">@{{ ocn.card_number_series }}</span></td>
-                                            <td><span v-if="ocn.card_physically_presented" class="label label-outline-info label-pill label-inline mr-2 font-size-h5">@{{ ocn.card_physically_presented }}</span></td>
-                                            <td><span v-if="ocn.card_pin_is_attached"  class="label label-outline-info label-pill label-inline mr-2 font-size-h5">@{{ ocn.card_pin_is_attached }}</span></td>
-                                        </tr>
-                                        <tr >
-                            
-                                    </tr>
-                                    </tbody> -->
-                
+                                    </tr>           
                                 </table>
                             </div>
                         </div>

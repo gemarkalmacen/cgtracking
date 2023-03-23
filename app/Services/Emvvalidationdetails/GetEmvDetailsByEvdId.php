@@ -5,17 +5,15 @@ use Ccore\Core\Datatable;
 use Illuminate\Support\Facades\DB;
 
 use App\Models\Emvvalidationdetails;
-use App\Models\Othercardvalidation;
 
 
 
 
-class GetListingEmvvalidationsDetails
+
+class GetEmvDetailsByEvdId
 {
-    public function execute($id)
+    public function execute($evd_id)
     {
-
-
 
 
           $query = Emvvalidationdetails::leftJoin('emv_validations as ev', 'ev.id', '=', 'emv_validation_details.emv_validation_id')
@@ -29,7 +27,7 @@ class GetListingEmvvalidationsDetails
             ->leftJoin('psgc as pb', 'pb.correspondence_code', '=', 'gv.barangay_code')
             ->select(['ev.hh_id', 'gv.set','gv.last_name','gv.first_name',
             'gv.middle_name','gv.ext_name','emv_validation_details.hh_status','pp.name_old as province',
-            'pm.name_old as municipality','pb.name_old as barangay','gv.sex','emv_validation_details.is_grantee','emv_validation_details.representative_name',
+            'pm.name_old as municipality','pb.name_old as barangay','gv.sex','emv_validation_details.is_grantee','emv_validation_details.representative_name','emv_validation_details.relationship_to_grantee',
             'emv_validation_details.contact_no','emv_validation_details.contact_no_of','cvd.card_number_prefilled','ev.grantee_distribution_status as ev_distribution_status_record',
             'ev.grantee_card_release_date as ev_card_release_date_record','cvd.distribution_status',DB::raw('DATE_FORMAT(cvd.release_date, "%m/%d/%Y") as cvd_card_release_date_actual'),
             'cvd.release_by','cvd.release_place as cvd_card_release_place','cvd.card_physically_presented','cvd.card_pin_is_attached',
@@ -40,20 +38,12 @@ class GetListingEmvvalidationsDetails
             'cvd.card_image','cvd.card_number_system_generated','cvd.card_number_inputted',
             'cvd.card_number_series','gv.image_additional','gv.image','ev.non_emv_card_number',
             'ev.card_name','nv.amount','nv.reason','nv.date_claimed','nv.remarks',
-            'emv_validation_details.overall_remarks','u.username','emv_validation_details.created_at','emv_validation_details.id as evd_id'
+            'emv_validation_details.overall_remarks','u.username','emv_validation_details.created_at','emv_validation_details.id as evd_id',
+            'emv_validation_details.nma_validation_id','emv_validation_details.grantee_validation_id','emv_validation_details.pawning_validation_detail_id','emv_validation_details.card_validation_detail_id','emv_validation_details.emv_validation_id',
+            'gv.province_code','gv.municipality_code','gv.barangay_code',
             ])
-            ->where('gv.hh_id', $id)->get();
-            // dd(Othercardvalidation::where('emv_validation_detail_id',115)->get());
-            
-            for ($i=0; $i < count($query); $i++) { 
-                // dd($query[1]->id);
-                
-                $query[$i]['other_card']= Othercardvalidation::where('emv_validation_detail_id', $query[$i]->evd_id)->get();
+            ->where('emv_validation_details.id', $evd_id)->get();
 
-                
-                // $query[$i]['other_card']= Othercardvalidation::select(['card_holder_name as AAA','card_number_system_generated AS BBB','card_number_inputted AS CCC','card_number_series AS DDD','card_image AS EEE','distribution_status AS FFF'])
-                // ->where('emv_validation_detail_id', $query[$i]->evd_id)->get();
-            }  
 
             
             return $query;
