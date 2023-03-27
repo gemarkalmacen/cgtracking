@@ -7,6 +7,7 @@ module.exports = function(data) {
         emvrelationshipgrantee: Object,
         emvclientstatus: Object,
         emvpsgc: Object,
+        emvreasonunclaimed: Object,
         card_holder_name: null
     };
     return {
@@ -53,6 +54,7 @@ module.exports = function(data) {
                 vm.emvclientstatus = objt["clientstatus"];
                 vm.emvrelationshipgrantee = objt["relationshiptograntee"];
                 vm.emvpsgc_province = objt["psgc"];
+                vm.emvreasonunclaimed = objt["reasonunclaimed"];
                 var psgc_code = objt["emv"][0].municipality_code;
                 
                 console.log(objt);
@@ -95,7 +97,23 @@ module.exports = function(data) {
                 vm.emvdetailsdata[0].release_by = "";
                 vm.emvdetailsdata[0].cvd_card_release_date_actual = "";
                 vm.emvdetailsdata[0].card_pin_is_attached = "";
+                vm.emvdetailsdata[0].reason_unclaimed = "";
 
+
+            },
+            pawned(){
+                var vm = this;
+                vm.emvdetailsdata[0].status = "";
+                vm.emvdetailsdata[0].lender_name = "";
+                vm.emvdetailsdata[0].date_pawned = "";
+                vm.emvdetailsdata[0].loan_amount = "";
+                vm.emvdetailsdata[0].lender_address = "";
+                vm.emvdetailsdata[0].date_retrieved = "";
+                vm.emvdetailsdata[0].interest = "";
+                vm.emvdetailsdata[0].offense_date = "";
+                vm.emvdetailsdata[0].pvd_remarks = "";
+                vm.emvdetailsdata[0].staff_intervention = "";
+                vm.emvdetailsdata[0].other_details = "";
             },
             emvupdateMain(){
 
@@ -104,8 +122,13 @@ module.exports = function(data) {
             updateCancelCard(){
 
             },
-            
 
+            physicalCashcardPresented(){
+                var vm = this;
+                vm.emvdetailsdata[0].card_pin_is_attached = "";
+            },
+
+            
             emvupdateOcv(){
 
                 
