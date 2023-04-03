@@ -11,6 +11,7 @@ use App\Services\Emvvalidationdetails\GetEmvDetailsByEvdId;
 use App\Services\Psgc\GetPsgc;
 use App\Services\Clientstatus\GetClientStatus;
 use App\Services\RelationshipGrantee\GetRelationshipGrantee;
+use App\Services\ReasonUnclaimed\GetReasonUnclaimed;
 
 use Illuminate\Support\Facades\Input;
 use Maatwebsite\Excel\Facades\Excel;
@@ -38,13 +39,14 @@ class EmvvalidationdetailsController extends Controller
     }
 
 
-    public function emvcard($id,GetEmvDetailsByEvdId $getEmvDetailsByEvdId, GetPsgc $getpsgc, GetClientStatus $getclientstatus, GetRelationshipGrantee $getrelationshipgrantee)
+    public function emvcard($id,GetEmvDetailsByEvdId $getEmvDetailsByEvdId, GetPsgc $getpsgc, GetClientStatus $getclientstatus, GetRelationshipGrantee $getrelationshipgrantee, GetReasonUnclaimed $getreasonunclaimed)
     {
         
         $records['emv'] = $getEmvDetailsByEvdId->execute($id);
         $records['psgc'] = $getpsgc->execute();
         $records['clientstatus'] = $getclientstatus->execute();
         $records['relationshiptograntee'] = $getrelationshipgrantee->execute();
+        $records['reasonunclaimed'] = $getreasonunclaimed->execute();
         $breadcrumbs_main = 'Validated Accounts';
         $breadcrumbs_details = '-';
     

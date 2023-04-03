@@ -7,7 +7,12 @@ module.exports = function(data) {
         emvrelationshipgrantee: Object,
         emvclientstatus: Object,
         emvpsgc: Object,
-        card_holder_name: null
+        emvreasonunclaimed: Object,
+        other_extname: Object,
+        card_holder_name: null,
+        other_ext_name: '',
+        other_contact_name: ''
+
     };
     return {
         data: (() => Object.assign({}, data, _data)),
@@ -53,10 +58,29 @@ module.exports = function(data) {
                 vm.emvclientstatus = objt["clientstatus"];
                 vm.emvrelationshipgrantee = objt["relationshiptograntee"];
                 vm.emvpsgc_province = objt["psgc"];
+                vm.emvreasonunclaimed = objt["reasonunclaimed"];
                 var psgc_code = objt["emv"][0].municipality_code;
-                
-                console.log(objt);
 
+
+                var extension =objt["emv"][0].ext_name;
+                var contact_of =objt["emv"][0].contact_no_of;
+
+                
+                if (extension != "Jr." && extension != "Sr." && extension != "I" && extension != "II" && extension != "IIIa" && extension != "IV" && extension != "V" && extension != "Jra.") {
+                    vm.emvdetailsdata[0].ext_name = "Others";
+                    vm.other_ext_name=extension;  
+                }
+
+                vm.emvdetailsdata[0].hh_status = "1 - Active"
+
+                if(contact_of !="Others"){
+                    vm.emvdetailsdata[0].contact_no_of = "Others";
+                    vm.other_contact_name = contact_of;
+                }
+
+                console.log(objt["emv"].hh_status);
+
+                console.log(objt);
                 psgc_code = String(psgc_code).substring(0, 5);
                 vm.emvpsgc_municipality = objt["psgc"].filter(o => o.correspondence_code.includes(psgc_code) && o.geographic_level == 'municipality');
                 vm.emvpsgc_barangay = objt["psgc"].filter(o => o.correspondence_code.includes(psgc_code) && o.geographic_level == 'barangay');
@@ -95,17 +119,71 @@ module.exports = function(data) {
                 vm.emvdetailsdata[0].release_by = "";
                 vm.emvdetailsdata[0].cvd_card_release_date_actual = "";
                 vm.emvdetailsdata[0].card_pin_is_attached = "";
+                vm.emvdetailsdata[0].reason_unclaimed = "";
+
 
             },
-            emvupdateMain(){
-
+            pawned(){
+                var vm = this;
+                vm.emvdetailsdata[0].status = "";
+                vm.emvdetailsdata[0].lender_name = "";
+                vm.emvdetailsdata[0].date_pawned = "";
+                vm.emvdetailsdata[0].loan_amount = "";
+                vm.emvdetailsdata[0].lender_address = "";
+                vm.emvdetailsdata[0].date_retrieved = "";
+                vm.emvdetailsdata[0].interest = "";
+                vm.emvdetailsdata[0].offense_date = "";
+                vm.emvdetailsdata[0].pvd_remarks = "";
+                vm.emvdetailsdata[0].staff_intervention = "";
+                vm.emvdetailsdata[0].other_details = "";
+                vm.emvdetailsdata[0].pv_reason = "";
+                vm.emvdetailsdata[0].offense_history = "";
+            },
+            updateMain(){
+                
+                let vm = this;
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: "You won't be able to revert this!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, update it!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        $.ajax({
+                            url: vm.$route('staff.ajax.emvvalidationdetails.updatemain'),
+                            type: 'POST',
+                            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+                            data: { emvdetailsdata: vm.emvdetailsdata[0], other_ext_name: vm.other_ext_name, other_contact_name: vm.other_contact_name },
+                            success: function (response) {
+                                if (response) {
+                                    vm.emvdetailsdata = response;
+        
+                                    Swal.fire(
+                                        'Update Successfully!',
+                                        'Your data has been updated.',
+                                        'success'
+                                    )
+                                }
+                            },
+                        });
+                        document.getElementById("EditForm").submit();
+                    }
+                });
             },
 
             updateCancelCard(){
 
             },
-            
 
+            physicalCashcardPresented(){
+                var vm = this;
+                vm.emvdetailsdata[0].card_pin_is_attached = "";
+            },
+
+            
             emvupdateOcv(){
 
                 

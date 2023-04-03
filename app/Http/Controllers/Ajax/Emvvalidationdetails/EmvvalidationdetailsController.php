@@ -77,4 +77,9 @@ class EmvvalidationdetailsController extends Controller
        $records = $updateEmvOcv->execute($request);
        return response()->json($records);
     }
+    public function updatemain(Request $request,UpdateEmvCard $updateEmvCard)
+    {
+       $records = $updateEmvCard->execute($request);
+       return response()->json($records);
+    }
 }

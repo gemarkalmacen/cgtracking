@@ -19,7 +19,7 @@
                 
             </div>
             <!--begin::Form-->
-            <form class="form" id="kt_form_update"  >
+            <form class="form" id="kt_form_updateaaa"  >
                 <div class="card-body">
                     <div class="alert alert-custom alert-light-success d-none" role="alert">
                         <div class="alert-icon">
@@ -56,7 +56,7 @@
                             <div class="form-group row">
                                 <div class="col-lg-4">
                                     <label>* Extension name</label>
-                                    <select class="form-control" v-model="emvdetailsdata[0].ext_name" @change="extensionName">
+                                    <select class="form-control" v-model="emvdetailsdata[0].ext_name">
                                         <option>Jr.</option>
                                         <option>Sr.</option>
                                         <option>I</option>
@@ -70,7 +70,8 @@
                                 </div>
                                 <div class="col-lg-4">
                                     <label>Other extension name</label>
-                                    <input type="text" name="card_holder_name" class="form-control" placeholder="" v-model="emvdetailsdata[0].last_name"  />
+                                    <input v-if="emvdetailsdata[0].ext_name =='Others'"  type="text" name="other_ext_name" class="form-control" placeholder="" v-model="other_ext_name"  />
+                                    <input type="text" v-else name="ext_name" class="form-control" placeholder="" disabled/>
                                 </div>
                               
                             </div>
@@ -85,10 +86,8 @@
                                     <label>* Client status</label>
 
                                     <select class="form-control" v-model="emvdetailsdata[0].hh_status">
-                                        <option v-for="(clientstatus, index) in emvclientstatus" :key="index" :value="clientstatus.emvclientstatus" >@{{ clientstatus.client_status }}</option>
+                                        <option v-for="(clientstatus, index) in emvclientstatus" :key="index" :value="clientstatus.client_status" >@{{ clientstatus.client_status }}</option>
                                     </select>
-
-                                
                                 </div>
                                 <div class="col-lg-4">
                                     <label>* Sex:</label>
@@ -139,7 +138,7 @@
 
                                 <div class="col-lg-4">
                                     <label>* Contact No:</label>
-                                    <input type="text" name="billing_card_number" class="form-control" placeholder="" v-model="emvdetailsdata[0].contact_no" />
+                                    <input type="number" name="billing_card_number" class="form-control" placeholder="" v-model="emvdetailsdata[0].contact_no" />
                                 </div>
 
                                 <div class="col-lg-4">
@@ -165,15 +164,15 @@
                                     <select v-if="emvdetailsdata[0].is_grantee =='Representative'" class="form-control" v-model="emvdetailsdata[0].relationship_to_grantee" >
                                         <option v-for="(relationshipgrantee, index) in emvrelationshipgrantee" :key="index" :value="relationshipgrantee.relationship">@{{ relationshipgrantee.relationship }}</option>
                                     </select>
-                                    <select v-else class="form-control" v-model="emvdetailsdata[0].relationship_to_grantee">
-                                        <option v-for="(relationshipgrantee, index) in emvrelationshipgrantee" :key="index" :value="relationshipgrantee.relationship" disabled>@{{ relationshipgrantee.relationship }}</option>
+                                    <select v-else class="form-control" v-model="emvdetailsdata[0].relationship_to_grantee" disabled>
+                                        <option v-for="(relationshipgrantee, index) in emvrelationshipgrantee" :key="index" :value="relationshipgrantee.relationship">@{{ relationshipgrantee.relationship }}</option>
                                     </select>
                                     <!-- <input type="text" name="billing_card_number" class="form-control" placeholder="" v-model="emvdetailsdata[0].relationship_to_grantee"/> -->
                                 </div>
                                 <div class="col-lg-4">
                                     <label> Others name:</label>
-                                    <input  v-if="emvdetailsdata[0].contact_no_of =='Others'" type="text" name="others_name" class="form-control" placeholder="" v-model="emvdetailsdata[0].others_name" id="others_name"/>
-                                    <input  v-else type="text" name="others_name" class="form-control" placeholder="" v-model="emvdetailsdata[0].others_name" id="others_name" disabled/>
+                                    <input  v-if="emvdetailsdata[0].contact_no_of =='Others'" type="text" name="others_name" class="form-control" placeholder="" v-model="other_contact_name" id="others_contact_name"/>
+                                    <input  v-else type="text" name="others_name" class="form-control" placeholder="" disabled/>
                                 </div>
 
                                 <!-- <div class="col-lg-4" v-else>
@@ -182,15 +181,16 @@
                                 </div> -->
                             </div>
 
-
-
+                            <br>
+                            <hr>
+                            <br>
                             <h3 class="font-size-lg text-dark-75 font-weight-bold mb-10">II. EMV Cash Card Information</h3>
                             
                             <div class="form-group row">
                         
                                 <div class="col-lg-4">
                                     <label>* Current Grantee Card No:</label>
-                                    <input type="text" name="billing_card_number" class="form-control" placeholder="" v-model="emvdetailsdata[0].card_number_prefilled"/>
+                                    <input type="text" name="billing_card_number" class="form-control" placeholder="" v-model="emvdetailsdata[0].card_number_prefilled" disabled/>
                                 </div>
                                 <div class="col-lg-4">
                                     <label> Distribution status: <small><b> (Actual)</b></small></label>
@@ -200,22 +200,47 @@
                                         <option value="Unclaimed" >Unclaimed</option>
                                     </select>
                                     <!-- <input type="text" name="billing_card_number" class="form-control" placeholder="" v-model="emvdetailsdata[0].distribution_status"/> -->
-                                </div>
+                                </div> 
+
+
                                 <div class="col-lg-4">
-                                    <label> Date of card released: <small><b> (Actual)</b></small></label>
-                                    <input  v-if="emvdetailsdata[0].distribution_status =='Claimed'"  type="date" name="billing_card_number" class="form-control" placeholder="" v-model="emvdetailsdata[0].cvd_card_release_date_actual"/>
-                                    <input  v-else  type="date" name="billing_card_number" class="form-control" placeholder="" v-model="emvdetailsdata[0].cvd_card_release_date_actual" disabled/>
+                                    <label> Reason Unclaimed?</label>
+                                    <select class="form-control"  v-if="emvdetailsdata[0].distribution_status =='Unclaimed'" v-model="emvdetailsdata[0].reason_unclaimed">
+                                        <option v-for="(reasonunclaimed, index) in emvreasonunclaimed" :key="index" :value="reasonunclaimed.reason">@{{ reasonunclaimed.reason }}</option>
+                                    </select>
+
+                                    <select class="form-control" v-else v-model="emvdetailsdata[0].reason_unclaimed"  disabled>
+                                        <option v-for="(reasonunclaimed, index) in emvreasonunclaimed" :key="index" :value="reasonunclaimed.reason">@{{ reasonunclaimed.reason }}</option>
+                                    </select>
+                                    <!-- <input type="text" name="billing_card_number" class="form-control" placeholder="" v-model="emvdetailsdata[0].distribution_status"/> -->
                                 </div>
                             </div>
 
                             <div class="form-group row">
-        
+
+                                <div class="col-lg-4">
+                                    <label> Others Reason for unclaimed</label>
+                                    <input  v-if="emvdetailsdata[0].reason_unclaimed =='Others'"  v-model="emvdetailsdata[0].reason_unclaimed" type="text" name="billing_card_number" class="form-control" placeholder="" />
+                                    <input  v-else type="text" name="billing_card_number" class="form-control" placeholder=""  disabled/>
+                                </div>
+
+                                <div class="col-lg-4">
+                                    <label> Date of card released: <small><b> (Actual)</b></small></label>
+                                    <input  v-if="emvdetailsdata[0].distribution_status =='Claimed'"  type="date" name="billing_card_number" class="form-control" placeholder="" v-model="emvdetailsdata[0].cvd_card_release_date_actual"/>
+                                    <input  v-else  type="date" name="billing_card_number" class="form-control" placeholder="" disabled/>
+                                </div>
+
                                 <div class="col-lg-4">
                                     <label> Who released the card:</label>
                                     <input  v-if="emvdetailsdata[0].distribution_status =='Claimed'" type="text" name="billing_card_number" class="form-control" placeholder="" v-model="emvdetailsdata[0].release_by"/>
                                     <input  v-else type="text" name="billing_card_number" class="form-control" placeholder="" v-model="emvdetailsdata[0].release_by" disabled/>
                                 </div>
 
+                            </div>
+
+
+                            <div class="form-group row">
+        
                                 <div class="col-lg-4">
                                     <label> Where the Cash card Released:</label>
                                     <input v-if="emvdetailsdata[0].distribution_status =='Claimed'" type="text" name="billing_card_number" class="form-control" placeholder="" v-model="emvdetailsdata[0].cvd_card_release_place"/>
@@ -224,65 +249,80 @@
 
                                 <div class="col-lg-4">
                                     <label> Physical Cash card Presented:</label>
-                                    <input v-if="emvdetailsdata[0].distribution_status =='Claimed'" type="text" name="billing_card_number" class="form-control" placeholder="" v-model="emvdetailsdata[0].card_physically_presented"/>
-                                    <input v-else type="text" name="billing_card_number" class="form-control" placeholder="" v-model="emvdetailsdata[0].card_physically_presented" disabled/>
+
+                                    <select v-if="emvdetailsdata[0].distribution_status =='Claimed'" class="form-control" v-model="emvdetailsdata[0].card_physically_presented" @change ="physicalCashcardPresented" >
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
+                                    </select>
+
+                                    <select  v-else class="form-control" v-model="emvdetailsdata[0].card_physically_presented" disabled>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
+                                    </select>
                                 </div>
+                                <div class="col-lg-4">
+                                        <label>Pin Attached</label>
+                                
+                                        <select v-if="emvdetailsdata[0].card_physically_presented =='Yes'" class="form-control" v-model="emvdetailsdata[0].card_pin_is_attached" >
+                                            <option value="Yes">Yes</option>
+                                            <option value="No">No</option>
+                                        </select>
+
+                                        <select v-else class="form-control" v-model="emvdetailsdata[0].card_pin_is_attached" disabled >
+                                            <option value="Yes">Yes</option>
+                                            <option value="No">No</option>
+                                        </select>
+                                    </div>
                             </div>
 
                             <div class="form-group row">
                  
                                 <div class="col-lg-4">
-                                    <label>Pin Attached</label>
-                                    <input v-if="emvdetailsdata[0].distribution_status =='Claimed'" type="text" name="billing_card_number" class="form-control" placeholder="" v-model="emvdetailsdata[0].card_pin_is_attached"/>
-                                    <input v-else type="text" name="billing_card_number" class="form-control" placeholder="" v-model="emvdetailsdata[0].card_pin_is_attached" disabled/>
-                                </div>
-
-                                <div class="col-lg-4">
                                     <label> Reason Cash card not presented:</label>
-                                    <input v-if="emvdetailsdata[0].distribution_status =='Claimed'" type="text" name="billing_card_number" class="form-control" placeholder="" v-model="emvdetailsdata[0].reason_not_presented"/>
-                                    <input v-else type="text" name="billing_card_number" class="form-control" placeholder="" v-model="emvdetailsdata[0].reason_not_presented" disabled/>
+
+                                    <select v-if="emvdetailsdata[0].card_physically_presented =='No'" class="form-control" v-model="emvdetailsdata[0].reason_not_presented" @change="pawned">
+                                        <option value="Lost/Stolen">Lost/Stolen</option>
+                                        <option value="Damaged/Defective">Damaged/Defective</option>
+                                        <option value="Pawned">Pawned</option>
+                                        <option value="Not Turned Over">Not Turned Over</option>
+                                        <option value="Others">Others</option>
+                                    </select>
+
+                                    <select v-else class="form-control" v-model="emvdetailsdata[0].reason_not_presented" disabled>
+                                    <option value="Lost/Stolen">Lost/Stolen</option>
+                                        <option value="Damaged/Defective">Damaged/Defective</option>
+                                        <option value="Pawned">Pawned</option>
+                                        <option value="Not Turned Over">Not Turned Over</option>
+                                        <option value="Others">Others</option>
+                                    </select>
+
+
                                 </div>
                                 <div class="col-lg-4">
                                     <label> Already filed request for replacement:</label>
 
-                                    <select v-if="emvdetailsdata[0].distribution_status =='Claimed'" class="form-control" v-model="emvdetailsdata[0].distribution_status" @change="distributionStatus">
+                                    <select v-if="emvdetailsdata[0].reason_not_presented =='Lost/Stolen' || emvdetailsdata[0].reason_not_presented =='Damaged/Defective' " class="form-control" v-model="emvdetailsdata[0].card_replacement_request" >
                                         <option value="Yes">Yes</option>
                                         <option value="No">No</option>
                                     </select>
-                                    <select v-else class="form-control" v-model="emvdetailsdata[0].distribution_status" @change="distributionStatus" disabled>
+                                    <select v-else class="form-control" v-model="emvdetailsdata[0].card_replacement_request" disabled>
                                         <option value="Yes">Yes</option>
                                         <option value="No">No</option>
                                     </select>
                                 </div>
-                            </div>
-
-                            <div class="form-group row">
-                               
                                 <div class="col-lg-4">
-                                    <label>When and whom replacement requests</label>
-                                    <input v-if="emvdetailsdata[0].distribution_status =='Claimed'" type="text" name="billing_card_number" class="form-control" placeholder="" v-model="emvdetailsdata[0].card_replacement_submitted_details"/>
-                                    <input v-else type="text" name="billing_card_number" class="form-control" placeholder="" v-model="emvdetailsdata[0].card_replacement_submitted_details" disabled/>
-                                </div>
-                                <div class="col-lg-4">
-                                    <label> Reason:</label>
-                                    <input v-if="emvdetailsdata[0].distribution_status =='Claimed'" type="text" name="billing_card_number" class="form-control" placeholder="" v-model="emvdetailsdata[0].reason"/>
-                                    <input v-else type="text" name="billing_card_number" class="form-control" placeholder="" v-model="emvdetailsdata[0].reason" disabled/>
-                                </div>
-                                <div class="col-lg-4">
-                                    <label>Reason not presented</label>
-                                    <input v-if="emvdetailsdata[0].distribution_status =='Claimed'" type="text" name="billing_card_number" class="form-control" placeholder="" v-model="emvdetailsdata[0].reason_not_presented"/>
-                                    <input v-else type="text" name="billing_card_number" class="form-control" placeholder="" v-model="emvdetailsdata[0].reason_not_presented" disabled/>
+                                        <label>When and whom replacement requests</label>
+                                        <input v-if="emvdetailsdata[0].card_replacement_request =='Yes'" type="text" name="billing_card_number" class="form-control" placeholder="" v-model="emvdetailsdata[0].card_replacement_submitted_details"/>
+                                        <input v-else type="text" name="billing_card_number" class="form-control" placeholder="" v-model="emvdetailsdata[0].card_replacement_submitted_details" disabled/>
                                 </div>
                             </div>
 
-                            <div class="form-group row">
-                               
+                            <div class="form-group row">  
                                <div class="col-lg-4">
                                    <label>Card series</label>
                                    <input type="text" name="billing_card_number" class="form-control" placeholder="" v-model="emvdetailsdata[0].card_number_series"/>
                                </div>
-                              
-                           </div>
+                            </div>
 
                            <h3 class="font-size-lg text-dark-75 font-weight-bold mb-10" v-if="emvdetailsdata[0].reason_not_presented =='Pawned'">Pawning details</h3>
 
@@ -294,11 +334,11 @@
                                </div>
                                <div class="col-lg-4">
                                    <label> Date of Pawning:</label>
-                                   <input type="text" name="billing_card_number" class="form-control" placeholder="" v-model="emvdetailsdata[0].date_pawned"/>
+                                   <input type="date" name="billing_card_number" class="form-control" placeholder="" v-model="emvdetailsdata[0].date_pawned"/>
                                </div>
                                <div class="col-lg-4">
                                    <label>Loaned Amount</label>
-                                   <input type="text" name="billing_card_number" class="form-control" placeholder="" v-model="emvdetailsdata[0].loan_amount"/>
+                                   <input type="number" name="billing_card_number" class="form-control" placeholder="" v-model="emvdetailsdata[0].loan_amount"/>
                                </div>
                            </div>
 
@@ -310,7 +350,7 @@
                                </div>
                                <div class="col-lg-4">
                                    <label> Date Retrieved:</label>
-                                   <input type="text" name="billing_card_number" class="form-control" placeholder="" v-model="emvdetailsdata[0].date_retrieved"/>
+                                   <input type="date" name="billing_card_number" class="form-control" placeholder="" v-model="emvdetailsdata[0].date_retrieved"/>
                                </div>
                                <div class="col-lg-4">
                                    <label>Interest</label>
@@ -322,7 +362,13 @@
                                
                                <div class="col-lg-4">
                                    <label>Status</label>
-                                   <input type="text" name="billing_card_number" class="form-control" placeholder="" v-model="emvdetailsdata[0].status"/>
+
+                                   <select class="form-control" v-model="emvdetailsdata[0].status">
+                                        <option value="Ongoing (card as collateral)">Ongoing (card as collateral)</option>
+                                        <option value="Ongoing (card is on-hand)">Ongoing (card is on-hand)</option>
+                                        <option value="Retrieved">Retrieved</option>
+                                   </select>
+
                                </div>
                                <div class="col-lg-4">
                                    <label> Reason for Pawning:</label>
@@ -338,7 +384,7 @@
                                
                                <div class="col-lg-4">
                                    <label>Offense History Date</label>
-                                   <input type="text" name="billing_card_number" class="form-control" placeholder="" v-model="emvdetailsdata[0].offense_date"/>
+                                   <input type="date" name="billing_card_number" class="form-control" placeholder="" v-model="emvdetailsdata[0].offense_date"/>
                                </div>
                                <div class="col-lg-4">
                                    <label> Remarks:</label>
@@ -355,6 +401,54 @@
                                    <input type="text" name="billing_card_number" class="form-control" placeholder="" v-model="emvdetailsdata[0].other_details"/>
                                </div>
                            </div>
+                            <br>
+                            <hr>
+                            <br>
+                           <h3 class="font-size-lg text-dark-75 font-weight-bold mb-10">III. A. Non-Moving Account Information</h3>
+                           <div class="form-group row">
+                        
+                                <div class="col-lg-4">
+                                    <label>Non-EMV Card Number</label>
+                                    <input type="text" name="billing_card_number" class="form-control" placeholder="" v-model="emvdetailsdata[0].non_emv_card_number" disabled/>
+                                </div>
+                                <div class="col-lg-4">
+                                    <label>Card Name</label>
+                                    <input type="text" name="billing_card_number" class="form-control" placeholder="" v-model="emvdetailsdata[0].card_name" disabled/>
+                                </div> 
+
+                                <div class="col-lg-4">
+                                    <label>NMA Amount as of Sep. 30, 2020</label>
+                                    <input type="text" name="billing_card_number" class="form-control" placeholder="" v-model="emvdetailsdata[0].amount" disabled/>
+                                </div> 
+                            </div>
+
+                            <div class="form-group row">
+                        
+                                <div class="col-lg-4">
+                                    <label>Reason for NMA</label>
+                                    <select class="form-control" v-model="emvdetailsdata[0].reason" v-if="emvdetailsdata[0].amount >100">
+                                        <option v-for="(reasonunclaimed, index) in emvreasonunclaimed" :key="index" :value="reasonunclaimed.reason">@{{ reasonunclaimed.reason }}</option>
+                                   </select>
+                                   <select class="form-control" v-model="emvdetailsdata[0].reason" v-else disabled>
+                                        <option></option>
+                                   </select>
+                                </div>
+                                <div class="col-lg-4">
+                                    <label>Remarks</label>
+                                    <textarea v-if="emvdetailsdata[0].amount >100" class="form-control" name="nma_remarks" rows="4" cols="50" v-model="emvdetailsdata[0].remarks"></textarea>
+                                    <textarea v-else class="form-control" name="nma_remarks" rows="4" cols="50" v-model="emvdetailsdata[0].remarks" disabled></textarea>
+                                </div> 
+                            </div>
+                            <br>
+                            <hr>
+                            <br>
+                           <h3 class="font-size-lg text-dark-75 font-weight-bold mb-10">IV. Overall Remarks</h3>
+                           <div class="form-group row">
+                                <div class="col-lg-4">
+                                    <label>Comment</label>
+                                    <textarea class="form-control" name="nma_remarks" rows="4" cols="50" v-model="emvdetailsdata[0].overall_remarks"></textarea>
+                                </div> 
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -362,7 +456,7 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <!-- <button type="button" class="btn btn-light-primary font-weight-bold" @click="emvupdateOcv" id="kt_sweetalert_demo_88" >Update</button> -->
-                            <button type="button" class="btn btn-light-primary font-weight-bold" @click="emvupdateMain" id="kt_sweetalert_demo_update">Update</button>
+                            <button type="button" class="btn btn-light-primary font-weight-bold" @click="updateMain" id="kt_sweetalert_demo_update">Update</button>
                             <button type="button" class="btn btn-light-primary font-weight-bold" @click="updateCancelCard">Cancel</button>
                         </div>
                     </div>
