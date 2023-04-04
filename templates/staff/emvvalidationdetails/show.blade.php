@@ -25,12 +25,15 @@
 											<div class="card-header border-0 pt-5">
 												<h3 class="card-title align-items-start flex-column">
 													<span class="card-label font-weight-bolder text-dark">Card Image</span>
-													
 												</h3>
-										
+                                                <h3 class="card-title align-items-start flex-column">
+                                                    <button type="button" class="btn btn-light-primary font-weight-bold" @click="updateCardImage" id="kt_sweetalert_demo_update">Update</button>
+												</h3>
 											</div>
 											<!--end::Header-->
 											<!--begin::Body-->
+
+                                            
 											<div class="card-body pt-4 text-center" >
 												<!--begin::Item-->
 
@@ -45,8 +48,15 @@
 										<!--begin::List Widget 2-->
 										<div class="card card-custom card-stretch gutter-b">
 											<!--begin::Header-->
-											<div class="card-header border-0">
-												<h3 class="card-title font-weight-bolder text-dark">Grantee</h3>
+											<div class="card-header border-0 pt-5">
+                                                <h3 class="card-title align-items-start flex-column">
+													<span class="card-label font-weight-bolder text-dark">Grantee</span>
+												</h3>
+												<!-- <h3 class="card-title font-weight-bolder text-dark">Grantee</h3> -->
+
+                                                <h3 class="card-title align-items-start flex-column">
+                                                    <button type="button" class="btn btn-light-primary font-weight-bold" @click="updateGranteeImage" id="kt_sweetalert_demo_update">Update</button>
+												</h3>
 										
 											</div>
                                             <div class="card-body pt-2 text-center">
@@ -61,15 +71,22 @@
 										<!--begin::List Widget 3-->
 										<div class="card card-custom card-stretch gutter-b">
 											<!--begin::Header-->
-											<div class="card-header border-0">
-												<h3 class="card-title font-weight-bolder text-dark">Additional ID</h3>
+											<div class="card-header border-0 pt-5">
+                                                <h3 class="card-title align-items-start flex-column">
+													<span class="card-label font-weight-bolder text-dark">Additional ID</span>
+												</h3>
+												<!-- <h3 class="card-title font-weight-bolder text-dark">Grantee</h3> -->
+
+                                                <h3 class="card-title align-items-start flex-column">
+                                                    <button type="button" class="btn btn-light-primary font-weight-bold" @click="updateAdditionalImage" id="kt_sweetalert_demo_update">Update</button>
+												</h3>
+										
 											</div>
 
                                             <div class="card-body pt-2 text-center">
                                                 <img alt="Pic" style="border-radius: 2%; margin-top:-15px;" v-if="!emv.image_additional" width="300px" src="{{ url('staff/assets/media/users/default_grantee.jpg') }}" />
                                                 <img alt="Pic" style="border-radius: 2%;" v-else :src="'/storage/images/validations/'+emv.image_additional" width="300px"/>
-
-                                
+                                                
                                             </div>
 
 										</div>
@@ -187,42 +204,49 @@
 
                                         <td><h6 class="card-label">Distribution status<small><b> (Actual)</b></small></h6></td>
                                         <td><span class="label label-inline mr-2 font-size-h5">@{{ emv.distribution_status }}</span></td>
+                                        <td><h6 class="card-label">Reason Unclaimed</h6></td>
+                                        <td><span class="label label-inline mr-2 font-size-h5">@{{ emv.reason_unclaimed }}</span></td>
+                                        <td><h6 class="card-label">Other reason for unclaimed</h6></td>
+                                        <td><span class="label-inline mr-2 font-size-h5" v-if="emv.reason_unclaimed =='Others'">@{{ emv.reason_unclaimed }}</span></td>
+
+                                    </tr>
+                                    <tr>
+
                                         <td><h6 class="card-label">Date of card released <small><b> (Actual)</b></small></h6></td>
                                         <td><span class="label-inline mr-2 font-size-h5">@{{ emv.cvd_card_release_date_actual }}</span></td>
                                         <td><h6 class="card-label">Who released the card</h6></td>
                                         <td><span class="label-inline mr-2 font-size-h5">@{{ emv.release_by }}</span></td>
-                                    </tr>
-                                    <!-- ---- -->
-
-                                    <tr>
                                         <td><h6 class="card-label">Where the Cash card Released</h6></td>
                                         <td><span class="label label-inline mr-2 font-size-h5">@{{ emv.cvd_card_release_place }}</span></td>
+                                    </tr>
+
+                                    <tr>
 
                                         <td><h6 class="card-label">Physical Cash card Presented</h6></td>
                                         <td><span class="label-inline mr-2 font-size-h5">@{{ emv.card_physically_presented }}</span></td>
                                         <td><h6 class="card-label">Pin Attached</h6></td>
                                         <td><span class="label-inline mr-2 font-size-h5">@{{ emv.card_pin_is_attached }}</span></td>
-                                    </tr>
-
-                                    <tr>
                                         <td><h6 class="card-label">Reason Cash card not presented</h6></td>
                                         <td><span class="label label-inline mr-2 font-size-h5">@{{ emv.reason_not_presented }}</span></td>
 
-                                        <td><h6 class="card-label">Already filed request for replacement</h6></td>
-                                        <td><span class="label-inline mr-2 font-size-h5">@{{ emv.card_replacement_request }}</span></td>
-                                        <td><h6 class="card-label">When and whom replacement requests</h6></td>
-                                        <td><span class="label label-inline mr-2 font-size-h5">@{{ emv.card_replacement_submitted_details }}</span></td>
-                                    
                                     </tr>
 
                                     <tr>
+                                    <td><h6 class="card-label">Already filed request for replacement</h6></td>
+                                        <td><span class="label-inline mr-2 font-size-h5">@{{ emv.card_replacement_request }}</span></td>
+                                        <td><h6 class="card-label">When and whom replacement requests</h6></td>
+                                        <td><span class="label label-inline mr-2 font-size-h5">@{{ emv.card_replacement_submitted_details }}</span></td>
+
                                         <td><h6 class="card-label">Reason</h6></td>
                                         <td><span class="label-inline mr-2 font-size-h5">@{{ emv.reason }}</span></td>
+                                    </tr>
+                                    <tr>
                                         <td><h6 class="card-label">Reason not presented</h6></td>
                                         <td><span class="label-inline mr-2 font-size-h5">@{{ emv.reason_not_presented }}</span></td>
                                         <td><h6 class="card-label">Card Series</h6></td>
                                         <td><span class="label-inline mr-2 font-size-h5">@{{ emv.card_number_series }}</span></td>
-                        
+                                        <td></td>
+                                        <td></td>
                                     </tr>
 
                                     <tr v-if="emv.reason_not_presented =='Pawned'">
@@ -266,7 +290,42 @@
                                     <tr v-if="emv.reason_not_presented =='Pawned'">
                                     <td><h6 class="card-label">Other Details</h6></td>
                                         <td><span class="label-inline mr-2 font-size-h5">@{{ emv.other_details }}</span></td>
-                                    </tr>           
+                                    </tr>   
+
+                                    <tr>
+                                        <th colspan="6" class="text-center">III. A. Non-Moving Account Information</th>
+                                    </tr>
+
+                                    <tr>
+                                        <td><h6 class="card-label">Non-EMV Card Number</h6></td>
+                                        <td><span class="label-inline mr-2 font-size-h5">@{{ emv.non_emv_card_number }}</span></td>
+                                        <td><h6 class="card-label">Card Name</h6></td>
+                                        <td><span class="label-inline mr-2 font-size-h5">@{{ emv.card_name}}</span></td>
+                                        <td><h6 class="card-label">NMA Amount as of Sep. 30, 2020</h6></td>
+                                        <td><span class="label-inline mr-2 font-size-h5">@{{ emv.amount }}</span></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><h6 class="card-label">Reason for NMA</h6></td>
+                                        <td><span class="label-inline mr-2 font-size-h5">@{{ emv.reason }}</span></td>
+                                        <td><h6 class="card-label">Remarks</h6></td>
+                                        <td><span class="label-inline mr-2 font-size-h5">@{{ emv.remarks}}</span></td>
+                                        <td><h6 class="card-label">Overall Remarks</h6></td>
+                                        <td><span class="label-inline mr-2 font-size-h5">@{{ emv.overall_remarks}}</span></td>
+                                    </tr>
+
+                                    <tr>
+                                        <th colspan="6" class="text-center">IV. Overall Remarks</th>
+                                    </tr>
+
+                                    <tr>
+                                        <td><h6 class="card-label">Comment</h6></td>
+                                        <td colspan="6"><span class="label-inline mr-2 font-size-h5">@{{ emv.reason }}</span></td>
+                                    </tr>
+
+        
+
+
                                 </table>
                             </div>
                         </div>

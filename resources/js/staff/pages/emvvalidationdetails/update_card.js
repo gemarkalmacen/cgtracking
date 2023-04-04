@@ -9,6 +9,7 @@ module.exports = function(data) {
         emvpsgc: Object,
         emvreasonunclaimed: Object,
         other_extname: Object,
+        emvpsgc_province:Object,
         card_holder_name: null,
         other_ext_name: '',
         other_contact_name: ''
@@ -54,11 +55,11 @@ module.exports = function(data) {
             emvGetDetails(){
                 var vm = this;
                 const objt = JSON.parse(data);
-                vm.emvdetailsdata = objt["emv"];
-                vm.emvclientstatus = objt["clientstatus"];
-                vm.emvrelationshipgrantee = objt["relationshiptograntee"];
-                vm.emvpsgc_province = objt["psgc"];
-                vm.emvreasonunclaimed = objt["reasonunclaimed"];
+                this.emvdetailsdata = objt["emv"];
+                this.emvclientstatus = objt["clientstatus"];
+                this.emvrelationshipgrantee = objt["relationshiptograntee"];
+                this.emvpsgc_province = objt["psgc"];
+                this.emvreasonunclaimed = objt["reasonunclaimed"];
                 var psgc_code = objt["emv"][0].municipality_code;
 
 
