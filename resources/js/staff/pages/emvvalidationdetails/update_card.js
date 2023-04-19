@@ -12,7 +12,11 @@ module.exports = function(data) {
         emvpsgc_province:Object,
         card_holder_name: null,
         other_ext_name: '',
-        other_contact_name: ''
+        other_contact_name: '',
+        card_image_main: '',
+        file: '',
+        form_data: '',
+
 
     };
     return {
@@ -33,58 +37,34 @@ module.exports = function(data) {
                     // vm.emvupdateOcv();
                 });
 
-                $('#kt_sweetalert_demo_88').click(function (e) {
-                    Swal.fire({
-                        title: 'Are you sure?',
-                        text: "You won't be able to revert this!",
-                        icon: 'warning',
-                        showCancelButton: true,
-                        confirmButtonText: 'Yes, delete it!'
-                    }).then(function (result) {
-                        if (result.value) {
-                            Swal.fire(
-                                'Deleted!',
-                                'Your file has been deleted.',
-                                'success'
-                            )
-                        }
-                    });
-                });
             },
 
             emvGetDetails(){
                 var vm = this;
                 const objt = JSON.parse(data);
-                this.emvdetailsdata = objt["emv"];
-                this.emvclientstatus = objt["clientstatus"];
-                this.emvrelationshipgrantee = objt["relationshiptograntee"];
-                this.emvpsgc_province = objt["psgc"];
-                this.emvreasonunclaimed = objt["reasonunclaimed"];
+                vm.emvdetailsdata = objt["emv"];
+                console.log("-a-as-fasf-as-f-sf-sa-ff");
+                console.log(objt["emv"][0].card_image);
+                vm.emvclientstatus = objt["clientstatus"];
+                vm.emvrelationshipgrantee = objt["relationshiptograntee"];
+                vm.emvpsgc_province = objt["psgc"];
+                vm.emvreasonunclaimed = objt["reasonunclaimed"];
                 var psgc_code = objt["emv"][0].municipality_code;
-
-
                 var extension =objt["emv"][0].ext_name;
                 var contact_of =objt["emv"][0].contact_no_of;
-
-                
                 if (extension != "Jr." && extension != "Sr." && extension != "I" && extension != "II" && extension != "IIIa" && extension != "IV" && extension != "V" && extension != "Jra.") {
                     vm.emvdetailsdata[0].ext_name = "Others";
                     vm.other_ext_name=extension;  
                 }
-
-                vm.emvdetailsdata[0].hh_status = "1 - Active"
-
                 if(contact_of !="Others"){
                     vm.emvdetailsdata[0].contact_no_of = "Others";
                     vm.other_contact_name = contact_of;
                 }
-
-                console.log(objt["emv"].hh_status);
-
                 console.log(objt);
                 psgc_code = String(psgc_code).substring(0, 5);
                 vm.emvpsgc_municipality = objt["psgc"].filter(o => o.correspondence_code.includes(psgc_code) && o.geographic_level == 'municipality');
                 vm.emvpsgc_barangay = objt["psgc"].filter(o => o.correspondence_code.includes(psgc_code) && o.geographic_level == 'barangay');
+                vm.card_image_main = "";
             },
 
             provinceChange(event){
@@ -121,8 +101,6 @@ module.exports = function(data) {
                 vm.emvdetailsdata[0].cvd_card_release_date_actual = "";
                 vm.emvdetailsdata[0].card_pin_is_attached = "";
                 vm.emvdetailsdata[0].reason_unclaimed = "";
-
-
             },
             pawned(){
                 var vm = this;
@@ -141,7 +119,6 @@ module.exports = function(data) {
                 vm.emvdetailsdata[0].offense_history = "";
             },
             updateMain(){
-                
                 let vm = this;
                 Swal.fire({
                     title: 'Are you sure?',
@@ -153,11 +130,22 @@ module.exports = function(data) {
                     confirmButtonText: 'Yes, update it!'
                 }).then((result) => {
                     if (result.isConfirmed) {
+
+
+                        this.file = this.$refs.file.files[0];
+                        let formData = new FormData();
+                        formData.append('file', this.file);
+                        this.$refs.file.value='';
+
+                        console.log(formData);
+
                         $.ajax({
                             url: vm.$route('staff.ajax.emvvalidationdetails.updatemain'),
                             type: 'POST',
-                            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-                            data: { emvdetailsdata: vm.emvdetailsdata[0], other_ext_name: vm.other_ext_name, other_contact_name: vm.other_contact_name },
+                            processData: false,
+                            headers: {'Content-Type': 'application/x-www-form-urlencoded','X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+                            data: formData,
+                            // data: { emvdetailsdata: vm.emvdetailsdata[0], other_ext_name: vm.other_ext_name, other_contact_name: vm.other_contact_name},
                             success: function (response) {
                                 if (response) {
                                     vm.emvdetailsdata = response;
@@ -175,6 +163,14 @@ module.exports = function(data) {
                 });
             },
 
+            // readURL(event){
+            //     // this.file = event.target.files[0];
+            //     console.log("testting only");
+            //     console.log(event);
+            //     console.log(this.file = event.target.files[0]);
+            //     this.file = this.$refs.file.files[0];
+            // },
+
             updateCancelCard(){
 
             },
@@ -183,12 +179,7 @@ module.exports = function(data) {
                 var vm = this;
                 vm.emvdetailsdata[0].card_pin_is_attached = "";
             },
-
-            
             emvupdateOcv(){
-
-                
-                
                 alert(this.card_holder_name);
                 // console.log("Pagsure oi");
             },

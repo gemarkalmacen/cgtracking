@@ -26,9 +26,7 @@
 												<h3 class="card-title align-items-start flex-column">
 													<span class="card-label font-weight-bolder text-dark">Card Image</span>
 												</h3>
-                                                <h3 class="card-title align-items-start flex-column">
-                                                    <button type="button" class="btn btn-light-primary font-weight-bold" @click="updateCardImage" id="kt_sweetalert_demo_update">Update</button>
-												</h3>
+                                               
 											</div>
 											<!--end::Header-->
 											<!--begin::Body-->
@@ -54,9 +52,7 @@
 												</h3>
 												<!-- <h3 class="card-title font-weight-bolder text-dark">Grantee</h3> -->
 
-                                                <h3 class="card-title align-items-start flex-column">
-                                                    <button type="button" class="btn btn-light-primary font-weight-bold" @click="updateGranteeImage" id="kt_sweetalert_demo_update">Update</button>
-												</h3>
+                                             
 										
 											</div>
                                             <div class="card-body pt-2 text-center">
@@ -76,11 +72,6 @@
 													<span class="card-label font-weight-bolder text-dark">Additional ID</span>
 												</h3>
 												<!-- <h3 class="card-title font-weight-bolder text-dark">Grantee</h3> -->
-
-                                                <h3 class="card-title align-items-start flex-column">
-                                                    <button type="button" class="btn btn-light-primary font-weight-bold" @click="updateAdditionalImage" id="kt_sweetalert_demo_update">Update</button>
-												</h3>
-										
 											</div>
 
                                             <div class="card-body pt-2 text-center">
@@ -309,9 +300,7 @@
                                         <td><h6 class="card-label">Reason for NMA</h6></td>
                                         <td><span class="label-inline mr-2 font-size-h5">@{{ emv.reason }}</span></td>
                                         <td><h6 class="card-label">Remarks</h6></td>
-                                        <td><span class="label-inline mr-2 font-size-h5">@{{ emv.remarks}}</span></td>
-                                        <td><h6 class="card-label">Overall Remarks</h6></td>
-                                        <td><span class="label-inline mr-2 font-size-h5">@{{ emv.overall_remarks}}</span></td>
+                                        <td colspan="6"><span class="label-inline mr-2 font-size-h5">@{{ emv.remarks}}</span></td>
                                     </tr>
 
                                     <tr>
@@ -320,7 +309,7 @@
 
                                     <tr>
                                         <td><h6 class="card-label">Comment</h6></td>
-                                        <td colspan="6"><span class="label-inline mr-2 font-size-h5">@{{ emv.reason }}</span></td>
+                                        <td colspan="6"><span class="label-inline mr-2 font-size-h5">@{{ emv.overall_remarks }}</span></td>
                                     </tr>
 
         

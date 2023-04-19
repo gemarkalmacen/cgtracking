@@ -36,6 +36,102 @@
                     </div>
 
                     <div class="mb-3">
+
+
+                    <!-- <div class="form-group row">
+                                <div class="col-lg-4">
+                                    <label>Set</label>
+                                    <input type="text" name="billing_card_number" class="form-control" placeholder="" v-model="emvdetailsdata[0].set" disabled />
+                                </div>
+                                <div class="col-lg-4">
+                                    <label>* Client status</label>
+
+                                    <select class="form-control" v-model="emvdetailsdata[0].hh_status">
+                                        <option v-for="(clientstatus, index) in emvclientstatus" :key="index" :value="clientstatus.client_status" >@{{ clientstatus.client_status }}</option>
+                                    </select>
+                                </div>
+                                <div class="col-lg-4">
+                                    <label>* Sex:</label>
+                                    <select class="form-control" v-model="emvdetailsdata[0].sex">
+                                        <option >MALE</option>
+                                        <option >FEMALE</option>
+                                    </select>
+
+                                    
+                                </div>
+                    </div> -->
+
+
+                        <div class="form-group row">               
+                            <div class="col-lg-4 col-xl-1">
+                                <span class="form-text-bold">Card Image</span>
+                                <div class="image-input image-input-outline" id="kt_profile_avatar" style="background-image:url(/staff/assets/media/users/blank.png)">
+                                    <img id="card_image_1" class="image-input-wrapper" :src="'/storage/images/validations/'+emvdetailsdata[0].card_image" alt="your image"/>
+                                
+                                    <label class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="change" data-toggle="tooltip" title="" data-original-title="Change avatar">
+                                        <i class="fa fa-pen icon-sm text-muted"></i>
+                                        <input type='file' onchange="readURL(this);" id="file" ref="file" name="file" accept=".png, .jpg, .jpeg"  v-model="card_image_main" enctype="multipart/form-data"/>
+                                        <input type="hidden" name="profile_avatar_remove"/>
+                                    </label>
+                                    <span class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="cancel" data-toggle="tooltip" title="Cancel avatar">
+                                                <i class="ki ki-bold-close icon-xs text-muted"></i>
+                                            </span>
+                                            <span class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="remove" data-toggle="tooltip" title="Remove avatar">
+                                                <i class="ki ki-bold-close icon-xs text-muted"></i>
+                                            </span>
+                                </div>
+                                         
+                            <span class="form-text text-muted">Allowed file types:  png, jpg, jpeg.</span>
+                            </div>
+
+                            <div class="col-lg-4 col-xl-1">
+                                <span class="form-text-bold">Grantee Image</span>
+                                <div class="image-input image-input-outline" id="kt_profile_avatar_2" style="background-image:url(/staff/assets/media/users/blank.png)">
+                                    <img id="card_image_1" class="image-input-wrapper" :src="'/storage/images/validations/'+emvdetailsdata[0].image" alt="your image"/>
+                                
+                                    <label class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="change" data-toggle="tooltip" title="" data-original-title="Change avatar">
+                                        <i class="fa fa-pen icon-sm text-muted"></i>
+                                        <!-- <input type='file' onchange="readURL(this);" name="profile_avatar" accept=".png, .jpg, .jpeg" /> -->
+                                        <input type="hidden" name="profile_avatar_remove"/>
+                                    </label>
+                                    <span class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="cancel" data-toggle="tooltip" title="Cancel avatar">
+                                                <i class="ki ki-bold-close icon-xs text-muted"></i>
+                                            </span>
+                                            <span class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="remove" data-toggle="tooltip" title="Remove avatar">
+                                                <i class="ki ki-bold-close icon-xs text-muted"></i>
+                                            </span>
+                                </div>
+                                         
+                            <span class="form-text text-muted">Allowed file types:  png, jpg, jpeg.</span>
+                            </div>
+
+                            <div class="col-lg-4 col-xl-1">
+                                <span class="form-text-bold">Image Additional</span>
+                                <div class="image-input image-input-outline" id="kt_profile_avatar_3" style="background-image:url(/staff/assets/media/users/blank.png)">
+                                    <img id="card_image_1" class="image-input-wrapper" v-if="emvdetailsdata[0].image_additional"  :src="'/storage/images/validations/'+emvdetailsdata[0].image_additional" alt="your image"/>
+                                    <img id="card_image_1" class="image-input-wrapper" v-else src="/staff/assets/media/users/blank.png" alt="your image"/>
+                                
+                                    <label class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="change" data-toggle="tooltip" title="" data-original-title="Change avatar">
+                                        <i class="fa fa-pen icon-sm text-muted"></i>
+                                        <!-- <input type='file' onchange="readURL(this);" name="profile_avatar" accept=".png, .jpg, .jpeg" /> -->
+                                        <input type="hidden" name="profile_avatar_remove"/>
+                                    </label>
+                                    <span class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="cancel" data-toggle="tooltip" title="Cancel avatar">
+                                                <i class="ki ki-bold-close icon-xs text-muted"></i>
+                                            </span>
+                                            <span class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="remove" data-toggle="tooltip" title="Remove avatar">
+                                                <i class="ki ki-bold-close icon-xs text-muted"></i>
+                                            </span>
+                                </div>
+                                         
+                            <span class="form-text text-muted">Allowed file types:  png, jpg, jpeg.</span>
+                            </div>
+                        </div>
+
+
+
+
+
                         <h3 class="font-size-lg text-dark-75 font-weight-bold mb-10">I. Demographics:</h3>
                         <div class="mb-2">
                             <div class="form-group row">
@@ -55,7 +151,7 @@
 
                             <div class="form-group row">
                                 <div class="col-lg-4">
-                                    <label>* Extension name</label>
+                                    <label>Extension name</label>
                                     <select class="form-control" v-model="emvdetailsdata[0].ext_name">
                                         <option>Jr.</option>
                                         <option>Sr.</option>
@@ -79,8 +175,8 @@
 
                             <div class="form-group row">
                                 <div class="col-lg-4">
-                                    <label>* Set</label>
-                                    <input type="text" name="billing_card_number" class="form-control" placeholder="" v-model="emvdetailsdata[0].set" />
+                                    <label>Set</label>
+                                    <input type="text" name="billing_card_number" class="form-control" placeholder="" v-model="emvdetailsdata[0].set" disabled />
                                 </div>
                                 <div class="col-lg-4">
                                     <label>* Client status</label>
@@ -476,5 +572,8 @@
     <script src="{{ url('staff/assets/js/pages/crud/forms/validation/form-controls.js') }}"></script>
     <script src="{{ url('staff/assets/js/pages/features/miscellaneous/sweetalert2.js') }}"></script>
     <script src="{{ url('staff/assets/plugins/custom/customjs/customaddress.js') }}"></script>
+    <script src="{{ url('staff/assets/js/pages/widgets5883.js?v=7.2.9') }}"></script>
+    <script src="{{ url('staff/assets/js/pages/custom/profile/custom_image.js') }}"></script>
+    <!-- <script src="{{ url('staff/assets/js/pages/custom/profile/profile5883.js?v=7.2.9') }}"></script> -->
     
 @endsection

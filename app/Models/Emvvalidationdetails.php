@@ -41,6 +41,7 @@ class Emvvalidationdetails extends Model
         'sync_at',
         'created_at',
         'updated_at',
+        'user_updated_id',
     ];
     
     public function granteevalidation(){
