@@ -4,6 +4,7 @@ module.exports = function(data) {
         config: null,
         n: 1,
         emvdetailsdata: Object,
+        emvreasonunclaimed: Object,
         card_holder_name: null
     };
     return {
@@ -21,7 +22,6 @@ module.exports = function(data) {
                 $(document).ready(function() {
                     vm.$toaster.init();
                     vm.emvupdateDetails();
-                    // vm.emvupdateOcv();
                 });
 
                 $('#kt_sweetalert_demo_88').click(function (e) {
@@ -49,16 +49,47 @@ module.exports = function(data) {
                 console.log(objt);
                 // console.log(objt[0].card_holder_name);
                 vm.emvdetailsdata = objt;
-                // console.log("Pagsure oi");
+
+                this.emvreasonunclaimed = objt["reasonunclaimed"];
+   
             },
-            
+            physicalCCPresentedOcv(){
+                var vm = this;
+                vm.emvdetailsdata[0].card_pin_is_attached = "";
+            },
 
-            emvupdateOcv(){
-
-                
-                
-                alert(this.card_holder_name);
-                // console.log("Pagsure oi");
+            emvupdateOcv(){                
+                let vm = this;
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: "You won't be able to revert this!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, update it!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        $.ajax({
+                            url: vm.$route('staff.ajax.emvvalidationdetails.updateocv'),
+                            type: 'POST',
+                            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+                            data: { emvdetailsdata: vm.emvdetailsdata[0]},
+                            success: function (response) {
+                                if (response) {
+                                    vm.emvdetailsdata = response;
+        
+                                    Swal.fire(
+                                        'Update Successfully!',
+                                        'Your data has been updated.',
+                                        'success'
+                                    )
+                                }
+                            },
+                        });
+                        document.getElementById("EditForm").submit();
+                    }
+                });
             },
             firstpage(link){
                 if(link){

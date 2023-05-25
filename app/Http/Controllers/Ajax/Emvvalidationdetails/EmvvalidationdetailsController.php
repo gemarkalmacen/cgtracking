@@ -79,7 +79,26 @@ class EmvvalidationdetailsController extends Controller
     }
     public function updatemain(Request $request,UpdateEmvCard $updateEmvCard)
     {
-       $records = $updateEmvCard->execute($request);
-       return response()->json($records);
+
+        // if ($request->file('file') == null) {
+        //     $file = "";
+        // }else{
+        //    $file = $request->file('imgUpload1')->store('images');  
+        // }
+
+
+
+        $file = $request->file('file');
+        $file->store('public/test/');
+        
+        
+        $records = $updateEmvCard->execute($request);
+        return response()->json($records);
     }
+
+    public function updateocv(Request $request,UpdateEmvOcv $updateOcvCard)
+    {
+        $records = $updateOcvCard->execute($request);
+        return response()->json($records);
+     }
 }

@@ -18,13 +18,9 @@ module.exports = function(data) {
             init() {
                 var vm = this;
                 var t;
-                
                 $(document).ready(function() {
-                    
-
                     vm.$toaster.init();
                     vm.emvvalidationDetails();
-                   
                 });
             },
 
@@ -36,6 +32,7 @@ module.exports = function(data) {
                 
                 vm.emvdetailsdata = objt;
             },
+
             firstpage(link){
                 if(link){
                     var vm = this;

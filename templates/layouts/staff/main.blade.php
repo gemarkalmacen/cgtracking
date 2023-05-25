@@ -1836,6 +1836,7 @@ License: You must have a valid license purchased only from themeforest(the above
         <script src="{{ url('staff/assets/plugins/custom/datatables/datatables.bundle.js?v=7.0.3') }}"></script>
         <script src="{{ url('staff/assets/js/pages/crud/datatables/advanced/column-rendering.js') }}"></script>
 
+    
 
         <!--end::Page Scripts-->
         @yield('plugin_script')

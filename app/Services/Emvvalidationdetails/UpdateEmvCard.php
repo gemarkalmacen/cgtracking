@@ -15,9 +15,6 @@ class UpdateEmvCard
 {
   public function execute($fields)
     {
-
-
-
         $extension_name =($fields['emvdetailsdata']['ext_name'] !="Others") ? $extension_name =$fields['emvdetailsdata']['ext_name'] : $extension_name =$fields['other_ext_name'];
         $contact_no_name =($fields['emvdetailsdata']['contact_no_of'] !="Others") ? $contact_no_name =$fields['emvdetailsdata']['contact_no_of'] : $contact_no_name =$fields['other_contact_name'];
         $grantee = [
@@ -51,6 +48,8 @@ class UpdateEmvCard
           'card_number_series' => $fields['emvdetailsdata']['card_number_series'],
         ];
 
+
+
         $emv_validation_details = [
           'hh_status' => $fields['emvdetailsdata']['hh_status'],
           'contact_no' => $fields['emvdetailsdata']['contact_no'],
@@ -58,7 +57,8 @@ class UpdateEmvCard
           'representative_name' => $fields['emvdetailsdata']['representative_name'],
           'relationship_to_grantee' => $fields['emvdetailsdata']['relationship_to_grantee'],
           'overall_remarks' => $fields['emvdetailsdata']['overall_remarks'],
-          'is_grantee' => $fields['emvdetailsdata']['is_grantee'],            
+          'is_grantee' => $fields['emvdetailsdata']['is_grantee'],
+          'user_updated_id' => auth()->user()->id,             
         ];
 
         $pawning_validation_details = [
