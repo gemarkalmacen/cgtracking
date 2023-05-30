@@ -53,6 +53,7 @@ module.exports = function(data) {
                             {data: 'other_card_release_date_2'},
                             {data: 'non_emv_card_number'},
                             {data: 'card_name'},
+                            {data: 'ovt_paunawa_conformed'},
                         ],
                         columnDefs: [
                             {
@@ -216,6 +217,13 @@ module.exports = function(data) {
                             },
                             {
                                 targets: [23],
+                                render: function(data) {
+                                   var element = data;
+                                    return element;
+                                }
+                            },
+                            {
+                                targets: [24],
                                 render: function(data) {
                                    var element = data;
                                     return element;

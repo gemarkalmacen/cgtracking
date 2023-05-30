@@ -16,7 +16,7 @@ class AddFieldCardNameAndNonEmvCardNumberToEmvValidations extends Migration
         Schema::table('emv_validations', function (Blueprint $table) {
             $table->string('non_emv_card_number')->nullable()->after('other_card_release_date_5');
             $table->text('card_name')->nullable()->after('non_emv_card_number');
-            $table->text('ovt_paunawa_conformed')->after('record_counter');
+            $table->text('ovt_paunawa_conformed')->after('card_name');
         });
     }
 

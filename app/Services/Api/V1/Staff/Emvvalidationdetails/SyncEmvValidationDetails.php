@@ -115,6 +115,7 @@ class SyncEmvValidationDetails
                     'is_minor' => $request->evd_is_minor,
                     'relationship_to_grantee' => $request->evd_relationship_to_grantee,
                     'overall_remarks' => $request->evd_overall_remarks,
+                    'relationship_to_contact_no' => $request->evd_relationship_to_contact_no,
                     'created_at' => $request->evd_created_at,
                 ];
 
