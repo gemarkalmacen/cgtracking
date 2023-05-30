@@ -42,6 +42,7 @@ class Emvvalidationdetails extends Model
         'created_at',
         'updated_at',
         'user_updated_id',
+        'relationship_to_contact_no'
     ];
     
     public function granteevalidation(){
