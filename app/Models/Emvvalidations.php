@@ -55,6 +55,7 @@ class Emvvalidations extends Model
         'card_name',
         'upload_history_id',
         'record_counter',
+        'ovt_paunawa_conformed',
         'created_at',
         'updated_at',
         'validated_at',

@@ -14,6 +14,7 @@ class AddOverallRemarksFieldInEmvValidationDetails extends Migration
     public function up()
     {
         Schema::table('emv_validation_details', function (Blueprint $table) {
+            $table->string('relationship_to_contact_no')->nullable()->after('is_minor');
             $table->string('overall_remarks')->nullable()->after('relationship_to_grantee');
         });
     }
@@ -26,6 +27,7 @@ class AddOverallRemarksFieldInEmvValidationDetails extends Migration
     public function down()
     {
         Schema::table('emv_validation_details', function (Blueprint $table) {
+            $table->dropColumn('relationship_to_contact_no');
             $table->dropColumn('overall_remarks');
         });
     }

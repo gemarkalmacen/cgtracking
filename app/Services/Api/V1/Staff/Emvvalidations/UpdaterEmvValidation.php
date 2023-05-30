@@ -2,7 +2,6 @@
 
 namespace App\Services\Api\V1\Staff\Emvvalidations;
 
-use App\Models\Emvmonitoring;
 use App\Models\Emvvalidations;
 use Spatie\QueryBuilder\QueryBuilder;
 

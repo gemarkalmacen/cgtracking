@@ -1,5 +1,5 @@
 {{-- Send data to layout defining the current page and data  --}}
-@extends('layouts.staff.main', ['page' => 'emvmonitoring/import', 'data' => []])
+@extends('layouts.staff.main', ['page' => 'emvvalidations/import', 'data' => []])
 
 @section('title', __('staff/titles.tools-emv_validations-import'))
 
