@@ -334,5 +334,6 @@ return [
     'emv_validations_card_name' => 'Card Name',
     'emv_validations_upload_history_id' => 'Upload History ID',
     'emv_validations_record_counter' => 'Record Counter',
+    'emv_validations_overpayment' => 'Overpayment',
 
 ];
